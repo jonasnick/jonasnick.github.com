@@ -5,8 +5,12 @@
         <lastmod>2012-11-26T20:47:54+01:00</lastmod>
     </url>
     <url>
+        <loc>http://jonasnick.github.com/blog/2012/11/28/snake-in-racket/</loc>
+        <lastmod>2012-11-28T19:39:36+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://jonasnick.github.com/blog/archives/</loc>
-        <lastmod>2012-11-26T20:47:54+01:00</lastmod>
+        <lastmod>2012-11-28T19:39:36+01:00</lastmod>
     </url>
     <url>
         <loc>http://jonasnick.github.com/about/</loc>
@@ -14,6 +18,6 @@
     </url>
     <url>
         <loc>http://jonasnick.github.com/</loc>
-        <lastmod>2012-11-26T20:47:54+01:00</lastmod>
+        <lastmod>2012-11-28T19:39:36+01:00</lastmod>
     </url>
 </urlset>

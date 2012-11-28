@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Blog]]></title>
-  <link href="http://jonasnick.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: racket, | Blog]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/racket-/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.com/"/>
   <updated>2012-11-28T19:40:06+01:00</updated>
   <id>http://jonasnick.github.com/</id>
@@ -20,15 +20,6 @@
     <id>http://jonasnick.github.com/blog/2012/11/28/snake-in-racket</id>
     <content type="html"><![CDATA[<p><img src="images/snake.png">
 Snake implementation</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First post]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/26/first-post/"/>
-    <updated>2012-11-26T20:47:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/26/first-post</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
