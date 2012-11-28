@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: learning, | nickler's]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/learning-/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.com/"/>
+  <updated>2012-11-29T00:56:21+01:00</updated>
+  <id>http://jonasnick.github.com/</id>
+  <author>
+    <name><![CDATA[Jonas Nick]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Signaling games and Language]]></title>
+    <link href="http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language/"/>
+    <updated>2012-11-29T00:15:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language</id>
+    <content type="html"><![CDATA[<p><img src="/images/vowelspace.png">
+Two papers I wrote together with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game#Costly_versus_cost-free_signaling">signaling games</a>.
+The important finding in the <a href="ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
+The <a href="Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
+]]></content>
+  </entry>
+  
+</feed>

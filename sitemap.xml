@@ -6,7 +6,7 @@
     </url>
     <url>
         <loc>http://jonasnick.github.com/blog/2012/11/28/snake-in-racket/</loc>
-        <lastmod>2012-11-28T20:16:24+01:00</lastmod>
+        <lastmod>2012-11-28T21:22:01+01:00</lastmod>
     </url>
     <url>
         <loc>http://jonasnick.github.com/blog/2012/11/28/kinect-data-in-blender/</loc>
@@ -21,8 +21,12 @@
         <lastmod>2012-11-28T21:06:20+01:00</lastmod>
     </url>
     <url>
+        <loc>http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language/</loc>
+        <lastmod>2012-11-29T00:42:06+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://jonasnick.github.com/blog/archives/</loc>
-        <lastmod>2012-11-28T21:06:20+01:00</lastmod>
+        <lastmod>2012-11-29T00:42:06+01:00</lastmod>
     </url>
     <url>
         <loc>http://jonasnick.github.com/about/</loc>
@@ -30,6 +34,6 @@
     </url>
     <url>
         <loc>http://jonasnick.github.com/</loc>
-        <lastmod>2012-11-28T21:06:20+01:00</lastmod>
+        <lastmod>2012-11-29T00:42:06+01:00</lastmod>
     </url>
 </urlset>
