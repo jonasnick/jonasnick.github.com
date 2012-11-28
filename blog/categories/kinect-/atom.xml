@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: kinect, | nickler's]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/kinect-/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.com/"/>
+  <updated>2012-11-28T21:18:09+01:00</updated>
+  <id>http://jonasnick.github.com/</id>
+  <author>
+    <name><![CDATA[Jonas Nick]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Kinect data in Blender]]></title>
+    <link href="http://jonasnick.github.com/blog/2012/11/28/kinect-data-in-blender/"/>
+    <updated>2012-11-28T20:17:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2012/11/28/kinect-data-in-blender</id>
+    <content type="html"><![CDATA[<p>Importing raw data points from Microsofts Kinect is fun, despite my lacking blender skills. But the huge filesizes prevent further use.</p>
+
+<iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/I-hM3QZJZZw"></iframe>
+
+]]></content>
+  </entry>
+  
+</feed>
