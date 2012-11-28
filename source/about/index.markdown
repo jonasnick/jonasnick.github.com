@@ -6,4 +6,4 @@ comments: true
 sharing: true
 footer: true
 ---
-I am a cognitive science student.
+I am a cognitive science student, interested in technology.
