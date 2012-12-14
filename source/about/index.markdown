@@ -6,5 +6,5 @@ comments: true
 sharing: true
 footer: true
 ---
-I am a cognitive science student, interested in technology.
-contact: jonas (minus) david (dot) nick (at) student (dot) uni (minus) tuebingen (dot) de
+I am a cognitive science student, interested in technology.  
+Contact: jonas (minus) david (dot) nick (at) student (dot) uni (minus) tuebingen (dot) de
