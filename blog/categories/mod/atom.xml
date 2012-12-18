@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mod | nickler's]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/mod/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.com/"/>
+  <updated>2012-12-14T10:01:01+01:00</updated>
+  <id>http://jonasnick.github.com/</id>
+  <author>
+    <name><![CDATA[Jonas Nick]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Labormensch - a puzzle]]></title>
+    <link href="http://jonasnick.github.com/blog/2012/11/28/labormensch-a-puzzle/"/>
+    <updated>2012-11-28T20:31:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2012/11/28/labormensch-a-puzzle</id>
+    <content type="html"><![CDATA[<p>This is a mod for Valve's source engine. It deludes the player's cognitive map of the world. Despite his efforts to escape he always returns to his start location. However there is one solution to escape...</p>
+
+<iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/3QaHo0QgKeQ"></iframe>
+
+]]></content>
+  </entry>
+  
+</feed>
