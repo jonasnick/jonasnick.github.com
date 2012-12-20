@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Astar, | nickler's]]></title>
   <link href="http://jonasnick.github.com/blog/categories/astar-/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.com/"/>
-  <updated>2012-12-20T13:54:38+01:00</updated>
+  <updated>2012-12-20T13:59:07+01:00</updated>
   <id>http://jonasnick.github.com/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p><img src="/images/MarioScreenshot.png"><br/>
 Check out my <a href="https://github.com/jonasnick/A-star">A<em> Implementation</a>.
 Your nodes can be easily added by inheriting the ASearchNode class.
-The purpose of the A</em> is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Compition</a>.
+The purpose of the A</em> is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Competion</a>.
 The aim of the competition is to develop an artificial agent in the game Infinite Mario Bros who completes a level fastest.
 Like in Robin Baumgartens competition <a href="https://www.youtube.com/watch?v=DlkMs4ZHHr8">submission</a> the WorldNodes are generated using a simulation and then searched with the A*.
 Our current goal at the Chair of Cognitive Modeling Tübingen is to connect the the planning with a rudimentary brain module which is capable of learning object interactions.
