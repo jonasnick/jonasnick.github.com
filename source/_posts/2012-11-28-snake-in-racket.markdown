@@ -5,7 +5,7 @@ date: 2012-11-28 19:28
 comments: true
 categories: racket, snake 
 ---
-<a href="https://github.com/jonasnick/snake">{% img /images/snake.png %}</a>
+<a href="https://github.com/jonasnick/snake">{% img /images/snake.png %}</a>  
 Snake implementation
 <a href="https://github.com/jonasnick/snake">Snake</a> 
  in the functional language Racket with GUI. Homework of the first semester of computer science.
