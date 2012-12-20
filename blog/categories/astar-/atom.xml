@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Astar, | nickler's]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/astar-/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.com/"/>
+  <updated>2012-12-20T13:50:19+01:00</updated>
+  <id>http://jonasnick.github.com/</id>
+  <author>
+    <name><![CDATA[Jonas Nick]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A* for MarioAI]]></title>
+    <link href="http://jonasnick.github.com/blog/2012/12/20/a-star-for-marioai/"/>
+    <updated>2012-12-20T13:43:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2012/12/20/a-star-for-marioai</id>
+    <content type="html"><![CDATA[<p><img src="/images/MarioScreenshot.png"><br/>
+Check out my <a href="https://github.com/jonasnick/A-star">A<em> Implementation</a>. Your nodes can be easily added by inheriting the ASearchNode class. The purpose of the A</em> is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Compition</a>.
+The aim of the competition is to develop an artificial agent in the game Infinite Mario Bros who completes a level fastest.
+Like in Robin Baumgartens competition <a href="https://www.youtube.com/watch?v=DlkMs4ZHHr8">submission</a> the WorldNodes are generated using a simulation and then searched with the A*.
+Our current goal at the Chair of Cognitive Modeling Tübingen is to connect the the planning with a rudimentary brain module which is capable of learning object interactions.
+Therefore the agent will wander around to collect knowledge about his environment and then exploit it according to its motivation. OP will surely deliver.</p>
+]]></content>
+  </entry>
+  
+</feed>
