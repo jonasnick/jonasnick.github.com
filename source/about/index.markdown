@@ -6,6 +6,6 @@ comments: true
 sharing: true
 footer: true
 ---
-I am a cognitive science student.  
+I am a cognitive science student at the University of Tübingen, Germany.
 
 Contact: jonas (minus) david (dot) nick (at) student (dot) uni (minus) tuebingen (dot) de
