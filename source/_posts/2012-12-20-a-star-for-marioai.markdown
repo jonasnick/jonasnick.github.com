@@ -3,7 +3,7 @@ layout: post
 title: "A* for MarioAI"
 date: 2012-12-20 13:43
 comments: true
-categories: Astar, MarioAI, java
+categories: [Astar, MarioAI, java]
 ---
 {% img /images/MarioScreenshot.png %}  
 Check out my <a href="https://github.com/jonasnick/A-star">A\* Implementation</a>. 
