@@ -3,7 +3,7 @@ layout: post
 title: "Visualizing Receptive Fields"
 date: 2013-02-14 00:37
 comments: true
-categories: python, neuro
+categories: [python, neuro]
 ---
 <div class="ipynb">
 
