@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: java | nickler's]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.com/"/>
+  <updated>2013-02-14T17:31:03+01:00</updated>
+  <id>http://jonasnick.github.com/</id>
+  <author>
+    <name><![CDATA[Jonas Nick]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A* for MarioAI]]></title>
+    <link href="http://jonasnick.github.com/blog/2012/12/20/a-star-for-marioai/"/>
+    <updated>2012-12-20T13:43:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2012/12/20/a-star-for-marioai</id>
+    <content type="html"><![CDATA[<p><img src="/images/MarioScreenshot.png"><br/>
+Check out my <a href="https://github.com/jonasnick/A-star">A* Implementation</a>.
+Your nodes can be easily added by inheriting the ASearchNode class.
+The purpose of the A* is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Competion</a>.
+The aim of the competition is to develop an artificial agent in the game Infinite Mario Bros who completes a level fastest.
+Like in Robin Baumgartens competition <a href="https://www.youtube.com/watch?v=DlkMs4ZHHr8">submission</a> the WorldNodes are generated using a simulation and then searched with the A*.
+Our current goal at the Chair of Cognitive Modeling Tübingen is to connect the the planning with a rudimentary brain module which is capable of learning object interactions.
+Therefore the agent will wander around to collect knowledge about his environment and then exploit it according to its motivation. OP will surely deliver.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Evolving bitcoin trade bot]]></title>
+    <link href="http://jonasnick.github.com/blog/2012/11/28/evolving-bitcoin-trade-bot/"/>
+    <updated>2012-11-28T21:02:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2012/11/28/evolving-bitcoin-trade-bot</id>
+    <content type="html"><![CDATA[<p><img src="/images/bagalute/index.png">
+<a href="https://github.com/jonasnick/bagalute">Bagalute</a> is a trade bot, designed for buying a currency (bitcoin) at the the right time. As a decision criterium it uses the relative strength index (RSI). The bot looks at the price development of the last twelve hours and runs an evolutionary algorithm to determine the optimal parameters for the RSI in that time frame. Then, it uses these parameters for the next time frame. Currently the bot uses for debugging purposes a dummy interface to trade. The actual success of the bot was sparsely tested but had negative results, maybe due to a general downtrend of prices.
+I wrote it during my 2nd semester break</p>
+]]></content>
+  </entry>
+  
+</feed>
