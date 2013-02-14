@@ -4,7 +4,7 @@
   <title><![CDATA[Category: snake | nickler's]]></title>
   <link href="http://jonasnick.github.com/blog/categories/snake/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.com/"/>
-  <updated>2012-12-18T02:47:14+01:00</updated>
+  <updated>2013-01-28T11:31:09+01:00</updated>
   <id>http://jonasnick.github.com/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -18,7 +18,7 @@
     <link href="http://jonasnick.github.com/blog/2012/11/28/snake-in-racket/"/>
     <updated>2012-11-28T19:28:00+01:00</updated>
     <id>http://jonasnick.github.com/blog/2012/11/28/snake-in-racket</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="/images/snake.png"></a>
+    <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="/images/snake.png"></a><br/>
 Snake implementation
 <a href="https://github.com/jonasnick/snake">Snake</a>
  in the functional language Racket with GUI. Homework of the first semester of computer science.

@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="http://jonasnick.github.com/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.com/"/>
-  <updated>2012-12-18T02:47:14+01:00</updated>
+  <updated>2013-01-28T11:31:09+01:00</updated>
   <id>http://jonasnick.github.com/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -14,12 +14,28 @@
 
   
   <entry>
+    <title type="html"><![CDATA[A* for MarioAI]]></title>
+    <link href="http://jonasnick.github.com/blog/2012/12/20/a-star-for-marioai/"/>
+    <updated>2012-12-20T13:43:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2012/12/20/a-star-for-marioai</id>
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/MarioScreenshot.png"><br/>
+Check out my <a href="https://github.com/jonasnick/A-star">A* Implementation</a>.
+Your nodes can be easily added by inheriting the ASearchNode class.
+The purpose of the A* is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Competion</a>.
+The aim of the competition is to develop an artificial agent in the game Infinite Mario Bros who completes a level fastest.
+Like in Robin Baumgartens competition <a href="https://www.youtube.com/watch?v=DlkMs4ZHHr8">submission</a> the WorldNodes are generated using a simulation and then searched with the A*.
+Our current goal at the Chair of Cognitive Modeling Tübingen is to connect the the planning with a rudimentary brain module which is capable of learning object interactions.
+Therefore the agent will wander around to collect knowledge about his environment and then exploit it according to its motivation. OP will surely deliver.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Signaling games and Language]]></title>
     <link href="http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language/"/>
     <updated>2012-11-29T00:15:00+01:00</updated>
     <id>http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/vowelspace.png">
-Two papers I wrote together with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game#Costly_versus_cost-free_signaling">signaling games</a>.
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/vowelspace.png"><br/>
+Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
 The important finding in the <a href="ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
 The <a href="Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
 ]]></content>
@@ -65,7 +81,7 @@ I wrote it during my 2nd semester break</p>
     <link href="http://jonasnick.github.com/blog/2012/11/28/snake-in-racket/"/>
     <updated>2012-11-28T19:28:00+01:00</updated>
     <id>http://jonasnick.github.com/blog/2012/11/28/snake-in-racket</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="http://jonasnick.github.com/images/snake.png"></a>
+    <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="http://jonasnick.github.com/images/snake.png"></a><br/>
 Snake implementation
 <a href="https://github.com/jonasnick/snake">Snake</a>
  in the functional language Racket with GUI. Homework of the first semester of computer science.

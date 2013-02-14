@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="About Nov 26th, 2012 I am a cognitive science student. Contact: jonas (minus) david (dot) nick (at) student (dot) uni (minus) tuebingen (dot) de Nov &hellip;">
+  <meta name="description" content="About Nov 26th, 2012 I am a cognitive science student at the University of Tübingen, Germany. Contact: jonas (minus) david (dot) nick (at) student ( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -31,6 +31,18 @@
 <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37200384-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -83,7 +95,7 @@
 <time datetime="2012-11-26T23:48:00+01:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time></p>
   </header>
   
-  <p>I am a cognitive science student.</p>
+  <p>I am a cognitive science student at the University of Tübingen, Germany.</p>
 
 <p>Contact: jonas (minus) david (dot) nick (at) student (dot) uni (minus) tuebingen (dot) de</p>
 
@@ -120,11 +132,21 @@
   
 </article>
 
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
 </div>
 
 <aside class="sidebar">
   
     <section>
+   <h1>About Me</h1>
+  <p>I am a cognitive science student.</p>
+</section>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -151,6 +173,35 @@
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jonasnick">@jonasnick</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jonasnick',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -163,12 +214,28 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2012 - Jonas Nick -
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2013 - Jonas Nick -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'nicklers';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jonasnick.github.com/about/index.html';
+        var disqus_url = 'http://jonasnick.github.com/about/index.html';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
