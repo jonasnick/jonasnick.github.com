@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="http://jonasnick.github.com/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.com/"/>
-  <updated>2013-02-15T16:33:00+01:00</updated>
+  <updated>2013-02-18T13:09:50+01:00</updated>
   <id>http://jonasnick.github.com/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -21,7 +21,8 @@
     <content type="html"><![CDATA[<div class="ipynb">
 
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In some regions in the brain neurons are excited or inhibited by neurons of a preceding input layer. They are called receptive field of that neuron. Since the visual area uses receptive fields as feature detectors (such as edge and edge orientation detection) for natural images, the application of different receptive field functions on images can be nicely examined. 
+<p>The following article will visualize some mathematical models for brain cell activity.
+In some regions of the brain, neurons are excited or inhibited by neurons of a preceding input layer. They are called receptive field of that neuron. Since the visual area uses receptive fields as feature detectors (such as edge and edge-orientation detection) for natural images, the application of different receptive field functions on images can be nicely examined. 
 The ipython notebook file to play with the parameters can be found on <a href="https://github.com/jonasnick/ReceptiveFields">GitHub</a>.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
@@ -37,6 +38,10 @@ The ipython notebook file to play with the parameters can be found on <a href="h
 </div>
 </div>
 </div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We examine the effect on the following images. In the visual pathway the images can be seen as input from the retina to higher visual areas.</p>
+</div>
+<!-- more -->
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
@@ -49,10 +54,6 @@ The ipython notebook file to play with the parameters can be found on <a href="h
 </div>
 </div>
 </div>
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We examine the effect on the following images. In the visual pathway the images can be seen as input from the retina to the higher visual areas.</p>
-</div>
-<!-- more -->
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
@@ -1374,10 +1375,11 @@ pAx8VlaHlIHPyuqQMvBZWR1SBj4rq0PKwGdldUj/BQRTyNtk/3KPAAAAAElFTkSuQmCC
 </div>
 </div>
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Convolution is the process of applying the filter to the input, which is the image in our case. 
+<p>Convolution is the process of applying the filter to the input, which is the image $I(x,y)$ denoting the grey value of the pixel at the specified position. 
 $$\int \int I(x&#8217;,y&#8217;)\phi(x-x&#8217;,y-y&#8217;)dx&#8217;dy&#8217;$$</p>
 <p>When applying the gaussian filter every neuron in the output layer is excited by nearby image neurons. 
-The result of the convolution can then also be visualized in an image. </p>
+The result of the convolution can then also be visualized in an image. 
+Song Ho Ahn has a <a href="http://www.songho.ca/dsp/convolution/convolution2d_example.html" title="jkh">nice example</a> for convolution of 2D Arrays.</p>
 </div>
 <div class="cell border-box-sizing code_cell vbox">
 <div class="input hbox">
@@ -3220,9 +3222,9 @@ o2yA5kbZKBtlo5xH+X9okqHEoV2/vwAAAABJRU5ErkJggg==
 <h2 class="ipynb">Gabor functions</h2>
 <p>Gabor functions are used to detect edges with a specific orientation in images. Neurons which can be modeled using gabor functions are found throughout the visual cortex.</p>
 <p>Odd gabor:
-$$g_s(x):=sin(\omega_x x + \omega_y y)\exp{(-\frac{x^2+y^2}{2\sigma^2})}$$
+$$g_s(x,y):=sin(\omega_x x + \omega_y y)\exp{(-\frac{x^2+y^2}{2\sigma^2})}$$
 Even gabor:
-$$g_c(x):=cos(\omega_x x + \omega_y y)\exp{(-\frac{x^2+y^2}{2\sigma^2})}$$</p>
+$$g_c(x,y):=cos(\omega_x x + \omega_y y)\exp{(-\frac{x^2+y^2}{2\sigma^2})}$$</p>
 <p>Orientation is given by the ratio $\omega_y/\omega_x$. </p>
 <p>$g_s$ is activated by step edges, while $g_c$ is activated by line edges.</p>
 </div>
@@ -7194,7 +7196,10 @@ SiqppJIGpALNSiqppJIG5P/myiDhDXjWYgAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb">References</h2>
+<p>Introduction to Computational Neuroscience, Hanspeter Mallot, <a href="http://www.uni-tuebingen.de/cog">University of Tübingen</a></p>
+</div>
 
 </div>
 
