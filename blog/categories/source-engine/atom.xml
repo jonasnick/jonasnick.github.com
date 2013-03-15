@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: half-life | nickler's]]></title>
-  <link href="http://jonasnick.github.com/blog/categories/half-life/atom.xml" rel="self"/>
+  <title><![CDATA[Category: source engine | nickler's]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/source-engine/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.com/"/>
-  <updated>2013-02-18T13:09:50+01:00</updated>
+  <updated>2013-03-15T18:30:55+01:00</updated>
   <id>http://jonasnick.github.com/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>

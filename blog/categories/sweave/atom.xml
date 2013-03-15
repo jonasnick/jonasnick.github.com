@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Sweave | nickler's]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/sweave/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.com/"/>
+  <updated>2013-03-15T18:30:55+01:00</updated>
+  <id>http://jonasnick.github.com/</id>
+  <author>
+    <name><![CDATA[Jonas Nick]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Regressionsmodelle und Parameterschätzverfahren]]></title>
+    <link href="http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
+    <updated>2013-03-15T17:26:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/regressionPresentation-linearFit.png" width="500"></p>
+
+<p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar "Maschinelles Lernen" an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
+Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto "Frauen und Kinder zuerst" bei der Katastrophe zutraf.</p>
+
+<p><strong>Every plot is produced using the open source statistic software <a href="http://www.r-project.org/">R</a> inside the $\LaTeX$ file (Sweave). Code is <a href="https://github.com/jonasnick/regression/blob/master/ausarbeitung/ausarbeitung.Rnw">here</a>.</strong></p>
+
+<blockquote><p>Charakteristisch für überwachtes maschinelles Lernen, zu der auch die Regression gehört, ist das Beschreiben der Beziehung von Zielvariable und erklärender Variable aus vorliegenden Daten, also Realisierungen von Zufallsvariablen.</p>
+
+<p>Das Regressionsmodell stellt $y$ durch die Summe einer Hypothese von $x$ und einem Fehlerterm $\epsilon$ dar.</p>
+
+<p>$$
+y = h(x) + \epsilon
+$$</p></blockquote>
+
+<p><a href="regression.pdf"><center><strong>PDF weiterlesen</strong></center></a></p>
+]]></content>
+  </entry>
+  
+</feed>
