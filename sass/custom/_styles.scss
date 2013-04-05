@@ -4,3 +4,15 @@ html {
   background: $page-bg top left;
 }
 
+.sharing {
+  text-align: right;
+  p.meta + & {
+    padding: { top: 1em; left: 0; }
+    background: $img-border top left repeat-x;
+  }
+
+  .padding {
+      display: inline;
+      padding: { left: 20px;}
+    }
+}
