@@ -939,13 +939,58 @@ init_mathjax();
 
     </p>
     
-      <div class="sharing">
+      <!-- <style type="text/css" media="screen"> -->
+<!--       /* #custom-tweet-button { */ -->
+<!--       /*   display: block; */ -->
+<!--       /*   padding: 30px 10px 10px 30px; */ -->
+<!--       /*   background: url('/images/socialMediaIcons/twitter-bird.png') 1px center no-repeat; */ -->
+<!--       /*   background-size: 30px 30px; */ -->
+<!--       /*   /* border: 0px */ */ -->
+<!--       /* } */ -->
+<!--       #custom-googleplus-button { -->
+<!--         display: block; -->
+<!--         padding: 40px 40px 40px 40px; -->
+<!--         background: url('/images/socialMediaIcons/google-plus.png') 1px right no-repeat; -->
+<!--         background-size: 30px 30px; -->
+<!--         /* border: 0px */ -->
+<!--       } -->
+<!--     #share{ -->
+<!--   display:inline-block; -->
+<!--  -->
+<!--   /*The width and height of your image. Not bigger than the Like button!*/ -->
+<!--   width: 10px; -->
+<!--   height: 10px; -->
+<!--  -->
+<!--   /*Your image*/ -->
+<!--   background:url('/images/socialMediaIcons/google-plus.png'); -->
+<!--     } -->
+<!-- </style> -->
+<div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jonasnick.github.com/blog/2012/11/26/first-post/" data-via="" data-counturl="http://jonasnick.github.com/blog/2012/11/26/first-post/" >Tweet</a>
+<!-- <div id="custom-tweet-button"> -->
+  <!-- <a href="http://twitter.com/share?url=http://jonasnick.github.com/blog/2012/11/26/first-post/"></a> -->
+  
+  <div class="padding">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jonasnick.github.com/blog/2012/11/26/first-post/" data-via="" data-counturl="http://jonasnick.github.com/blog/2012/11/26/first-post/" data-count="none" >Tweet</a>
+    </div>
   
   
+<!-- <div id="custom-googleplus-button"> -->
+  <!-- <a href="https://plus.google.com/share?url=http://jonasnick.github.com/blog/2012/11/26/first-post/" ></a> -->
+<!-- </div> -->
+  <div class="padding">
+  <div class="g-plusone" data-annotation="none" data-size="medium"></div>
+ </div>
   
+  
+  <!-- <a id='share' href="http://www.facebook.com/sharer.php?u=http://bit.ly/myelection"></a> -->
+  <div class="padding">
+    <div  class="fb-like" data-layout="button-count" data-send="false" data-width="200" data-show-faces="false"></div>
+ </div>
+  
+
 </div>
+
 
     
     <p class="meta">
@@ -1068,7 +1113,24 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
 
 
 
