@@ -6,6 +6,7 @@ comments: true
 sharing: true
 footer: true
 ---
-I am a cognitive science student at the University of Tübingen, Germany.
+I hold Cognitive Science BSc from the University of Tübingen, Germany.
+Currently, I am pursuing a Master's Degree in Computer Science at ETH in Zürich.
 
-Contact: jonas (minus) david (dot) nick (at) student (dot) uni (minus) tuebingen (dot) de
+Contact: jonasd (dot) nick (at) gmail (dot) com
