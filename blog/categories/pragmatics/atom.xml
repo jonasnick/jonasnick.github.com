@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: R | nickler's]]></title>
-  <link href="http://jonasnick.github.com/blog/categories/r/atom.xml" rel="self"/>
+  <title><![CDATA[Category: pragmatics | nickler's]]></title>
+  <link href="http://jonasnick.github.com/blog/categories/pragmatics/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.com/"/>
   <updated>2013-10-14T23:26:08+02:00</updated>
   <id>http://jonasnick.github.com/</id>
@@ -129,26 +129,14 @@ This is by no means a bad thing, as long as we take this characteristic into acc
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Regressionsmodelle und Parameterschätzverfahren]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
-    <updated>2013-03-15T17:26:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/regressionPresentation-linearFit.png" width="500"></p>
-
-<p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar &ldquo;Maschinelles Lernen&rdquo; an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
-Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto &ldquo;Frauen und Kinder zuerst&rdquo; bei der Katastrophe zutraf.</p>
-
-<p><strong>Every plot is produced using the open source statistic software <a href="http://www.r-project.org/">R</a> inside the $\LaTeX$ file (Sweave). Code is <a href="https://github.com/jonasnick/regression/blob/master/ausarbeitung/ausarbeitung.Rnw">here</a>.</strong></p>
-
-<blockquote><p>Charakteristisch für überwachtes maschinelles Lernen, zu der auch die Regression gehört, ist das Beschreiben der Beziehung von Zielvariable und erklärender Variable aus vorliegenden Daten, also Realisierungen von Zufallsvariablen.</p>
-
-<p>Das Regressionsmodell stellt $y$ durch die Summe einer Hypothese von $x$ und einem Fehlerterm $\epsilon$ dar.</p>
-
-<p>$$
-y = h(x) + \epsilon
-$$</p></blockquote>
-
-<p><a href="regression.pdf"><center><strong>PDF weiterlesen</strong></center></a></p>
+    <title type="html"><![CDATA[Signaling games and Language]]></title>
+    <link href="http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language/"/>
+    <updated>2012-11-29T00:15:00+01:00</updated>
+    <id>http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language</id>
+    <content type="html"><![CDATA[<p><img src="/images/vowelspace.png"><br/>
+Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
+The important finding in the <a href="ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
+The <a href="Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
 ]]></content>
   </entry>
   

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: c++ - nickler's</title>
+  <title>Influence of Reputation on Gricean Maxims - nickler's</title>
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Category: c++">
+  <meta name="description" content="As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by Jason Quinley at the Institute of Linguistics, I wanted to explore the influence of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jonasnick.github.comblog/categories/c-/">
+  <link rel="canonical" href="http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -882,36 +882,242 @@ init_mathjax();
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: C++</h1>
+    
+      <h1 class="entry-title">Influence of Reputation on Gricean Maxims</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-14T01:04:00+02:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
+
+
+<div class="entry-content"><p>As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by <a href="http://www.sfs.uni-tuebingen.de/~jquinley/">Jason Quinley</a> at the <a href="http://www.sfs.uni-tuebingen.de/en/chairs.html">Institute of Linguistics</a>, I wanted to explore the influence of reputation on obeying the Gricean Maxims using data from the Q&amp;A website Stackoverflow.</p>
+
+<p>Pragmatics is a subfield in linguistics, defined as &ldquo;dealing with the origins, uses, and effects of signs within the total behavior of the interpreters of signs&rdquo; (<a href="http://psycnet.apa.org/psycinfo/1946-02822-000">Morris, 1946</a>).
+Pragmatics tries to explain why a simple sentence like &ldquo;It&rsquo;s raining.&rdquo; has a lot of different interpretations, for example(<a href="http://staff.science.uva.nl/~mfranke/Papers/Franke_PhD_thesis.pdf">Franke, 2009</a>):</p>
+
+<ul>
+<li>The speaker advises we should take an umbrella.</li>
+<li>The speaker declares the picnic cancelled.</li>
+<li>The speaker is sick of living in amsterdam.</li>
+</ul>
+
+
+
+
+<!-- more -->
+
+
+<p>Herbert Grice introduced certain assumptions (<a href="http://books.google.ch/books?id=73zw8IG7mtcC&amp;lpg=PA270&amp;ots=b59dMg5U5W&amp;dq=grice%20logic%20and%20conversation&amp;lr&amp;pg=PA270#v=onepage&amp;q=grice%20logic%20and%20conversation&amp;f=false">Grice, 1975</a>) that people rely on when making pragmatic inferences in normal circumstances. He formulated the <em>Cooperative Principle</em>: &ldquo;Make your contribution such as its required, at the stage at which it occurs, by the accepted purpose or direction of the talk exchange in which your engaged.&rdquo;. Using this principle, he derived four <em>Maxims of Conversation</em>, presented as guidelines:</p>
+
+<ul>
+<li>Maxim of Quality: Do not say what you believe to be false. Do not say that for which you lack evidance.</li>
+<li>Maxim of Quantity: Make your contribution as informative as is required for the current purpose of the exchange.</li>
+<li>Maxim of Relation: Be relevant.</li>
+<li>Maxim of Manner: Avoid ambiguity. Be brief and orderly.</li>
+</ul>
+
+
+<p>Grice showed that hearers can systematically interpret utterances and infer additional information that goes beyond the semantic meaning of the uttered sentence, based on the assumption that the speaker obeys the Maxims.</p>
+
+<p>The data for studying the influence of reputation on the maxims stems from the question and answer website <a href="https://stackoverflow.com">Stackoverflow</a> (SO).
+Users of the site pose programming related ques tions which others try to answer. They are encouraged to vote on the usefulness
+of a question or an answer, thereby directly affecting others reputation score.
+Because SO is collaboratively edited website, reputation directly determines the
+privileges of a user, ranging from voting down and editing to voting on closing
+or deleting questions and answers. Thus, reputation on SO is among other thing
+a measure of how much the community trusts a user.
+Stackoverflow provides <a href="http://blog.stackoverflow.com/2009/06/stack-overflow-creative-commons-data-dump/">monthly data dumps</a>.</p>
+
+<div class="text-image">
+<img src="/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
+<div>Figure 1</div>
+</div>
+
+
+<p>In Figure 1 we see that there are a lot of users with low reputation, higher reputation
+is getting more and more uncommon. The dashed line represents the mean.
+This can be explained in part by the fact that users start out with a reputation score of one.
+It looks like the distribution is following a power law, which is strengthened by Figure 2 showing that the distribution is
+approximately log-normal, when users with reputation scores equal to one are excluded.</p>
+
+<div class="text-image">
+<img src="/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
+<div>Figure 2</div>
+</div>
+
+
+<p>In the following we will measure the effect of reputation by focussing on whether a question was closed or left open.
+This classification task was posted on <a href="http://www.kaggle.com/c/predict-closed-questions-on-stack-overflow">kaggle</a>.</p>
+
+<div class="text-image">
+<img src="/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
+<div>Figure 3</div>
+</div>
+
+
+<p>When investigating the density of reputations given the question was closed or left open
+we can see that closed questions are posed mainly by users with low reputation
+(Figure 3). One interpretation is that a user with low reputation belongs
+to one of two different user categories, whose members have an incentive to
+choosing low effort. Those are users who have low reputation because they are
+not trustful and new users who discount the future immensely because they have
+a single specific question.
+The inverse argument, that questions posed by users with higher reputation
+have a lower probability of ending up closed is strengthened
+using a logistic regression model with reputation being the only predicting variable.
+This model was estimated using a dataset of 50% closed questions, whereas normally about 6% of questions end up closed.
+The decision boundary is where the model estimates a 50%
+probability of a closed question &ndash; it lies at a reputation of 491.
+The result is that reputation is a significant influence and this model alone has an accuracy of 59.44% on test data.</p>
+
+<p>When closing a question a moderator specifies a <a href="http://stackoverflow.com/faq#close">reason</a> for doing so, namely off topic, not constructive, not a real question, or too localized.
+<strong>Interestingly, there seems to be a relation between the Gricean Maxims and the reasons for closing a question.</strong>
+Questions labeled <em>off topic</em> (not related to programming) and <em>too localized</em>
+(unlikely to help future visitors) clearly violate the maxim of relevance. <em>Not a
+real question</em> are those that are ambiguous, vague, incomplete, overly broad, or
+rhetorical, hence the maxims of manner and quantity are both violated.
+The maxim of quality is violated by questions labeled <em>not constructive</em> because they are not supported by facts.
+Rather, it would solicit debate, since there is no true answer.</p>
+
+<div class="text-image">
+<img src="/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
+<div>Figure 4</div>
+</div>
+
+
+<p>Figure 4 reveals that reputation influences which maxims are violated.
+Most questions that are incomplete are posed by low reputation users, while
+controversial questions are posed by high reputation users.
+In other words, violations of the maxim of quality are more likely from users with high reputation,
+whereas the opposite is true for the maxim of quantity and manner.
+Not shown is that questions that are labeled <em>too localized</em> are in a similar reputation range like <em>not a real question</em>,
+and <em>off topic</em> questions do not differ much from open questions.</p>
+
+<p>In conclusion, even though we trust high reputation people, they are not precise about truth.
+This is by no means a bad thing, as long as we take this characteristic into account when interpreting their intent.</p>
+
+<p><strong><a href="https://github.com/jonasnick/Gricean-Classifier">Code of the analysis</a></strong></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <div id="blog-archives" class="category">
+
+<span class="byline author vcard">Posted by <span class="fn">Jonas Nick</span></span>
+
+      
+
+
+
+
+
 
 
 
   
-  <h2>2012</h2>
 
-<article>
+
+<time datetime="2013-10-14T01:04:00+02:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
+      
+
+<span class="categories">
   
-<h1><a href="/blog/2012/11/28/labormensch-a-puzzle/">Labormensch - a puzzle</a></h1>
-<time datetime="2012-11-28T20:31:00+01:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/c-/'>c++</a>, <a class='category' href='/blog/categories/source-engine/'>source engine</a></span>
-</footer>
+    <a class='category' href='/blog/categories/r/'>R</a>, <a class='category' href='/blog/categories/pragmatics/'>pragmatics</a>
+  
+</span>
 
 
-</article>
+    </p>
+    
+      <!-- <style type="text/css" media="screen"> -->
+<!--       /* #custom-tweet-button { */ -->
+<!--       /*   display: block; */ -->
+<!--       /*   padding: 30px 10px 10px 30px; */ -->
+<!--       /*   background: url('/images/socialMediaIcons/twitter-bird.png') 1px center no-repeat; */ -->
+<!--       /*   background-size: 30px 30px; */ -->
+<!--       /*   /* border: 0px */ */ -->
+<!--       /* } */ -->
+<!--       #custom-googleplus-button { -->
+<!--         display: block; -->
+<!--         padding: 40px 40px 40px 40px; -->
+<!--         background: url('/images/socialMediaIcons/google-plus.png') 1px right no-repeat; -->
+<!--         background-size: 30px 30px; -->
+<!--         /* border: 0px */ -->
+<!--       } -->
+<!--     #share{ -->
+<!--   display:inline-block; -->
+<!--  -->
+<!--   /*The width and height of your image. Not bigger than the Like button!*/ -->
+<!--   width: 10px; -->
+<!--   height: 10px; -->
+<!--  -->
+<!--   /*Your image*/ -->
+<!--   background:url('/images/socialMediaIcons/google-plus.png'); -->
+<!--     } -->
+<!-- </style> -->
+<div class="sharing">
+  
+<!-- <div id="custom-tweet-button"> -->
+  <!-- <a href="http://twitter.com/share?url=http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"></a> -->
+  
+  <div class="padding">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/" data-via="" data-counturl="http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/" data-count="none" >Tweet</a>
+    </div>
+  
+  
+<!-- <div id="custom-googleplus-button"> -->
+  <!-- <a href="https://plus.google.com/share?url=http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/" ></a> -->
+<!-- </div> -->
+  <div class="padding">
+  <div class="g-plusone" data-annotation="none" data-size="medium"></div>
+ </div>
+  
+  
+  <!-- <a id='share' href="http://www.facebook.com/sharer.php?u=http://bit.ly/myelection"></a> -->
+  <div class="padding">
+    <div  class="fb-like" data-layout="button-count" data-send="false" data-width="200" data-show-faces="false"></div>
+ </div>
+  
 
 </div>
 
-  
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/" title="Previous Post: Regressionsmodelle und Parameterschätzverfahren">&laquo; Regressionsmodelle und Parameterschätzverfahren</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -919,11 +1125,15 @@ init_mathjax();
   
     <section>
    <h1>About Me</h1>
-  <p>I am a cognitive science student.</p>
+  <p>I am a graduate student in Computer Science.</p>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">Influence of Reputation on Gricean Maxims</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/">Regressionsmodelle und Parameterschätzverfahren</a>
@@ -941,15 +1151,11 @@ init_mathjax();
         <a href="/blog/2012/11/29/signaling-games-and-language/">Signaling games and Language</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/28/evolving-bitcoin-trade-bot/">Evolving bitcoin trade bot</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 120.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 120.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 120.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 120.0%'>blender</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/evolution' style='font-size: 120.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 120.0%'>genetic algorithms</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/kinect' style='font-size: 120.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 120.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 120.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 120.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 120.0%'>neuro</a> <a href='/blog/categories/python' style='font-size: 160.0%'>python</a> <a href='/blog/categories/r' style='font-size: 120.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 120.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 120.0%'>regression</a> <a href='/blog/categories/signaling-games' style='font-size: 120.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 120.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 120.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 120.0%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 120.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 120.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 120.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 120.0%'>blender</a> <a href='/blog/categories/c-' style='font-size: 120.0%'>c++</a> <a href='/blog/categories/evolution' style='font-size: 120.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 120.0%'>genetic algorithms</a> <a href='/blog/categories/java' style='font-size: 140.0%'>java</a> <a href='/blog/categories/kinect' style='font-size: 120.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 120.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 120.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 120.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 120.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 140.0%'>pragmatics</a> <a href='/blog/categories/python' style='font-size: 160.0%'>python</a> <a href='/blog/categories/r' style='font-size: 140.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 120.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 120.0%'>regression</a> <a href='/blog/categories/signaling-games' style='font-size: 120.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 120.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 120.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 120.0%'>Sweave</a> </span>
 </section>
 
 <section>
@@ -1004,7 +1210,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
       var disqus_shortname = 'nicklers';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/';
+        var disqus_url = 'http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

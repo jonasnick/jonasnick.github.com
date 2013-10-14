@@ -4,7 +4,7 @@
   <title><![CDATA[Category: machine learning | nickler's]]></title>
   <link href="http://jonasnick.github.com/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.com/"/>
-  <updated>2013-04-05T10:37:09+02:00</updated>
+  <updated>2013-10-14T23:26:08+02:00</updated>
   <id>http://jonasnick.github.com/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -20,8 +20,8 @@
     <id>http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
     <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/regressionPresentation-linearFit.png" width="500"></p>
 
-<p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar "Maschinelles Lernen" an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
-Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto "Frauen und Kinder zuerst" bei der Katastrophe zutraf.</p>
+<p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar &ldquo;Maschinelles Lernen&rdquo; an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
+Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto &ldquo;Frauen und Kinder zuerst&rdquo; bei der Katastrophe zutraf.</p>
 
 <p><strong>Every plot is produced using the open source statistic software <a href="http://www.r-project.org/">R</a> inside the $\LaTeX$ file (Sweave). Code is <a href="https://github.com/jonasnick/regression/blob/master/ausarbeitung/ausarbeitung.Rnw">here</a>.</strong></p>
 
