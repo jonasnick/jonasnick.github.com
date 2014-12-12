@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: R,Psycholinguistics | nickler's]]></title>
-  <link href="http://jonasnick.github.com/blog/categories/r-psycholinguistics/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.com/"/>
-  <updated>2013-10-14T23:45:57+02:00</updated>
-  <id>http://jonasnick.github.com/</id>
+  <title><![CDATA[Category: Psycholinguistics | nickler's]]></title>
+  <link href="http://jonasnick.github.io/blog/categories/psycholinguistics/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2014-12-12T02:37:40+01:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Reading Noun-Noun Compounds]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/10/14/reading-noun-noun-compounds/"/>
+    <link href="http://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds/"/>
     <updated>2013-10-14T23:35:00+02:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/10/14/reading-noun-noun-compounds</id>
+    <id>http://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds</id>
     <content type="html"><![CDATA[<h3>Early Influences of Compound Frequency and Semantic Transparency</h3>
 
 <p>My bachelor thesis in Cognitive Science.

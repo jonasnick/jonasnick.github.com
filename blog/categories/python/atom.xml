@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: python | nickler's]]></title>
-  <link href="http://jonasnick.github.com/blog/categories/python/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.com/"/>
-  <updated>2013-10-14T23:45:57+02:00</updated>
-  <id>http://jonasnick.github.com/</id>
+  <link href="http://jonasnick.github.io/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2014-12-12T02:37:40+01:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -14,10 +14,25 @@
 
   
   <entry>
+    <title type="html"><![CDATA[FCW Kernel]]></title>
+    <link href="http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/"/>
+    <updated>2014-12-12T01:50:00+01:00</updated>
+    <id>http://jonasnick.github.io/blog/2014/12/12/fcw-kernel</id>
+    <content type="html"><![CDATA[<p>A Feature Coinciding Walk Kernel classifies nodes in a graph.</p>
+
+<p>This project is a python port of <a href="https://github.com/rmgarnett/coinciding_walk_kernel">Coinciding Walk Kernels</a> (CWK) [1] and introduces an extension of the model called Feature-CWK (FCWK). If you want to jump right into some code see the <a href="https://nbviewer.ipython.org/github/jonasnick/FCW-Kernel/blob/master/benchmark.ipynb">benchmark</a>.</p>
+
+<p>CW-Kernels deal with the problem of node classification (aka link-based classification) in which a set of features and labels for items are given just as in regular classification. In addition, a node classification algorithm accepts a graph of of items and item-item links. It has been shown that the additional information that is inherent in the network structure improves performance for certain algorithms and datasets.</p>
+
+<p><a href="https://github.com/jonasnick/FCW-Kernel"><center><strong>Read More</strong></center></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Visualizing Receptive Fields]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/02/14/visualizing-receptive-fields/"/>
+    <link href="http://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields/"/>
     <updated>2013-02-14T00:37:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/02/14/visualizing-receptive-fields</id>
+    <id>http://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields</id>
     <content type="html"><![CDATA[<div class="ipynb">
 
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -7208,9 +7223,9 @@ SiqppJIGpALNSiqppJIG5P/myiDhDXjWYgAAAABJRU5ErkJggg==
   
   <entry>
     <title type="html"><![CDATA[Signaling games and Language]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
     <updated>2012-11-29T00:15:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language</id>
+    <id>http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
     <content type="html"><![CDATA[<p><img src="/images/vowelspace.png"><br/>
 Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
 The important finding in the <a href="ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
@@ -7220,9 +7235,9 @@ The <a href="Innovation_Evolution.pdf">second paper</a> explores the evolution o
   
   <entry>
     <title type="html"><![CDATA[Kinect data in Blender]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/28/kinect-data-in-blender/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender/"/>
     <updated>2012-11-28T20:17:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/28/kinect-data-in-blender</id>
+    <id>http://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender</id>
     <content type="html"><![CDATA[<p>Importing raw data points from Microsofts Kinect is fun, despite my lacking blender skills. But the huge filesizes prevent further use.</p>
 
 <iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/I-hM3QZJZZw"></iframe>

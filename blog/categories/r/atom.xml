@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: R | nickler's]]></title>
-  <link href="http://jonasnick.github.com/blog/categories/r/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.com/"/>
-  <updated>2013-10-14T23:45:57+02:00</updated>
-  <id>http://jonasnick.github.com/</id>
+  <link href="http://jonasnick.github.io/blog/categories/r/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2014-12-12T02:37:40+01:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -14,10 +14,61 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Reading Noun-Noun Compounds]]></title>
+    <link href="http://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds/"/>
+    <updated>2013-10-14T23:35:00+02:00</updated>
+    <id>http://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds</id>
+    <content type="html"><![CDATA[<h3>Early Influences of Compound Frequency and Semantic Transparency</h3>
+
+<p>My bachelor thesis in Cognitive Science.
+Unfortunately, I am currently not allowed to release the data nor the analysis scripts,
+because the dataset is still under active research.</p>
+
+<p><em>Abstract</em>:
+This thesis evaluates psycholinguistic theories about the cognitive processing of
+words. Consequently, the time-course of compound reading is analyzed using
+generalized additive models in a dataset of eye movements. The theories to be
+contrasted are sublexical (Taft and Forster, 1975), supralexical (Giraudo and
+Grainger, 2001) vs. dual route processing (Schreuder and Baayen, 1995) and
+form-then-meaning (e.g. Rastle and Davis, 2008) vs. form-and-meaning (e.g.
+Feldman et al., 2009) processing.</p>
+
+<p>As the goal is to find the best model given various predictors, some general
+mechanisms of eye movements will be demonstrated, e.g. the position
+in the line has substantial effects, single fixations last longer, are on shorter
+words, more in the center of the word and influenced differently by frequency
+measures.</p>
+
+<p>Inspired by Kuperman et al. (2009) it is shown that already the early eye
+fixations on words are guided by first constituent and compound frequency,
+providing evidence for parallel dual route models.</p>
+
+<p>Similar to Baayen et al. (2013), Latent Semantic Analysis (LSA) similarity
+scores (Landauer and Dumais, 1997) permit investigating the time point of
+semantic processing. The effect of LSA similarity not only shows up in the
+earliest word fixations, but the data reveals that semantics plays a role even
+before a word is fixated. In particular, the fixation position in the word is
+more to the right, when the semantic transparency, i.e. the similarity between
+compound and second constituent is high. This evidence of parafoveal semantic
+processing challenges opposing findings obtained with the eye-contingent
+boundary paradigm (Rayner et al., 1986). In the framework of naive
+discriminative learning (Baayen et al., 2011), the effect of transparency on fixation
+position reflects optimization of the landing position for accessing the orthographic
+information that is most discriminative for the compound.</p>
+
+<p><em>Keywords</em>:
+reading, eye-movements, compounds, semantic similarity, morphological
+processing, generalized additive model</p>
+
+<p><a href="readingCompounds.pdf"><center><strong>Read PDF</strong></center></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Influence of Reputation on Gricean Maxims]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
+    <link href="http://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
     <updated>2013-10-14T01:04:00+02:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
+    <id>http://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
     <content type="html"><![CDATA[<p>As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by <a href="http://www.sfs.uni-tuebingen.de/~jquinley/">Jason Quinley</a> at the <a href="http://www.sfs.uni-tuebingen.de/en/chairs.html">Institute of Linguistics</a>, I wanted to explore the influence of reputation on obeying the Gricean Maxims using data from the Q&amp;A website Stackoverflow.</p>
 
 <p>Pragmatics is a subfield in linguistics, defined as &ldquo;dealing with the origins, uses, and effects of signs within the total behavior of the interpreters of signs&rdquo; (<a href="http://psycnet.apa.org/psycinfo/1946-02822-000">Morris, 1946</a>).
@@ -57,7 +108,7 @@ a measure of how much the community trusts a user.
 Stackoverflow provides <a href="http://blog.stackoverflow.com/2009/06/stack-overflow-creative-commons-data-dump/">monthly data dumps</a>.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.com/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
 <div>Figure 1</div>
 </div>
 
@@ -69,7 +120,7 @@ It looks like the distribution is following a power law, which is strengthened b
 approximately log-normal, when users with reputation scores equal to one are excluded.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.com/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
 <div>Figure 2</div>
 </div>
 
@@ -78,7 +129,7 @@ approximately log-normal, when users with reputation scores equal to one are exc
 This classification task was posted on <a href="http://www.kaggle.com/c/predict-closed-questions-on-stack-overflow">kaggle</a>.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.com/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
 <div>Figure 3</div>
 </div>
 
@@ -108,7 +159,7 @@ The maxim of quality is violated by questions labeled <em>not constructive</em> 
 Rather, it would solicit debate, since there is no true answer.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.com/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
 <div>Figure 4</div>
 </div>
 
@@ -130,10 +181,10 @@ This is by no means a bad thing, as long as we take this characteristic into acc
   
   <entry>
     <title type="html"><![CDATA[Regressionsmodelle und Parameterschätzverfahren]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
+    <link href="http://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
     <updated>2013-03-15T17:26:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/regressionPresentation-linearFit.png" width="500"></p>
+    <id>http://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/regressionPresentation-linearFit.png" width="500"></p>
 
 <p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar &ldquo;Maschinelles Lernen&rdquo; an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
 Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto &ldquo;Frauen und Kinder zuerst&rdquo; bei der Katastrophe zutraf.</p>

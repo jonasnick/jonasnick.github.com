@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: neuro | nickler's]]></title>
-  <link href="http://jonasnick.github.com/blog/categories/neuro/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.com/"/>
-  <updated>2013-10-14T23:45:57+02:00</updated>
-  <id>http://jonasnick.github.com/</id>
+  <link href="http://jonasnick.github.io/blog/categories/neuro/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2014-12-12T02:37:40+01:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Visualizing Receptive Fields]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/02/14/visualizing-receptive-fields/"/>
+    <link href="http://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields/"/>
     <updated>2013-02-14T00:37:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/02/14/visualizing-receptive-fields</id>
+    <id>http://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields</id>
     <content type="html"><![CDATA[<div class="ipynb">
 
 <div class="text_cell_render border-box-sizing rendered_html">

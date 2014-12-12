@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[nickler's]]></title>
-  <link href="http://jonasnick.github.com/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.com/"/>
-  <updated>2013-10-14T23:45:57+02:00</updated>
-  <id>http://jonasnick.github.com/</id>
+  <link href="http://jonasnick.github.io/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2014-12-12T02:37:40+01:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -14,10 +14,25 @@
 
   
   <entry>
+    <title type="html"><![CDATA[FCW Kernel]]></title>
+    <link href="http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/"/>
+    <updated>2014-12-12T01:50:00+01:00</updated>
+    <id>http://jonasnick.github.io/blog/2014/12/12/fcw-kernel</id>
+    <content type="html"><![CDATA[<p>A Feature Coinciding Walk Kernel classifies nodes in a graph.</p>
+
+<p>This project is a python port of <a href="https://github.com/rmgarnett/coinciding_walk_kernel">Coinciding Walk Kernels</a> (CWK) [1] and introduces an extension of the model called Feature-CWK (FCWK). If you want to jump right into some code see the <a href="https://nbviewer.ipython.org/github/jonasnick/FCW-Kernel/blob/master/benchmark.ipynb">benchmark</a>.</p>
+
+<p>CW-Kernels deal with the problem of node classification (aka link-based classification) in which a set of features and labels for items are given just as in regular classification. In addition, a node classification algorithm accepts a graph of of items and item-item links. It has been shown that the additional information that is inherent in the network structure improves performance for certain algorithms and datasets.</p>
+
+<p><a href="https://github.com/jonasnick/FCW-Kernel"><center><strong>Read More</strong></center></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Reading Noun-Noun Compounds]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/10/14/reading-noun-noun-compounds/"/>
+    <link href="http://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds/"/>
     <updated>2013-10-14T23:35:00+02:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/10/14/reading-noun-noun-compounds</id>
+    <id>http://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds</id>
     <content type="html"><![CDATA[<h3>Early Influences of Compound Frequency and Semantic Transparency</h3>
 
 <p>My bachelor thesis in Cognitive Science.
@@ -66,9 +81,9 @@ processing, generalized additive model</p>
   
   <entry>
     <title type="html"><![CDATA[Influence of Reputation on Gricean Maxims]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
+    <link href="http://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
     <updated>2013-10-14T01:04:00+02:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
+    <id>http://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
     <content type="html"><![CDATA[<p>As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by <a href="http://www.sfs.uni-tuebingen.de/~jquinley/">Jason Quinley</a> at the <a href="http://www.sfs.uni-tuebingen.de/en/chairs.html">Institute of Linguistics</a>, I wanted to explore the influence of reputation on obeying the Gricean Maxims using data from the Q&amp;A website Stackoverflow.</p>
 
 <p>Pragmatics is a subfield in linguistics, defined as &ldquo;dealing with the origins, uses, and effects of signs within the total behavior of the interpreters of signs&rdquo; (<a href="http://psycnet.apa.org/psycinfo/1946-02822-000">Morris, 1946</a>).
@@ -108,7 +123,7 @@ a measure of how much the community trusts a user.
 Stackoverflow provides <a href="http://blog.stackoverflow.com/2009/06/stack-overflow-creative-commons-data-dump/">monthly data dumps</a>.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.com/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
 <div>Figure 1</div>
 </div>
 
@@ -120,7 +135,7 @@ It looks like the distribution is following a power law, which is strengthened b
 approximately log-normal, when users with reputation scores equal to one are excluded.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.com/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
 <div>Figure 2</div>
 </div>
 
@@ -129,7 +144,7 @@ approximately log-normal, when users with reputation scores equal to one are exc
 This classification task was posted on <a href="http://www.kaggle.com/c/predict-closed-questions-on-stack-overflow">kaggle</a>.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.com/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
 <div>Figure 3</div>
 </div>
 
@@ -159,7 +174,7 @@ The maxim of quality is violated by questions labeled <em>not constructive</em> 
 Rather, it would solicit debate, since there is no true answer.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.com/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
 <div>Figure 4</div>
 </div>
 
@@ -181,10 +196,10 @@ This is by no means a bad thing, as long as we take this characteristic into acc
   
   <entry>
     <title type="html"><![CDATA[Regressionsmodelle und Parameterschätzverfahren]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
+    <link href="http://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
     <updated>2013-03-15T17:26:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/regressionPresentation-linearFit.png" width="500"></p>
+    <id>http://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/regressionPresentation-linearFit.png" width="500"></p>
 
 <p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar &ldquo;Maschinelles Lernen&rdquo; an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
 Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto &ldquo;Frauen und Kinder zuerst&rdquo; bei der Katastrophe zutraf.</p>
@@ -205,9 +220,9 @@ $$</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[Visualizing Receptive Fields]]></title>
-    <link href="http://jonasnick.github.com/blog/2013/02/14/visualizing-receptive-fields/"/>
+    <link href="http://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields/"/>
     <updated>2013-02-14T00:37:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2013/02/14/visualizing-receptive-fields</id>
+    <id>http://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields</id>
     <content type="html"><![CDATA[<div class="ipynb">
 
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -7398,10 +7413,10 @@ SiqppJIGpALNSiqppJIG5P/myiDhDXjWYgAAAABJRU5ErkJggg==
   
   <entry>
     <title type="html"><![CDATA[A* for MarioAI]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/12/20/a-star-for-marioai/"/>
+    <link href="http://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai/"/>
     <updated>2012-12-20T13:43:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/12/20/a-star-for-marioai</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/MarioScreenshot.png"><br/>
+    <id>http://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai</id>
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/MarioScreenshot.png"><br/>
 Check out my <a href="https://github.com/jonasnick/A-star">A* Implementation</a>.
 Your nodes can be easily added by inheriting the ASearchNode class.
 The purpose of the A* is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Competion</a>.
@@ -7414,10 +7429,10 @@ Therefore the agent will wander around to collect knowledge about his environmen
   
   <entry>
     <title type="html"><![CDATA[Signaling games and Language]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
     <updated>2012-11-29T00:15:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/29/signaling-games-and-language</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/vowelspace.png"><br/>
+    <id>http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/vowelspace.png"><br/>
 Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
 The important finding in the <a href="ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
 The <a href="Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
@@ -7426,10 +7441,10 @@ The <a href="Innovation_Evolution.pdf">second paper</a> explores the evolution o
   
   <entry>
     <title type="html"><![CDATA[Evolving bitcoin trade bot]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/28/evolving-bitcoin-trade-bot/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot/"/>
     <updated>2012-11-28T21:02:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/28/evolving-bitcoin-trade-bot</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.com/images/bagalute/index.png">
+    <id>http://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot</id>
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/bagalute/index.png">
 <a href="https://github.com/jonasnick/bagalute">Bagalute</a> is a trade bot, designed for buying a currency (bitcoin) at the the right time. As a decision criterium it uses the relative strength index (RSI). The bot looks at the price development of the last twelve hours and runs an evolutionary algorithm to determine the optimal parameters for the RSI in that time frame. Then, it uses these parameters for the next time frame. Currently the bot uses for debugging purposes a dummy interface to trade. The actual success of the bot was sparsely tested but had negative results, maybe due to a general downtrend of prices.
 I wrote it during my 2nd semester break</p>
 ]]></content>
@@ -7437,9 +7452,9 @@ I wrote it during my 2nd semester break</p>
   
   <entry>
     <title type="html"><![CDATA[Labormensch - a puzzle]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/28/labormensch-a-puzzle/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle/"/>
     <updated>2012-11-28T20:31:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/28/labormensch-a-puzzle</id>
+    <id>http://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle</id>
     <content type="html"><![CDATA[<p>This is a mod for Valve&rsquo;s source engine. It deludes the player&rsquo;s cognitive map of the world. Despite his efforts to escape he always returns to his start location. However there is one solution to escape&hellip;</p>
 
 <iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/3QaHo0QgKeQ"></iframe>
@@ -7449,9 +7464,9 @@ I wrote it during my 2nd semester break</p>
   
   <entry>
     <title type="html"><![CDATA[Kinect data in Blender]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/28/kinect-data-in-blender/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender/"/>
     <updated>2012-11-28T20:17:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/28/kinect-data-in-blender</id>
+    <id>http://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender</id>
     <content type="html"><![CDATA[<p>Importing raw data points from Microsofts Kinect is fun, despite my lacking blender skills. But the huge filesizes prevent further use.</p>
 
 <iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/I-hM3QZJZZw"></iframe>
@@ -7461,10 +7476,10 @@ I wrote it during my 2nd semester break</p>
   
   <entry>
     <title type="html"><![CDATA[Snake in Racket]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/28/snake-in-racket/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/28/snake-in-racket/"/>
     <updated>2012-11-28T19:28:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/28/snake-in-racket</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="http://jonasnick.github.com/images/snake.png"></a><br/>
+    <id>http://jonasnick.github.io/blog/2012/11/28/snake-in-racket</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="http://jonasnick.github.io/images/snake.png"></a><br/>
 Snake implementation
 <a href="https://github.com/jonasnick/snake">Snake</a>
  in the functional language Racket with GUI. Homework of the first semester of computer science.
@@ -7474,9 +7489,9 @@ The music of the game is generated by the player&rsquo;s movements and his succe
   
   <entry>
     <title type="html"><![CDATA[First post]]></title>
-    <link href="http://jonasnick.github.com/blog/2012/11/26/first-post/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/26/first-post/"/>
     <updated>2012-11-26T20:47:00+01:00</updated>
-    <id>http://jonasnick.github.com/blog/2012/11/26/first-post</id>
+    <id>http://jonasnick.github.io/blog/2012/11/26/first-post</id>
     <content type="html"><![CDATA[
 ]]></content>
   </entry>

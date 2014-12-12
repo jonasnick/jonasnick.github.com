@@ -1,3 +1,34 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>FCW Kernel - nickler's</title>
+  <meta name="author" content="Jonas Nick">
+
+  
+  <meta name="description" content="A Feature Coinciding Walk Kernel classifies nodes in a graph. This project is a python port of Coinciding Walk Kernels (CWK) [1] and introduces an &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="nickler's" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
 <style type="text/css">
 /**
  * HTML5 ✰ Boilerplate
@@ -359,7 +390,7 @@ div.cell {
 }
 
 div.code_cell {
-    background-color: white;
+    background-color: #6bg094;
 }
 
 /* any special styling for code cells that are currently running goes here */
@@ -518,13 +549,13 @@ div.text_cell_input {
 }
 
 div.text_cell_render {
-    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-family: "PT Sans", sans-serif;
     outline: none;
     resize: none;
     width:  inherit;
     border-style: none;
     padding: 5px;
-    color: black;
+    color: #222222;
 }
 
 /* The following gets added to the <head> if it is detected that the user has a
@@ -804,3 +835,327 @@ init_mathjax = function() {
 }
 init_mathjax();
 </script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37200384-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">nickler's</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jonasnick.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="https://github.com/jonasnick">Code</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">FCW Kernel</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-12T01:50:00+01:00" pubdate data-updated="true">Dec 12<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A Feature Coinciding Walk Kernel classifies nodes in a graph.</p>
+
+<p>This project is a python port of <a href="https://github.com/rmgarnett/coinciding_walk_kernel">Coinciding Walk Kernels</a> (CWK) [1] and introduces an extension of the model called Feature-CWK (FCWK). If you want to jump right into some code see the <a href="https://nbviewer.ipython.org/github/jonasnick/FCW-Kernel/blob/master/benchmark.ipynb">benchmark</a>.</p>
+
+<p>CW-Kernels deal with the problem of node classification (aka link-based classification) in which a set of features and labels for items are given just as in regular classification. In addition, a node classification algorithm accepts a graph of of items and item-item links. It has been shown that the additional information that is inherent in the network structure improves performance for certain algorithms and datasets.</p>
+
+<p><a href="https://github.com/jonasnick/FCW-Kernel"><center><strong>Read More</strong></center></a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jonas Nick</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-12T01:50:00+01:00" pubdate data-updated="true">Dec 12<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/machine-learning/'>machine learning</a>, <a class='category' href='/blog/categories/python/'>python</a>
+  
+</span>
+
+
+    </p>
+    
+      <!-- <style type="text/css" media="screen"> -->
+<!--       /* #custom-tweet-button { */ -->
+<!--       /*   display: block; */ -->
+<!--       /*   padding: 30px 10px 10px 30px; */ -->
+<!--       /*   background: url('/images/socialMediaIcons/twitter-bird.png') 1px center no-repeat; */ -->
+<!--       /*   background-size: 30px 30px; */ -->
+<!--       /*   /* border: 0px */ */ -->
+<!--       /* } */ -->
+<!--       #custom-googleplus-button { -->
+<!--         display: block; -->
+<!--         padding: 40px 40px 40px 40px; -->
+<!--         background: url('/images/socialMediaIcons/google-plus.png') 1px right no-repeat; -->
+<!--         background-size: 30px 30px; -->
+<!--         /* border: 0px */ -->
+<!--       } -->
+<!--     #share{ -->
+<!--   display:inline-block; -->
+<!--  -->
+<!--   /*The width and height of your image. Not bigger than the Like button!*/ -->
+<!--   width: 10px; -->
+<!--   height: 10px; -->
+<!--  -->
+<!--   /*Your image*/ -->
+<!--   background:url('/images/socialMediaIcons/google-plus.png'); -->
+<!--     } -->
+<!-- </style> -->
+<div class="sharing">
+  
+<!-- <div id="custom-tweet-button"> -->
+  <!-- <a href="http://twitter.com/share?url=http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/"></a> -->
+  
+  <div class="padding">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/" data-via="" data-counturl="http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/" data-count="none" >Tweet</a>
+    </div>
+  
+  
+<!-- <div id="custom-googleplus-button"> -->
+  <!-- <a href="https://plus.google.com/share?url=http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/" ></a> -->
+<!-- </div> -->
+  <div class="padding">
+  <div class="g-plusone" data-annotation="none" data-size="medium"></div>
+ </div>
+  
+  
+  <!-- <a id='share' href="http://www.facebook.com/sharer.php?u=http://bit.ly/myelection"></a> -->
+  <div class="padding">
+    <div  class="fb-like" data-layout="button-count" data-send="false" data-width="200" data-show-faces="false"></div>
+ </div>
+  
+
+</div>
+
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/10/14/reading-noun-noun-compounds/" title="Previous Post: Reading Noun-Noun Compounds">&laquo; Reading Noun-Noun Compounds</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/12/12/fcw-kernel/">FCW Kernel</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/14/reading-noun-noun-compounds/">Reading Noun-Noun Compounds</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">Influence of Reputation on Gricean Maxims</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/">Regressionsmodelle und Parameterschätzverfahren</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/visualizing-receptive-fields/">Visualizing Receptive Fields</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 115.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 115.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 115.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 115.0%'>blender</a> <a href='/blog/categories/c-' style='font-size: 115.0%'>c++</a> <a href='/blog/categories/evolution' style='font-size: 115.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 115.0%'>genetic algorithms</a> <a href='/blog/categories/java' style='font-size: 130.0%'>java</a> <a href='/blog/categories/kinect' style='font-size: 115.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 115.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 130.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 115.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 115.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 130.0%'>pragmatics</a> <a href='/blog/categories/psycholinguistics' style='font-size: 115.0%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 160.0%'>python</a> <a href='/blog/categories/r' style='font-size: 145.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 115.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 115.0%'>regression</a> <a href='/blog/categories/signaling-games' style='font-size: 115.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 115.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 115.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 115.0%'>Sweave</a> </span>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jonasnick">@jonasnick</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jonasnick',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2014 - Jonas Nick -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'nicklers';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/';
+        var disqus_url = 'http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
