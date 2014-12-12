@@ -6,7 +6,7 @@ comments: true
 sharing: true
 footer: true
 ---
-I hold Cognitive Science BSc from the University of Tübingen, Germany.
+I hold a Cognitive Science BSc from the University of Tübingen, Germany.
 Currently, I am pursuing a Master's Degree in Computer Science at ETH in Zürich.
 
 Contact: jonasd (dot) nick (at) gmail (dot) com

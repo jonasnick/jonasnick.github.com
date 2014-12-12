@@ -3,7 +3,7 @@ layout: post
 title: "Reading Noun-Noun Compounds"
 date: 2013-10-14 23:35
 comments: true
-categories: R,Psycholinguistics
+categories: [R, Psycholinguistics]
 ---
 ### Early Influences of Compound Frequency and Semantic Transparency
 
