@@ -4,6 +4,10 @@ html {
   background: $page-bg top left;
 }
 
+a {
+    text-decoration: none;
+}
+
 .sharing {
   text-align: right;
   p.meta + & {
