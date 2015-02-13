@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - nickler's</title>
+  <title>Privacy in BitcoinJ - nickler's</title>
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Blog Archive 2015 Privacy in BitcoinJ
-Feb 12 2015 posted in bitcoin, privacy 2014 FCW Kernel
-Dec 12 2014 posted in machine learning, python 2013 &hellip;">
+  <meta name="description" content="As part of my epic quest to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Dec 12 2014 posted in machine learning, python 2013 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jonasnick.github.io/blog/archives/">
+  <link rel="canonical" href="http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -867,209 +865,188 @@ init_mathjax();
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Privacy in BitcoinJ</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-12T15:53:00+01:00" pubdate data-updated="true">Feb 12<span>th</span>, 2015</time>
+        
+      </p>
     
   </header>
+
+
+<div class="entry-content"><p>As part of my <a href="https://github.com/jonasnick/FCW-Kernel">epic quest</a> to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet implementations in the hope of finding privacy leaks.</p>
+
+<p><strong>tl;dr</strong> If you are using a wallet that is built upon BitcoinJ, such as Android Wallet, Multibit and Hive Wallet, you have almost zero <em>wire privacy</em>.
+An attacker who manages to connect to your wallet is easily able to figure out all addresses you control.
+This is not very likely to get fixed in the near future.</p>
+
+<!-- more -->
+
+
+<h2>Bloom Filters for SPV Nodes</h2>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filter</a> is a probabilistic data structure that is used to test whether an element is a member of a set.
+Bitcoin SPV nodes that use <a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki">BIP 37</a> (we call them <em>thin clients</em> from now on) <code>put</code> all public keys they are interested in into the Bloom filter and send the filter to their peers. Upon receiving a new transaction, peers <code>query</code> the Bloom filter and only relay the transaction to the BIP 37 node if the query returned true.
+Thus, thin clients normally only receive the transactions they are really interested in, i.e. mostly transactions that include one of the wallet&rsquo;s keys.</p>
+
+<p>The advantage of using a Bloom filter instead of just broadcasting all your pubkeys is that a Bloom filter is faster and more space-efficient
+at the cost of some <em>false positives</em>.
+That means the thin client will receive transactions that include pubkeys which were not put into the filter.
+Usually, the parameters of a Bloom filter are computed such that a certain target false positive rate (<code>fp</code>) is achieved.
+We want the fp rate to be relatively small (say 0.05%) to reduce bandwidth usage.</p>
+
+<h2>Bloom Filters and Privacy</h2>
+
+<p>BIP 37 states:</p>
+
+<blockquote><p>Privacy: Because Bloom filters are probabilistic, with the false positive rate chosen by the client, nodes can trade off precision vs bandwidth usage. A node with access to lots of bandwidth may choose to have a high fp rate, meaning the remote peer cannot accurately know which transactions belong to the client and which don&#8217;t.</p></blockquote>
+
+
+<p>This has created a misunderstanding between what is ideally possible with Bloom filters and how the reality looks like.
+I&rsquo;ll focus on BitcoinJ because it is the most widely used implementation of BIP 37, but similar vulnerabilities might exist in other implementations as well.
+Unfortunately, in the current BitcoinJ implementation Bloom filters are just as bad for your privacy as broadcasting your pubkeys directly to your peers.</p>
+
+<h2>A Simple Attack</h2>
+
+<p>The main idea behind this vulnerability is that BitcoinJ puts both pubkey and pubkeyhash into the Bloom filter which substantially reduces the false positive rate.</p>
+
+<p>If you create a completely fresh wallet, BitcoinJ holds 271 pubkeys and computes the parameters
+of the Bloom filter such that the fp rate for (271*2)+100 elements is equal to 0.05%.
+Because bitcoinj initially puts only 271*2 elements into the filter (pubkey and corresponding pubkeyhash) the effective false positive rate is <code>fp=0.000146</code>.</p>
+
+<p>The vulnerability is that if a pubkey is truly in the filter then querying both pubkey and pubkeyhash must return true.
+Because the pubkeyhash is just another almost uniformly random string, the probability of a false positive for the attacker is <code>fp' = fp^2 = 0.0000000021555</code>.
+I obtained around 56 million pubkeys from the blockchain (mid-January), which theoretically results in <code>56 million * fp' = 1.29</code> expected false positives when scanning the blockchain.</p>
+
+<h2>Experimental results</h2>
+
+<p>I ran 20 crawlers since the beginning of December and collected 70,000 distinct filters until now.
+These crawlers just listen for a filterload message and try to be really polite by disconnecting after 2 minutes and not sending anything.
+The probability that a randomly selected DNS seed returns at least one of the crawlers is 4.3%.</p>
+
+<p>In fact, most of the Bloom filters from recent BitcoinJ versions show a experimental false positive rate around 0.000146.
+The experimental fp rate is computed by querying the filter with millions of elements which are certainly not pubkeys.
+Android Wallet 4.16, 4.17, 4.18 for example use the most recent BitcoinJ version (12.2) and make up 52% of the data.
+However, there is also MultiBit 0.5.18 whose effective fp rate is smaller than 0.00000001.</p>
+
+<p>We are currently starting to analyze all filters using the described &ldquo;attack&rdquo; and we expect that this will take several weeks.
+What we&rsquo;ve already seen is that the theoretical <code>fp'</code> really holds, i.e. if you create a fresh wallet and scan the whole blockchain you most likely get one false positive pubkey.</p>
+
+<h2>(Slightly) More Difficult Attacks</h2>
+
+<p>You might think that the problem is easily fixed by trading off bandwidth for more privacy and increase the fp rate to <code>fp = sqrt(0.0005) = 0.0224</code>.
+On the one hand this might seriously impact the bandwidth of mobile clients, and on the other, there is another another general class of vulnerabilities concerning Bloom filters:
+If an attacker manages to obtain multiple, different filters from the same Wallet,
+he can compute the intersection of pubkeys that match the filters and therefore removes the false positive noise similar to the &ldquo;simple attack&rdquo;.
+Different filters mean that they have different total size of a different Nonce.
+Sending different filters can happen in BitcoinJ due to multiple reasons, for example</p>
+
+<ul>
+<li><em>Restart</em>. BitcoinJ stores the filter&rsquo;s nonce in volatile memory.</li>
+<li><em>Creation of new keys</em>. When the wallet creates many new keys the filter gets &lsquo;full&rsquo; and thus has to be recomputed.</li>
+<li><em>Measured false positive rate is too high</em>. BitcoinJ measures the false positive rate of transactions it receives. When it becomes too high the filter is recomputed.</li>
+</ul>
+
+
+<h2>Conclusion</h2>
+
+<p>I do think this is a critical privacy leak as it doesn&rsquo;t require a sophisticated attack and wallets have practically been broadcasting all their pubkeys for years.
+Not only the addresses you see in your wallet, but also a lot of your future addresses have been exposed.
+From now on you should assume that the kind of bulk data collection I did is happening.
+It is difficult to say how accurate and stealthy targeted attacks would be.</p>
+
+<p>According to Mike Hearn, the creator of BitcoinJ, the problems have been known from the start but fixing these issues is far from trivial because &ldquo;lying consistently is hard&rdquo;.
+I fully agree with this.
+<strong>Someone needs to make it their project for a few months</strong>.</p>
+
+<p>There are some simple ideas to slightly improve the current status such as <a href="https://twitter.com/petertoddbtc/status/559921997027610624">deploying nodes that broadcast fake bloom filters</a>.
+But with <a href="http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/research/publications/pub2014/acsac_gervais.pdf">Arthur Gervais et al., 2014</a> there is also academic research on the topic resulting in more or less reasonable suggestions.
+One idea I find interesting is that thin clients should be able to install multiple filters at their peers such that no pubkey is shared between the filters.
+Thus, instead of recomputing the filter when the wallet creates new addresses, it would create an entirely fresh filter for the next keys.
+One disadvantage is that at the moment multiple filters per peer is not supported by the bitcoin wire protocol.
+Another issue with Bloom filters is that an attacker could safely assume that the probability is higher for two pubkeys to belong to the same person if they are closer in the transaction graph. As a countermeasure the wallet could deliberately put existing foreign pubkeys that are close into the filter.</p>
+
+<p>I feel sorry for the people whose privacy has been potentially compromised unknowingly by malicious parties and we certainly won&rsquo;t give away the data set but nonetheless it is really exciting what can be found in the data.
+If you have suggestions what to look out for and what would be interesting (not necessarily concerning machine learning) feel free to contact me.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <div id="blog-archives">
+
+<span class="byline author vcard">Posted by <span class="fn">Jonas Nick</span></span>
+
+      
 
 
 
-  
-  <h2>2015</h2>
-
-<article>
-  
-<h1><a href="/blog/2015/02/12/privacy-in-bitcoinj/">Privacy in BitcoinJ</a></h1>
-<time datetime="2015-02-12T15:53:00+01:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/privacy/'>privacy</a></span>
-</footer>
 
 
-</article>
 
 
 
   
-  <h2>2014</h2>
 
-<article>
+
+<time datetime="2015-02-12T15:53:00+01:00" pubdate data-updated="true">Feb 12<span>th</span>, 2015</time>
+      
+
+<span class="categories">
   
-<h1><a href="/blog/2014/12/12/fcw-kernel/">FCW Kernel</a></h1>
-<time datetime="2014-12-12T01:50:00+01:00" pubdate><span class='month'>Dec</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/machine-learning/'>machine learning</a>, <a class='category' href='/blog/categories/python/'>python</a></span>
-</footer>
-
-
-</article>
-
-
-
+    <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/privacy/'>privacy</a>
   
-  <h2>2013</h2>
+</span>
 
-<article>
+
+    </p>
+    
+      <div class="sharing">
   
-<h1><a href="/blog/2013/10/14/reading-noun-noun-compounds/">Reading Noun-Noun Compounds</a></h1>
-<time datetime="2013-10-14T23:35:00+02:00" pubdate><span class='month'>Oct</span> <span class='day'>14</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/psycholinguistics/'>Psycholinguistics</a>, <a class='category' href='/blog/categories/r/'>R</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
+  <div class="padding">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="n1ckler">Tweet</a>
+    </div>
   
-<h1><a href="/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">Influence of Reputation on Gricean Maxims</a></h1>
-<time datetime="2013-10-14T01:04:00+02:00" pubdate><span class='month'>Oct</span> <span class='day'>14</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/r/'>R</a>, <a class='category' href='/blog/categories/pragmatics/'>pragmatics</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
   
-<h1><a href="/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/">Regressionsmodelle und Parameterschätzverfahren</a></h1>
-<time datetime="2013-03-15T17:26:00+01:00" pubdate><span class='month'>Mar</span> <span class='day'>15</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/latex/'>LaTeX</a>, <a class='category' href='/blog/categories/r/'>R</a>, <a class='category' href='/blog/categories/sweave/'>Sweave</a>, <a class='category' href='/blog/categories/machine-learning/'>machine learning</a>, <a class='category' href='/blog/categories/regression/'>regression</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
   
-<h1><a href="/blog/2013/02/14/visualizing-receptive-fields/">Visualizing Receptive Fields</a></h1>
-<time datetime="2013-02-14T00:37:00+01:00" pubdate><span class='month'>Feb</span> <span class='day'>14</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/neuro/'>neuro</a>, <a class='category' href='/blog/categories/python/'>python</a></span>
-</footer>
-
-
-</article>
-
-
-
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/blog/2012/12/20/a-star-for-marioai/">A* for MarioAI</a></h1>
-<time datetime="2012-12-20T13:43:00+01:00" pubdate><span class='month'>Dec</span> <span class='day'>20</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/astar/'>Astar</a>, <a class='category' href='/blog/categories/marioai/'>MarioAI</a>, <a class='category' href='/blog/categories/java/'>java</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/11/29/signaling-games-and-language/">Signaling games and Language</a></h1>
-<time datetime="2012-11-29T00:15:00+01:00" pubdate><span class='month'>Nov</span> <span class='day'>29</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/evolution/'>evolution</a>, <a class='category' href='/blog/categories/pragmatics/'>pragmatics</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/signaling-games/'>signaling games</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/11/28/evolving-bitcoin-trade-bot/">Evolving bitcoin trade bot</a></h1>
-<time datetime="2012-11-28T21:02:00+01:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/algo-trading/'>algo trading</a>, <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/genetic-algorithms/'>genetic algorithms</a>, <a class='category' href='/blog/categories/java/'>java</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/11/28/labormensch-a-puzzle/">Labormensch - a puzzle</a></h1>
-<time datetime="2012-11-28T20:31:00+01:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/c-plus-plus/'>c++</a>, <a class='category' href='/blog/categories/source-engine/'>source engine</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/11/28/kinect-data-in-blender/">Kinect data in Blender</a></h1>
-<time datetime="2012-11-28T20:17:00+01:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/blender/'>blender</a>, <a class='category' href='/blog/categories/kinect/'>kinect</a>, <a class='category' href='/blog/categories/python/'>python</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/11/28/snake-in-racket/">Snake in Racket</a></h1>
-<time datetime="2012-11-28T19:28:00+01:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/racket/'>racket</a>, <a class='category' href='/blog/categories/snake/'>snake</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/11/26/first-post/">First post</a></h1>
-<time datetime="2012-11-26T20:47:00+01:00" pubdate><span class='month'>Nov</span> <span class='day'>26</span> <span class='year'>2012</span></time>
-
-
-</article>
 
 </div>
 
-  
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/12/12/fcw-kernel/" title="Previous Post: FCW Kernel">&laquo; FCW Kernel</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -1131,7 +1108,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
       var disqus_shortname = 'nicklers';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/';
+        var disqus_url = 'http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

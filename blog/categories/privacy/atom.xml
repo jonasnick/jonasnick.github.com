@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: bitcoin | nickler's]]></title>
-  <link href="http://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
+  <title><![CDATA[Category: privacy | nickler's]]></title>
+  <link href="http://jonasnick.github.io/blog/categories/privacy/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
   <updated>2015-02-13T16:54:50+01:00</updated>
   <id>http://jonasnick.github.io/</id>
@@ -110,17 +110,6 @@ Another issue with Bloom filters is that an attacker could safely assume that th
 
 <p>I feel sorry for the people whose privacy has been potentially compromised unknowingly by malicious parties and we certainly won&rsquo;t give away the data set but nonetheless it is really exciting what can be found in the data.
 If you have suggestions what to look out for and what would be interesting (not necessarily concerning machine learning) feel free to contact me.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Evolving bitcoin trade bot]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot/"/>
-    <updated>2012-11-28T21:02:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot</id>
-    <content type="html"><![CDATA[<p><img src="/images/bagalute/index.png">
-<a href="https://github.com/jonasnick/bagalute">Bagalute</a> is a trade bot, designed for buying a currency (bitcoin) at the the right time. As a decision criterium it uses the relative strength index (RSI). The bot looks at the price development of the last twelve hours and runs an evolutionary algorithm to determine the optimal parameters for the RSI in that time frame. Then, it uses these parameters for the next time frame. Currently the bot uses for debugging purposes a dummy interface to trade. The actual success of the bot was sparsely tested but had negative results, maybe due to a general downtrend of prices.
-I wrote it during my 2nd semester break</p>
 ]]></content>
   </entry>
   
