@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="http://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-02-13T17:55:56+01:00</updated>
+  <updated>2015-02-13T23:09:46+01:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -112,6 +112,10 @@ Another issue with Bloom filters is that an attacker could safely assume that th
 
 <p>I feel sorry for the people whose privacy has been potentially compromised unknowingly by malicious parties and we certainly won&rsquo;t give away the data set but nonetheless it is really exciting what can be found in the data.
 If you have suggestions what to look out for and what would be interesting (not necessarily concerning machine learning) feel free to contact me.</p>
+
+<h2>Update</h2>
+
+<p><a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements.</p>
 ]]></content>
   </entry>
   
