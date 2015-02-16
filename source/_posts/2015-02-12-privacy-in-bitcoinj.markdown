@@ -12,6 +12,10 @@ As part of my [epic quest](https://github.com/jonasnick/FCW-Kernel) to apply sup
 An attacker who manages to connect to your wallet is easily able to figure out all addresses you control.
 This is not very likely to get fixed in the near future.
 
+
+**Update:** [Mike Hearn's reply](https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ) addresses additional problems and improvements.
+
+
 <!-- more -->
 
 Bloom Filters for SPV Nodes
@@ -97,7 +101,4 @@ Another issue with Bloom filters is that an attacker could safely assume that th
 I feel sorry for the people whose privacy has been potentially compromised unknowingly by malicious parties and we certainly won't give away the data set but nonetheless it is really exciting what can be found in the data. 
 If you have suggestions what to look out for and what would be interesting (not necessarily concerning machine learning) feel free to contact me.
 
-Update
----
-[Mike Hearn's reply](https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ) addresses additional problems and improvements.
 
