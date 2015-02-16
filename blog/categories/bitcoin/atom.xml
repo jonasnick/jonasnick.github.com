@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-02-13T23:09:46+01:00</updated>
+  <updated>2015-02-16T21:13:17+01:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -102,7 +102,7 @@ I fully agree with this.
 <strong>Someone needs to make it their project for a few months</strong>.</p>
 
 <p>There are some simple ideas to slightly improve the current status such as <a href="https://twitter.com/petertoddbtc/status/559921997027610624">deploying nodes that broadcast fake bloom filters</a>.
-But with <a href="http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/research/publications/pub2014/acsac_gervais.pdf">Arthur Gervais et al., 2014</a> there is also academic research on the topic resulting in more or less reasonable suggestions.
+<a href="http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/research/publications/pub2014/acsac_gervais.pdf">Arthur Gervais et al., 2014</a> were the first to publish an academic paper on the topic and propose some more or less reasonable suggestions.
 One idea I find interesting is that thin clients should be able to install multiple filters at their peers such that no pubkey is shared between the filters.
 Thus, instead of recomputing the filter when the wallet creates new addresses, it would create an entirely fresh filter for the next keys.
 One disadvantage is that at the moment multiple filters per peer is not supported by the bitcoin wire protocol.
