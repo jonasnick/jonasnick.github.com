@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="http://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-02-16T21:13:17+01:00</updated>
+  <updated>2015-02-18T16:38:17+01:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -23,6 +23,8 @@
 <p><strong>tl;dr</strong> If you are using a wallet that is built upon BitcoinJ, such as Android Wallet, Multibit and Hive Wallet, you have almost zero <em>wire privacy</em>.
 An attacker who manages to connect to your wallet is easily able to figure out all addresses you control.
 This is not very likely to get fixed in the near future.</p>
+
+<p><strong>Update:</strong> <a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements.</p>
 
 <!-- more -->
 
@@ -104,7 +106,7 @@ I fully agree with this.
 <strong>Someone needs to make it their project for a few months</strong>.</p>
 
 <p>There are some simple ideas to slightly improve the current status such as <a href="https://twitter.com/petertoddbtc/status/559921997027610624">deploying nodes that broadcast fake bloom filters</a>.
-<a href="http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/research/publications/pub2014/acsac_gervais.pdf">Arthur Gervais et al., 2014</a> were the first to publish an academic paper on the topic and propose some more or less reasonable suggestions.
+<a href="http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/research/publications/pub2014/acsac_gervais.pdf">Arthur Gervais et al., 2014</a> were the first to publish an academic paper on the topic and propose some more or less vague suggestions.
 One idea I find interesting is that thin clients should be able to install multiple filters at their peers such that no pubkey is shared between the filters.
 Thus, instead of recomputing the filter when the wallet creates new addresses, it would create an entirely fresh filter for the next keys.
 One disadvantage is that at the moment multiple filters per peer is not supported by the bitcoin wire protocol.
@@ -112,10 +114,6 @@ Another issue with Bloom filters is that an attacker could safely assume that th
 
 <p>I feel sorry for the people whose privacy has been potentially compromised unknowingly by malicious parties and we certainly won&rsquo;t give away the data set but nonetheless it is really exciting what can be found in the data.
 If you have suggestions what to look out for and what would be interesting (not necessarily concerning machine learning) feel free to contact me.</p>
-
-<h2>Update</h2>
-
-<p><a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements.</p>
 ]]></content>
   </entry>
   
