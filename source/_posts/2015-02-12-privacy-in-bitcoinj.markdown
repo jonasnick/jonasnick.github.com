@@ -92,7 +92,7 @@ I fully agree with this.
 **Someone needs to make it their project for a few months**.
 
 There are some simple ideas to slightly improve the current status such as [deploying nodes that broadcast fake bloom filters](https://twitter.com/petertoddbtc/status/559921997027610624).
-[Arthur Gervais et al., 2014](http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/research/publications/pub2014/acsac_gervais.pdf) were the first to publish an academic paper on the topic and propose some more or less reasonable suggestions.
+[Arthur Gervais et al., 2014](http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/research/publications/pub2014/acsac_gervais.pdf) were the first to publish an academic paper on the topic and propose some more or less vague suggestions.
 One idea I find interesting is that thin clients should be able to install multiple filters at their peers such that no pubkey is shared between the filters.
 Thus, instead of recomputing the filter when the wallet creates new addresses, it would create an entirely fresh filter for the next keys.
 One disadvantage is that at the moment multiple filters per peer is not supported by the bitcoin wire protocol.
