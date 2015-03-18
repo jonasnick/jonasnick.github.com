@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="As part of my epic quest to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet &hellip;">
+  <meta name="description" content="I found two vulnerabilities in the crypto currency Ethereum: negative transactions and predictable ECDSA nonce. As part of the bug bounty program I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -872,6 +872,136 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/03/17/ethereum-bug-bounty-submissions/">Ethereum Bug Bounty Submissions</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-17T22:55:00+01:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I found two vulnerabilities in the crypto currency <a href="https://ethereum.org">Ethereum</a>: <a href="https://github.com/jonasnick/eth-neg-value-tx">negative transactions</a> and <a href="https://github.com/jonasnick/ecdsaPredictableNonce/">predictable ECDSA nonce</a>.</p>
+
+<p>As part of the <a href="https://bounty.ethdev.com/">bug bounty program</a> I was awarded with 20 Bitcoin.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/">Bitcoin Seeder DoS Vulnerability</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-17T22:23:00+01:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The DNS parser of the <a href="https://github.com/sipa/bitcoin-seeder">Bitcoin Seeder</a> was vulnerable to a denial of service attack. A specially crafted DNS request could trigger infinite recursive function calls that lead to a stack overflow. See the <a href="https://gist.github.com/jonasnick/62558e4b8ab43bc847c2">exploit</a>.
+The vulnerability was fixed in commit <a href="https://github.com/sipa/bitcoin-seeder/commit/11e935b72020607e5c3ce85a88209bc34e427a06">11e935b</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Guessing Bitcoin&#8217;s P2P Connections</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-06T14:22:00+01:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The paper <a href="http://arxiv.org/abs/1405.7418">Deanonymisation of clients in Bitcoin P2P network (2014)</a> by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
+The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to (&ldquo;entry nodes&rdquo;).
+Second, for each transaction $t$ record the $10$ nodes $P_t$ which first propagate $t$.
+The authors experimentally show that if $|E_v \cap P_t|$ is bigger than $3$ then there is a pretty high chance that $t$ actually originated from $v$.
+However, both attack stages basically require a Sybil attack &ndash; the attacker has to be connected to a lot of nodes a lot of times.
+&lsquo;A lot&rsquo; means that in their experiments they had 50 connection to each full node (~250) in the test network.
+As a result, such an attack seems to be powerful, but certainly won&rsquo;t be undetected.</p>
+
+<p>In this post I show that the first stage of the attack, namely learning the nodes a victim is directly connected to can
+be done with a single connection to the victim.
+Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the same behavior.</p>
+
+<p><strong>TLDR</strong> The attacker can reliably guess all of the outbound connections of a victim by making a selection from the known addresses of a victim based on the timestamp of the addresses.</p>
+
+<p><strong>Update</strong> A <a href="https://github.com/bitcoin/bitcoin/pull/5860">fix has been merged</a> to bitcoind. The timestamp is not updated anymore when receiving a message from a connected peer. Instead, it is only updated when the peer disconnects.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/02/12/privacy-in-bitcoinj/">Privacy in BitcoinJ</a></h1>
     
     
@@ -1235,123 +1365,9 @@ The purpose of the A* is to handle WorldNodes in the interface of the <a href="h
 The aim of the competition is to develop an artificial agent in the game Infinite Mario Bros who completes a level fastest.
 Like in Robin Baumgartens competition <a href="https://www.youtube.com/watch?v=DlkMs4ZHHr8">submission</a> the WorldNodes are generated using a simulation and then searched with the A*.
 Our current goal at the Chair of Cognitive Modeling Tübingen is to connect the the planning with a rudimentary brain module which is capable of learning object interactions.
-Therefore the agent will wander around to collect knowledge about his environment and then exploit it according to its motivation. OP will surely deliver.</p>
-</div>
-  
-  
+Therefore the agent will wander around to collect knowledge about his environment and then exploit it according to its motivation.</p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/29/signaling-games-and-language/">Signaling Games and Language</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-29T00:15:00+01:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/vowelspace.png"><br/>
-Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
-The important finding in the <a href="ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
-The <a href="Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/28/evolving-bitcoin-trade-bot/">Evolving Bitcoin Trade Bot</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-28T21:02:00+01:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/bagalute/index.png">
-<a href="https://github.com/jonasnick/bagalute">Bagalute</a> is a trade bot, designed for buying a currency (bitcoin) at the the right time. As a decision criterium it uses the relative strength index (RSI). The bot looks at the price development of the last twelve hours and runs an evolutionary algorithm to determine the optimal parameters for the RSI in that time frame. Then, it uses these parameters for the next time frame. Currently the bot uses for debugging purposes a dummy interface to trade. The actual success of the bot was sparsely tested but had negative results, maybe due to a general downtrend of prices.
-I wrote it during my 2nd semester break</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/28/labormensch-a-puzzle/">Labormensch - a Puzzle</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-28T20:31:00+01:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is a mod for Valve&rsquo;s source engine. It deludes the player&rsquo;s cognitive map of the world. Despite his efforts to escape he always returns to his start location. However there is one solution to escape&hellip;</p>
-
-<iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/3QaHo0QgKeQ"></iframe>
-
+<p><strong>Update</strong> Some of my successors enhanced Mario&rsquo;s capabilities and submitted a <a href="https://www.youtube.com/watch?v=AplG6KnOr2Q">great video demonstration that went viral</a> to the AAAI Video Competition 2015.</p>
 </div>
   
   
@@ -1374,6 +1390,18 @@ I wrote it during my 2nd semester break</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/17/ethereum-bug-bounty-submissions/">Ethereum Bug Bounty Submissions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/">Bitcoin Seeder DoS vulnerability</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Guessing bitcoin&#8217;s P2P connections</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/02/12/privacy-in-bitcoinj/">Privacy in BitcoinJ</a>
       </li>
     
@@ -1381,23 +1409,11 @@ I wrote it during my 2nd semester break</p>
         <a href="/blog/2014/12/12/fcw-kernel/">FCW Kernel</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/10/14/reading-noun-noun-compounds/">Reading Noun-Noun Compounds</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">Influence of Reputation on Gricean Maxims</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/">Regressionsmodelle und Parameterschätzverfahren</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 115.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 115.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 130.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 115.0%'>blender</a> <a href='/blog/categories/c-' style='font-size: 115.0%'>c++</a> <a href='/blog/categories/evolution' style='font-size: 115.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 115.0%'>genetic algorithms</a> <a href='/blog/categories/java' style='font-size: 130.0%'>java</a> <a href='/blog/categories/kinect' style='font-size: 115.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 115.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 130.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 115.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 115.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 130.0%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 115.0%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 115.0%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 160.0%'>python</a> <a href='/blog/categories/r' style='font-size: 145.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 115.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 115.0%'>regression</a> <a href='/blog/categories/signaling-games' style='font-size: 115.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 115.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 115.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 115.0%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 115.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 115.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 115.0%'>blender</a> <a href='/blog/categories/c-' style='font-size: 115.0%'>c++</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 115.0%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 115.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 115.0%'>genetic algorithms</a> <a href='/blog/categories/go' style='font-size: 115.0%'>go</a> <a href='/blog/categories/java' style='font-size: 130.0%'>java</a> <a href='/blog/categories/kinect' style='font-size: 115.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 115.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 130.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 115.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 115.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 130.0%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 130.0%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 115.0%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 160.0%'>python</a> <a href='/blog/categories/r' style='font-size: 145.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 115.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 115.0%'>regression</a> <a href='/blog/categories/signaling-games' style='font-size: 115.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 115.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 115.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 115.0%'>Sweave</a> </span>
 </section>
 
 <section>

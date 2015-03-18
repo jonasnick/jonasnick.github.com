@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MarioAI | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/marioai/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-02-18T16:38:17+01:00</updated>
+  <updated>2015-03-17T23:01:08+01:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -25,7 +25,9 @@ The purpose of the A* is to handle WorldNodes in the interface of the <a href="h
 The aim of the competition is to develop an artificial agent in the game Infinite Mario Bros who completes a level fastest.
 Like in Robin Baumgartens competition <a href="https://www.youtube.com/watch?v=DlkMs4ZHHr8">submission</a> the WorldNodes are generated using a simulation and then searched with the A*.
 Our current goal at the Chair of Cognitive Modeling Tübingen is to connect the the planning with a rudimentary brain module which is capable of learning object interactions.
-Therefore the agent will wander around to collect knowledge about his environment and then exploit it according to its motivation. OP will surely deliver.</p>
+Therefore the agent will wander around to collect knowledge about his environment and then exploit it according to its motivation.</p>
+
+<p><strong>Update</strong> Some of my successors enhanced Mario&rsquo;s capabilities and submitted a <a href="https://www.youtube.com/watch?v=AplG6KnOr2Q">great video demonstration that went viral</a> to the AAAI Video Competition 2015.</p>
 ]]></content>
   </entry>
   
