@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="http://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-04-27T12:24:09+02:00</updated>
+  <updated>2015-04-27T12:31:31+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,160 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Evaluating Satoshi's Clustering Heuristic]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/03/27/evaluating-satoshis-clustering-heuristic/"/>
-    <updated>2015-03-27T12:47:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/03/27/evaluating-satoshis-clustering-heuristic</id>
-    <content type="html"><![CDATA[<p>In a <a href="http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/">previous post</a> I showed that once an attacker captures a Bloom filter of a BitcoinJ powered wallet from the P2P network
-he can find out all public keys this wallet contains with very high probability.
-<a href="http://www.disco.ethz.ch/members/cdecker.html">Christian Decker</a> and I have collected the pubkeys contained in more than 70,000 Bloom filters.
-We are very interested in privacy aspects of bitcoin, so we see this as a unique opportunity to evaluate Satoshi&rsquo;s classic clustering heuristic: all inputs of a transaction belong to the same owner.</p>
-
-<blockquote><p>Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner. <br/>The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner.</p><footer><strong>Satoshi Nakamoto</strong> <cite>Bitcoin: A Peer-to-Peer Electronic Cash System</cite></footer></blockquote>
-
-
-<p>So for each wallet and for each contained pubkey we recursively apply the heuristic to all transactions the pubkey occurs in.
-There have been a few academic publications on this matter such as <a href="http://eprint.iacr.org/2012/596.pdf">Androulaki et al. 2013</a> and <a href="http://cseweb.ucsd.edu/~savage/papers/IMC13.pdf">Meiklejohn et al. 2013</a>.
-Also, there are some online tools and companies that allow exploiting this property of bitcoin: <a href="https://bitiodine.net/">bitiodine</a>, <a href="http://coinalytics.co/">coinalytics</a> and <a href="http://www.walletexplorer.com/">walletexplorer</a>.</p>
-
-<p>But so far nobody had access to a collection of actual wallets in order to evaluate the performance of the heuristic.
-Thus, previous statements and conclusions were either based on simulations (Androulaki et al.) or relied on intuitions.</p>
-
-<p>We expect that the probability that a pubkey that was found with the heuristic really belongs to the wallet (<strong>precision</strong>) is close to 1 because this is how all standard wallets create transactions.
-Countermeasures against this are <a href="https://bitcointalk.org/index.php?topic=139581.0">coinjoin transactions</a> which certainly do not require that &ldquo;entities would need to reveal their private keys to each other&rdquo; (Meiklejohn et al. 2013).
-However, what we are really interested in is the <strong>recall</strong> &ndash; the percentage of the wallet&rsquo;s pubkeys an attacker learns given he knows one pubkey &ndash; and how we can improve it.</p>
-
-<p><strong>tl;dr:</strong> As expected, the probability that a pubkey really belongs to the same entity (precision) is very high &hellip; whereas the amount of pubkeys that we can find (recall) is surprisingly small. We show a simply tweak that can improve the recall significantly.</p>
-
-<!-- more -->
-
-
-<h2>Data</h2>
-
-<p>Computing a wallet&rsquo;s pubkeys given the captured bloom filter takes about 1 hour.
-But thanks to ETH Zurich&rsquo;s computing clusters and Christian Decker&rsquo;s blockchain analysis infrastructure we could compute the collection of 70,078 wallets in a few weeks.</p>
-
-<p><strong>WRITE NUMBER OF CLUSTERS before and after removal</strong></p>
-
-<p>In order to remove duplicates, we grouped wallets which have a pubkey in common such that only the one with the most pubkeys remains.
-The set of the wallet&rsquo;s useragents is quite diverse</p>
-
-<p><strong>WRONG because this is before duplicate removal</strong></p>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th> Useragent         </th>
-<th> Count      </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td> Bitcoin Wallet    </td>
-<td> 48313 </td>
-</tr>
-<tr>
-<td></td>
-<td> Multibit          </td>
-<td> 15125</td>
-</tr>
-<tr>
-<td></td>
-<td> KnC               </td>
-<td> 659</td>
-</tr>
-<tr>
-<td></td>
-<td> Hive              </td>
-<td> 518</td>
-</tr>
-<tr>
-<td></td>
-<td> Green Wallet      </td>
-<td> 127</td>
-</tr>
-<tr>
-<td></td>
-<td> breadwallet       </td>
-<td> 84</td>
-</tr>
-<tr>
-<td></td>
-<td> others            </td>
-<td> 5252</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>For our analysis we choose to select only Bitcoin Wallet, Multibit (non-HD), KnC and Hive and omit the more obscure wallets.
-Everybody who has worked with the blockchain knows that it is a strange place where all sorts of things can happen. Only a single pubkey erroneously included in the cluster can lead to giant superclusters.</p>
-
-<p>We have learned from the previous post that there is still a chance (false positive rate) that we wrongly associate a pubkey with a wallet.
-A wallet using BitcoinJ version newer than 0.12 (which introduced hierarchical deterministic wallets) typically has a false positive rate around 0.000146, which would result in around 1.3 expected false positive pubkeys per wallet.
-Unfortunately, a single false positive per wallet can already vastly destroy the accuracy of our analysis, so we have to select wallets with a much lower false positive rate.
-We decide to require a false positive rate smaller than 0.00001, which leads to an expected total number of false positives in <em>all</em> wallets of <em>0.31</em>.
-This is because BitcoinJ wallets older than 0.12 mostly have extremely small false positive rates and surprisingly BitcoinJ &lt; 0.12 is still widely deployed.
-We end up with 20,765 wallets.
-<strong>WRONG because we have to select the ones that also remain after duplicate removal!</strong>
-One should note that most android bitcoin wallets have only a single pubkey because before HD wallets it was a pain to create a new pubkey.</p>
-
-<p>//
-// is there a correlation between wallet size and fp rate: yes! and it&rsquo;s significant, but in the graph we can&rsquo;t see anything
-// we only have a small amount of clusters yet
-// show histogram for all cluster sizes for user agents!
-// show histogram for clusters sizes for fp rate filtered
-// with limited data there is a huge difference
-// show plot fp_rate vs. num pubkeys
-We do have to carefully investigate that a selection does not introduce a strong bias in the wallets.</p>
-
-<p>Regarding the data we have to state some facts very clearly.
-We assume that the fraction of filters that include public keys that are not in the wallet is negligible.
-&lsquo;Poisened&rsquo; filters could be deliberately broadcasted by some nodes to thwart analyses like ours.
-Similarly, watch-only addresses also entail inclusion into the filter even though the private key is not owned by the wallet.
-However, none of the selected useragents implements a watch-only feature and a small fraction of poisened filters does not influence
-the analysis very much since each wallet has the same influence on the performance metric.</p>
-
-<p>Also, our data comprises <em>only</em> BitcoinJ wallets, which might have a different coin selection policy than other wallet software.
-When composing transactions BitcoinJ minimizes fees whereas for example Bitcoin Core minimizes change.
-More specifically, because we selected the aforementioned useragents we can only account for the particular spending habits of people using
-these wallet softwares.
-* HD wallets have better privacy</p>
-
-<h2>Evaluation</h2>
-
-<p>In order to evaluate the performance of the heuristic we use standard performance metrics for binary classification: precision and recall.
-Precision can be understand as the probability that a pubkey $p&#8217;$ is owned by a wallet given that it was found by applying heuristic $H$ to some other pubkey $p$ of the wallet.
-of the user $\text{prec(p)} = P(O(p&#8217;) | p&#8217; \in H(p))$. Similarly, recall can be seen as the probability that a pubkey $p&#8217;$ will be found by the heuristic given that it belongs to the the wallet $\text{rec(p)} = P(p&#8217; \in H(p) | O(p&#8217;))$. In order to obtain final metrics we average over all pubkeys of a wallet and all wallets.</p>
-
-<p>In detail, let $W$ be our collection of $n$ wallets where each $w_i \in W$ is a set of pubkeys, then we have</p>
-
-<p>$\text{prec(W)} = \frac{1}{n} \sum_i \frac{1}{|w_i|} \sum_{p\in w_i} \frac{w_i \cap H(p)}{|H(p)|}$ and</p>
-
-<p>$\text{rec(W)} = \frac{1}{n} \sum_i \frac{1}{|w_i|} \sum_{p\in w_i} \frac{w_i \cap H(p)}{|w_i|}$.</p>
-
-<ul>
-<li>table read db and average, confidence interval, standard deviation per wallet</li>
-<li>make graph for size of wallet</li>
-</ul>
-
-
-<h2>Tweaking</h2>
-
-<p>Christian Decker came up with a heuristic we have not seen mentioned anywhere before:
-If there is a unique output with a smaller value than any of the inputs then this has to be the change address.
-Combined with Satoshi&rsquo;s heuristic we get&hellip;
-* decker&rsquo;s heuristic</p>
-
-<h2>Conclusion</h2>
-
-<p>If you have ideas for additional tweaks you want to see evaluated feel free to contact me.</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ethereum Bug Bounty Submissions]]></title>
@@ -328,7 +174,7 @@ Therefore, it could be a useful method to remove the false positives which were 
 <h2>Conclusion</h2>
 
 <p>It should be pointed out that even if you know a victim&rsquo;s entry nodes you can not simply connect to those few and listen for transactions.
-This is because due to <a href="https://en.bitcoin.it/wiki/Satoshi_Client_Transaction_Exchange">&ldquo;trickling&rdquo;</a> it is not possible to estimate the origin of a transaction without further assumptions or doing BKP&rsquo;s Sybil attack.
+This is because <a href="https://en.bitcoin.it/wiki/Satoshi_Client_Transaction_Exchange">&ldquo;trickling&rdquo;</a> prevents estimating the origin of a transaction without further assumptions or doing BKP&rsquo;s Sybil attack.
 However, knowing all outbound peers of a client could significantly increase the success probability of a double spend.</p>
 
 <p><strong>Update</strong> The fix removes the update every 20 minutes and updates on disconnect</p>
