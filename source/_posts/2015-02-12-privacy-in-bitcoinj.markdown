@@ -3,7 +3,7 @@ layout: post
 title: "Privacy in BitcoinJ"
 date: 2015-02-12 15:53
 comments: true
-categories: [bitcoin, privacy]
+categories: [bitcoin, privacy, golang]
 ---
 
 As part of my [epic quest](https://github.com/jonasnick/FCW-Kernel) to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet implementations in the hope of finding privacy leaks.

@@ -3,7 +3,7 @@ layout: post
 title: "Guessing bitcoin's P2P connections"
 date: 2015-03-06 14:22
 comments: true
-categories: [bitcoin, privacy, go]
+categories: [bitcoin, privacy, golang]
 ---
 The paper [Deanonymisation of clients in Bitcoin P2P network (2014)](http://arxiv.org/abs/1405.7418) by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
 The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to ("entry nodes").
@@ -15,11 +15,12 @@ As a result, such an attack seems to be powerful, but certainly won't be undetec
 
 In this post I show that the first stage of the attack, namely learning the nodes a victim is directly connected to can
 be done with a single connection to the victim.
+In addition to BKP's attack, knowing all outbound peers of a client could significantly increase the success probability of a double spend.
 Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the same behavior.
 
 **TLDR** The attacker can reliably guess all of the outbound connections of a victim by making a selection from the known addresses of a victim based on the timestamp of the addresses.
 
-**Update** A [fix has been merged](https://github.com/bitcoin/bitcoin/pull/5860) to bitcoind. The timestamp is not updated anymore when receiving a message from a connected peer. Instead, it is only updated when the peer disconnects.
+**Update** A [fix has been merged](https://github.com/bitcoin/bitcoin/pull/5860) to bitcoind. The timestamp is not updated anymore when receiving a message from a connected peer. Instead, it is only updated when the peer disconnects. The fix is released in bitcoin core 0.10.1.
 
 <!-- more -->
 
@@ -53,13 +54,13 @@ In order to get a certain percentage $\tau$ of the known addresses of a node the
 getaddr messages and record the percentage that is new to her.
 
 ```
-S = ${}$
+S = {}
 while(true):
     send_getaddr()
     T = response()
-    $\tau'$ = 1 - ((|T - S|) / |T|) 
+    tau' = 1 - ((|T - S|) / |T|) 
     S <- S $\cup$ T
-    if $\tau'$ > $\tau$
+    if \tau' > \tau
         break
 return S
 ```
@@ -110,13 +111,13 @@ probabilities of our node being responsible.
 Using the binomial distribution we can compute the likelihood of receiving a certain number of addresses back
 given that we sent a certain number of addresses.
 
-I've done the math using [this code](https://github.com/jonasnick/btcP2PStruct/blob/master/prob/is_connected_prob.py) and some bold assumptions regarding the structure (edges are uniformly iid).
+I've done the math using [this code](https://github.com/jonasnick/btcP2PStruct/blob/master/prob/is_connected_prob.py) and some assumptions regarding the structure (edges are uniformly iid).
 Also, the attacker has to know or approximate the number of peers of a node, which can be done
 with a similar method than the one described. 
 Connect two times to the victim, send and note the ratio of returned addr messages.
 If you can not connect to the node, it will most likely have 8 peers.
 
-This *theoretical* model shows that that if $v_1$ is a full node and $v_2$ is a client then we need about 2000 messages to determine if they are connected. 
+This *theoretical* model shows that that if $v_1$ is a full node and $v_2$ is a client then we need about 2000 messages to determine if they are connected with 95% probability. 
 Similarly, if $v_1$ and $v_2$ are full nodes, the attacker needs to send 20000 messages.
 
 However, in order to remain polite in the network this attack needs start from a candidate set of nodes.
