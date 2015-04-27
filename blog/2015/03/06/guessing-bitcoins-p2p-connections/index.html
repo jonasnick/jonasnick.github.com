@@ -21,9 +21,11 @@
   <link rel="canonical" href="http://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
   <link href="/atom.xml" rel="alternate" title="nickler's" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <!--<link href="https://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">-->
@@ -902,11 +904,12 @@ As a result, such an attack seems to be powerful, but certainly won&rsquo;t be u
 
 <p>In this post I show that the first stage of the attack, namely learning the nodes a victim is directly connected to can
 be done with a single connection to the victim.
+In addition to BKP&rsquo;s attack, knowing all outbound peers of a client could significantly increase the success probability of a double spend.
 Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the same behavior.</p>
 
 <p><strong>TLDR</strong> The attacker can reliably guess all of the outbound connections of a victim by making a selection from the known addresses of a victim based on the timestamp of the addresses.</p>
 
-<p><strong>Update</strong> A <a href="https://github.com/bitcoin/bitcoin/pull/5860">fix has been merged</a> to bitcoind. The timestamp is not updated anymore when receiving a message from a connected peer. Instead, it is only updated when the peer disconnects.</p>
+<p><strong>Update</strong> A <a href="https://github.com/bitcoin/bitcoin/pull/5860">fix has been merged</a> to bitcoind. The timestamp is not updated anymore when receiving a message from a connected peer. Instead, it is only updated when the peer disconnects. The fix is released in bitcoin core 0.10.1.</p>
 
 <!-- more -->
 
@@ -949,13 +952,13 @@ getaddr messages and record the percentage that is new to her.</p>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>S = ${}$
+</pre></td><td class='code'><pre><code class=''><span class='line'>S = {}
 </span><span class='line'>while(true):
 </span><span class='line'>    send_getaddr()
 </span><span class='line'>    T = response()
-</span><span class='line'>    $\tau'$ = 1 - ((|T - S|) / |T|) 
+</span><span class='line'>    tau' = 1 - ((|T - S|) / |T|) 
 </span><span class='line'>    S &lt;- S $\cup$ T
-</span><span class='line'>    if $\tau'$ &gt; $\tau$
+</span><span class='line'>    if \tau' &gt; \tau
 </span><span class='line'>        break
 </span><span class='line'>return S</span></code></pre></td></tr></table></div></figure>
 
@@ -1011,13 +1014,13 @@ probabilities of our node being responsible.
 Using the binomial distribution we can compute the likelihood of receiving a certain number of addresses back
 given that we sent a certain number of addresses.</p>
 
-<p>I&rsquo;ve done the math using <a href="https://github.com/jonasnick/btcP2PStruct/blob/master/prob/is_connected_prob.py">this code</a> and some bold assumptions regarding the structure (edges are uniformly iid).
+<p>I&rsquo;ve done the math using <a href="https://github.com/jonasnick/btcP2PStruct/blob/master/prob/is_connected_prob.py">this code</a> and some assumptions regarding the structure (edges are uniformly iid).
 Also, the attacker has to know or approximate the number of peers of a node, which can be done
 with a similar method than the one described.
 Connect two times to the victim, send and note the ratio of returned addr messages.
 If you can not connect to the node, it will most likely have 8 peers.</p>
 
-<p>This <em>theoretical</em> model shows that that if $v_1$ is a full node and $v_2$ is a client then we need about 2000 messages to determine if they are connected.
+<p>This <em>theoretical</em> model shows that that if $v_1$ is a full node and $v_2$ is a client then we need about 2000 messages to determine if they are connected with 95% probability.
 Similarly, if $v_1$ and $v_2$ are full nodes, the attacker needs to send 20000 messages.</p>
 
 <p>However, in order to remain polite in the network this attack needs start from a candidate set of nodes.
@@ -1057,7 +1060,7 @@ However, knowing all outbound peers of a client could significantly increase the
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/go/'>go</a>, <a class='category' href='/blog/categories/privacy/'>privacy</a>
+    <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/golang/'>golang</a>, <a class='category' href='/blog/categories/privacy/'>privacy</a>
   
 </span>
 
@@ -1103,6 +1106,10 @@ However, knowing all outbound peers of a client could significantly increase the
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/27/evaluating-satoshis-clustering-heuristic/">Evaluating Satoshi's Clustering Heuristic</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/17/ethereum-bug-bounty-submissions/">Ethereum Bug Bounty Submissions</a>
       </li>
     
@@ -1118,15 +1125,11 @@ However, knowing all outbound peers of a client could significantly increase the
         <a href="/blog/2015/02/12/privacy-in-bitcoinj/">Privacy in BitcoinJ</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2014/12/12/fcw-kernel/">FCW Kernel</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 115.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 115.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 115.0%'>blender</a> <a href='/blog/categories/c-' style='font-size: 115.0%'>c++</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 115.0%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 115.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 115.0%'>genetic algorithms</a> <a href='/blog/categories/go' style='font-size: 115.0%'>go</a> <a href='/blog/categories/java' style='font-size: 130.0%'>java</a> <a href='/blog/categories/kinect' style='font-size: 115.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 115.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 130.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 115.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 115.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 130.0%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 130.0%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 115.0%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 160.0%'>python</a> <a href='/blog/categories/r' style='font-size: 145.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 115.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 115.0%'>regression</a> <a href='/blog/categories/signaling-games' style='font-size: 115.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 115.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 115.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 115.0%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 112.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 112.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 112.0%'>blender</a> <a href='/blog/categories/c-' style='font-size: 112.0%'>c++</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 112.0%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 112.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 112.0%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 136.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 124.0%'>java</a> <a href='/blog/categories/kinect' style='font-size: 112.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 112.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 124.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 112.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 112.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 124.0%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 136.0%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 112.0%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 148.0%'>python</a> <a href='/blog/categories/r' style='font-size: 136.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 112.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 112.0%'>regression</a> <a href='/blog/categories/signaling-games' style='font-size: 112.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 112.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 112.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 112.0%'>Sweave</a> </span>
 </section>
 
 <section>
