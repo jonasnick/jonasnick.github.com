@@ -126,7 +126,7 @@ Therefore, it could be a useful method to remove the false positives which were 
 Conclusion
 ---
 It should be pointed out that even if you know a victim's entry nodes you can not simply connect to those few and listen for transactions. 
-This is because due to ["trickling"](https://en.bitcoin.it/wiki/Satoshi_Client_Transaction_Exchange) it is not possible to estimate the origin of a transaction without further assumptions or doing BKP's Sybil attack.
+This is because ["trickling"](https://en.bitcoin.it/wiki/Satoshi_Client_Transaction_Exchange) prevents estimating the origin of a transaction without further assumptions or doing BKP's Sybil attack.
 However, knowing all outbound peers of a client could significantly increase the success probability of a double spend.
 
 **Update** The fix removes the update every 20 minutes and updates on disconnect
