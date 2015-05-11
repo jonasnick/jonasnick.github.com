@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="TLDR I ran afl-fuzz against libbitcoinconsensus to discover interesting Bitcoin scripts and used these to search for Bitcoin reimplementations &hellip;">
+  <meta name="description" content="TLDR I ran afl-fuzz against libbitcoinconsensus to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -836,6 +836,7 @@ init_mathjax = function() {
 }
 init_mathjax();
 </script>
+<meta property="og:image" content="images/ogimage.png" />
 
   
 
@@ -897,8 +898,8 @@ init_mathjax();
   </header>
 
 
-  <div class="entry-content"><p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used these to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in btcd by Conformal.
-See <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases</a></p>
+  <div class="entry-content"><p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
+See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a> for the discovered Bitcoin scripts.</p>
 
 </div>
   

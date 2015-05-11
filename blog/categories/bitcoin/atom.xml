@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-05-10T18:55:22+02:00</updated>
+  <updated>2015-05-11T14:39:52+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -18,8 +18,8 @@
     <link href="http://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/"/>
     <updated>2015-05-09T23:39:00+02:00</updated>
     <id>http://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus</id>
-    <content type="html"><![CDATA[<p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used these to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in btcd by Conformal.
-See <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases</a></p>
+    <content type="html"><![CDATA[<p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
+See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a> for the discovered Bitcoin scripts.</p>
 
 <!-- more -->
 
@@ -38,7 +38,7 @@ As soon as the hash power of $N_{\neg v}$ exceeds some threshold the new consens
 In the context of Bitcoin updates this is called a <a href="https://en.bitcoin.it/wiki/Softfork">softfork</a>: a valid block becomes invalid in the new version.
 On the other hand, a <a href="https://en.bitcoin.it/wiki/Hardfork">hardfork</a> occurs when an invalid block is valid in a new version, for example by <a href="http://gavinandresen.ninja/time-to-roll-out-bigger-blocks">raising the maximum block size limit</a>.
 Then nodes that run the old version are represented by $N_{\neg v}$. Even if the majority of hashpower is in $N_v$, the nodes in $N_{\neg v}$ can never switch
-to $N_v$&rsquo;s chain because at least one block is invalid for them.
+to $N_v$&rsquo;s chain because some blocks are invalid for them.
 Therefore, in the case of a hardfork all nodes are required to update.</p>
 
 <h2>Fuzzing</h2>
@@ -47,9 +47,10 @@ Therefore, in the case of a hardfork all nodes are required to update.</p>
 Bitcoin reimplementations such as libbitcoin, btcd, bitcore and toshi are particularly vulnerable to these bugs because they have to match exactly the behavior of the Bitcoin reference implementation.
 In order to abstract part of the consensus critical code and allow other projects to use it, Bitcoin Core developers created the <a href="http://lcamtuf.coredump.cx/afl/">bitcoinconsensus library</a>.
 I am not aware of any reimplementation that already adopted libbitcoinconsensus.
-Right now, it only has a single function bitcoinconsensus_script_verify, which takes an output <a href="https://en.bitcoin.it/wiki/Script">script</a> and a transaction and returns if the transaction is allowed to spend the output.
-Among other conditions, a transaction is valid if the top stack item is different from 0 after script execution.
-Bitcoin script is much more powerful than just verifying signatures and therefore I was wanted to find interesting scripts, i.e. scripts that trigger unusual edge cases.
+Right now, it only has a single function bitcoinconsensus_script_verify, which takes an output <a href="https://en.bitcoin.it/wiki/Script">script</a> and a transaction and returns if the transaction is allowed to spend the output.</p>
+
+<p>Among other conditions, a transaction is valid if the top stack item is different from 0 after script execution.
+Bitcoin script is much more powerful than just verifying signatures and therefore I was curious to find interesting scripts, i.e. scripts that trigger unusual edge cases.
 I&rsquo;ve recently heard about successes with <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> whose heuristic using code coverage seemed to be particularly well suited for the task.
 Also, it has the capability to minimize a set of inputs such that the code coverage stays the same.
 After fuzzing libbitcoinconsensus for two weeks I supplied the inputs to btcd&rsquo;s <a href="https://github.com/btcsuite/btcd/tree/master/txscript">txscript</a>, a reimplementation in golang, and checked if the outputs differ.</p>
@@ -72,7 +73,8 @@ Btcd would have not been able to include the block into its chain and would beco
 Therefore, an attacker could create a block on top of btcd&rsquo;s chain paying a merchant running btcd without affecting his &lsquo;real&rsquo; coins on the main chain.
 Note that the attacker would not race against the hashpower of Bitcoin miners.</p>
 
-<p>Dave Collins from the btcd team fixed these issues very fast and <a href="https://github.com/bitcoin/bitcoin/pull/6075/commits">additionally</a> improved the test coverage in Bitcoin Core for the <a href="https://github.com/bitcoin/bitcoin/pull/6112">affected</a> and <a href="https://github.com/bitcoin/bitcoin/pull/6075">more</a> opcodes.</p>
+<p>Dave Collins from the btcd team fixed these issues very fast and additionally improved the test coverage in Bitcoin Core for the <a href="https://github.com/bitcoin/bitcoin/pull/6112">affected</a> and <a href="https://github.com/bitcoin/bitcoin/pull/6075">more</a> opcodes.
+Additionally, he was so kind to award me with 0.5 bitcoin for the find.</p>
 
 <h2>Conclusion</h2>
 
