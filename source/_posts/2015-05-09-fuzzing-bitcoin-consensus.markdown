@@ -6,8 +6,8 @@ comments: true
 categories: [bitcoin, consensus]
 ---
 
-**TLDR** I ran [afl-fuzz](http://lcamtuf.coredump.cx/afl/) against [libbitcoinconsensus](https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f) to discover interesting Bitcoin scripts and used these to search for Bitcoin reimplementations vulnerable to forking. This discovered [two bugs](https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f) in btcd by Conformal.
-See [bitcoinconsensus_testcases](https://github.com/jonasnick/bitcoinconsensus_testcases)
+**TLDR** I ran [afl-fuzz](http://lcamtuf.coredump.cx/afl/) against [libbitcoinconsensus](https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f) to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered [two bugs](https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f) in [btcd](https://github.com/btcsuite/btcd) by Conformal.
+See the [bitcoinconsensus_testcases repository](https://github.com/jonasnick/bitcoinconsensus_testcases) for the discovered Bitcoin scripts.
 
 <!-- more -->
 
@@ -25,7 +25,7 @@ As soon as the hash power of $N\_{\neg v}$ exceeds some threshold the new consen
 In the context of Bitcoin updates this is called a [softfork](https://en.bitcoin.it/wiki/Softfork): a valid block becomes invalid in the new version.
 On the other hand, a [hardfork](https://en.bitcoin.it/wiki/Hardfork) occurs when an invalid block is valid in a new version, for example by [raising the maximum block size limit](http://gavinandresen.ninja/time-to-roll-out-bigger-blocks).
 Then nodes that run the old version are represented by $N\_{\neg v}$. Even if the majority of hashpower is in $N_v$, the nodes in $N\_{\neg v}$ can never switch 
-to $N_v$'s chain because at least one block is invalid for them. 
+to $N_v$'s chain because some blocks are invalid for them. 
 Therefore, in the case of a hardfork all nodes are required to update.
 
 Fuzzing
@@ -35,8 +35,9 @@ Bitcoin reimplementations such as libbitcoin, btcd, bitcore and toshi are partic
 In order to abstract part of the consensus critical code and allow other projects to use it, Bitcoin Core developers created the [bitcoinconsensus library](http://lcamtuf.coredump.cx/afl/). 
 I am not aware of any reimplementation that already adopted libbitcoinconsensus.
 Right now, it only has a single function bitcoinconsensus_script_verify, which takes an output [script](https://en.bitcoin.it/wiki/Script) and a transaction and returns if the transaction is allowed to spend the output.
+
 Among other conditions, a transaction is valid if the top stack item is different from 0 after script execution.
-Bitcoin script is much more powerful than just verifying signatures and therefore I was wanted to find interesting scripts, i.e. scripts that trigger unusual edge cases.
+Bitcoin script is much more powerful than just verifying signatures and therefore I was curious to find interesting scripts, i.e. scripts that trigger unusual edge cases.
 I've recently heard about successes with [afl-fuzz](http://lcamtuf.coredump.cx/afl/) whose heuristic using code coverage seemed to be particularly well suited for the task.
 Also, it has the capability to minimize a set of inputs such that the code coverage stays the same. 
 After fuzzing libbitcoinconsensus for two weeks I supplied the inputs to btcd's [txscript](https://github.com/btcsuite/btcd/tree/master/txscript), a reimplementation in golang, and checked if the outputs differ.
@@ -59,7 +60,8 @@ Btcd would have not been able to include the block into its chain and would beco
 Therefore, an attacker could create a block on top of btcd's chain paying a merchant running btcd without affecting his 'real' coins on the main chain. 
 Note that the attacker would not race against the hashpower of Bitcoin miners.
 
-Dave Collins from the btcd team fixed these issues very fast and [additionally](https://github.com/bitcoin/bitcoin/pull/6075/commits) improved the test coverage in Bitcoin Core for the [affected](https://github.com/bitcoin/bitcoin/pull/6112) and [more](https://github.com/bitcoin/bitcoin/pull/6075) opcodes.
+Dave Collins from the btcd team fixed these issues very fast and additionally improved the test coverage in Bitcoin Core for the [affected](https://github.com/bitcoin/bitcoin/pull/6112) and [more](https://github.com/bitcoin/bitcoin/pull/6075) opcodes.
+Additionally, he was so kind to award me with 0.5 bitcoin for the find.
 
 Conclusion
 ---
