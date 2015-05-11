@@ -6,7 +6,7 @@ comments: true
 categories: [bitcoin, consensus]
 ---
 
-**TLDR** I ran [afl-fuzz](http://lcamtuf.coredump.cx/afl/) against [libbitcoinconsensus](https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f) to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered [two bugs](https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f) in [btcd](https://github.com/btcsuite/btcd) by Conformal.
+**TLDR** I ran [afl-fuzz](http://lcamtuf.coredump.cx/afl/) against [libbitcoinconsensus](https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library) to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered [two bugs](https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f) in [btcd](https://github.com/btcsuite/btcd) by Conformal.
 See the [bitcoinconsensus_testcases repository](https://github.com/jonasnick/bitcoinconsensus_testcases) for the discovered Bitcoin scripts.
 
 <!-- more -->
@@ -32,7 +32,7 @@ Fuzzing
 ---
 Forks in practice do not only happen deliberately because of updating mechanisms but can also be triggered by [bugs](https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki).
 Bitcoin reimplementations such as libbitcoin, btcd, bitcore and toshi are particularly vulnerable to these bugs because they have to match exactly the behavior of the Bitcoin reference implementation.
-In order to abstract part of the consensus critical code and allow other projects to use it, Bitcoin Core developers created the [bitcoinconsensus library](http://lcamtuf.coredump.cx/afl/). 
+In order to abstract part of the consensus critical code and allow other projects to use it, Bitcoin Core developers created the [bitcoinconsensus library](https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library). 
 I am not aware of any reimplementation that already adopted libbitcoinconsensus.
 Right now, it only has a single function bitcoinconsensus_script_verify, which takes an output [script](https://en.bitcoin.it/wiki/Script) and a transaction and returns if the transaction is allowed to spend the output.
 
