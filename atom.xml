@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="http://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-05-11T14:49:09+02:00</updated>
+  <updated>2015-05-11T22:10:31+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -18,7 +18,7 @@
     <link href="http://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/"/>
     <updated>2015-05-09T23:39:00+02:00</updated>
     <id>http://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus</id>
-    <content type="html"><![CDATA[<p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
+    <content type="html"><![CDATA[<p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
 See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a> for the discovered Bitcoin scripts.</p>
 
 <!-- more -->
@@ -45,7 +45,7 @@ Therefore, in the case of a hardfork all nodes are required to update.</p>
 
 <p>Forks in practice do not only happen deliberately because of updating mechanisms but can also be triggered by <a href="https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki">bugs</a>.
 Bitcoin reimplementations such as libbitcoin, btcd, bitcore and toshi are particularly vulnerable to these bugs because they have to match exactly the behavior of the Bitcoin reference implementation.
-In order to abstract part of the consensus critical code and allow other projects to use it, Bitcoin Core developers created the <a href="http://lcamtuf.coredump.cx/afl/">bitcoinconsensus library</a>.
+In order to abstract part of the consensus critical code and allow other projects to use it, Bitcoin Core developers created the <a href="https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library">bitcoinconsensus library</a>.
 I am not aware of any reimplementation that already adopted libbitcoinconsensus.
 Right now, it only has a single function bitcoinconsensus_script_verify, which takes an output <a href="https://en.bitcoin.it/wiki/Script">script</a> and a transaction and returns if the transaction is allowed to spend the output.</p>
 
