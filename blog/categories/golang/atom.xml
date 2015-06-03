@@ -4,7 +4,7 @@
   <title><![CDATA[Category: golang | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/golang/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-05-11T22:10:31+02:00</updated>
+  <updated>2015-06-03T14:21:50+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -201,8 +201,8 @@ of the Bloom filter such that the fp rate for (271*2)+100 elements is equal to 0
 Because bitcoinj initially puts only 271*2 elements into the filter (pubkey and corresponding pubkeyhash) the effective false positive rate is <code>fp=0.000146</code>.</p>
 
 <p>The vulnerability is that if a pubkey is truly in the filter then querying both pubkey and pubkeyhash must return true.
-Because the pubkeyhash is just another almost uniformly random string, the probability of a false positive for the attacker is <code>fp' = fp^2 = 0.0000000021555</code>.
-I obtained around 56 million pubkeys from the blockchain (mid-January), which theoretically results in <code>56 million * fp' = 1.29</code> expected false positives when scanning the blockchain.</p>
+Because the pubkeyhash is just another almost uniformly random string, the probability of a false positive for the attacker is <code>fp' = fp^2 = 0.0000000213</code>.
+I obtained around 56 million pubkeys from the blockchain (mid-January), which theoretically results in <code>56 million * fp' = 1.19</code> expected false positives when scanning the blockchain.</p>
 
 <h2>Experimental results</h2>
 
