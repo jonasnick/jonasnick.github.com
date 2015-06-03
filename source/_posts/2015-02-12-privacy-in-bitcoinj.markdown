@@ -50,8 +50,8 @@ of the Bloom filter such that the fp rate for (271\*2)+100 elements is equal to 
 Because bitcoinj initially puts only 271\*2 elements into the filter (pubkey and corresponding pubkeyhash) the effective false positive rate is `fp=0.000146`. 
 
 The vulnerability is that if a pubkey is truly in the filter then querying both pubkey and pubkeyhash must return true. 
-Because the pubkeyhash is just another almost uniformly random string, the probability of a false positive for the attacker is `fp' = fp^2 = 0.0000000021555`.
-I obtained around 56 million pubkeys from the blockchain (mid-January), which theoretically results in `56 million * fp' = 1.29` expected false positives when scanning the blockchain.
+Because the pubkeyhash is just another almost uniformly random string, the probability of a false positive for the attacker is `fp' = fp^2 = 0.0000000213`.
+I obtained around 56 million pubkeys from the blockchain (mid-January), which theoretically results in `56 million * fp' = 1.19` expected false positives when scanning the blockchain.
 
 Experimental results
 ---
