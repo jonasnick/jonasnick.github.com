@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="http://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-06-03T14:21:50+02:00</updated>
+  <updated>2015-06-23T10:52:33+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Can miners exploit a block size increase?]]></title>
+    <link href="http://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/"/>
+    <updated>2015-06-23T10:49:00+02:00</updated>
+    <id>http://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase</id>
+    <content type="html"><![CDATA[<p>We don&rsquo;t know yet. But <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/master/analysis/README.md">I plotted some scenarios</a> that were created with Gavin Andresen&rsquo;s Mining Simulator.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fuzzing Bitcoin Consensus]]></title>
