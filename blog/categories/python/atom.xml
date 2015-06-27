@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-06-23T10:52:33+02:00</updated>
+  <updated>2015-06-28T00:37:07+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -18,7 +18,9 @@
     <link href="http://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/"/>
     <updated>2015-06-23T10:49:00+02:00</updated>
     <id>http://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase</id>
-    <content type="html"><![CDATA[<p>We don&rsquo;t know yet. But <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/master/analysis/README.md">I plotted some scenarios</a> that were created with Gavin Andresen&rsquo;s Mining Simulator.</p>
+    <content type="html"><![CDATA[<p>We don&rsquo;t know yet. But modelling is in my opinion a useful tool to investigate potential effects.
+Therefore, I used Gavin Andresen&rsquo;s mining simulator to create some more or less plausible scenarios.
+You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/master/analysis/README.md">resulting plots on github</a>.</p>
 ]]></content>
   </entry>
   
