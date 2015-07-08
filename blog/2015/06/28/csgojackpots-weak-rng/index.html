@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: racket - nickler's</title>
+  <title>CSGOJackpot's weak RNG - nickler's</title>
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Category: racket">
+  <meta name="description" content="CSGOJackpot is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
+These seemingly worthless items &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jonasnick.github.ioblog/categories/racket/">
+  <link rel="canonical" href="http://jonasnick.github.io/blog/2015/06/28/csgojackpots-weak-rng/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
     <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -868,36 +869,202 @@ init_mathjax();
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Racket</h1>
+    
+      <h1 class="entry-title">CSGOJackpot's Weak RNG</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-06-28T00:42:00+02:00" pubdate data-updated="true">Jun 28<span>th</span>, 2015</time>
+        
+      </p>
     
   </header>
+
+
+<div class="entry-content"><p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
+These seemingly worthless items are actually worth quite a lot and can be traded for example in Steam&rsquo;s own
+Marketplace. What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
+of value that is gambled away. On average, more than 20,000$ are thrown into the pots per hour.</p>
+
+<p><strong>TL;DR</strong>: CSGOJackpot is a nodejs app that uses <em>Math.random()</em> to determine the winning ticket. Of course, it&rsquo;s not cryptographically
+secure and trivial to predict the next number given two outputs of the random number generator.
+I did not try to profit from this vulnerability but for the lulz I set up a twitch stream and revealed the next winning percentage
+in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md">submission gallery</a> and a <a href="https://www.youtube.com/watch?v=DZrDQKbQ7r0">recording of the stream</a>.</p>
+
+<!-- more -->
+
+
+<h2>Game Mechanics</h2>
+
+<p>CSGOJackpot works like this:</p>
+
+<ol>
+<li>Start of a new round, the pot is empty.</li>
+<li>A player puts up to 10 skins into the pot and receives a number of <em>tickets</em> relative to the total value of skins he deposited. For each cent he receives one ticket, the tickets are numbered and start at 0. The value of a skin is given by <a href="http://csgo.steamanalyst.com">SteamAnalyst</a>.</li>
+<li>If there are less than 50 skins in the pot go to 2.</li>
+<li>The site generated a random number (<em>winning percentage</em>) between 0 and 1, which is multiplied with the total number of
+tickets to determine the winning ticket.</li>
+<li>The player with the winning ticket wins the whole pot, except up to 5% which is kept by CSGOJackpot.</li>
+</ol>
+
+
+<p>In addition to guessing the winning percentage, an attacker has to know the total number of tickets to be sure to win the pot.
+So, he has to try to place the last bet which can be tricky and is very difficult during times of high traffic because of huge lags.</p>
+
+<h2>&ldquo;Breaking&rdquo; the RNG</h2>
+
+<p>The HTML showed some signs of node.js, so my hypothesis was that the site simply uses javascript&rsquo;s Math.random() to determine the winning percentage.
+Fortunately, the full winning percentage with up to 16 digits is published after the end of a round, which is exactly the amount of digits I
+got when I executed Math.random() on my machine.
+Node.js uses the V8 javascript engine and its <a href="https://github.com/joyent/node/blob/61c6abf00898fe00eb7fcf2c23ba0b01cf12034c/deps/v8/src/math.js#L146">implementation</a> of Math.random() (nodejs 0.12.X) is as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">MathRandom</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">r0</span> <span class="o">=</span> <span class="p">(</span><span class="nx">MathImul</span><span class="p">(</span><span class="mi">18273</span><span class="p">,</span> <span class="nx">rngstate</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">rngstate</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">16</span><span class="p">))</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="nx">rngstate</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nx">r0</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">r1</span> <span class="o">=</span> <span class="p">(</span><span class="nx">MathImul</span><span class="p">(</span><span class="mi">36969</span><span class="p">,</span> <span class="nx">rngstate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">rngstate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">16</span><span class="p">))</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="nx">rngstate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">r1</span><span class="p">;</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">((</span><span class="nx">r0</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">r1</span> <span class="o">&amp;</span> <span class="mh">0xFFFF</span><span class="p">))</span> <span class="o">|</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="c1">// Division by 0x100000000 through multiplication by reciprocal.</span>
+</span><span class='line'>  <span class="k">return</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mh">0x100000000</span><span class="p">)</span> <span class="o">:</span> <span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.3283064365386962890625</span><span class="nx">e</span><span class="o">-</span><span class="mi">10</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is known as <a href="https://groups.google.com/forum/#!msg/sci.stat.math/5yb0jwf1stw/ApaXM3IRy-0J">Marsaglia&rsquo;s Multiply-with-Carry</a>.
+Note that the implementation used in nodejs 0.10.X uses a very similar algorithm, but it&rsquo;s implemented in C and the conversion to floating point is done differently.</p>
+
+<p>So the RNG state has 64 bits and 32 bits immediately leak from a single output. Given two subsequent outputs one can bruteforce the remaining
+32 bits of the states which takes about 30 seconds on a 3.0Ghz i7 core (implemented in C).
+However, this failed to produce the correct state, so my guess was that there are some calls to Math.random() in between two winning percentages.
+It turned out that the the number of calls between varies between 8 and 35 and brute forcing this required a third winning percentage and around
+5 hours in expectancy. So now I had the correct state, which I verified by creating the next 50 numbers and checking if they contained the next winning percentages.
+But I didn&rsquo;t find any pattern by which I could determine which of the next random numbers is going to be winning percentage.
+Fortunately, there is another feature of CSGOJackpot which made this trivial.</p>
+
+<h2>&ldquo;Provably Fair&rdquo;</h2>
+
+<p>The site claims to be <em>provably fair</em>. But this is not really the case. What they are doing is a simple commitment to the winning percentage
+, by publishing a hash <code>md5(blinding + winning percentage)</code> before the round (where the blinding is a uniformly random hexstring)
+and revealing the blinding and winning percentage at the end of the round. Thus, they can not adjust the winning percentage to their
+liking during or after the round. But, naturally, provable fairness implies that even the server does not know the winning percentage ahead of time.</p>
+
+<p>However, this feature made it possible to reliably predict the next winning percentage.
+I observed that the blinding just consists of two calls to math.Random() which were converted to hex with <code>toString(16).substr(2,4)</code>
+and then concatenated. So now I just had to step through the next winning percentage candidates and the next blinding candidates and
+check if their hash matched the commitment.</p>
+
+<p>One more word to provably fairness. It&rsquo;s quite annoying to see CSGOJackpot and the many other sites that work similarly to
+make exactly the same false claim.
+I&rsquo;m not a cryptographer so take the following with a grain of salt and I&rsquo;d be happy learn if I&rsquo;m missing something something important.
+A truly fair scheme seems to be possible although much more complex to implement.
+The underlying problem is known as <a href="https://en.wikipedia.org/wiki/Commitment_scheme#Coin_flipping">coin flipping</a>.
+In a two player setting you can have each player commit to a value
+and then XOR the value in the reveal phase to get a statistically independent result.
+This is how for example <a href="https://satoshidice.com/provably-fair/">Satoshi Dice</a> achieves some level of fairness.
+However, in a multi-party setting (assuming the existence of a broadcast channel), this can be trivially <a href="https://en.wikipedia.org/wiki/Sybil_attack">Sybil attacked</a>. An attacker could create multiple identities and refuse to reveal one of his commitments, if another one of his identities wins the pot.
+A trivial Sybil-resistant construction would have each player loose more when not revealing than what is in the pot, but this does not seem really practical.
+Another approach is to use <a href="http://www.hashcash.org/papers/time-lock.pdf">time-lock encryption</a> instead of commitments, which means that after a some time everybody can decrypt the value without having access to the key.</p>
+
+<h2>Exploitation</h2>
+
+<p>I didn&rsquo;t play this game at all (it would have been unfair :) ), but for the lulz I had to at least troll them a bit.
+So I set up a twitch stream where I was revealing the next winning percentages in exchange for a drawing of Gabe Newell.
+I privately disclosed the bug to the administrator the moment I started the stream.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DZrDQKbQ7r0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>See also the <a href="https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md">submission gallery</a>.
+After 2 hours of fun they fixed the issue.
+Interestingly, googling &ldquo;nodejs cryptographically secure random number generator&rdquo; did not really result in plug-and-play solutions for me.
+Without knowing about the pitfalls of javascript I suggested to use <code>crypto.randomBytes(4).readUIntLE(0, 4) / 0xFFFFFFFF</code> (if this is somehow wrong please
+write me a message).
+Unfortunately, so far they didn&rsquo;t remove the &ldquo;provable fairness&rdquo; claim.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <div id="blog-archives" class="category">
+
+<span class="byline author vcard">Posted by <span class="fn">Jonas Nick</span></span>
+
+      
+
+
+
+
+
 
 
 
   
-  <h2>2012</h2>
 
-<article>
+
+<time datetime="2015-06-28T00:42:00+02:00" pubdate data-updated="true">Jun 28<span>th</span>, 2015</time>
+      
+
+<span class="categories">
   
-<h1><a href="/blog/2012/11/28/snake-in-racket/">Snake in Racket</a></h1>
-<time datetime="2012-11-28T19:28:00+01:00" pubdate><span class='month'>Nov</span> <span class='day'>28</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/racket/'>racket</a>, <a class='category' href='/blog/categories/snake/'>snake</a></span>
-</footer>
+    <a class='category' href='/blog/categories/c/'>C</a>, <a class='category' href='/blog/categories/javascript/'>javascript</a>, <a class='category' href='/blog/categories/security/'>security</a>
+  
+</span>
 
 
-</article>
+    </p>
+    
+      <div class="sharing">
+  
+  <div class="padding">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="n1ckler">Tweet</a>
+    </div>
+  
+  
+  
 
 </div>
 
-  
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/06/23/can-miners-exploit-a-block-size-increase/" title="Previous Post: Can miners exploit a block size increase?">&laquo; Can miners exploit a block size increase?</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -959,7 +1126,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
       var disqus_shortname = 'nicklers';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jonasnick.github.io/blog/2015/06/28/csgojackpots-weak-rng/';
+        var disqus_url = 'http://jonasnick.github.io/blog/2015/06/28/csgojackpots-weak-rng/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

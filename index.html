@@ -9,8 +9,8 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="We don&rsquo;t know yet. But modelling is in my opinion a useful tool to investigate potential effects.
-Therefore, I used Gavin Andresen&rsquo;s &hellip;">
+  <meta name="description" content="CSGOJackpot is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
+These seemingly worthless items &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -876,6 +876,55 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/06/28/csgojackpots-weak-rng/">CSGOJackpot&#8217;s Weak RNG</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-06-28T00:42:00+02:00" pubdate data-updated="true">Jun 28<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
+These seemingly worthless items are actually worth quite a lot and can be traded for example in Steam&rsquo;s own
+Marketplace. What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
+of value that is gambled away. On average, more than 20,000$ are thrown into the pots per hour.</p>
+
+<p><strong>TL;DR</strong>: CSGOJackpot is a nodejs app that uses <em>Math.random()</em> to determine the winning ticket. Of course, it&rsquo;s not cryptographically
+secure and trivial to predict the next number given two outputs of the random number generator.
+I did not try to profit from this vulnerability but for the lulz I set up a twitch stream and revealed the next winning percentage
+in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md">submission gallery</a> and a <a href="https://www.youtube.com/watch?v=DZrDQKbQ7r0">recording of the stream</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/06/28/csgojackpots-weak-rng/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/06/23/can-miners-exploit-a-block-size-increase/">Can Miners Exploit a Block Size Increase?</a></h1>
     
     
@@ -1302,57 +1351,6 @@ Pragmatics tries to explain why a simple sentence like &ldquo;It&rsquo;s raining
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/">Regressionsmodelle Und Parameterschätzverfahren</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-15T17:26:00+01:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/regressionPresentation-linearFit.png" width="500"></p>
-
-<p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar &ldquo;Maschinelles Lernen&rdquo; an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
-Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto &ldquo;Frauen und Kinder zuerst&rdquo; bei der Katastrophe zutraf.</p>
-
-<p><strong>Every plot is produced using the open source statistic software <a href="http://www.r-project.org/">R</a> inside the $\LaTeX$ file (Sweave). Code is <a href="https://github.com/jonasnick/regression/blob/master/ausarbeitung/ausarbeitung.Rnw">here</a>.</strong></p>
-
-<blockquote><p>Charakteristisch für überwachtes maschinelles Lernen, zu der auch die Regression gehört, ist das Beschreiben der Beziehung von Zielvariable und erklärender Variable aus vorliegenden Daten, also Realisierungen von Zufallsvariablen.</p>
-
-<p>Das Regressionsmodell stellt $y$ durch die Summe einer Hypothese von $x$ und einem Fehlerterm $\epsilon$ dar.</p>
-
-<p>$$
-y = h(x) + \epsilon
-$$</p></blockquote>
-
-<p><a href="regression.pdf"><center><strong>PDF weiterlesen</strong></center></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1366,6 +1364,10 @@ $$</p></blockquote>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/06/28/csgojackpots-weak-rng/">CSGOJackpot&#8217;s weak RNG</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/06/23/can-miners-exploit-a-block-size-increase/">Can miners exploit a block size increase?</a>
@@ -1383,15 +1385,11 @@ $$</p></blockquote>
         <a href="/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/">Bitcoin Seeder DoS vulnerability</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Guessing bitcoin&#8217;s P2P connections</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 110.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 110.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 110.0%'>blender</a> <a href='/blog/categories/c-' style='font-size: 110.0%'>c++</a> <a href='/blog/categories/consensus' style='font-size: 110.0%'>consensus</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 110.0%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 110.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 110.0%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 120.0%'>java</a> <a href='/blog/categories/kinect' style='font-size: 110.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 110.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 120.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 110.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 110.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 120.0%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 120.0%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 110.0%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 150.0%'>python</a> <a href='/blog/categories/r' style='font-size: 130.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 110.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 110.0%'>regression</a> <a href='/blog/categories/signaling-games' style='font-size: 110.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 110.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 110.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 110.0%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 110.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 110.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 110.0%'>blender</a> <a href='/blog/categories/c' style='font-size: 110.0%'>C</a> <a href='/blog/categories/c-' style='font-size: 110.0%'>c++</a> <a href='/blog/categories/consensus' style='font-size: 110.0%'>consensus</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 110.0%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 110.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 110.0%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 120.0%'>java</a> <a href='/blog/categories/javascript' style='font-size: 110.0%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 110.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 110.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 120.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 110.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 110.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 120.0%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 120.0%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 110.0%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 150.0%'>python</a> <a href='/blog/categories/r' style='font-size: 130.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 110.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 110.0%'>regression</a> <a href='/blog/categories/security' style='font-size: 110.0%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 110.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 110.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 110.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 110.0%'>Sweave</a> </span>
 </section>
 
 <section>

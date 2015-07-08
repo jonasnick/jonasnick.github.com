@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: C | nickler's]]></title>
+  <link href="http://jonasnick.github.io/blog/categories/c/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2015-07-09T00:19:31+02:00</updated>
+  <id>http://jonasnick.github.io/</id>
+  <author>
+    <name><![CDATA[Jonas Nick]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[CSGOJackpot's weak RNG]]></title>
+    <link href="http://jonasnick.github.io/blog/2015/06/28/csgojackpots-weak-rng/"/>
+    <updated>2015-06-28T00:42:00+02:00</updated>
+    <id>http://jonasnick.github.io/blog/2015/06/28/csgojackpots-weak-rng</id>
+    <content type="html"><![CDATA[<p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
+These seemingly worthless items are actually worth quite a lot and can be traded for example in Steam&rsquo;s own
+Marketplace. What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
+of value that is gambled away. On average, more than 20,000$ are thrown into the pots per hour.</p>
+
+<p><strong>TL;DR</strong>: CSGOJackpot is a nodejs app that uses <em>Math.random()</em> to determine the winning ticket. Of course, it&rsquo;s not cryptographically
+secure and trivial to predict the next number given two outputs of the random number generator.
+I did not try to profit from this vulnerability but for the lulz I set up a twitch stream and revealed the next winning percentage
+in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md">submission gallery</a> and a <a href="https://www.youtube.com/watch?v=DZrDQKbQ7r0">recording of the stream</a>.</p>
+
+<!-- more -->
+
+
+<h2>Game Mechanics</h2>
+
+<p>CSGOJackpot works like this:</p>
+
+<ol>
+<li>Start of a new round, the pot is empty.</li>
+<li>A player puts up to 10 skins into the pot and receives a number of <em>tickets</em> relative to the total value of skins he deposited. For each cent he receives one ticket, the tickets are numbered and start at 0. The value of a skin is given by <a href="http://csgo.steamanalyst.com">SteamAnalyst</a>.</li>
+<li>If there are less than 50 skins in the pot go to 2.</li>
+<li>The site generated a random number (<em>winning percentage</em>) between 0 and 1, which is multiplied with the total number of
+tickets to determine the winning ticket.</li>
+<li>The player with the winning ticket wins the whole pot, except up to 5% which is kept by CSGOJackpot.</li>
+</ol>
+
+
+<p>In addition to guessing the winning percentage, an attacker has to know the total number of tickets to be sure to win the pot.
+So, he has to try to place the last bet which can be tricky and is very difficult during times of high traffic because of huge lags.</p>
+
+<h2>&ldquo;Breaking&rdquo; the RNG</h2>
+
+<p>The HTML showed some signs of node.js, so my hypothesis was that the site simply uses javascript&rsquo;s Math.random() to determine the winning percentage.
+Fortunately, the full winning percentage with up to 16 digits is published after the end of a round, which is exactly the amount of digits I
+got when I executed Math.random() on my machine.
+Node.js uses the V8 javascript engine and its <a href="https://github.com/joyent/node/blob/61c6abf00898fe00eb7fcf2c23ba0b01cf12034c/deps/v8/src/math.js#L146">implementation</a> of Math.random() (nodejs 0.12.X) is as follows:
+<code>javascript
+function MathRandom() {
+  var r0 = (MathImul(18273, rngstate[0] &amp; 0xFFFF) + (rngstate[0] &gt;&gt;&gt; 16)) | 0;
+  rngstate[0] = r0;
+  var r1 = (MathImul(36969, rngstate[1] &amp; 0xFFFF) + (rngstate[1] &gt;&gt;&gt; 16)) | 0;
+  rngstate[1] = r1;
+  var x = ((r0 &lt;&lt; 16) + (r1 &amp; 0xFFFF)) | 0;
+  // Division by 0x100000000 through multiplication by reciprocal.
+  return (x &lt; 0 ? (x + 0x100000000) : x) * 2.3283064365386962890625e-10;
+}
+</code>
+This is known as <a href="https://groups.google.com/forum/#!msg/sci.stat.math/5yb0jwf1stw/ApaXM3IRy-0J">Marsaglia&rsquo;s Multiply-with-Carry</a>.
+Note that the implementation used in nodejs 0.10.X uses a very similar algorithm, but it&rsquo;s implemented in C and the conversion to floating point is done differently.</p>
+
+<p>So the RNG state has 64 bits and 32 bits immediately leak from a single output. Given two subsequent outputs one can bruteforce the remaining
+32 bits of the states which takes about 30 seconds on a 3.0Ghz i7 core (implemented in C).
+However, this failed to produce the correct state, so my guess was that there are some calls to Math.random() in between two winning percentages.
+It turned out that the the number of calls between varies between 8 and 35 and brute forcing this required a third winning percentage and around
+5 hours in expectancy. So now I had the correct state, which I verified by creating the next 50 numbers and checking if they contained the next winning percentages.
+But I didn&rsquo;t find any pattern by which I could determine which of the next random numbers is going to be winning percentage.
+Fortunately, there is another feature of CSGOJackpot which made this trivial.</p>
+
+<h2>&ldquo;Provably Fair&rdquo;</h2>
+
+<p>The site claims to be <em>provably fair</em>. But this is not really the case. What they are doing is a simple commitment to the winning percentage
+, by publishing a hash <code>md5(blinding + winning percentage)</code> before the round (where the blinding is a uniformly random hexstring)
+and revealing the blinding and winning percentage at the end of the round. Thus, they can not adjust the winning percentage to their
+liking during or after the round. But, naturally, provable fairness implies that even the server does not know the winning percentage ahead of time.</p>
+
+<p>However, this feature made it possible to reliably predict the next winning percentage.
+I observed that the blinding just consists of two calls to math.Random() which were converted to hex with <code>toString(16).substr(2,4)</code>
+and then concatenated. So now I just had to step through the next winning percentage candidates and the next blinding candidates and
+check if their hash matched the commitment.</p>
+
+<p>One more word to provably fairness. It&rsquo;s quite annoying to see CSGOJackpot and the many other sites that work similarly to
+make exactly the same false claim.
+I&rsquo;m not a cryptographer so take the following with a grain of salt and I&rsquo;d be happy learn if I&rsquo;m missing something something important.
+A truly fair scheme seems to be possible although much more complex to implement.
+The underlying problem is known as <a href="https://en.wikipedia.org/wiki/Commitment_scheme#Coin_flipping">coin flipping</a>.
+In a two player setting you can have each player commit to a value
+and then XOR the value in the reveal phase to get a statistically independent result.
+This is how for example <a href="https://satoshidice.com/provably-fair/">Satoshi Dice</a> achieves some level of fairness.
+However, in a multi-party setting (assuming the existence of a broadcast channel), this can be trivially <a href="https://en.wikipedia.org/wiki/Sybil_attack">Sybil attacked</a>. An attacker could create multiple identities and refuse to reveal one of his commitments, if another one of his identities wins the pot.
+A trivial Sybil-resistant construction would have each player loose more when not revealing than what is in the pot, but this does not seem really practical.
+Another approach is to use <a href="http://www.hashcash.org/papers/time-lock.pdf">time-lock encryption</a> instead of commitments, which means that after a some time everybody can decrypt the value without having access to the key.</p>
+
+<h2>Exploitation</h2>
+
+<p>I didn&rsquo;t play this game at all (it would have been unfair :) ), but for the lulz I had to at least troll them a bit.
+So I set up a twitch stream where I was revealing the next winning percentages in exchange for a drawing of Gabe Newell.
+I privately disclosed the bug to the administrator the moment I started the stream.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DZrDQKbQ7r0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>See also the <a href="https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md">submission gallery</a>.
+After 2 hours of fun they fixed the issue.
+Interestingly, googling &ldquo;nodejs cryptographically secure random number generator&rdquo; did not really result in plug-and-play solutions for me.
+Without knowing about the pitfalls of javascript I suggested to use <code>crypto.randomBytes(4).readUIntLE(0, 4) / 0xFFFFFFFF</code> (if this is somehow wrong please
+write me a message).
+Unfortunately, so far they didn&rsquo;t remove the &ldquo;provable fairness&rdquo; claim.</p>
+]]></content>
+  </entry>
+  
+</feed>
