@@ -12,7 +12,6 @@ Gaben Oracle Gallery
 ![alt text](4cd0e42b586be28c9c5ca1148328c9e0.png)
 ![alt text](59153586ee802bae4f2274bc1f1cc8af.png)
 ![alt text](6398ec9c71c4459e521b8684887db133.png)
-![alt text](b0dfd19753302397fca8482161f93a10.png)
 ![alt text](b41a0bce544aa5bd8098d59129ba5333.png)
 ![alt text](c85e25133b456ecab2e07dac31109704.png)
 ![alt text](e48b53cfccdf103b54a918c1024e85bb.png)
