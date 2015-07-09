@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-07-09T12:03:21+02:00</updated>
+  <updated>2015-07-09T14:50:06+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[CSGOJackpot's weak RNG]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/06/28/csgojackpots-weak-rng/"/>
-    <updated>2015-06-28T00:42:00+02:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/06/28/csgojackpots-weak-rng</id>
+    <title type="html"><![CDATA[Exploiting CSGOJackpot's weak RNG]]></title>
+    <link href="http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/"/>
+    <updated>2015-07-08T00:42:00+02:00</updated>
+    <id>http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng</id>
     <content type="html"><![CDATA[<p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
 Because these items can only be found by playing a lot of CSGo, they are quite rare and valuable,<br/>
 and can be exchanged for example in Steam&rsquo;s own Marketplace.
