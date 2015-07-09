@@ -7,11 +7,12 @@ categories: [C, javascript, security]
 ---
 
 [CSGOJackpot](https://csgojackpot.com) is a gambling website where players bet and win Counter Strike Go 'skins' (weapon textures).
-These seemingly worthless items are actually worth quite a lot and can be traded for example in Steam's own
-Marketplace. What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
+Because these items can only be found by playing a lot of CSGo, they are quite rare and valuable,  
+and can be exchanged for example in Steam's own Marketplace. 
+What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
 of value that is gambled away. On average, more than 20,000$ are thrown into the pots per hour. 
 
-**TL;DR**: CSGOJackpot is a nodejs app that uses *Math.random()* to determine the winning ticket. Of course, it's not cryptographically
+**TL;DR**: CSGOJackpot is a node.js app that uses *Math.random()* to determine the winning ticket. Of course, it's not cryptographically
 secure and trivial to predict the next number given two outputs of the random number generator.
 I did not try to profit from this vulnerability but for the lulz I set up a twitch stream and revealed the next winning percentage
 in exchange for a drawing of Gabe Newell. See the [submission gallery](https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md) and a [recording of the stream](https://www.youtube.com/watch?v=DZrDQKbQ7r0).
@@ -69,18 +70,19 @@ and revealing the blinding and winning percentage at the end of the round. Thus,
 liking during or after the round. But, naturally, provable fairness implies that even the server does not know the winning percentage ahead of time.
 
 However, this feature made it possible to reliably predict the next winning percentage.
-I observed that the blinding just consists of two calls to math.Random() which were converted to hex with `toString(16).substr(2,4)`
+I observed that the blinding just consists of two calls to Math.random() which were converted to hex with `toString(16).substr(2,4)`
 and then concatenated. So now I just had to step through the next winning percentage candidates and the next blinding candidates and
 check if their hash matched the commitment.
 
 One more word to provably fairness. It's quite annoying to see CSGOJackpot and the many other sites that work similarly to 
 make exactly the same false claim.
-I'm not a cryptographer so take the following with a grain of salt and I'd be happy learn if I'm missing something something important.
+I'm not a cryptographer so take the following with a grain of salt and I'd be happy learn if I'm missing something important.
 A truly fair scheme seems to be possible although much more complex to implement. 
 The underlying problem is known as [coin flipping](https://en.wikipedia.org/wiki/Commitment_scheme#Coin_flipping).
 In a two player setting you can have each player commit to a value
 and then XOR the value in the reveal phase to get a statistically independent result. 
 This is how for example [Satoshi Dice](https://satoshidice.com/provably-fair/) achieves some level of fairness.
+
 However, in a multi-party setting (assuming the existence of a broadcast channel), this can be trivially [Sybil attacked](https://en.wikipedia.org/wiki/Sybil_attack). An attacker could create multiple identities and refuse to reveal one of his commitments, if another one of his identities wins the pot.
 A trivial Sybil-resistant construction would have each player loose more when not revealing than what is in the pot, but this does not seem really practical.
 Another approach is to use [time-lock encryption](http://www.hashcash.org/papers/time-lock.pdf) instead of commitments, which means that after a some time everybody can decrypt the value without having access to the key.
