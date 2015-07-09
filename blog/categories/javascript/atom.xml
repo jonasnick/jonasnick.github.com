@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-07-09T00:22:56+02:00</updated>
+  <updated>2015-07-09T12:03:21+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -19,8 +19,9 @@
     <updated>2015-06-28T00:42:00+02:00</updated>
     <id>http://jonasnick.github.io/blog/2015/06/28/csgojackpots-weak-rng</id>
     <content type="html"><![CDATA[<p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
-These seemingly worthless items are actually worth quite a lot and can be traded for example in Steam&rsquo;s own
-Marketplace. What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
+Because these items can only be found by playing a lot of CSGo, they are quite rare and valuable,<br/>
+and can be exchanged for example in Steam&rsquo;s own Marketplace.
+What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
 of value that is gambled away. On average, more than 20,000$ are thrown into the pots per hour.</p>
 
 <p><strong>TL;DR</strong>: CSGOJackpot is a node.js app that uses <em>Math.random()</em> to determine the winning ticket. Of course, it&rsquo;s not cryptographically
@@ -84,19 +85,20 @@ and revealing the blinding and winning percentage at the end of the round. Thus,
 liking during or after the round. But, naturally, provable fairness implies that even the server does not know the winning percentage ahead of time.</p>
 
 <p>However, this feature made it possible to reliably predict the next winning percentage.
-I observed that the blinding just consists of two calls to math.Random() which were converted to hex with <code>toString(16).substr(2,4)</code>
+I observed that the blinding just consists of two calls to Math.random() which were converted to hex with <code>toString(16).substr(2,4)</code>
 and then concatenated. So now I just had to step through the next winning percentage candidates and the next blinding candidates and
 check if their hash matched the commitment.</p>
 
 <p>One more word to provably fairness. It&rsquo;s quite annoying to see CSGOJackpot and the many other sites that work similarly to
 make exactly the same false claim.
-I&rsquo;m not a cryptographer so take the following with a grain of salt and I&rsquo;d be happy learn if I&rsquo;m missing something something important.
+I&rsquo;m not a cryptographer so take the following with a grain of salt and I&rsquo;d be happy learn if I&rsquo;m missing something important.
 A truly fair scheme seems to be possible although much more complex to implement.
 The underlying problem is known as <a href="https://en.wikipedia.org/wiki/Commitment_scheme#Coin_flipping">coin flipping</a>.
 In a two player setting you can have each player commit to a value
 and then XOR the value in the reveal phase to get a statistically independent result.
-This is how for example <a href="https://satoshidice.com/provably-fair/">Satoshi Dice</a> achieves some level of fairness.
-However, in a multi-party setting (assuming the existence of a broadcast channel), this can be trivially <a href="https://en.wikipedia.org/wiki/Sybil_attack">Sybil attacked</a>. An attacker could create multiple identities and refuse to reveal one of his commitments, if another one of his identities wins the pot.
+This is how for example <a href="https://satoshidice.com/provably-fair/">Satoshi Dice</a> achieves some level of fairness.</p>
+
+<p>However, in a multi-party setting (assuming the existence of a broadcast channel), this can be trivially <a href="https://en.wikipedia.org/wiki/Sybil_attack">Sybil attacked</a>. An attacker could create multiple identities and refuse to reveal one of his commitments, if another one of his identities wins the pot.
 A trivial Sybil-resistant construction would have each player loose more when not revealing than what is in the pot, but this does not seem really practical.
 Another approach is to use <a href="http://www.hashcash.org/papers/time-lock.pdf">time-lock encryption</a> instead of commitments, which means that after a some time everybody can decrypt the value without having access to the key.</p>
 
