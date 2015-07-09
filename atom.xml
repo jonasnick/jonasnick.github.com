@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="http://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-07-09T14:50:06+02:00</updated>
+  <updated>2015-07-09T14:59:19+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -18,11 +18,13 @@
     <link href="http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/"/>
     <updated>2015-07-08T00:42:00+02:00</updated>
     <id>http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng</id>
-    <content type="html"><![CDATA[<p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/gaben/BwBArIM.png" width="500"></p>
+
+<p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
 Because these items can only be found by playing a lot of CSGo, they are quite rare and valuable,<br/>
 and can be exchanged for example in Steam&rsquo;s own Marketplace.
 What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
-of value that is gambled away. On average, more than 20,000$ are thrown into the pots per hour.</p>
+of value that is gambled away. On average, more than <strong>20,000$</strong> are thrown into the pots per hour.</p>
 
 <p><strong>TL;DR</strong>: CSGOJackpot is a node.js app that uses <em>Math.random()</em> to determine the winning ticket. Of course, it&rsquo;s not cryptographically
 secure and trivial to predict the next number given two outputs of the random number generator.
