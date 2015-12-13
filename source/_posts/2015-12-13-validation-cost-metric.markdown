@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Validation-cost metric"
+title: "A Validation-cost metric for Bitcoin"
 date: 2015-12-13 20:36
 comments: true
 categories: bitcoin
