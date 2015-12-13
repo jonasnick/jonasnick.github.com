@@ -9,8 +9,9 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="CSGOJackpot is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
-Because these items can only be &hellip;">
+  <meta name="description" content="This is the transcript of a talk I gave at the
+Scaling Bitcoin Conference 2015 in Hong Kong.
+See this mailing list post by Greg Maxwell for a general &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -876,6 +877,50 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/12/13/validation-cost-metric/">A Validation-cost Metric for Bitcoin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-12-13T20:36:00+01:00" pubdate data-updated="true">Dec 13<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This is the transcript of a talk I gave at the
+<a href="https://scalingbitcoin.org/hongkong2015/">Scaling Bitcoin Conference</a> 2015 in Hong Kong.
+See <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-December/011865.html">this mailing list post</a> by Greg Maxwell for a general summary of the scaling measures that Bitcoin Core developers are adopting.
+The slides accompanying the transcript can be found <a href="files/Validation-cost%20Metric.pdf">here</a>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/12/13/validation-cost-metric/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/07/08/exploiting-csgojackpots-weak-rng/">Exploiting CSGOJackpot&#8217;s Weak RNG</a></h1>
     
     
@@ -911,6 +956,10 @@ of value that is gambled away. On average, more than <strong>20,000$</strong> ar
 secure and trivial to predict the next number given two outputs of the random number generator.
 I did not try to profit from this vulnerability but for the lulz I set up a twitch stream and revealed the next winning percentage
 in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md">submission gallery</a> and a <a href="https://www.youtube.com/watch?v=DZrDQKbQ7r0">recording of the stream</a>.</p>
+
+<p><strong>EDIT:</strong> There was quite some discussion about this issue on <a href="https://www.reddit.com/r/GlobalOffensive/comments/3cor52/weak_crypto_on_csgojackpot_xpost_from_rnetsec/">/r/GlobalOffensive</a>.</p>
+
+<p><strong>EDIT 2:</strong> Due to the large number of emails I still get every week I have to clarify: No, this vulnerability does <strong>not exist anymore</strong> in CSGOJackpot and I don&rsquo;t know a similar site which is vulnerable.</p>
 
 </div>
   
@@ -1168,7 +1217,7 @@ Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the 
 An attacker who manages to connect to your wallet is easily able to figure out all addresses you control.
 This is not very likely to get fixed in the near future.</p>
 
-<p><strong>Update:</strong> <a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements.</p>
+<p><strong>Update:</strong> <a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements. There was also accompanying discussion on <a href="https://www.reddit.com/r/Bitcoin/comments/2vrx6n/privacy_in_bitcoinj_android_wallet_multibit_hive/">reddit</a>.</p>
 
 </div>
   
@@ -1301,59 +1350,6 @@ processing, generalized additive model</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">Influence of Reputation on Gricean Maxims</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-10-14T01:04:00+02:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by <a href="http://www.sfs.uni-tuebingen.de/~jquinley/">Jason Quinley</a> at the <a href="http://www.sfs.uni-tuebingen.de/en/chairs.html">Institute of Linguistics</a>, I wanted to explore the influence of reputation on obeying the Gricean Maxims using data from the Q&amp;A website Stackoverflow.</p>
-
-<p>Pragmatics is a subfield in linguistics, defined as &ldquo;dealing with the origins, uses, and effects of signs within the total behavior of the interpreters of signs&rdquo; (<a href="http://psycnet.apa.org/psycinfo/1946-02822-000">Morris, 1946</a>).
-Pragmatics tries to explain why a simple sentence like &ldquo;It&rsquo;s raining.&rdquo; has a lot of different interpretations, for example(<a href="http://staff.science.uva.nl/~mfranke/Papers/Franke_PhD_thesis.pdf">Franke, 2009</a>):</p>
-
-<ul>
-<li>The speaker advises we should take an umbrella.</li>
-<li>The speaker declares the picnic cancelled.</li>
-<li>The speaker is sick of living in amsterdam.</li>
-</ul>
-
-
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1367,6 +1363,10 @@ Pragmatics tries to explain why a simple sentence like &ldquo;It&rsquo;s raining
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/12/13/validation-cost-metric/">A Validation-cost metric for Bitcoin</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/07/08/exploiting-csgojackpots-weak-rng/">Exploiting CSGOJackpot&#8217;s weak RNG</a>
@@ -1384,15 +1384,11 @@ Pragmatics tries to explain why a simple sentence like &ldquo;It&rsquo;s raining
         <a href="/blog/2015/03/17/ethereum-bug-bounty-submissions/">Ethereum Bug Bounty Submissions</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/">Bitcoin Seeder DoS vulnerability</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 110.0%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 110.0%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 110.0%'>blender</a> <a href='/blog/categories/c' style='font-size: 110.0%'>C</a> <a href='/blog/categories/c-' style='font-size: 110.0%'>c++</a> <a href='/blog/categories/consensus' style='font-size: 110.0%'>consensus</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 110.0%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 110.0%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 110.0%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 120.0%'>java</a> <a href='/blog/categories/javascript' style='font-size: 110.0%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 110.0%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 110.0%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 120.0%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 110.0%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 110.0%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 120.0%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 120.0%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 110.0%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 150.0%'>python</a> <a href='/blog/categories/r' style='font-size: 130.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 110.0%'>racket</a> <a href='/blog/categories/regression' style='font-size: 110.0%'>regression</a> <a href='/blog/categories/security' style='font-size: 110.0%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 110.0%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 110.0%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 110.0%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 110.0%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 108.57142857142857%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 108.57142857142857%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 108.57142857142857%'>blender</a> <a href='/blog/categories/c' style='font-size: 108.57142857142857%'>C</a> <a href='/blog/categories/c-' style='font-size: 108.57142857142857%'>c++</a> <a href='/blog/categories/consensus' style='font-size: 108.57142857142857%'>consensus</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 108.57142857142857%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 108.57142857142857%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 108.57142857142857%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 117.14285714285714%'>golang</a> <a href='/blog/categories/java' style='font-size: 117.14285714285714%'>java</a> <a href='/blog/categories/javascript' style='font-size: 108.57142857142857%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 108.57142857142857%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 108.57142857142857%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 117.14285714285714%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 108.57142857142857%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 108.57142857142857%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 117.14285714285714%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 117.14285714285714%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 108.57142857142857%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 142.85714285714286%'>python</a> <a href='/blog/categories/r' style='font-size: 125.71428571428572%'>R</a> <a href='/blog/categories/racket' style='font-size: 108.57142857142857%'>racket</a> <a href='/blog/categories/regression' style='font-size: 108.57142857142857%'>regression</a> <a href='/blog/categories/security' style='font-size: 108.57142857142857%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 108.57142857142857%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 108.57142857142857%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 108.57142857142857%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 108.57142857142857%'>Sweave</a> </span>
 </section>
 
 <section>

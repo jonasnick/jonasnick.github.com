@@ -54,7 +54,7 @@
     </url>
     <url>
         <loc>http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/</loc>
-        <lastmod>2015-06-03T14:05:21+02:00</lastmod>
+        <lastmod>2015-12-13T21:08:54+01:00</lastmod>
     </url>
     <url>
         <loc>http://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/</loc>
@@ -80,18 +80,22 @@
     </url>
     <url>
         <loc>http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/</loc>
-        <lastmod>2015-07-09T19:18:31+02:00</lastmod>
+        <lastmod>2015-12-13T21:21:17+01:00</lastmod>
+    </url>
+    <url>
+        <loc>http://jonasnick.github.io/blog/2015/12/13/validation-cost-metric/</loc>
+        <lastmod>2015-12-13T21:23:29+01:00</lastmod>
     </url>
     <url>
         <loc>http://jonasnick.github.io/blog/archives/</loc>
-        <lastmod>2015-07-09T19:18:31+02:00</lastmod>
+        <lastmod>2015-12-13T21:23:29+01:00</lastmod>
     </url>
     <url>
         <loc>http://jonasnick.github.io/</loc>
-        <lastmod>2015-07-09T19:18:31+02:00</lastmod>
+        <lastmod>2015-12-13T21:23:29+01:00</lastmod>
     </url>
     <url>
         <loc>http://jonasnick.github.io/about/</loc>
-        <lastmod>2015-02-12T14:12:27+01:00</lastmod>
+        <lastmod>2015-12-13T21:05:53+01:00</lastmod>
     </url>
 </urlset>

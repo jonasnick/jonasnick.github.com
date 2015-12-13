@@ -4,7 +4,7 @@
   <title><![CDATA[Category: security | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/security/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-07-09T19:18:38+02:00</updated>
+  <updated>2015-12-13T21:23:55+01:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -30,6 +30,10 @@ of value that is gambled away. On average, more than <strong>20,000$</strong> ar
 secure and trivial to predict the next number given two outputs of the random number generator.
 I did not try to profit from this vulnerability but for the lulz I set up a twitch stream and revealed the next winning percentage
 in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md">submission gallery</a> and a <a href="https://www.youtube.com/watch?v=DZrDQKbQ7r0">recording of the stream</a>.</p>
+
+<p><strong>EDIT:</strong> There was quite some discussion about this issue on <a href="https://www.reddit.com/r/GlobalOffensive/comments/3cor52/weak_crypto_on_csgojackpot_xpost_from_rnetsec/">/r/GlobalOffensive</a>.</p>
+
+<p><strong>EDIT 2:</strong> Due to the large number of emails I still get every week I have to clarify: No, this vulnerability does <strong>not exist anymore</strong> in CSGOJackpot and I don&rsquo;t know a similar site which is vulnerable.</p>
 
 <!-- more -->
 

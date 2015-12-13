@@ -4,7 +4,7 @@
   <title><![CDATA[Category: privacy | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/privacy/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-07-09T19:18:38+02:00</updated>
+  <updated>2015-12-13T21:23:55+01:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -166,7 +166,7 @@ However, knowing all outbound peers of a client could significantly increase the
 An attacker who manages to connect to your wallet is easily able to figure out all addresses you control.
 This is not very likely to get fixed in the near future.</p>
 
-<p><strong>Update:</strong> <a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements.</p>
+<p><strong>Update:</strong> <a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements. There was also accompanying discussion on <a href="https://www.reddit.com/r/Bitcoin/comments/2vrx6n/privacy_in_bitcoinj_android_wallet_multibit_hive/">reddit</a>.</p>
 
 <!-- more -->
 
