@@ -13,7 +13,7 @@ An attacker who manages to connect to your wallet is easily able to figure out a
 This is not very likely to get fixed in the near future.
 
 
-**Update:** [Mike Hearn's reply](https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ) addresses additional problems and improvements.
+**Update:** [Mike Hearn's reply](https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ) addresses additional problems and improvements. There was also accompanying discussion on [reddit](https://www.reddit.com/r/Bitcoin/comments/2vrx6n/privacy_in_bitcoinj_android_wallet_multibit_hive/).
 
 
 <!-- more -->
