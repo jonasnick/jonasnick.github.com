@@ -8,7 +8,7 @@ categories: bitcoin
 This is the transcript of a talk I gave at the
 [Scaling Bitcoin Conference](https://scalingbitcoin.org/hongkong2015/) 2015 in Hong Kong.
 See [this mailing list post](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-December/011865.html) by Greg Maxwell for a general summary of the scaling measures that Bitcoin Core developers are adopting.
-The slides accompanying the transcript can be found [here](files/Validation-cost Metric.pdf).
+The slides accompanying the transcript can be found [here](https://github.com/jonasnick/jonasnick.github.com/raw/master/files/Validation-cost%20Metric.pdf).
 
 <!-- more -->
 
