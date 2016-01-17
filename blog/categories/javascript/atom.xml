@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2015-12-14T22:04:17+01:00</updated>
+  <updated>2016-01-17T02:44:22+01:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -33,7 +33,7 @@ in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jo
 
 <p><strong>EDIT:</strong> There was quite some discussion about this issue on <a href="https://www.reddit.com/r/GlobalOffensive/comments/3cor52/weak_crypto_on_csgojackpot_xpost_from_rnetsec/">/r/GlobalOffensive</a>.</p>
 
-<p><strong>EDIT 2:</strong> Due to the large number of emails I still get every week I have to clarify: No, this vulnerability does <strong>not exist anymore</strong> in CSGOJackpot and I don&rsquo;t know a similar site which is vulnerable.</p>
+<p><strong>EDIT 2:</strong> This vulnerability does <strong>not exist anymore</strong> in CSGOJackpot and I don&rsquo;t know a similar site which is vulnerable.</p>
 
 <!-- more -->
 
