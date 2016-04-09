@@ -1,0 +1,52 @@
+<h1>Part 6: Fork Sidechain</h1>
+<h2>Setup</h2>
+<ul>
+<li>Create new datadir<ul>
+<li>insert bitcoin.conf</li>
+</ul>
+</li>
+<li>Create new git branch</li>
+</ul>
+<h1>Exercises</h1>
+<ol>
+<li>Create own chain with 2MB block size.</li>
+<li>Sign blocks.</li>
+<li>Find bitcoin script</li>
+<li>Explain the genesis block's coinbase transaction.</li>
+</ol>
+<h2>Increasing the blocksize</h2>
+<ul>
+<li>primitives/block.h increase <code>MAX_BLOCK_SIZE</code></li>
+</ul>
+<h2>Creating block key</h2>
+<ul>
+<li><code>getnewaddress</code></li>
+<li><code>dumpprivkey &lt;address&gt;</code><ul>
+<li>save result</li>
+</ul>
+</li>
+<li><code>validateaddress &lt;address&gt;</code><ul>
+<li>save pubkey</li>
+</ul>
+</li>
+</ul>
+<h2>Customizing the chain</h2>
+<ul>
+<li>in src/chainparams.cpp<ul>
+<li>set scriptDestination to 1-of-1 multisig</li>
+</ul>
+</li>
+</ul>
+<h2>Viewing txs that are not yet in the chain</h2>
+<ul>
+<li><code>getrawmempool</code></li>
+</ul>
+<h2>Signing blocks</h2>
+<ul>
+<li><code>getblockcount</code></li>
+<li><code>getnewblockhex</code></li>
+<li><code>signblock &lt;blockhex&gt;</code></li>
+<li><code>combineblocksigs &lt;blockhex&gt; &lt;'["signature"]'&gt;</code></li>
+<li><code>submitblock &lt;signed blockhex&gt;</code></li>
+<li><code>getblockcount</code></li>
+</ul>

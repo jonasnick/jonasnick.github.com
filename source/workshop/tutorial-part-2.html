@@ -1,0 +1,46 @@
+<h1>Part 2: Transactions</h1>
+<h1>Exercises</h1>
+<ol>
+<li>Find the change output in one of your transactions.</li>
+<li>Use both methods to get the total input value of the transaction.</li>
+<li>Find your UTXO with the most confirmations.</li>
+<li>Create a raw transaction that pays 0.1 coins fees and has two change addresses.</li>
+<li>Audit a transaction.</li>
+</ol>
+<h2>Explore transaction</h2>
+<ul>
+<li><code>getrawtransaction &lt;txid&gt; 1</code></li>
+</ul>
+<h2>Get Unspent Outputs</h2>
+<ul>
+<li><code>listunspent</code></li>
+</ul>
+<h2>Use raw transaction interface with blinding</h2>
+<ul>
+<li><code>createrawtransaction '[{"txid": &lt;txid&gt;, "vout": &lt;vout&gt;, "nValue": &lt;value&gt;}]' '{"&lt;out_address&gt;": &lt;out_value&gt;, "&lt;change_address&gt;": &lt;change_value&gt;}'</code></li>
+<li><code>decoderawtransaction &lt;txhex&gt;</code></li>
+<li><code>blindrawtransaction &lt;txhex&gt;</code><ul>
+<li>RPC is elements/CT specific</li>
+</ul>
+</li>
+<li><code>signrawtransaction &lt;txhex&gt;</code></li>
+<li><code>sendrawtransaction &lt;txhex&gt;</code></li>
+</ul>
+<h2>Get unconfidential address from confidential address</h2>
+<ul>
+<li><code>validateaddress &lt;address&gt;</code></li>
+</ul>
+<h2>Auditing a transaction</h2>
+<ul>
+<li>Find auditee, create watch-only address in your wallet with <code>importaddress &lt;address&gt;</code></li>
+<li><code>listreceivedbyaddress &lt;addr&gt; 1 false true</code><ul>
+<li>amount: 0</li>
+</ul>
+</li>
+<li>Auditee: <code>dumpblindingkey &lt;addr&gt;</code></li>
+<li>Auditor: <code>importblindingkey &lt;addr&gt; &lt;blindingkey&gt;</code></li>
+<li>Auditor: <code>listreceivedbyaddress &lt;addr&gt; 1 false true</code><ul>
+<li>or <code>gettransaction &lt;txid&gt; true</code></li>
+</ul>
+</li>
+</ul>
