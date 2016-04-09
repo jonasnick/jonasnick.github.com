@@ -1,0 +1,52 @@
+<h1>Part 3: Scripts</h1>
+<h1>Exercises</h1>
+<ol>
+<li>Find public key, public key hash and a signature
+    of one of your addresses.<ul>
+<li>hint: <code>getrawtransaction</code></li>
+</ul>
+</li>
+<li>Create a shared 2-of-3 multisig wallet and use it to send coins.</li>
+<li>Bonus: find <code>m</code> and <code>n</code> in a CHECKMULTISIG script using <code>getrawtransaction</code>.</li>
+<li>Create a micropayment channel.</li>
+<li>What is the effect of the following scriptPubKey?<ul>
+<li><code>54321 CHECKLOCKTIMEVERIFY DROP DUP HASH160 &lt;pubKeyHash&gt; EQUALVERIFY CHECKSIG</code></li>
+</ul>
+</li>
+<li>Write script that adds refund to micropayment channel<ul>
+<li>hint: use <code>OP_CLTV, OP_IF, OP_CHECKMULTISIG, OP_CHECKSIG</code></li>
+<li>How would valid scriptSig look like?</li>
+</ul>
+</li>
+<li>Create a micropayment channel by sending coins to it.</li>
+</ol>
+<h2>Create m-of-n multisig</h2>
+<ul>
+<li><code>getnewaddress</code></li>
+<li>find pubkey with <code>validateaddress &lt;address&gt;</code> and broadcast to signers</li>
+<li>all signers: <code>addmultisigaddress m '["pubKey_1", ..., "pubKey_n"]'</code></li>
+</ul>
+<h2>Spend m-of-n multisig</h2>
+<ul>
+<li><code>createrawtransaction '[{"txid": "multisig_output_txid",  "vout": vout, "nValue": value}]' '{"destination_address": value}'</code></li>
+<li><code>signrawtransaction &lt;txhex&gt;</code></li>
+<li>pass signature to next signer until complete</li>
+<li><code>sendrawtransaction &lt;signed_txhex&gt;</code></li>
+</ul>
+<h2>Script Reference</h2>
+<ul>
+<li>https://en.bitcoin.it/wiki/Script</li>
+</ul>
+<h2>Create an address from a script</h2>
+<ul>
+<li>convert the script to hex<ul>
+<li>use alpha-tx to create a new transaction<ul>
+<li><code>alpha-tx -create outscript=0:"&lt;script&gt;"</code></li>
+</ul>
+</li>
+<li><code>decoderawtransaction &lt;txhex&gt;</code></li>
+<li>find key <code>"hex"</code> in the output and copy the script</li>
+</ul>
+</li>
+<li><code>decodescript &lt;script_hex&gt;</code></li>
+</ul>

@@ -1,0 +1,28 @@
+<h1>Part 7: Peg Mechanisms</h1>
+<h2>Peg: Setup</h2>
+<ul>
+<li>src/script/interpreter.cpp<ul>
+<li>scriptDestination</li>
+</ul>
+</li>
+<li>createmultisig 1 <code>'["pubkey"]'</code></li>
+<li>src/rpcwallet.cpp insert fedRedeemScript</li>
+</ul>
+<h2>Peg-in</h2>
+<ul>
+<li>Setup: uses external bitcoind to query information about the
+    bitcoin transaction</li>
+<li><code>getblock &lt;genesis block&gt;</code></li>
+<li><code>getfundingaddress</code></li>
+<li>connect to faucet with netcat -vv 188.166.154.40 2063<ul>
+<li>send <code>mainaddress</code></li>
+<li>record bitcoin txid</li>
+</ul>
+</li>
+<li>wait confirmation period (0 blocks in our chain)</li>
+<li><code>claimwithdrawal &lt;p2sh&gt; &lt;nonce&gt; &lt;bitcoin txid&gt;</code></li>
+<li>contest period: sign 144 blocks</li>
+<li><code>spendwithdrawal &lt;claimwithdrawal id&gt; &lt;one-of-one&gt;</code></li>
+<li>sign 1 block</li>
+<li><code>getbalance</code></li>
+</ul>

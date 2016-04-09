@@ -1,0 +1,54 @@
+<h1>Part 1: Blockchain</h1>
+<ul>
+<li>Glossary: https://bitcoin.org/en/developer-documentation</li>
+</ul>
+<h2>Setup</h2>
+<ul>
+<li>create new datadir "alpha_datadir"<ul>
+<li>insert bitcoin.conf</li>
+</ul>
+</li>
+<li>start daemon alpha daemone with <code>alphad -datadir=./alpha_datadir</code></li>
+<li><code>alias a='alpha-cli -datadir=./alpha_datadir'</code></li>
+<li>This is a private altcoin network</li>
+</ul>
+<h1>Exercises</h1>
+<ol>
+<li>What are the arguments of the <code>getrawtransaction</code> RPC?</li>
+<li>What is the current blockchain height?</li>
+<li>What is the block interval?</li>
+<li>When was the genesis block created?</li>
+<li>Connect to the faucet and receive coins.</li>
+<li>Make it rain (spend your coins).</li>
+</ol>
+<h2>Getting familiar</h2>
+<ul>
+<li><code>help</code><ul>
+<li><code>help &lt;cmd&gt;</code></li>
+</ul>
+</li>
+<li><code>getinfo</code></li>
+<li><code>getblockhash &lt;block index&gt;</code></li>
+<li><code>getblock &lt;block hash&gt;</code></li>
+</ul>
+<h2>Receive coins</h2>
+<ul>
+<li><code>getnewaddress</code></li>
+<li>connect to faucet with <code>netcat -vv 188.166.154.40 2062</code><ul>
+<li>send address</li>
+</ul>
+</li>
+<li>check <code>getbalance</code></li>
+</ul>
+<h2>Sending coins</h2>
+<ul>
+<li><code>sendtoaddress &lt;address&gt; &lt;value&gt;</code><ul>
+<li>returns transaction id</li>
+</ul>
+</li>
+<li>inspect transaction with <code>gettransaction &lt;txid&gt;</code></li>
+</ul>
+<h2>List your addresses</h2>
+<ul>
+<li><code>getaddressesbyaccount ""</code></li>
+</ul>
