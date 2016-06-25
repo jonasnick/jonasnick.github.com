@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: golang - nickler's</title>
+  <title>Data-Driven De-Anonymization in Bitcoin - nickler's</title>
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Category: golang">
+  <meta name="description" content="Abstract We analyse the performance of several clustering algorithms in the digital peer-
+to-peer currency Bitcoin. Clustering in Bitcoin refers to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jonasnick.github.ioblog/categories/golang/">
+  <link rel="canonical" href="http://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
     <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -868,67 +869,117 @@ init_mathjax();
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Golang</h1>
+    
+      <h1 class="entry-title">Data-Driven De-Anonymization in Bitcoin</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-06-25T23:41:00+02:00" pubdate data-updated="true">Jun 25<span>th</span>, 2016</time>
+        
+      </p>
     
   </header>
+
+
+<div class="entry-content"><iframe width="560" height="315" src="https://www.youtube.com/embed/HScK4pkDNds" frameborder="0" allowfullscreen></iframe>
+
+
+<p><strong>Abstract</strong></p>
+
+<p>We analyse the performance of several clustering algorithms in the digital peer-
+to-peer currency Bitcoin. Clustering in Bitcoin refers to the task of finding
+addresses that belongs to the same wallet as a given address.
+In order to assess the effectiveness of clustering strategies we exploit a vulner-
+ability in the implementation of Connection Bloom Filtering to capture ground
+truth data about 37,585 Bitcoin wallets and the addresses they own. In addition
+to well-known clustering techniques, we introduce two new strategies, apply them
+on addresses of the collected wallets and evaluate precision and recall using the
+ground truth. Due to the nature of the Connection Bloom Filtering vulnerability
+the data we collect is not without errors. We present a method to correct the
+performance metrics in the presence of such inaccuracies.
+Our results demonstrate that even modern wallet software can not protect its
+users properly. Even with the most basic clustering technique known as multi-
+input heuristic, an adversary can guess on average 68.59% addresses of a victim.
+We show that this metric can be further improved by combining several more
+sophisticated heuristics.</p>
+
+<p><a href="papers/thesis.pdf"><center><strong>Read full thesis</strong></center></a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <div id="blog-archives" class="category">
+
+<span class="byline author vcard">Posted by <span class="fn">Jonas Nick</span></span>
+
+      
 
 
 
-  
-  <h2>2016</h2>
-
-<article>
-  
-<h1><a href="/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/">Data-Driven De-Anonymization in Bitcoin</a></h1>
-<time datetime="2016-06-25T23:41:00+02:00" pubdate><span class='month'>Jun</span> <span class='day'>25</span> <span class='year'>2016</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/golang/'>golang</a></span>
-</footer>
 
 
-</article>
 
 
 
   
-  <h2>2015</h2>
 
-<article>
+
+<time datetime="2016-06-25T23:41:00+02:00" pubdate data-updated="true">Jun 25<span>th</span>, 2016</time>
+      
+
+<span class="categories">
   
-<h1><a href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Guessing bitcoin's P2P connections</a></h1>
-<time datetime="2015-03-06T14:22:00+01:00" pubdate><span class='month'>Mar</span> <span class='day'>06</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/golang/'>golang</a>, <a class='category' href='/blog/categories/privacy/'>privacy</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
+    <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/golang/'>golang</a>
   
-<h1><a href="/blog/2015/02/12/privacy-in-bitcoinj/">Privacy in BitcoinJ</a></h1>
-<time datetime="2015-02-12T15:53:00+01:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/golang/'>golang</a>, <a class='category' href='/blog/categories/privacy/'>privacy</a></span>
-</footer>
+</span>
 
 
-</article>
+    </p>
+    
+      <div class="sharing">
+  
+  <div class="padding">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="n1ckler">Tweet</a>
+    </div>
+  
+  
+  
 
 </div>
 
-  
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/12/13/validation-cost-metric/" title="Previous Post: A Validation-cost metric for Bitcoin">&laquo; A Validation-cost metric for Bitcoin</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -990,7 +1041,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
       var disqus_shortname = 'nicklers';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/';
+        var disqus_url = 'http://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
