@@ -21,7 +21,7 @@ $sidebar-link-color-hover: $sidebar-link-color;
 $footer-color: #A65532;
 $footer-bg: #FFFFFF;
 $footer-bg-back: #F7F7F7;
-$link-color: #2E4A88;
+$link-color: #1A0DAB;
 $link-color-hover: adjust-color($link-color, $lightness: 0, $saturation: 0) !default;
 $link-color-visited: adjust-color($link-color, $hue: 0, $lightness: 0) !default;
 $link-color-active: adjust-color($link-color-hover, $lightness: -15) !default;
