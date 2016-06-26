@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="http://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="http://jonasnick.github.io/"/>
-  <updated>2016-06-26T00:01:45+02:00</updated>
+  <updated>2016-06-26T22:50:43+02:00</updated>
   <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -20,6 +20,8 @@
     <id>http://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin</id>
     <content type="html"><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/HScK4pkDNds" frameborder="0" allowfullscreen></iframe>
 
+
+<p><a href="slides/2016-zurich-meetup.pdf"><strong>Slides</strong></a></p>
 
 <p><strong>Abstract</strong></p>
 
