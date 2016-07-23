@@ -29,5 +29,5 @@ input heuristic, an adversary can guess on average 68.59% addresses of a victim.
 We show that this metric can be further improved by combining several more
 sophisticated heuristics.
 
-[<center>**Read full thesis**</center>](papers/thesis.pdf)
+[<center>**Read full thesis**</center>](/papers/thesis.pdf)
 

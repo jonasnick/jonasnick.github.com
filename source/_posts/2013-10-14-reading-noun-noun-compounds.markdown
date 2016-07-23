@@ -47,4 +47,4 @@ information that is most discriminative for the compound.
 reading, eye-movements, compounds, semantic similarity, morphological 
 processing, generalized additive model
 
-[<center>**Read PDF**</center>](readingCompounds.pdf)
+[<center>**Read PDF**</center>](/papers/readingCompounds.pdf)

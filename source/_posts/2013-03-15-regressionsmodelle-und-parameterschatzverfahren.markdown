@@ -22,4 +22,4 @@ y = h(x) + \epsilon
 $$
 
 
-[<center>**PDF weiterlesen**</center>](regression.pdf)
+[<center>**PDF weiterlesen**</center>](/papers/regression.pdf)
