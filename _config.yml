@@ -2,11 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://jonasnick.github.io
+url: https://jonasnick.github.io
 title: nickler's
 subtitle: 
 author: Jonas Nick 
-simple_search: http://google.com/search
+simple_search: https://google.com/search
 description: Projects, tools and research.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
@@ -74,7 +74,7 @@ twitter_tweet_count: 0
 twitter_show_replies: false
 twitter_follow_button: false
 twitter_show_follower_count: false
-twitter_tweet_button: true
+twitter_tweet_button: false
 
 # Google +1
 google_plus_one: false
@@ -94,7 +94,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: nicklers
+disqus_short_name:
 disqus_show_comment_count: false 
 
 # Google Analytics
