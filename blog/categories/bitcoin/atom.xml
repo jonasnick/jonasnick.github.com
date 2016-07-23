@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
-  <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
-  <link href="https://jonasnick.github.io/"/>
-  <updated>2016-07-23T18:19:49+02:00</updated>
-  <id>https://jonasnick.github.io/</id>
+  <link href="http://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2016-07-23T20:22:09+02:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,11 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Data-Driven De-Anonymization in Bitcoin]]></title>
-    <link href="https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/"/>
+    <link href="http://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/"/>
     <updated>2016-06-25T23:41:00+02:00</updated>
-    <id>https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin</id>
-    <content type="html"><![CDATA[<iframe width="560" height="315" src="https://www.youtube.com/embed/HScK4pkDNds" frameborder="0" allowfullscreen></iframe>
-
+    <id>http://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin</id>
+    <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=HScK4pkDNds"><img src="http://jonasnick.github.io/images/zurich-youtube.png" width="560"></a></p>
 
 <p><a href="slides/2016-zurich-meetup.pdf"><strong>Slides</strong></a></p>
 
@@ -48,9 +47,9 @@ sophisticated heuristics.</p>
   
   <entry>
     <title type="html"><![CDATA[A Validation-cost metric for Bitcoin]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/12/13/validation-cost-metric/"/>
+    <link href="http://jonasnick.github.io/blog/2015/12/13/validation-cost-metric/"/>
     <updated>2015-12-13T20:36:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/12/13/validation-cost-metric</id>
+    <id>http://jonasnick.github.io/blog/2015/12/13/validation-cost-metric</id>
     <content type="html"><![CDATA[<p>This is the transcript of a talk I gave at the
 <a href="https://scalingbitcoin.org/hongkong2015/">Scaling Bitcoin Conference</a> 2015 in Hong Kong.
 See <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-December/011865.html">this mailing list post</a> by Greg Maxwell for a general summary of the scaling measures that Bitcoin Core developers are adopting.
@@ -213,9 +212,9 @@ But as we showed we can build on existing blocksize proposals to get some of the
   
   <entry>
     <title type="html"><![CDATA[Can miners exploit a block size increase?]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/"/>
+    <link href="http://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/"/>
     <updated>2015-06-23T10:49:00+02:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase</id>
+    <id>http://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase</id>
     <content type="html"><![CDATA[<p>We don&rsquo;t know yet. But modelling is in my opinion a useful tool to investigate potential effects.
 Therefore, I used Gavin Andresen&rsquo;s mining simulator to create some more or less plausible scenarios.
 You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/master/analysis/README.md">resulting plots on github</a>.</p>
@@ -224,9 +223,9 @@ You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/ma
   
   <entry>
     <title type="html"><![CDATA[Fuzzing Bitcoin Consensus]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/"/>
+    <link href="http://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/"/>
     <updated>2015-05-09T23:39:00+02:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus</id>
+    <id>http://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus</id>
     <content type="html"><![CDATA[<p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
 See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a> for the discovered Bitcoin scripts.</p>
 
@@ -295,9 +294,9 @@ Also, I&rsquo;ve executed the testcases only with btcd and bitcore so far.</p>
   
   <entry>
     <title type="html"><![CDATA[Bitcoin Seeder DoS vulnerability]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/"/>
+    <link href="http://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/"/>
     <updated>2015-03-17T22:23:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability</id>
+    <id>http://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability</id>
     <content type="html"><![CDATA[<p>The DNS parser of the <a href="https://github.com/sipa/bitcoin-seeder">Bitcoin Seeder</a> was vulnerable to a denial of service attack. A specially crafted DNS request could trigger infinite recursive function calls that lead to a stack overflow. See the <a href="https://gist.github.com/jonasnick/62558e4b8ab43bc847c2">exploit</a>.
 The vulnerability was fixed in commit <a href="https://github.com/sipa/bitcoin-seeder/commit/11e935b72020607e5c3ce85a88209bc34e427a06">11e935b</a>.</p>
 ]]></content>

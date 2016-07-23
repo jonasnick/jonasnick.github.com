@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: C | nickler's]]></title>
-  <link href="https://jonasnick.github.io/blog/categories/c/atom.xml" rel="self"/>
-  <link href="https://jonasnick.github.io/"/>
-  <updated>2016-07-23T18:19:49+02:00</updated>
-  <id>https://jonasnick.github.io/</id>
+  <link href="http://jonasnick.github.io/blog/categories/c/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2016-07-23T20:22:09+02:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Exploiting CSGOJackpot's weak RNG]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/"/>
+    <link href="http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/"/>
     <updated>2015-07-08T00:42:00+02:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng</id>
-    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/gaben/BwBArIM.png" width="500"></p>
+    <id>http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng</id>
+    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/gaben/BwBArIM.png" width="500"></p>
 
 <p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
 Because these items can only be found by playing a lot of CSGo, they are quite rare and valuable,<br/>

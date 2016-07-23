@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: privacy | nickler's]]></title>
-  <link href="https://jonasnick.github.io/blog/categories/privacy/atom.xml" rel="self"/>
-  <link href="https://jonasnick.github.io/"/>
-  <updated>2016-07-23T18:19:49+02:00</updated>
-  <id>https://jonasnick.github.io/</id>
+  <link href="http://jonasnick.github.io/blog/categories/privacy/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2016-07-23T20:22:09+02:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Guessing bitcoin's P2P connections]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/"/>
+    <link href="http://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/"/>
     <updated>2015-03-06T14:22:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections</id>
+    <id>http://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections</id>
     <content type="html"><![CDATA[<p>The paper <a href="http://arxiv.org/abs/1405.7418">Deanonymisation of clients in Bitcoin P2P network (2014)</a> by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
 The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to (&ldquo;entry nodes&rdquo;).
 Second, for each transaction $t$ record the $10$ nodes $P_t$ which first propagate $t$.
@@ -100,7 +100,7 @@ $v$ was running for 2 days and I recorded data for every hour but I will only di
 because the data is very similar.</p>
 
 <div class="text-image-big">
-<img src="https://jonasnick.github.io/images/guessing_btc_peers/client-histogram.png">
+<img src="http://jonasnick.github.io/images/guessing_btc_peers/client-histogram.png">
 </div>
 
 
@@ -112,7 +112,7 @@ Here we see that if the attacker obtains all peers of $v$ (without any false pos
 <p>Next, the case for the full node, which I left running for 8 days.</p>
 
 <div class="text-image-big">
-<img src="https://jonasnick.github.io/images/guessing_btc_peers/full_node-histogram.png">
+<img src="http://jonasnick.github.io/images/guessing_btc_peers/full_node-histogram.png">
 </div>
 
 
@@ -157,9 +157,9 @@ However, knowing all outbound peers of a client could significantly increase the
   
   <entry>
     <title type="html"><![CDATA[Privacy in BitcoinJ]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/"/>
+    <link href="http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/"/>
     <updated>2015-02-12T15:53:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj</id>
+    <id>http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj</id>
     <content type="html"><![CDATA[<p>As part of my <a href="https://github.com/jonasnick/FCW-Kernel">epic quest</a> to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet implementations in the hope of finding privacy leaks.</p>
 
 <p><strong>tl;dr</strong> If you are using a wallet that is built upon BitcoinJ, such as Android Wallet, Multibit and Hive Wallet, you have almost zero <em>wire privacy</em>.

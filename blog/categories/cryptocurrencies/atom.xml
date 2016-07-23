@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: cryptocurrencies | nickler's]]></title>
-  <link href="https://jonasnick.github.io/blog/categories/cryptocurrencies/atom.xml" rel="self"/>
-  <link href="https://jonasnick.github.io/"/>
-  <updated>2016-07-23T18:19:49+02:00</updated>
-  <id>https://jonasnick.github.io/</id>
+  <link href="http://jonasnick.github.io/blog/categories/cryptocurrencies/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2016-07-23T20:22:09+02:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ethereum Bug Bounty Submissions]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/"/>
+    <link href="http://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/"/>
     <updated>2015-03-17T22:55:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions</id>
+    <id>http://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions</id>
     <content type="html"><![CDATA[<p>I found two vulnerabilities in the crypto currency <a href="https://ethereum.org">Ethereum</a>: <a href="https://github.com/jonasnick/eth-neg-value-tx">negative transactions</a> and <a href="https://github.com/jonasnick/ecdsaPredictableNonce/">predictable ECDSA nonce</a>.</p>
 
 <p>As part of the <a href="https://bounty.ethdev.com/">bug bounty program</a> I was awarded with 20 Bitcoin.</p>

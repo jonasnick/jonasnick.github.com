@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: pragmatics | nickler's]]></title>
-  <link href="https://jonasnick.github.io/blog/categories/pragmatics/atom.xml" rel="self"/>
-  <link href="https://jonasnick.github.io/"/>
-  <updated>2016-07-23T18:19:49+02:00</updated>
-  <id>https://jonasnick.github.io/</id>
+  <link href="http://jonasnick.github.io/blog/categories/pragmatics/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2016-07-23T20:22:09+02:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Influence of Reputation on Gricean Maxims]]></title>
-    <link href="https://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
+    <link href="http://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
     <updated>2013-10-14T01:04:00+02:00</updated>
-    <id>https://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
+    <id>http://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
     <content type="html"><![CDATA[<p>As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by <a href="http://www.sfs.uni-tuebingen.de/~jquinley/">Jason Quinley</a> at the <a href="http://www.sfs.uni-tuebingen.de/en/chairs.html">Institute of Linguistics</a>, I wanted to explore the influence of reputation on obeying the Gricean Maxims using data from the Q&amp;A website Stackoverflow.</p>
 
 <p>Pragmatics is a subfield in linguistics, defined as &ldquo;dealing with the origins, uses, and effects of signs within the total behavior of the interpreters of signs&rdquo; (<a href="http://psycnet.apa.org/psycinfo/1946-02822-000">Morris, 1946</a>).
@@ -57,7 +57,7 @@ a measure of how much the community trusts a user.
 Stackoverflow provides <a href="http://blog.stackoverflow.com/2009/06/stack-overflow-creative-commons-data-dump/">monthly data dumps</a>.</p>
 
 <div class="text-image">
-<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
 <div>Figure 1</div>
 </div>
 
@@ -69,7 +69,7 @@ It looks like the distribution is following a power law, which is strengthened b
 approximately log-normal, when users with reputation scores equal to one are excluded.</p>
 
 <div class="text-image">
-<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
 <div>Figure 2</div>
 </div>
 
@@ -78,7 +78,7 @@ approximately log-normal, when users with reputation scores equal to one are exc
 This classification task was posted on <a href="http://www.kaggle.com/c/predict-closed-questions-on-stack-overflow">kaggle</a>.</p>
 
 <div class="text-image">
-<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
 <div>Figure 3</div>
 </div>
 
@@ -108,7 +108,7 @@ The maxim of quality is violated by questions labeled <em>not constructive</em> 
 Rather, it would solicit debate, since there is no true answer.</p>
 
 <div class="text-image">
-<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
+<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
 <div>Figure 4</div>
 </div>
 
@@ -130,13 +130,13 @@ This is by no means a bad thing, as long as we take this characteristic into acc
   
   <entry>
     <title type="html"><![CDATA[Signaling games and Language]]></title>
-    <link href="https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
+    <link href="http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
     <updated>2012-11-29T00:15:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
+    <id>http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
     <content type="html"><![CDATA[<p><img src="/images/vowelspace.png"><br/>
 Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
-The important finding in the <a href="https://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
-The <a href="https://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
+The important finding in the <a href="http://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
+The <a href="http://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
 ]]></content>
   </entry>
   

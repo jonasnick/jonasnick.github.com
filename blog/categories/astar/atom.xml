@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Astar | nickler's]]></title>
-  <link href="https://jonasnick.github.io/blog/categories/astar/atom.xml" rel="self"/>
-  <link href="https://jonasnick.github.io/"/>
-  <updated>2016-07-23T18:19:49+02:00</updated>
-  <id>https://jonasnick.github.io/</id>
+  <link href="http://jonasnick.github.io/blog/categories/astar/atom.xml" rel="self"/>
+  <link href="http://jonasnick.github.io/"/>
+  <updated>2016-07-23T20:22:09+02:00</updated>
+  <id>http://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A* for MarioAI]]></title>
-    <link href="https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai/"/>
+    <link href="http://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai/"/>
     <updated>2012-12-20T13:43:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai</id>
+    <id>http://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai</id>
     <content type="html"><![CDATA[<p><img src="/images/MarioScreenshot.png"><br/>
 Check out my <a href="https://github.com/jonasnick/A-star">A* Implementation</a>.
 Your nodes can be easily added by inheriting the ASearchNode class.
