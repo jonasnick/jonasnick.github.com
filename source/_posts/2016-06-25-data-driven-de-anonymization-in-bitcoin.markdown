@@ -6,7 +6,10 @@ comments: true
 categories: [bitcoin, golang]
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HScK4pkDNds" frameborder="0" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=HScK4pkDNds"><img src="/images/zurich-youtube.png" width="560"></a>
+
+
+
 [**Slides**](slides/2016-zurich-meetup.pdf)
 
 
