@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: machine learning | nickler's]]></title>
-  <link href="http://jonasnick.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.io/"/>
-  <updated>2016-07-04T09:32:45+02:00</updated>
-  <id>http://jonasnick.github.io/</id>
+  <link href="https://jonasnick.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
+  <link href="https://jonasnick.github.io/"/>
+  <updated>2016-07-23T18:19:49+02:00</updated>
+  <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[FCW Kernel]]></title>
-    <link href="http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/"/>
+    <link href="https://jonasnick.github.io/blog/2014/12/12/fcw-kernel/"/>
     <updated>2014-12-12T01:50:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2014/12/12/fcw-kernel</id>
+    <id>https://jonasnick.github.io/blog/2014/12/12/fcw-kernel</id>
     <content type="html"><![CDATA[<p>A Feature Coinciding Walk Kernel classifies nodes in a graph.</p>
 
 <p>This project is a python port of <a href="https://github.com/rmgarnett/coinciding_walk_kernel">Coinciding Walk Kernels</a> (CWK) [1] and introduces an extension of the model called Feature-CWK (FCWK). If you want to jump right into some code see the <a href="https://nbviewer.ipython.org/github/jonasnick/FCW-Kernel/blob/master/benchmark.ipynb">benchmark</a>.</p>
@@ -30,10 +30,10 @@
   
   <entry>
     <title type="html"><![CDATA[Regressionsmodelle und Parameterschätzverfahren]]></title>
-    <link href="http://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
+    <link href="https://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
     <updated>2013-03-15T17:26:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/regressionPresentation-linearFit.png" width="500"></p>
+    <id>https://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/regressionPresentation-linearFit.png" width="500"></p>
 
 <p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar &ldquo;Maschinelles Lernen&rdquo; an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
 Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto &ldquo;Frauen und Kinder zuerst&rdquo; bei der Katastrophe zutraf.</p>
@@ -48,7 +48,7 @@ Anschließend wird die logistische Regression auf den Titanic Datensatz angewand
 y = h(x) + \epsilon
 $$</p></blockquote>
 
-<p><a href="regression.pdf"><center><strong>PDF weiterlesen</strong></center></a></p>
+<p><a href="/papers/regression.pdf"><center><strong>PDF weiterlesen</strong></center></a></p>
 ]]></content>
   </entry>
   

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: snake | nickler's]]></title>
-  <link href="http://jonasnick.github.io/blog/categories/snake/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.io/"/>
-  <updated>2016-07-04T09:32:45+02:00</updated>
-  <id>http://jonasnick.github.io/</id>
+  <link href="https://jonasnick.github.io/blog/categories/snake/atom.xml" rel="self"/>
+  <link href="https://jonasnick.github.io/"/>
+  <updated>2016-07-23T18:19:49+02:00</updated>
+  <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Snake in Racket]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/11/28/snake-in-racket/"/>
+    <link href="https://jonasnick.github.io/blog/2012/11/28/snake-in-racket/"/>
     <updated>2012-11-28T19:28:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/11/28/snake-in-racket</id>
+    <id>https://jonasnick.github.io/blog/2012/11/28/snake-in-racket</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="/images/snake.png"></a><br/>
 Snake implementation
 <a href="https://github.com/jonasnick/snake">Snake</a>
