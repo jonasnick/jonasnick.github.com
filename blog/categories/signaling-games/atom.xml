@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: signaling games | nickler's]]></title>
-  <link href="http://jonasnick.github.io/blog/categories/signaling-games/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.io/"/>
-  <updated>2016-07-23T20:22:09+02:00</updated>
-  <id>http://jonasnick.github.io/</id>
+  <link href="https://jonasnick.github.io/blog/categories/signaling-games/atom.xml" rel="self"/>
+  <link href="https://jonasnick.github.io/"/>
+  <updated>2016-07-23T20:27:22+02:00</updated>
+  <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,13 +15,13 @@
   
   <entry>
     <title type="html"><![CDATA[Signaling games and Language]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
+    <link href="https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
     <updated>2012-11-29T00:15:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
+    <id>https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
     <content type="html"><![CDATA[<p><img src="/images/vowelspace.png"><br/>
 Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
-The important finding in the <a href="http://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
-The <a href="http://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
+The important finding in the <a href="https://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
+The <a href="https://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
 ]]></content>
   </entry>
   

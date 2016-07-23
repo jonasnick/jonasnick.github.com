@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[nickler's]]></title>
-  <link href="http://jonasnick.github.io/atom.xml" rel="self"/>
-  <link href="http://jonasnick.github.io/"/>
-  <updated>2016-07-23T20:22:09+02:00</updated>
-  <id>http://jonasnick.github.io/</id>
+  <link href="https://jonasnick.github.io/atom.xml" rel="self"/>
+  <link href="https://jonasnick.github.io/"/>
+  <updated>2016-07-23T20:27:22+02:00</updated>
+  <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Data-Driven De-Anonymization in Bitcoin]]></title>
-    <link href="http://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/"/>
+    <link href="https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/"/>
     <updated>2016-06-25T23:41:00+02:00</updated>
-    <id>http://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin</id>
-    <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=HScK4pkDNds"><img src="http://jonasnick.github.io/images/zurich-youtube.png" width="560"></a></p>
+    <id>https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin</id>
+    <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=HScK4pkDNds"><img src="https://jonasnick.github.io/images/zurich-youtube.png" width="560"></a></p>
 
 <p><a href="slides/2016-zurich-meetup.pdf"><strong>Slides</strong></a></p>
 
@@ -41,15 +41,15 @@ input heuristic, an adversary can guess on average 68.59% addresses of a victim.
 We show that this metric can be further improved by combining several more
 sophisticated heuristics.</p>
 
-<p><a href="http://jonasnick.github.io/papers/thesis.pdf"><center><strong>Read full thesis</strong></center></a></p>
+<p><a href="https://jonasnick.github.io/papers/thesis.pdf"><center><strong>Read full thesis</strong></center></a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[A Validation-cost metric for Bitcoin]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/12/13/validation-cost-metric/"/>
+    <link href="https://jonasnick.github.io/blog/2015/12/13/validation-cost-metric/"/>
     <updated>2015-12-13T20:36:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/12/13/validation-cost-metric</id>
+    <id>https://jonasnick.github.io/blog/2015/12/13/validation-cost-metric</id>
     <content type="html"><![CDATA[<p>This is the transcript of a talk I gave at the
 <a href="https://scalingbitcoin.org/hongkong2015/">Scaling Bitcoin Conference</a> 2015 in Hong Kong.
 See <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-December/011865.html">this mailing list post</a> by Greg Maxwell for a general summary of the scaling measures that Bitcoin Core developers are adopting.
@@ -212,10 +212,10 @@ But as we showed we can build on existing blocksize proposals to get some of the
   
   <entry>
     <title type="html"><![CDATA[Exploiting CSGOJackpot's weak RNG]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/"/>
+    <link href="https://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/"/>
     <updated>2015-07-08T00:42:00+02:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/gaben/BwBArIM.png" width="500"></p>
+    <id>https://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/gaben/BwBArIM.png" width="500"></p>
 
 <p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
 Because these items can only be found by playing a lot of CSGo, they are quite rare and valuable,<br/>
@@ -338,9 +338,9 @@ Unfortunately, so far they didn&rsquo;t remove the &ldquo;provable fairness&rdqu
   
   <entry>
     <title type="html"><![CDATA[Can miners exploit a block size increase?]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/"/>
+    <link href="https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/"/>
     <updated>2015-06-23T10:49:00+02:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase</id>
+    <id>https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase</id>
     <content type="html"><![CDATA[<p>We don&rsquo;t know yet. But modelling is in my opinion a useful tool to investigate potential effects.
 Therefore, I used Gavin Andresen&rsquo;s mining simulator to create some more or less plausible scenarios.
 You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/master/analysis/README.md">resulting plots on github</a>.</p>
@@ -349,9 +349,9 @@ You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/ma
   
   <entry>
     <title type="html"><![CDATA[Fuzzing Bitcoin Consensus]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/"/>
+    <link href="https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/"/>
     <updated>2015-05-09T23:39:00+02:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus</id>
+    <id>https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus</id>
     <content type="html"><![CDATA[<p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
 See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a> for the discovered Bitcoin scripts.</p>
 
@@ -421,9 +421,9 @@ Also, I&rsquo;ve executed the testcases only with btcd and bitcore so far.</p>
   
   <entry>
     <title type="html"><![CDATA[Ethereum Bug Bounty Submissions]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/"/>
+    <link href="https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/"/>
     <updated>2015-03-17T22:55:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions</id>
+    <id>https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions</id>
     <content type="html"><![CDATA[<p>I found two vulnerabilities in the crypto currency <a href="https://ethereum.org">Ethereum</a>: <a href="https://github.com/jonasnick/eth-neg-value-tx">negative transactions</a> and <a href="https://github.com/jonasnick/ecdsaPredictableNonce/">predictable ECDSA nonce</a>.</p>
 
 <p>As part of the <a href="https://bounty.ethdev.com/">bug bounty program</a> I was awarded with 20 Bitcoin.</p>
@@ -432,9 +432,9 @@ Also, I&rsquo;ve executed the testcases only with btcd and bitcore so far.</p>
   
   <entry>
     <title type="html"><![CDATA[Bitcoin Seeder DoS vulnerability]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/"/>
+    <link href="https://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/"/>
     <updated>2015-03-17T22:23:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability</id>
+    <id>https://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability</id>
     <content type="html"><![CDATA[<p>The DNS parser of the <a href="https://github.com/sipa/bitcoin-seeder">Bitcoin Seeder</a> was vulnerable to a denial of service attack. A specially crafted DNS request could trigger infinite recursive function calls that lead to a stack overflow. See the <a href="https://gist.github.com/jonasnick/62558e4b8ab43bc847c2">exploit</a>.
 The vulnerability was fixed in commit <a href="https://github.com/sipa/bitcoin-seeder/commit/11e935b72020607e5c3ce85a88209bc34e427a06">11e935b</a>.</p>
 ]]></content>
@@ -442,9 +442,9 @@ The vulnerability was fixed in commit <a href="https://github.com/sipa/bitcoin-s
   
   <entry>
     <title type="html"><![CDATA[Guessing bitcoin's P2P connections]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/"/>
+    <link href="https://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/"/>
     <updated>2015-03-06T14:22:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections</id>
+    <id>https://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections</id>
     <content type="html"><![CDATA[<p>The paper <a href="http://arxiv.org/abs/1405.7418">Deanonymisation of clients in Bitcoin P2P network (2014)</a> by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
 The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to (&ldquo;entry nodes&rdquo;).
 Second, for each transaction $t$ record the $10$ nodes $P_t$ which first propagate $t$.
@@ -532,7 +532,7 @@ $v$ was running for 2 days and I recorded data for every hour but I will only di
 because the data is very similar.</p>
 
 <div class="text-image-big">
-<img src="http://jonasnick.github.io/images/guessing_btc_peers/client-histogram.png">
+<img src="https://jonasnick.github.io/images/guessing_btc_peers/client-histogram.png">
 </div>
 
 
@@ -544,7 +544,7 @@ Here we see that if the attacker obtains all peers of $v$ (without any false pos
 <p>Next, the case for the full node, which I left running for 8 days.</p>
 
 <div class="text-image-big">
-<img src="http://jonasnick.github.io/images/guessing_btc_peers/full_node-histogram.png">
+<img src="https://jonasnick.github.io/images/guessing_btc_peers/full_node-histogram.png">
 </div>
 
 
@@ -589,9 +589,9 @@ However, knowing all outbound peers of a client could significantly increase the
   
   <entry>
     <title type="html"><![CDATA[Privacy in BitcoinJ]]></title>
-    <link href="http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/"/>
+    <link href="https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/"/>
     <updated>2015-02-12T15:53:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj</id>
+    <id>https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj</id>
     <content type="html"><![CDATA[<p>As part of my <a href="https://github.com/jonasnick/FCW-Kernel">epic quest</a> to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet implementations in the hope of finding privacy leaks.</p>
 
 <p><strong>tl;dr</strong> If you are using a wallet that is built upon BitcoinJ, such as Android Wallet, Multibit and Hive Wallet, you have almost zero <em>wire privacy</em>.
@@ -693,9 +693,9 @@ If you have suggestions what to look out for and what would be interesting (not 
   
   <entry>
     <title type="html"><![CDATA[FCW Kernel]]></title>
-    <link href="http://jonasnick.github.io/blog/2014/12/12/fcw-kernel/"/>
+    <link href="https://jonasnick.github.io/blog/2014/12/12/fcw-kernel/"/>
     <updated>2014-12-12T01:50:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2014/12/12/fcw-kernel</id>
+    <id>https://jonasnick.github.io/blog/2014/12/12/fcw-kernel</id>
     <content type="html"><![CDATA[<p>A Feature Coinciding Walk Kernel classifies nodes in a graph.</p>
 
 <p>This project is a python port of <a href="https://github.com/rmgarnett/coinciding_walk_kernel">Coinciding Walk Kernels</a> (CWK) [1] and introduces an extension of the model called Feature-CWK (FCWK). If you want to jump right into some code see the <a href="https://nbviewer.ipython.org/github/jonasnick/FCW-Kernel/blob/master/benchmark.ipynb">benchmark</a>.</p>
@@ -708,9 +708,9 @@ If you have suggestions what to look out for and what would be interesting (not 
   
   <entry>
     <title type="html"><![CDATA[Reading Noun-Noun Compounds]]></title>
-    <link href="http://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds/"/>
+    <link href="https://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds/"/>
     <updated>2013-10-14T23:35:00+02:00</updated>
-    <id>http://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds</id>
+    <id>https://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds</id>
     <content type="html"><![CDATA[<h3>Early Influences of Compound Frequency and Semantic Transparency</h3>
 
 <p>My bachelor thesis in Cognitive Science.
@@ -753,15 +753,15 @@ information that is most discriminative for the compound.</p>
 reading, eye-movements, compounds, semantic similarity, morphological
 processing, generalized additive model</p>
 
-<p><a href="http://jonasnick.github.io/papers/readingCompounds.pdf"><center><strong>Read PDF</strong></center></a></p>
+<p><a href="https://jonasnick.github.io/papers/readingCompounds.pdf"><center><strong>Read PDF</strong></center></a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Influence of Reputation on Gricean Maxims]]></title>
-    <link href="http://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
+    <link href="https://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
     <updated>2013-10-14T01:04:00+02:00</updated>
-    <id>http://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
+    <id>https://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
     <content type="html"><![CDATA[<p>As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by <a href="http://www.sfs.uni-tuebingen.de/~jquinley/">Jason Quinley</a> at the <a href="http://www.sfs.uni-tuebingen.de/en/chairs.html">Institute of Linguistics</a>, I wanted to explore the influence of reputation on obeying the Gricean Maxims using data from the Q&amp;A website Stackoverflow.</p>
 
 <p>Pragmatics is a subfield in linguistics, defined as &ldquo;dealing with the origins, uses, and effects of signs within the total behavior of the interpreters of signs&rdquo; (<a href="http://psycnet.apa.org/psycinfo/1946-02822-000">Morris, 1946</a>).
@@ -801,7 +801,7 @@ a measure of how much the community trusts a user.
 Stackoverflow provides <a href="http://blog.stackoverflow.com/2009/06/stack-overflow-creative-commons-data-dump/">monthly data dumps</a>.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
+<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
 <div>Figure 1</div>
 </div>
 
@@ -813,7 +813,7 @@ It looks like the distribution is following a power law, which is strengthened b
 approximately log-normal, when users with reputation scores equal to one are excluded.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
+<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
 <div>Figure 2</div>
 </div>
 
@@ -822,7 +822,7 @@ approximately log-normal, when users with reputation scores equal to one are exc
 This classification task was posted on <a href="http://www.kaggle.com/c/predict-closed-questions-on-stack-overflow">kaggle</a>.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
+<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
 <div>Figure 3</div>
 </div>
 
@@ -852,7 +852,7 @@ The maxim of quality is violated by questions labeled <em>not constructive</em> 
 Rather, it would solicit debate, since there is no true answer.</p>
 
 <div class="text-image">
-<img src="http://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
+<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
 <div>Figure 4</div>
 </div>
 
@@ -874,10 +874,10 @@ This is by no means a bad thing, as long as we take this characteristic into acc
   
   <entry>
     <title type="html"><![CDATA[Regressionsmodelle und Parameterschätzverfahren]]></title>
-    <link href="http://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
+    <link href="https://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/"/>
     <updated>2013-03-15T17:26:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/regressionPresentation-linearFit.png" width="500"></p>
+    <id>https://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/regressionPresentation-linearFit.png" width="500"></p>
 
 <p><a href="regression.pdf">Eine Einführung</a>, die als Ausarbeitung für das Seminar &ldquo;Maschinelles Lernen&rdquo; an der Universität Tübingen entstanden ist. Die Grundlagen linearer, nichtlinearer, logistischer und Bayes Regression werden behandelt, sowie Verfahren zur Schätzung der Modellparameter aus statistischen Annahmen vorgestellt.
 Anschließend wird die logistische Regression auf den Titanic Datensatz angewandt und unter anderem gezeigt, dass das Motto &ldquo;Frauen und Kinder zuerst&rdquo; bei der Katastrophe zutraf.</p>
@@ -892,15 +892,15 @@ Anschließend wird die logistische Regression auf den Titanic Datensatz angewand
 y = h(x) + \epsilon
 $$</p></blockquote>
 
-<p><a href="http://jonasnick.github.io/papers/regression.pdf"><center><strong>PDF weiterlesen</strong></center></a></p>
+<p><a href="https://jonasnick.github.io/papers/regression.pdf"><center><strong>PDF weiterlesen</strong></center></a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Visualizing Receptive Fields]]></title>
-    <link href="http://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields/"/>
+    <link href="https://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields/"/>
     <updated>2013-02-14T00:37:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields</id>
+    <id>https://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields</id>
     <content type="html"><![CDATA[<div class="ipynb">
 
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -8091,10 +8091,10 @@ SiqppJIGpALNSiqppJIG5P/myiDhDXjWYgAAAABJRU5ErkJggg==
   
   <entry>
     <title type="html"><![CDATA[A* for MarioAI]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai/"/>
+    <link href="https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai/"/>
     <updated>2012-12-20T13:43:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/MarioScreenshot.png"><br/>
+    <id>https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/MarioScreenshot.png"><br/>
 Check out my <a href="https://github.com/jonasnick/A-star">A* Implementation</a>.
 Your nodes can be easily added by inheriting the ASearchNode class.
 The purpose of the A* is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Competion</a>.
@@ -8109,22 +8109,22 @@ Therefore the agent will wander around to collect knowledge about his environmen
   
   <entry>
     <title type="html"><![CDATA[Signaling games and Language]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
+    <link href="https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
     <updated>2012-11-29T00:15:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/vowelspace.png"><br/>
+    <id>https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/vowelspace.png"><br/>
 Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
-The important finding in the <a href="http://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
-The <a href="http://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
+The important finding in the <a href="https://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
+The <a href="https://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Evolving bitcoin trade bot]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot/"/>
+    <link href="https://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot/"/>
     <updated>2012-11-28T21:02:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot</id>
-    <content type="html"><![CDATA[<p><img src="http://jonasnick.github.io/images/bagalute/index.png">
+    <id>https://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/bagalute/index.png">
 <a href="https://github.com/jonasnick/bagalute">Bagalute</a> is a trade bot, designed for buying a currency (bitcoin) at the the right time. As a decision criterium it uses the relative strength index (RSI). The bot looks at the price development of the last twelve hours and runs an evolutionary algorithm to determine the optimal parameters for the RSI in that time frame. Then, it uses these parameters for the next time frame. Currently the bot uses for debugging purposes a dummy interface to trade. The actual success of the bot was sparsely tested but had negative results, maybe due to a general downtrend of prices.
 I wrote it during my 2nd semester break</p>
 ]]></content>
@@ -8132,9 +8132,9 @@ I wrote it during my 2nd semester break</p>
   
   <entry>
     <title type="html"><![CDATA[Labormensch - a puzzle]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle/"/>
+    <link href="https://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle/"/>
     <updated>2012-11-28T20:31:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle</id>
+    <id>https://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle</id>
     <content type="html"><![CDATA[<p>This is a mod for Valve&rsquo;s source engine. It deludes the player&rsquo;s cognitive map of the world. Despite his efforts to escape he always returns to his start location. However there is one solution to escape&hellip;</p>
 
 <iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/3QaHo0QgKeQ"></iframe>
@@ -8144,9 +8144,9 @@ I wrote it during my 2nd semester break</p>
   
   <entry>
     <title type="html"><![CDATA[Kinect data in Blender]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender/"/>
+    <link href="https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender/"/>
     <updated>2012-11-28T20:17:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender</id>
+    <id>https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender</id>
     <content type="html"><![CDATA[<p>Importing raw data points from Microsofts Kinect is fun, despite my lacking blender skills. But the huge filesizes prevent further use.</p>
 
 <iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/I-hM3QZJZZw"></iframe>
@@ -8156,10 +8156,10 @@ I wrote it during my 2nd semester break</p>
   
   <entry>
     <title type="html"><![CDATA[Snake in Racket]]></title>
-    <link href="http://jonasnick.github.io/blog/2012/11/28/snake-in-racket/"/>
+    <link href="https://jonasnick.github.io/blog/2012/11/28/snake-in-racket/"/>
     <updated>2012-11-28T19:28:00+01:00</updated>
-    <id>http://jonasnick.github.io/blog/2012/11/28/snake-in-racket</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="http://jonasnick.github.io/images/snake.png"></a><br/>
+    <id>https://jonasnick.github.io/blog/2012/11/28/snake-in-racket</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/jonasnick/snake"><img src="https://jonasnick.github.io/images/snake.png"></a><br/>
 Snake implementation
 <a href="https://github.com/jonasnick/snake">Snake</a>
  in the functional language Racket with GUI. Homework of the first semester of computer science.
