@@ -10,7 +10,7 @@ categories: [bitcoin, golang]
 
 
 
-[**Slides**](slides/2016-zurich-meetup.pdf)
+[**Slides**](/slides/2016-zurich-meetup.pdf)
 
 
 **Abstract**
