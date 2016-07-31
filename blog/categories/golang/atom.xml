@@ -4,7 +4,7 @@
   <title><![CDATA[Category: golang | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/golang/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-07-23T20:27:22+02:00</updated>
+  <updated>2016-07-31T16:06:46+02:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -20,7 +20,7 @@
     <id>https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin</id>
     <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=HScK4pkDNds"><img src="https://jonasnick.github.io/images/zurich-youtube.png" width="560"></a></p>
 
-<p><a href="slides/2016-zurich-meetup.pdf"><strong>Slides</strong></a></p>
+<p><a href="/slides/2016-zurich-meetup.pdf"><strong>Slides</strong></a></p>
 
 <p><strong>Abstract</strong></p>
 
