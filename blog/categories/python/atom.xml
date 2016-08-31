@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/python/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-08-06T15:02:48+02:00</updated>
+  <updated>2016-08-31T22:54:03+02:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The 2016 Backdoored Cryptocurrency Contest Winner]]></title>
+    <link href="https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/"/>
+    <updated>2016-08-31T22:43:00+02:00</updated>
+    <id>https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner</id>
+    <content type="html"><![CDATA[<p>Thanks to a quite a bit of luck I won this years version of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">the Underhanded Crypto Contest</a> focused on crypto currencies. The submission consists of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">a writeup</a> and &ndash; of course &ndash; <a href="https://github.com/jonasnick/2016_underhanded_crypto_contest/tree/master/submission">backdoored code</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Can miners exploit a block size increase?]]></title>
@@ -7241,18 +7250,6 @@ SiqppJIGpALNSiqppJIG5P/myiDhDXjWYgAAAABJRU5ErkJggg==
 Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
 The important finding in the <a href="https://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
 The <a href="https://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Kinect data in Blender]]></title>
-    <link href="https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender/"/>
-    <updated>2012-11-28T20:17:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender</id>
-    <content type="html"><![CDATA[<p>Importing raw data points from Microsofts Kinect is fun, despite my lacking blender skills. But the huge filesizes prevent further use.</p>
-
-<iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/I-hM3QZJZZw"></iframe>
-
 ]]></content>
   </entry>
   

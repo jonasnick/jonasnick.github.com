@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-08-06T15:02:48+02:00</updated>
+  <updated>2016-08-31T22:54:03+02:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The 2016 Backdoored Cryptocurrency Contest Winner]]></title>
+    <link href="https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/"/>
+    <updated>2016-08-31T22:43:00+02:00</updated>
+    <id>https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner</id>
+    <content type="html"><![CDATA[<p>Thanks to a quite a bit of luck I won this years version of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">the Underhanded Crypto Contest</a> focused on crypto currencies. The submission consists of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">a writeup</a> and &ndash; of course &ndash; <a href="https://github.com/jonasnick/2016_underhanded_crypto_contest/tree/master/submission">backdoored code</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Data-Driven De-Anonymization in Bitcoin]]></title>
@@ -289,16 +298,6 @@ Additionally, he was so kind to award me with 0.5 bitcoin for the find.</p>
 <p>You can find the result of the fuzzing, the code to produce them and test reimplementation in the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a>.
 If you are interested you can start fuzzing yourself and submit a pull request with new scripts you found.
 Also, I&rsquo;ve executed the testcases only with btcd and bitcore so far.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bitcoin Seeder DoS vulnerability]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/"/>
-    <updated>2015-03-17T22:23:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability</id>
-    <content type="html"><![CDATA[<p>The DNS parser of the <a href="https://github.com/sipa/bitcoin-seeder">Bitcoin Seeder</a> was vulnerable to a denial of service attack. A specially crafted DNS request could trigger infinite recursive function calls that lead to a stack overflow. See the <a href="https://gist.github.com/jonasnick/62558e4b8ab43bc847c2">exploit</a>.
-The vulnerability was fixed in commit <a href="https://github.com/sipa/bitcoin-seeder/commit/11e935b72020607e5c3ce85a88209bc34e427a06">11e935b</a>.</p>
 ]]></content>
   </entry>
   
