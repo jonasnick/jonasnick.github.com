@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cpp | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/cpp/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-12-18T22:23:27+01:00</updated>
+  <updated>2016-12-18T22:35:09+01:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -28,14 +28,14 @@ Very quickly I found a <a href="https://twitter.com/n1ckler/status/8014852092207
 This scheme is a new contribution by the paper and indeed turned out to be exploitable such that an <strong>attacker would be able to create coins from nothing</strong>.
 You can find the exploit code on <a href="https://github.com/jonasnick/monero/commit/ad405e514c7c82bb81d7d49282fa11729420ea85">GitHub</a> and a detailed explanation in this post.</p>
 
-<p>While writing the exploit code and preparing this blog post I learned that <a href="https://github.com/monero-project/research-lab/issues/4">an anonymous person reported</a> a flaw in the security proof of ASNL, which convinced the Monero devs to publish a <a href="https://github.com/monero-project/monero/releases/tag/v0.10.1">bugfix release</a> that switches to <a href="https://github.com/ElementsProject/borromean-signatures-writeup">Borromean signatures</a> (good call!).
+<p>While writing the exploit code and preparing this blog post I learned that <a href="https://github.com/monero-project/research-lab/issues/4">an anonymous person called RandomRun reported</a> a flaw in the security proof of ASNL, which convinced the Monero devs to publish a <a href="https://github.com/monero-project/monero/releases/tag/v0.10.1">bugfix release</a> that switches to <a href="https://github.com/ElementsProject/borromean-signatures-writeup">Borromean signatures</a> (good call!).
 As a result <strong>the upcoming hard fork will not be vulnerable to this exploit</strong>.
 Interestingly, the error in the security proof is exactly the flip-side of the vulnerability I discovered.</p>
 
 <!-- more -->
 
 
-<p>I have the highest respect for the reporter and parts of the Monero community.
+<p>I have the highest respect for RandomRun and parts of the Monero community.
 It takes an incredibly strong character to drop an 0day worth tens of millions USD.
 However, that the original hard fork schedule of RingCT remains unchanged despite a complete break of the system raises more than a few questions.
 Even more so when the author of RingCT is <a href="https://github.com/monero-project/research-lab/issues/4#issuecomment-256261207">calling for more review</a>.</p>
