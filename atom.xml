@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="https://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-08-31T22:54:03+02:00</updated>
+  <updated>2016-12-18T22:23:27+01:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,147 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A problem with Monero's RingCT]]></title>
+    <link href="https://jonasnick.github.io/blog/2016/12/17/a-problem-with-ringct/"/>
+    <updated>2016-12-17T17:33:00+01:00</updated>
+    <id>https://jonasnick.github.io/blog/2016/12/17/a-problem-with-ringct</id>
+    <content type="html"><![CDATA[<p>The crypto-currency <a href="https://getmonero.org/home">Monero</a> is about to introduce a new milestone in Blockchain technology: <a href="https://eprint.iacr.org/2015/1098">RingCT</a>.
+This is a scheme that allows using <a href="https://people.xiph.org/~greg/confidential_values.txt">Confidential Transactions (CT)</a> while keeping the non-interactive coin mixing typical for Monero.
+CT enables hiding the transaction amounts from anyone but sender and receiver while full nodes are still able to verify that input amounts are equal to output amounts.
+RingCT is currently not active in Monero; it is designed to be introduced as a hard fork early January.</p>
+
+<p>I am a complete outsider to Monero and especially the Monero development community, but having reviewed the CT design and implementation (<a href="https://github.com/ElementsProject/secp256k1-zkp">in libsecp256k1</a>) extensively during my day job, I was very interested in the design decisions underlying RingCT.
+Very quickly I found a <a href="https://twitter.com/n1ckler/status/801485209220718592">red flag</a> in the ring signature scheme called ASNL used in the range proofs.
+This scheme is a new contribution by the paper and indeed turned out to be exploitable such that an <strong>attacker would be able to create coins from nothing</strong>.
+You can find the exploit code on <a href="https://github.com/jonasnick/monero/commit/ad405e514c7c82bb81d7d49282fa11729420ea85">GitHub</a> and a detailed explanation in this post.</p>
+
+<p>While writing the exploit code and preparing this blog post I learned that <a href="https://github.com/monero-project/research-lab/issues/4">an anonymous person reported</a> a flaw in the security proof of ASNL, which convinced the Monero devs to publish a <a href="https://github.com/monero-project/monero/releases/tag/v0.10.1">bugfix release</a> that switches to <a href="https://github.com/ElementsProject/borromean-signatures-writeup">Borromean signatures</a> (good call!).
+As a result <strong>the upcoming hard fork will not be vulnerable to this exploit</strong>.
+Interestingly, the error in the security proof is exactly the flip-side of the vulnerability I discovered.</p>
+
+<!-- more -->
+
+
+<p>I have the highest respect for the reporter and parts of the Monero community.
+It takes an incredibly strong character to drop an 0day worth tens of millions USD.
+However, that the original hard fork schedule of RingCT remains unchanged despite a complete break of the system raises more than a few questions.
+Even more so when the author of RingCT is <a href="https://github.com/monero-project/research-lab/issues/4#issuecomment-256261207">calling for more review</a>.</p>
+
+<h2>Aggregate Schnorr Non-linkable Ring Signature (ASNL)</h2>
+
+<p>Confidential transactions include a range proof to prevent negative amounts.
+These range proofs use a generalization of ring signatures in which
+the conjunction of multiple rings is proven, for example that the prover knows the discrete logarithm of <code>(Pk1 OR Pk2) AND (Pk1 OR Pk3) AND ...</code>
+The original CT scheme introduced Borromean signatures for that purpose which are based on rings of hashes and provide space savings when public keys appear more than once.</p>
+
+<p>Instead, the RingCT paper proposes a new scheme called Aggregate Schnorr Non-linkable Ring Signature because it has &ldquo;perhaps simpler security proofs&rdquo; (RingCT paper).</p>
+
+<p>A ASNL signature consists tuples <code>(P1_j, P2_j, L1_j, s2_j)</code> for <code>j = 1, ..., n</code> and <code>s</code> which
+is supposed to prove that the signer knows the DL of <code>(P1_1 OR P2_1) AND ... AND (P1_n OR P2_n)</code>.
+Let&rsquo;s consider the <code>n = 1</code> case (no conjunction) informally.
+The verifier checks that</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>L1 = s*G + H(s2*G + H(L1)*P2)*P1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>where <code>H</code> is a hash function.</p>
+
+<p>So either</p>
+
+<ul>
+<li>The prover knows the DL <code>x</code> of <code>P1</code> then sets</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>a, s2 &lt;- random scalar
+</span><span class='line'>L1    &lt;- a*G
+</span><span class='line'>s     &lt;- a - H(s2*G + H(L1)*P2)*x</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Or the prover knows the DL <code>x</code> of <code>P2</code> then sets</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>a, s &lt;- random scalar
+</span><span class='line'>L1   &lt;- s*G +H(a*G)*P1
+</span><span class='line'>s2   &lt;- a - x*H(L1)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the case of multiple conjunctions (<code>n &gt; 1</code>), the verifier computes <code>LHS &lt;- L1_1 + ... L1_n</code> and <code>RHS &lt;- s*G + H(s2_1*G + H(L1_1)P2_1)P1_1 + ... + H(s2_n*G + H(L1_n)P2_n)P1_n</code> and checks that <code>LHS = RHS</code>.
+In short, this is vulnerable because you can just choose some <code>L1_j</code> such that it cancels out the summand on the right hand side where both DLs of P1 and P2 are unknown.
+In contrast, the &ldquo;proof&rdquo; of security of ASNL assumes that any adversaries knows <code>a</code> s.t. <code>a*G = L1_j</code> for all <code>j</code>.</p>
+
+<h2>Forgery</h2>
+
+<p><a href="https://github.com/jonasnick/monero/commit/ad405e514c7c82bb81d7d49282fa11729420ea85">Implementation</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Theorem
+</span><span class='line'>Given any curve points P1_1, P2_1, an adversary is able to forge a ASNL signature
+</span><span class='line'>(P1_j, P2_j, L1_j, s2_j) for j=1, ..., n and s where n &gt; 1 such that ASNL verify accepts.
+</span><span class='line'>
+</span><span class='line'>Proof
+</span><span class='line'>Without loss of generality assume n = 2.
+</span><span class='line'>1. Let P1_2 = xG
+</span><span class='line'>    Set
+</span><span class='line'>    a, s2_1, s2_2 &lt;- random scalar
+</span><span class='line'>    L1_1 &lt;- a*G
+</span><span class='line'>    L1_2 &lt;- H(s2_1*G + H(L1_1)*P2_1)*P1_1
+</span><span class='line'>    s &lt;- a - H(s2_2*G + H(L1_2)*P2_2)*x
+</span><span class='line'>    Then during verification it holds that
+</span><span class='line'>    L1_1 + L1_2 = s*G + H(s2_1*G + H(L1_1)*P2_1)*P1_1 + H(s2_2*G + H(L1_2)*P2_2)*P1_2
+</span><span class='line'>    &lt;=&gt; L1_1 = (a - H(s2_2*G + H(L1_2)*P2_2)*x)*G + H(s2_2*G + H(L1_2)*P2_2)*P1_2
+</span><span class='line'>    &lt;=&gt; L1_1 = a*G
+</span><span class='line'>2. Let P2_2 = xG
+</span><span class='line'>    Set
+</span><span class='line'>    a, s, s2_1 &lt;- random scalar
+</span><span class='line'>    L2_2 &lt;- a*G
+</span><span class='line'>    L1_1 &lt;- s*G + H(L2_2)*P1_2
+</span><span class='line'>    L1_2 &lt;- H(s2_1*G + H(L1_1)*P2_1)*P1_1
+</span><span class='line'>    s2_2 &lt;- a - H(L1_2)*x
+</span><span class='line'>    Then during verification it holds that
+</span><span class='line'>    L1_1 + L1_2 = s*G + H(s2_1*G + H(L1_1)*P2_1)*P1_1 + H(s2_2*G + H(L1_2)*P2_2)*P1_2
+</span><span class='line'>    &lt;=&gt; L1_1 = s*G + H(s2_2 + H(L1_2)*P2_2)*P1_2
+</span><span class='line'>    &lt;=&gt; L1_1 = s*G + H(a*G)*P1_2</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The 2016 Backdoored Cryptocurrency Contest Winner]]></title>
@@ -8147,18 +8288,6 @@ I wrote it during my 2nd semester break</p>
     <content type="html"><![CDATA[<p>This is a mod for Valve&rsquo;s source engine. It deludes the player&rsquo;s cognitive map of the world. Despite his efforts to escape he always returns to his start location. However there is one solution to escape&hellip;</p>
 
 <iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/3QaHo0QgKeQ"></iframe>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Kinect data in Blender]]></title>
-    <link href="https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender/"/>
-    <updated>2012-11-28T20:17:00+01:00</updated>
-    <id>https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender</id>
-    <content type="html"><![CDATA[<p>Importing raw data points from Microsofts Kinect is fun, despite my lacking blender skills. But the huge filesizes prevent further use.</p>
-
-<iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/I-hM3QZJZZw"></iframe>
 
 ]]></content>
   </entry>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/c/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-08-31T22:54:03+02:00</updated>
+  <updated>2016-12-18T22:23:27+01:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -125,6 +125,17 @@ Interestingly, googling &ldquo;nodejs cryptographically secure random number gen
 Without knowing about the pitfalls of javascript I suggested to use <code>crypto.randomBytes(4).readUIntLE(0, 4) / 0xFFFFFFFF</code> (if this is somehow wrong please
 write me a message).
 Unfortunately, so far they didn&rsquo;t remove the &ldquo;provable fairness&rdquo; claim.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ethereum Bug Bounty Submissions]]></title>
+    <link href="https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/"/>
+    <updated>2015-03-17T22:55:00+01:00</updated>
+    <id>https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions</id>
+    <content type="html"><![CDATA[<p>I found two vulnerabilities in the crypto currency <a href="https://ethereum.org">Ethereum</a>: <a href="https://github.com/jonasnick/eth-neg-value-tx">negative transactions</a> and <a href="https://github.com/jonasnick/ecdsaPredictableNonce/">predictable ECDSA nonce</a>.</p>
+
+<p>As part of the <a href="https://bounty.ethdev.com/">bug bounty program</a> I was awarded with 20 Bitcoin.</p>
 ]]></content>
   </entry>
   

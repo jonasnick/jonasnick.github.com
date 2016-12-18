@@ -14,7 +14,7 @@
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2016-12-18T16:40:56+01:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot/</loc>
@@ -66,7 +66,7 @@
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2016-12-18T16:40:21+01:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/</loc>
@@ -99,12 +99,16 @@
         <lastmod>2016-08-31T22:53:53+02:00</lastmod>
     </url>
     <url>
+        <loc>https://jonasnick.github.io/blog/2016/12/17/a-problem-with-ringct/</loc>
+        <lastmod>2016-12-18T22:22:28+01:00</lastmod>
+    </url>
+    <url>
         <loc>https://jonasnick.github.io/blog/archives/</loc>
-        <lastmod>2016-08-31T22:53:53+02:00</lastmod>
+        <lastmod>2016-12-18T22:22:28+01:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/</loc>
-        <lastmod>2016-08-31T22:53:53+02:00</lastmod>
+        <lastmod>2016-12-18T22:22:28+01:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/about/</loc>

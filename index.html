@@ -9,7 +9,8 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Thanks to a quite a bit of luck I won this years version of the Underhanded Crypto Contest focused on crypto currencies. The submission consists of a &hellip;">
+  <meta name="description" content="The crypto-currency Monero is about to introduce a new milestone in Blockchain technology: RingCT.
+This is a scheme that allows using Confidential &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -875,6 +876,59 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2016/12/17/a-problem-with-ringct/">A Problem With Monero&#8217;s RingCT</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-12-17T17:33:00+01:00" pubdate data-updated="true">Dec 17<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The crypto-currency <a href="https://getmonero.org/home">Monero</a> is about to introduce a new milestone in Blockchain technology: <a href="https://eprint.iacr.org/2015/1098">RingCT</a>.
+This is a scheme that allows using <a href="https://people.xiph.org/~greg/confidential_values.txt">Confidential Transactions (CT)</a> while keeping the non-interactive coin mixing typical for Monero.
+CT enables hiding the transaction amounts from anyone but sender and receiver while full nodes are still able to verify that input amounts are equal to output amounts.
+RingCT is currently not active in Monero; it is designed to be introduced as a hard fork early January.</p>
+
+<p>I am a complete outsider to Monero and especially the Monero development community, but having reviewed the CT design and implementation (<a href="https://github.com/ElementsProject/secp256k1-zkp">in libsecp256k1</a>) extensively during my day job, I was very interested in the design decisions underlying RingCT.
+Very quickly I found a <a href="https://twitter.com/n1ckler/status/801485209220718592">red flag</a> in the ring signature scheme called ASNL used in the range proofs.
+This scheme is a new contribution by the paper and indeed turned out to be exploitable such that an <strong>attacker would be able to create coins from nothing</strong>.
+You can find the exploit code on <a href="https://github.com/jonasnick/monero/commit/ad405e514c7c82bb81d7d49282fa11729420ea85">GitHub</a> and a detailed explanation in this post.</p>
+
+<p>While writing the exploit code and preparing this blog post I learned that <a href="https://github.com/monero-project/research-lab/issues/4">an anonymous person reported</a> a flaw in the security proof of ASNL, which convinced the Monero devs to publish a <a href="https://github.com/monero-project/monero/releases/tag/v0.10.1">bugfix release</a> that switches to <a href="https://github.com/ElementsProject/borromean-signatures-writeup">Borromean signatures</a> (good call!).
+As a result <strong>the upcoming hard fork will not be vulnerable to this exploit</strong>.
+Interestingly, the error in the security proof is exactly the flip-side of the vulnerability I discovered.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/12/17/a-problem-with-ringct/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/">The 2016 Backdoored Cryptocurrency Contest Winner</a></h1>
     
     
@@ -1276,53 +1330,6 @@ Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/12/privacy-in-bitcoinj/">Privacy in BitcoinJ</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-12T15:53:00+01:00" pubdate data-updated="true">Feb 12<span>th</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As part of my <a href="https://github.com/jonasnick/FCW-Kernel">epic quest</a> to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet implementations in the hope of finding privacy leaks.</p>
-
-<p><strong>tl;dr</strong> If you are using a wallet that is built upon BitcoinJ, such as Android Wallet, Multibit and Hive Wallet, you have almost zero <em>wire privacy</em>.
-An attacker who manages to connect to your wallet is easily able to figure out all addresses you control.
-This is not very likely to get fixed in the near future.</p>
-
-<p><strong>Update:</strong> <a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements. There was also accompanying discussion on <a href="https://www.reddit.com/r/Bitcoin/comments/2vrx6n/privacy_in_bitcoinj_android_wallet_multibit_hive/">reddit</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/02/12/privacy-in-bitcoinj/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1336,6 +1343,10 @@ This is not very likely to get fixed in the near future.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/12/17/a-problem-with-ringct/">A problem with Monero&#8217;s RingCT</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/">The 2016 Backdoored Cryptocurrency Contest Winner</a>
@@ -1353,15 +1364,11 @@ This is not very likely to get fixed in the near future.</p>
         <a href="/blog/2015/07/08/exploiting-csgojackpots-weak-rng/">Exploiting CSGOJackpot&#8217;s weak RNG</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/06/23/can-miners-exploit-a-block-size-increase/">Can miners exploit a block size increase?</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 106.66666666666667%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 106.66666666666667%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 106.66666666666667%'>blender</a> <a href='/blog/categories/c' style='font-size: 106.66666666666667%'>C</a> <a href='/blog/categories/c-' style='font-size: 106.66666666666667%'>c++</a> <a href='/blog/categories/consensus' style='font-size: 106.66666666666667%'>consensus</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 106.66666666666667%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 106.66666666666667%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 106.66666666666667%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 113.33333333333333%'>java</a> <a href='/blog/categories/javascript' style='font-size: 106.66666666666667%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 106.66666666666667%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 106.66666666666667%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 113.33333333333333%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 106.66666666666667%'>MarioAI</a> <a href='/blog/categories/neuro' style='font-size: 106.66666666666667%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 113.33333333333333%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 113.33333333333333%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 106.66666666666667%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/r' style='font-size: 120.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 106.66666666666667%'>racket</a> <a href='/blog/categories/regression' style='font-size: 106.66666666666667%'>regression</a> <a href='/blog/categories/security' style='font-size: 106.66666666666667%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 106.66666666666667%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 106.66666666666667%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 106.66666666666667%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 106.66666666666667%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 106.66666666666667%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 106.66666666666667%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 106.66666666666667%'>blender</a> <a href='/blog/categories/c' style='font-size: 113.33333333333333%'>C</a> <a href='/blog/categories/consensus' style='font-size: 106.66666666666667%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 113.33333333333333%'>Cpp</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 106.66666666666667%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 106.66666666666667%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 106.66666666666667%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 113.33333333333333%'>java</a> <a href='/blog/categories/javascript' style='font-size: 106.66666666666667%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 106.66666666666667%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 106.66666666666667%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 113.33333333333333%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 106.66666666666667%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 106.66666666666667%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 106.66666666666667%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 113.33333333333333%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 113.33333333333333%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 106.66666666666667%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/r' style='font-size: 120.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 106.66666666666667%'>racket</a> <a href='/blog/categories/regression' style='font-size: 106.66666666666667%'>regression</a> <a href='/blog/categories/security' style='font-size: 106.66666666666667%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 106.66666666666667%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 106.66666666666667%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 106.66666666666667%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 106.66666666666667%'>Sweave</a> </span>
 </section>
 
 <section>
