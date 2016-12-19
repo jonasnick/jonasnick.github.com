@@ -18,14 +18,14 @@ You can find the exploit code on [GitHub](https://github.com/jonasnick/monero/co
 
 While writing the exploit code and preparing this blog post I learned that [an anonymous person called RandomRun reported](https://github.com/monero-project/research-lab/issues/4) a flaw in the security proof of ASNL, which convinced the Monero devs to publish a [bugfix release](https://github.com/monero-project/monero/releases/tag/v0.10.1) that switches to [Borromean signatures](https://github.com/ElementsProject/borromean-signatures-writeup) (good call!).
 As a result **the upcoming hard fork will not be vulnerable to this exploit**.
-Interestingly, the error in the security proof is exactly the flip-side of the vulnerability I discovered.
+Interestingly, the error in the security proof is exactly the flip-side of the vulnerability discussed in this post.
 
 <!-- more -->
 
 I have the highest respect for RandomRun and parts of the Monero community.
 It takes an incredibly strong character to drop an 0day worth tens of millions USD.
 However, that the original hard fork schedule of RingCT remains unchanged despite a complete break of the system raises more than a few questions.
-Even more so when the author of RingCT is [calling for more review](https://github.com/monero-project/research-lab/issues/4#issuecomment-256261207).
+Even more so when the author of RingCT [called for more review](https://github.com/monero-project/research-lab/issues/4#issuecomment-256261207) by the end of October.
 
 Aggregate Schnorr Non-linkable Ring Signature (ASNL)
 ---
