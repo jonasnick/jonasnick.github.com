@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="As part of my epic quest to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet &hellip;">
+  <meta name="description" content="The paper Deanonymisation of clients in Bitcoin P2P network (2014) by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -875,6 +875,62 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Guessing Bitcoin&#8217;s P2P Connections</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-06T14:22:00+00:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The paper <a href="http://arxiv.org/abs/1405.7418">Deanonymisation of clients in Bitcoin P2P network (2014)</a> by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
+The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to (&ldquo;entry nodes&rdquo;).
+Second, for each transaction $t$ record the $10$ nodes $P_t$ which first propagate $t$.
+The authors experimentally show that if $|E_v \cap P_t|$ is bigger than $3$ then there is a pretty high chance that $t$ actually originated from $v$.
+However, both attack stages basically require a Sybil attack &ndash; the attacker has to be connected to a lot of nodes a lot of times.
+&lsquo;A lot&rsquo; means that in their experiments they had 50 connection to each full node (~250) in the test network.
+As a result, such an attack seems to be powerful, but certainly won&rsquo;t be undetected.</p>
+
+<p>In this post I show that the first stage of the attack, namely learning the nodes a victim is directly connected to can
+be done with a single connection to the victim.
+In addition to BKP&rsquo;s attack, knowing all outbound peers of a client could significantly increase the success probability of a double spend.
+Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the same behavior.</p>
+
+<p><strong>TLDR</strong> The attacker can reliably guess all of the outbound connections of a victim by making a selection from the known addresses of a victim based on the timestamp of the addresses.</p>
+
+<p><strong>Update</strong> A <a href="https://github.com/bitcoin/bitcoin/pull/5860">fix has been merged</a> to bitcoind. The timestamp is not updated anymore when receiving a message from a connected peer. Instead, it is only updated when the peer disconnects. The fix is released in bitcoin core 0.10.1.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/02/12/privacy-in-bitcoinj/">Privacy in BitcoinJ</a></h1>
     
     
@@ -891,7 +947,7 @@ init_mathjax();
   
 
 
-<time datetime="2015-02-12T15:53:00+01:00" pubdate data-updated="true">Feb 12<span>th</span>, 2015</time>
+<time datetime="2015-02-12T15:53:00+00:00" pubdate data-updated="true">Feb 12<span>th</span>, 2015</time>
         
       </p>
     
@@ -938,7 +994,7 @@ This is not very likely to get fixed in the near future.</p>
   
 
 
-<time datetime="2014-12-12T01:50:00+01:00" pubdate data-updated="true">Dec 12<span>th</span>, 2014</time>
+<time datetime="2014-12-12T01:50:00+00:00" pubdate data-updated="true">Dec 12<span>th</span>, 2014</time>
         
       </p>
     
@@ -980,7 +1036,7 @@ This is not very likely to get fixed in the near future.</p>
   
 
 
-<time datetime="2013-10-14T23:35:00+02:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
+<time datetime="2013-10-14T23:35:00+00:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
         
       </p>
     
@@ -1058,7 +1114,7 @@ processing, generalized additive model</p>
   
 
 
-<time datetime="2013-10-14T01:04:00+02:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
+<time datetime="2013-10-14T01:04:00+00:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
         
       </p>
     
@@ -1111,7 +1167,7 @@ Pragmatics tries to explain why a simple sentence like &ldquo;It&rsquo;s raining
   
 
 
-<time datetime="2013-03-15T17:26:00+01:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
+<time datetime="2013-03-15T17:26:00+00:00" pubdate data-updated="true">Mar 15<span>th</span>, 2013</time>
         
       </p>
     
@@ -1162,7 +1218,7 @@ $$</p></blockquote>
   
 
 
-<time datetime="2013-02-14T00:37:00+01:00" pubdate data-updated="true">Feb 14<span>th</span>, 2013</time>
+<time datetime="2013-02-14T00:37:00+00:00" pubdate data-updated="true">Feb 14<span>th</span>, 2013</time>
         
       </p>
     
@@ -1224,7 +1280,7 @@ The ipython notebook file to play with the parameters can be found on <a href="h
   
 
 
-<time datetime="2012-12-20T13:43:00+01:00" pubdate data-updated="true">Dec 20<span>th</span>, 2012</time>
+<time datetime="2012-12-20T13:43:00+00:00" pubdate data-updated="true">Dec 20<span>th</span>, 2012</time>
         
       </p>
     
@@ -1269,7 +1325,7 @@ Therefore the agent will wander around to collect knowledge about his environmen
   
 
 
-<time datetime="2012-11-29T00:15:00+01:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
+<time datetime="2012-11-29T00:15:00+00:00" pubdate data-updated="true">Nov 29<span>th</span>, 2012</time>
         
       </p>
     
@@ -1308,7 +1364,7 @@ The <a href="/papers/Innovation_Evolution.pdf">second paper</a> explores the evo
   
 
 
-<time datetime="2012-11-28T21:02:00+01:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
+<time datetime="2012-11-28T21:02:00+00:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
         
       </p>
     
@@ -1318,45 +1374,6 @@ The <a href="/papers/Innovation_Evolution.pdf">second paper</a> explores the evo
   <div class="entry-content"><p><img src="/images/bagalute/index.png">
 <a href="https://github.com/jonasnick/bagalute">Bagalute</a> is a trade bot, designed for buying a currency (bitcoin) at the the right time. As a decision criterium it uses the relative strength index (RSI). The bot looks at the price development of the last twelve hours and runs an evolutionary algorithm to determine the optimal parameters for the RSI in that time frame. Then, it uses these parameters for the next time frame. Currently the bot uses for debugging purposes a dummy interface to trade. The actual success of the bot was sparsely tested but had negative results, maybe due to a general downtrend of prices.
 I wrote it during my 2nd semester break</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/28/labormensch-a-puzzle/">Labormensch - a Puzzle</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-28T20:31:00+01:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is a mod for Valve&rsquo;s source engine. It deludes the player&rsquo;s cognitive map of the world. Despite his efforts to escape he always returns to his start location. However there is one solution to escape&hellip;</p>
-
-<iframe class="youtube-player" width="420" height="315" src="http://www.youtube.com/embed/3QaHo0QgKeQ"></iframe>
-
 </div>
   
   
@@ -1381,6 +1398,10 @@ I wrote it during my 2nd semester break</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures/">Exploiting Low Order Generators in One-Time Ring Signatures</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2016/12/17/a-problem-with-ringct/">A problem with Monero&#8217;s RingCT</a>
       </li>
     
@@ -1396,15 +1417,11 @@ I wrote it during my 2nd semester break</p>
         <a href="/blog/2015/12/13/validation-cost-metric/">A Validation-cost metric for Bitcoin</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/07/08/exploiting-csgojackpots-weak-rng/">Exploiting CSGOJackpot&#8217;s weak RNG</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 106.66666666666667%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 106.66666666666667%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 106.66666666666667%'>blender</a> <a href='/blog/categories/c' style='font-size: 113.33333333333333%'>C</a> <a href='/blog/categories/consensus' style='font-size: 106.66666666666667%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 113.33333333333333%'>Cpp</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 106.66666666666667%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 106.66666666666667%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 106.66666666666667%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 113.33333333333333%'>java</a> <a href='/blog/categories/javascript' style='font-size: 106.66666666666667%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 106.66666666666667%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 106.66666666666667%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 113.33333333333333%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 106.66666666666667%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 106.66666666666667%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 106.66666666666667%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 113.33333333333333%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 113.33333333333333%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 106.66666666666667%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/r' style='font-size: 120.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 106.66666666666667%'>racket</a> <a href='/blog/categories/regression' style='font-size: 106.66666666666667%'>regression</a> <a href='/blog/categories/security' style='font-size: 106.66666666666667%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 106.66666666666667%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 106.66666666666667%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 106.66666666666667%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 106.66666666666667%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 106.66666666666667%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 106.66666666666667%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 106.66666666666667%'>blender</a> <a href='/blog/categories/c' style='font-size: 113.33333333333333%'>C</a> <a href='/blog/categories/consensus' style='font-size: 106.66666666666667%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 120.0%'>Cpp</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 106.66666666666667%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 106.66666666666667%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 106.66666666666667%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 113.33333333333333%'>java</a> <a href='/blog/categories/javascript' style='font-size: 106.66666666666667%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 106.66666666666667%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 106.66666666666667%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 113.33333333333333%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 106.66666666666667%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 113.33333333333333%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 106.66666666666667%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 113.33333333333333%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 113.33333333333333%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 106.66666666666667%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/r' style='font-size: 120.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 106.66666666666667%'>racket</a> <a href='/blog/categories/regression' style='font-size: 106.66666666666667%'>regression</a> <a href='/blog/categories/security' style='font-size: 106.66666666666667%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 106.66666666666667%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 106.66666666666667%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 106.66666666666667%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 106.66666666666667%'>Sweave</a> </span>
 </section>
 
 <section>
@@ -1420,7 +1437,7 @@ I wrote it during my 2nd semester break</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2016 - Jonas Nick -
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2017 - Jonas Nick -
   <span class="credit">Powered by <a href="https://octopress.org">Octopress</a></span>
 </p>
 

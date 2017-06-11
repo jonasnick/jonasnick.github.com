@@ -9,8 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="The crypto-currency Monero is about to introduce a new milestone in Blockchain technology: RingCT.
-This is a scheme that allows using Confidential &hellip;">
+  <meta name="description" content="Last week the Monero team disclosed a major bug in CryptoNote based cryptocurrencies (reddit thread) which could be used to create &ldquo;create an &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -876,6 +875,57 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures/">Exploiting Low Order Generators in One-Time Ring Signatures</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-05-23T16:41:00+00:00" pubdate data-updated="true">May 23<span>rd</span>, 2017</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Last week the Monero team disclosed <a href="https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html">a major bug in CryptoNote based cryptocurrencies</a> (<a href="https://www.reddit.com/r/Monero/comments/6buu5j/disclosure_of_a_major_bug_in_cryptonotebased/">reddit thread</a>) which could be used to create &ldquo;create an infinite amount of coins&rdquo;.
+Monero itself was quietly fixed in February (<a href="https://github.com/monero-project/monero/releases/tag/v0.10.2">release</a>, <a href="https://github.com/monero-project/monero/pull/1744">pull request</a>) and the since then every user syncing the blockchain from scratch validates that it was never exploited in Monero.
+However, it was used in CryptoNote based shitcoin ByteCoin to create about 700 million <a href="https://github.com/amjuarez/bytecoin/issues/104">coins out of thin air</a>.</p>
+
+<p>There are already a few good explanations of the bug, for example at the <a href="https://monero.stackexchange.com/questions/4241/how-does-the-recent-patched-key-image-exploit-work-in-practice">Monero StackExchange</a> and the <a href="https://moderncrypto.org/mail-archive/curves/2017/000898.html">modern crypto mailing list</a>.
+This article gives additional background about the signature scheme and the properties of the curve that allowed this bug to slip in.</p>
+
+<p>Apart from the value at stake, this bug is interesting because it shows the risks of breaking a specialized cryptosystems such as <a href="https://ed25519.cr.yp.to/index.html">Ed25519</a> apart and apply the parts in other contexts.
+Ed25519 is designed for plain cryptographic signatures and the curve it is based on is used in CryptoNote to implement <em>one-time ring signatures</em>.
+In contrast to a regular signature scheme, one-time ring signatures using the curve require that part of the signature does not generate a small subgroup.
+Ensuring this is necessary when <a href="https://cr.yp.to/ecdh.html#validate">using curves with a cofactor</a>. CryptoNote did not do that.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2016/12/17/a-problem-with-ringct/">A Problem With Monero&#8217;s RingCT</a></h1>
     
     
@@ -892,7 +942,7 @@ init_mathjax();
   
 
 
-<time datetime="2016-12-17T17:33:00+01:00" pubdate data-updated="true">Dec 17<span>th</span>, 2016</time>
+<time datetime="2016-12-17T17:33:00+00:00" pubdate data-updated="true">Dec 17<span>th</span>, 2016</time>
         
       </p>
     
@@ -911,7 +961,7 @@ You can find the exploit code on <a href="https://github.com/jonasnick/monero/co
 
 <p>While writing the exploit code and preparing this blog post I learned that <a href="https://github.com/monero-project/research-lab/issues/4">an anonymous person called RandomRun reported</a> a flaw in the security proof of ASNL, which convinced the Monero devs to publish a <a href="https://github.com/monero-project/monero/releases/tag/v0.10.1">bugfix release</a> that switches to <a href="https://github.com/ElementsProject/borromean-signatures-writeup">Borromean signatures</a> (good call!).
 As a result <strong>the upcoming hard fork will not be vulnerable to this exploit</strong>.
-Interestingly, the error in the security proof is exactly the flip-side of the vulnerability I discovered.</p>
+Interestingly, the error in the security proof is exactly the flip-side of the vulnerability discussed in this post.</p>
 
 </div>
   
@@ -945,7 +995,7 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
   
 
 
-<time datetime="2016-08-31T22:43:00+02:00" pubdate data-updated="true">Aug 31<span>st</span>, 2016</time>
+<time datetime="2016-08-31T22:43:00+00:00" pubdate data-updated="true">Aug 31<span>st</span>, 2016</time>
         
       </p>
     
@@ -981,7 +1031,7 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
   
 
 
-<time datetime="2016-06-25T23:41:00+02:00" pubdate data-updated="true">Jun 25<span>th</span>, 2016</time>
+<time datetime="2016-06-25T23:41:00+00:00" pubdate data-updated="true">Jun 25<span>th</span>, 2016</time>
         
       </p>
     
@@ -1040,7 +1090,7 @@ sophisticated heuristics.</p>
   
 
 
-<time datetime="2015-12-13T20:36:00+01:00" pubdate data-updated="true">Dec 13<span>th</span>, 2015</time>
+<time datetime="2015-12-13T20:36:00+00:00" pubdate data-updated="true">Dec 13<span>th</span>, 2015</time>
         
       </p>
     
@@ -1084,7 +1134,7 @@ The slides accompanying the transcript can be found <a href="https://github.com/
   
 
 
-<time datetime="2015-07-08T00:42:00+02:00" pubdate data-updated="true">Jul 8<span>th</span>, 2015</time>
+<time datetime="2015-07-08T00:42:00+00:00" pubdate data-updated="true">Jul 8<span>th</span>, 2015</time>
         
       </p>
     
@@ -1140,7 +1190,7 @@ in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jo
   
 
 
-<time datetime="2015-06-23T10:49:00+02:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2015</time>
+<time datetime="2015-06-23T10:49:00+00:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2015</time>
         
       </p>
     
@@ -1178,7 +1228,7 @@ You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/ma
   
 
 
-<time datetime="2015-05-09T23:39:00+02:00" pubdate data-updated="true">May 9<span>th</span>, 2015</time>
+<time datetime="2015-05-09T23:39:00+00:00" pubdate data-updated="true">May 9<span>th</span>, 2015</time>
         
       </p>
     
@@ -1220,7 +1270,7 @@ See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoi
   
 
 
-<time datetime="2015-03-17T22:55:00+01:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
+<time datetime="2015-03-17T22:55:00+00:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
         
       </p>
     
@@ -1258,7 +1308,7 @@ See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoi
   
 
 
-<time datetime="2015-03-17T22:23:00+01:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
+<time datetime="2015-03-17T22:23:00+00:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
         
       </p>
     
@@ -1269,62 +1319,6 @@ See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoi
 The vulnerability was fixed in commit <a href="https://github.com/sipa/bitcoin-seeder/commit/11e935b72020607e5c3ce85a88209bc34e427a06">11e935b</a>.</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Guessing Bitcoin&#8217;s P2P Connections</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-03-06T14:22:00+01:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The paper <a href="http://arxiv.org/abs/1405.7418">Deanonymisation of clients in Bitcoin P2P network (2014)</a> by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
-The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to (&ldquo;entry nodes&rdquo;).
-Second, for each transaction $t$ record the $10$ nodes $P_t$ which first propagate $t$.
-The authors experimentally show that if $|E_v \cap P_t|$ is bigger than $3$ then there is a pretty high chance that $t$ actually originated from $v$.
-However, both attack stages basically require a Sybil attack &ndash; the attacker has to be connected to a lot of nodes a lot of times.
-&lsquo;A lot&rsquo; means that in their experiments they had 50 connection to each full node (~250) in the test network.
-As a result, such an attack seems to be powerful, but certainly won&rsquo;t be undetected.</p>
-
-<p>In this post I show that the first stage of the attack, namely learning the nodes a victim is directly connected to can
-be done with a single connection to the victim.
-In addition to BKP&rsquo;s attack, knowing all outbound peers of a client could significantly increase the success probability of a double spend.
-Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the same behavior.</p>
-
-<p><strong>TLDR</strong> The attacker can reliably guess all of the outbound connections of a victim by making a selection from the known addresses of a victim based on the timestamp of the addresses.</p>
-
-<p><strong>Update</strong> A <a href="https://github.com/bitcoin/bitcoin/pull/5860">fix has been merged</a> to bitcoind. The timestamp is not updated anymore when receiving a message from a connected peer. Instead, it is only updated when the peer disconnects. The fix is released in bitcoin core 0.10.1.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/03/06/guessing-bitcoins-p2p-connections/">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -1345,6 +1339,10 @@ Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures/">Exploiting Low Order Generators in One-Time Ring Signatures</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2016/12/17/a-problem-with-ringct/">A problem with Monero&#8217;s RingCT</a>
       </li>
     
@@ -1360,15 +1358,11 @@ Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the 
         <a href="/blog/2015/12/13/validation-cost-metric/">A Validation-cost metric for Bitcoin</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/07/08/exploiting-csgojackpots-weak-rng/">Exploiting CSGOJackpot&#8217;s weak RNG</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 106.66666666666667%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 106.66666666666667%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 106.66666666666667%'>blender</a> <a href='/blog/categories/c' style='font-size: 113.33333333333333%'>C</a> <a href='/blog/categories/consensus' style='font-size: 106.66666666666667%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 113.33333333333333%'>Cpp</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 106.66666666666667%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 106.66666666666667%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 106.66666666666667%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 113.33333333333333%'>java</a> <a href='/blog/categories/javascript' style='font-size: 106.66666666666667%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 106.66666666666667%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 106.66666666666667%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 113.33333333333333%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 106.66666666666667%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 106.66666666666667%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 106.66666666666667%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 113.33333333333333%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 113.33333333333333%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 106.66666666666667%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/r' style='font-size: 120.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 106.66666666666667%'>racket</a> <a href='/blog/categories/regression' style='font-size: 106.66666666666667%'>regression</a> <a href='/blog/categories/security' style='font-size: 106.66666666666667%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 106.66666666666667%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 106.66666666666667%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 106.66666666666667%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 106.66666666666667%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 106.66666666666667%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 106.66666666666667%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 106.66666666666667%'>blender</a> <a href='/blog/categories/c' style='font-size: 113.33333333333333%'>C</a> <a href='/blog/categories/consensus' style='font-size: 106.66666666666667%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 120.0%'>Cpp</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 106.66666666666667%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 106.66666666666667%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 106.66666666666667%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 120.0%'>golang</a> <a href='/blog/categories/java' style='font-size: 113.33333333333333%'>java</a> <a href='/blog/categories/javascript' style='font-size: 106.66666666666667%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 106.66666666666667%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 106.66666666666667%'>LaTeX</a> <a href='/blog/categories/machine-learning' style='font-size: 113.33333333333333%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 106.66666666666667%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 113.33333333333333%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 106.66666666666667%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 113.33333333333333%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 113.33333333333333%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 106.66666666666667%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 140.0%'>python</a> <a href='/blog/categories/r' style='font-size: 120.0%'>R</a> <a href='/blog/categories/racket' style='font-size: 106.66666666666667%'>racket</a> <a href='/blog/categories/regression' style='font-size: 106.66666666666667%'>regression</a> <a href='/blog/categories/security' style='font-size: 106.66666666666667%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 106.66666666666667%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 106.66666666666667%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 106.66666666666667%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 106.66666666666667%'>Sweave</a> </span>
 </section>
 
 <section>
@@ -1384,7 +1378,7 @@ Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the 
     </div>
   </div>
   <footer role="contentinfo"><p>
-This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2016 - Jonas Nick -
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2017 - Jonas Nick -
   <span class="credit">Powered by <a href="https://octopress.org">Octopress</a></span>
 </p>
 

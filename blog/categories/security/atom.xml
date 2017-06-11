@@ -4,7 +4,7 @@
   <title><![CDATA[Category: security | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/security/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-12-18T22:35:33+01:00</updated>
+  <updated>2017-06-10T22:09:50+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Exploiting CSGOJackpot's weak RNG]]></title>
     <link href="https://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/"/>
-    <updated>2015-07-08T00:42:00+02:00</updated>
+    <updated>2015-07-08T00:42:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng</id>
     <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/gaben/BwBArIM.png" width="500"></p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: consensus | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/consensus/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-12-18T22:35:33+01:00</updated>
+  <updated>2017-06-10T22:09:50+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Fuzzing Bitcoin Consensus]]></title>
     <link href="https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/"/>
-    <updated>2015-05-09T23:39:00+02:00</updated>
+    <updated>2015-05-09T23:39:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus</id>
     <content type="html"><![CDATA[<p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
 See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a> for the discovered Bitcoin scripts.</p>

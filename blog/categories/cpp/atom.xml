@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cpp | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/cpp/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-12-18T22:35:33+01:00</updated>
+  <updated>2017-06-10T22:09:50+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -14,9 +14,159 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Exploiting Low Order Generators in One-Time Ring Signatures]]></title>
+    <link href="https://jonasnick.github.io/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures/"/>
+    <updated>2017-05-23T16:41:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures</id>
+    <content type="html"><![CDATA[<p>Last week the Monero team disclosed <a href="https://getmonero.org/2017/05/17/disclosure-of-a-major-bug-in-cryptonote-based-currencies.html">a major bug in CryptoNote based cryptocurrencies</a> (<a href="https://www.reddit.com/r/Monero/comments/6buu5j/disclosure_of_a_major_bug_in_cryptonotebased/">reddit thread</a>) which could be used to create &ldquo;create an infinite amount of coins&rdquo;.
+Monero itself was quietly fixed in February (<a href="https://github.com/monero-project/monero/releases/tag/v0.10.2">release</a>, <a href="https://github.com/monero-project/monero/pull/1744">pull request</a>) and the since then every user syncing the blockchain from scratch validates that it was never exploited in Monero.
+However, it was used in CryptoNote based shitcoin ByteCoin to create about 700 million <a href="https://github.com/amjuarez/bytecoin/issues/104">coins out of thin air</a>.</p>
+
+<p>There are already a few good explanations of the bug, for example at the <a href="https://monero.stackexchange.com/questions/4241/how-does-the-recent-patched-key-image-exploit-work-in-practice">Monero StackExchange</a> and the <a href="https://moderncrypto.org/mail-archive/curves/2017/000898.html">modern crypto mailing list</a>.
+This article gives additional background about the signature scheme and the properties of the curve that allowed this bug to slip in.</p>
+
+<p>Apart from the value at stake, this bug is interesting because it shows the risks of breaking a specialized cryptosystems such as <a href="https://ed25519.cr.yp.to/index.html">Ed25519</a> apart and apply the parts in other contexts.
+Ed25519 is designed for plain cryptographic signatures and the curve it is based on is used in CryptoNote to implement <em>one-time ring signatures</em>.
+In contrast to a regular signature scheme, one-time ring signatures using the curve require that part of the signature does not generate a small subgroup.
+Ensuring this is necessary when <a href="https://cr.yp.to/ecdh.html#validate">using curves with a cofactor</a>. CryptoNote did not do that.</p>
+
+<!-- more -->
+
+
+<h2>Hash-based ring signatures</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Ring_signature">A ring signature</a> proves that the signer is among a <em>set</em> of public keys (aka &ldquo;the ring&rdquo;), without revealing which public key belongs to the signer.
+The construction used in CryptoNote/Monero and also for example in <a href="https://github.com/ElementsProject/secp256k1-zkp">Confidential Transactions</a> is based on hash rings.</p>
+
+<p>For simplicity assume that for now the ring only consists of 1 key, which essentially reduces the scheme to a Schnorr signature.
+As usual, <code>G</code> is a generator of cyclic group in which the discrete logarithm is hard and we&rsquo;re using additive notation for group operations.
+Then the signature scheme consists of the of the following three algorithms (keygen, sign, verify):</p>
+
+<p>```
+keygen:
+draw scalar x uniformly at random
+P &lt;&ndash; x*G
+publish public key P</p>
+
+<p>sign message m (ring size 1):
+draw scalar k uniformly at random
+e &lt;&ndash; hash(m, k<em>G)
+s &lt;&ndash; k &ndash; e</em>x
+publish signature (e, s)</p>
+
+<p>verify signature (e, s) over message m for public key P (ring size 1):
+e == hash(m, s<em>G + e</em>P)
+```</p>
+
+<p>Let&rsquo;s get a basic informal understanding for why such Schnorr based schemes work by taking the perspective of Eve, who does not know the discrete logarithm <code>x</code> of <code>P</code>.
+Obviously, Eve would invalidate the signature when attempting to just change the message <code>m</code>.
+Further, when trying to fake a signature without knowing <code>x</code> Eve can not to just set <code>s</code> as in the regular signing algorithm.
+But to make a signature that passes verification for some public key <code>P</code> Eve must find <code>s</code>, s.t. <code>k*G = s*G + e*P</code>.
+We can rearrange that in the following way:
+<code>
+k*G - s*G = e*P
+(k - s)*G = e*P
+((k - s)/e)*G = P
+</code>
+That means that if she would find such an <code>s</code> she could compute the discrete logarithm of <code>P</code>.
+This is a contradiction.</p>
+
+<p>Note that during verification the output of the hash function <code>e</code> is also part of the input to the hash function.
+How about during signing Eve chooses <code>s</code> at random and then simply hashes <code>s*G + e*P</code>?
+The problem is that the properties of a cryptographic hash function prevent Eve from knowing <code>e</code> before before evaluating the hash function.
+So <code>e</code> can not be fed into the hash function and as a consequence <code>s</code> must be chosen to account for <code>e</code> only after hashing.</p>
+
+<p>Rings of size one naturally don&rsquo;t make a lot of sense but are sufficient for this post&rsquo;s purpose.
+The curious can for example have a look at the explanation in the <a href="https://github.com/Blockstream/borromean_paper/raw/master/borromean_draft_0.01_9ade1e49.pdf">Borromean signature paper</a>(section 2.2).</p>
+
+<h2>One-time ring signatures</h2>
+
+<p>One-time ring signatures are used in CryptoNote to allow combining the privacy properties of ring signatures with a mechanism to detect double spending.
+This is done by introducing the concept of a &ldquo;key image&rdquo;.
+The key image is a group element that is deterministically derived from a key but in itself doesn&rsquo;t reveal anything about the key.
+Define <code>hashp</code> to be a hash function that hashes to an element in the group.
+Then the key image <code>I</code> for the key pair <code>(x, P=x*G)</code> is <code>I = x*hashp(P)</code> so <code>P</code> and <code>I</code> have the same discrete logarithm.
+A one-time ring signature includes the key image belonging to the signer.</p>
+
+<p>The CryptoNote protocol allows using ring signatures when spending coins by enforcing that each key image can occur only once in the blockchain.
+Let&rsquo;s for example assume there are two unspent coins &ndash; in our case just represented by public keys <code>P1</code> and <code>P2</code>.
+Alice knows the private key to <code>P1</code>, so she can spend the coin by providing a one-time ring signature with <code>P1</code>, <code>P2</code> and the key image <code>I</code> corresponding to <code>P1</code>.
+An observer can not tell whether <code>P1</code> or <code>P2</code> was spend.
+But if Alice would attempt to spend <code>P1</code> again (even with a different ring) she would require the same key image which is rejected by the network.
+However, <code>P2</code> can still be spent because the signature uses a different key image.</p>
+
+<p>Now the concrete one-time ring signature scheme &ndash; again shown only for rings of size 1:
+```
+keygen:
+draw scalar x uniformly at random
+P &lt;&ndash; x*G
+publish public key P</p>
+
+<p>sign message m (ring size 1):
+I &lt;&ndash; x<em>hashp(P)
+draw scalar k uniformly at random
+e &lt;&ndash; hash(m, k</em>G, k<em>hashp(P))
+s &lt;&ndash; k &ndash; e</em>x
+publish signature (I, e, s)</p>
+
+<p>verify signature (I, e, s) on message m for public key P (ring size 1):
+e == hash(m, s<em>G + e</em>P, s<em>hashp(P) + e</em>I)
+```</p>
+
+<p>Intuitively, it&rsquo;s very hard to create a signature where <code>I != x*hashp(P)</code> because the same <code>s</code> that is used to prove knowledge of the discrete logarithm <code>x</code> of <code>P</code> is also used for <code>I</code>.</p>
+
+<p>The one-time ring signature scheme for rings larger than 1 is described in the <a href="https://cryptonote.org/whitepaper.pdf">CryptoNote whitepaper</a>(section 4.4) although in <a href="https://bitcointalk.org/index.php?topic=972541.0">a less space efficient way</a>.
+The construction is also related to the proof of discrete log equality used in <a href="https://blog.chain.com/preparing-for-a-quantum-future-45535b316314">perfectly binding Confidential Transactions</a>.
+Note that actually by now a more general scheme that is based on one-time ring signatures called <a href="http://www.ledgerjournal.org/ojs/index.php/ledger/article/download/34/61">Ring Confidential Transactions</a> has replaced regular one-time ring signatures in Monero.</p>
+
+<h2>Low order keys in Ed25519</h2>
+
+<p>As mentioned in the beginning, CryptoNote uses Ed25519&rsquo;s curve (also referred to simply as &ldquo;Ed25519&rdquo;) to represent its group elements.
+One of Ed25519&rsquo;s properties is that the number of points on the curve (curve order) is larger than the number of points in group generated by the base point <code>G</code> (group order).
+The group order is the prime <code>l = 2^252 + 27742317777372353535851937790883648493</code> and the curve order is <code>8*l</code>
+The ratio of the curve order and the group order is known as the <em>cofactor</em> which is 8 in the case of Ed25519.
+This is, for example, different to the curve secp256k1 used in Bitcoin which has cofactor 1.</p>
+
+<p>The cofactor indicates that there are groups of low order on the curve.
+For example, let <code>P</code> be the point represented by <code>26e8958fc2b227b045c3f489f2ef98f0d5dfac05d3c63339b13802886d53fc05</code> then the group generated by <code>P</code> has order <code>8</code> which implies <code>8*P = 0</code>.
+There are only few points on the curve with low order.
+One way to find them is to generate a random point on the curve with order <code>a*l</code> and then multiply by <code>l</code> to get a point of order <code>1 &lt;= a &lt;= 8</code>.
+On the other hand, <code>hashp</code> ensures that the resulting point has prime order by multiplying it by <code>8</code> before outputting it.</p>
+
+<p>In the case of the regular Ed25519 signature algorithm it doesn&rsquo;t matter if a public key is of low order.
+But Ed25519 implementations make sure that a private key is a multiple of 8 (<a href="https://moderncrypto.org/mail-archive/curves/2017/000858.html">&ldquo;clamping&rdquo;</a>), so when multiplying it with a low order point then the result is always 0 (instead of leaking bits from the private key).
+Therefore, after running the Diffie-Hellman protocol on such a curve the key shared between the two parties can be <code>0</code> if one party doesn&rsquo;t behave <a href="https://cr.yp.to/ecdh.html#validate">&ldquo;contributory&rdquo;</a>.</p>
+
+<h2>Attack &amp; Fix</h2>
+
+<p>Assume the attacker owns a coin and therefore can create a regular one-time ring signature to spend it with key image <code>I = x*hashp(P)</code>.
+The attacker can spend the coin again with key <code>I' = I + L</code> where <code>L</code> is a low order point with order <code>o</code>.
+Remember the verification equation includes <code>s*hashp(P) + e*I</code>.
+If <code>o</code> divides <code>e</code>, (<code>e = e'*o</code>) then <code>e*I' = e*I + e'*o*L = e*I</code> so a valid signature with <code>I'</code> can created in the same way as with <code>I</code> (except that the message <code>m</code> now has to commit to <code>I'</code>).
+Since <code>o</code> is at most <code>8</code> it is easy to to retry signing until there is a suitable hash <code>e</code>.</p>
+
+<p>Interestingly, in ByteCoin this was exploited in <a href="https://monero.stackexchange.com/a/4252">a much less effective way</a>.
+The attacker used a low order public key <code>P</code> requiring a low order key image <code>I</code>.
+Because there are only 8 low order points on the curve (multiple representations of the same point are disallowed in CryptoNote) this attack can be only performed 8 times in one blockchain.</p>
+
+<p>The fix implemented in Monero is to verify that each key image <code>I</code> generates a group of the prime order <code>l</code> by checking that <code>l*I = 0</code>.
+If <code>I</code> actually had order <code>l' != l</code> then for <code>l*I = 0</code> to hold, <code>l</code> must be divisible by <code>l'</code> which is a contradiction because <code>l</code> is prime.
+So the additional cost introduced by the fix is one scalar multiplication per transaction input.</p>
+
+<h2>Conclusion</h2>
+
+<p>This article gave yet another example for how cryptographic parts can not be easily repurposed.
+In particular, when implementing more complex protocols based on curves with a cofactor (like for example Ed25519 or Curve25519) the group order of user supplied generator points should always be verified.
+Deciding case-by-case whether that&rsquo;s necessary is quite dangerous in practice.
+There is, however, potential to get rid of this bug class for some cryptosystems by eliminating cofactors through point compression (see <a href="https://eprint.iacr.org/2015/673.pdf">Decaf</a>).
+Alternatively, when designing a new cryptosystem it should be considered to use a prime order curve such as <a href="https://github.com/bitcoin-core/secp256k1">secp256k1</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[A problem with Monero's RingCT]]></title>
     <link href="https://jonasnick.github.io/blog/2016/12/17/a-problem-with-ringct/"/>
-    <updated>2016-12-17T17:33:00+01:00</updated>
+    <updated>2016-12-17T17:33:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2016/12/17/a-problem-with-ringct</id>
     <content type="html"><![CDATA[<p>The crypto-currency <a href="https://getmonero.org/home">Monero</a> is about to introduce a new milestone in Blockchain technology: <a href="https://eprint.iacr.org/2015/1098">RingCT</a>.
 This is a scheme that allows using <a href="https://people.xiph.org/~greg/confidential_values.txt">Confidential Transactions (CT)</a> while keeping the non-interactive coin mixing typical for Monero.
@@ -30,7 +180,7 @@ You can find the exploit code on <a href="https://github.com/jonasnick/monero/co
 
 <p>While writing the exploit code and preparing this blog post I learned that <a href="https://github.com/monero-project/research-lab/issues/4">an anonymous person called RandomRun reported</a> a flaw in the security proof of ASNL, which convinced the Monero devs to publish a <a href="https://github.com/monero-project/monero/releases/tag/v0.10.1">bugfix release</a> that switches to <a href="https://github.com/ElementsProject/borromean-signatures-writeup">Borromean signatures</a> (good call!).
 As a result <strong>the upcoming hard fork will not be vulnerable to this exploit</strong>.
-Interestingly, the error in the security proof is exactly the flip-side of the vulnerability I discovered.</p>
+Interestingly, the error in the security proof is exactly the flip-side of the vulnerability discussed in this post.</p>
 
 <!-- more -->
 
@@ -38,7 +188,7 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
 <p>I have the highest respect for RandomRun and parts of the Monero community.
 It takes an incredibly strong character to drop an 0day worth tens of millions USD.
 However, that the original hard fork schedule of RingCT remains unchanged despite a complete break of the system raises more than a few questions.
-Even more so when the author of RingCT is <a href="https://github.com/monero-project/research-lab/issues/4#issuecomment-256261207">calling for more review</a>.</p>
+Even more so when the author of RingCT <a href="https://github.com/monero-project/research-lab/issues/4#issuecomment-256261207">called for more review</a> by the end of October.</p>
 
 <h2>Aggregate Schnorr Non-linkable Ring Signature (ASNL)</h2>
 
@@ -125,7 +275,7 @@ L1_1 + L1_2 = s*G + H(s2_1*G + H(L1_1)*P2_1)*P1_1 + H(s2_2*G + H(L1_2)*P2_2)*P1_
   <entry>
     <title type="html"><![CDATA[Labormensch - a puzzle]]></title>
     <link href="https://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle/"/>
-    <updated>2012-11-28T20:31:00+01:00</updated>
+    <updated>2012-11-28T20:31:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle</id>
     <content type="html"><![CDATA[<p>This is a mod for Valve&rsquo;s source engine. It deludes the player&rsquo;s cognitive map of the world. Despite his efforts to escape he always returns to his start location. However there is one solution to escape&hellip;</p>
 

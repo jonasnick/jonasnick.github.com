@@ -4,7 +4,7 @@
   <title><![CDATA[Category: kinect | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/kinect/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-12-18T22:35:33+01:00</updated>
+  <updated>2017-06-10T22:09:50+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Kinect data in Blender]]></title>
     <link href="https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender/"/>
-    <updated>2012-11-28T20:17:00+01:00</updated>
+    <updated>2012-11-28T20:17:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender</id>
     <content type="html"><![CDATA[<p>Importing raw data points from Microsofts Kinect is fun, despite my lacking blender skills. But the huge filesizes prevent further use.</p>
 

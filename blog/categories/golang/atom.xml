@@ -4,7 +4,7 @@
   <title><![CDATA[Category: golang | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/golang/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-12-18T22:35:33+01:00</updated>
+  <updated>2017-06-10T22:09:50+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Data-Driven De-Anonymization in Bitcoin]]></title>
     <link href="https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/"/>
-    <updated>2016-06-25T23:41:00+02:00</updated>
+    <updated>2016-06-25T23:41:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin</id>
     <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=HScK4pkDNds"><img src="https://jonasnick.github.io/images/zurich-youtube.png" width="560"></a></p>
 
@@ -48,7 +48,7 @@ sophisticated heuristics.</p>
   <entry>
     <title type="html"><![CDATA[Guessing bitcoin's P2P connections]]></title>
     <link href="https://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/"/>
-    <updated>2015-03-06T14:22:00+01:00</updated>
+    <updated>2015-03-06T14:22:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections</id>
     <content type="html"><![CDATA[<p>The paper <a href="http://arxiv.org/abs/1405.7418">Deanonymisation of clients in Bitcoin P2P network (2014)</a> by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
 The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to (&ldquo;entry nodes&rdquo;).
@@ -190,7 +190,7 @@ However, knowing all outbound peers of a client could significantly increase the
   <entry>
     <title type="html"><![CDATA[Privacy in BitcoinJ]]></title>
     <link href="https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/"/>
-    <updated>2015-02-12T15:53:00+01:00</updated>
+    <updated>2015-02-12T15:53:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj</id>
     <content type="html"><![CDATA[<p>As part of my <a href="https://github.com/jonasnick/FCW-Kernel">epic quest</a> to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet implementations in the hope of finding privacy leaks.</p>
 

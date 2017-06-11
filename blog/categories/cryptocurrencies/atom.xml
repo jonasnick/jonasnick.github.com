@@ -4,7 +4,7 @@
   <title><![CDATA[Category: cryptocurrencies | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/cryptocurrencies/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-12-18T22:35:33+01:00</updated>
+  <updated>2017-06-10T22:09:50+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Ethereum Bug Bounty Submissions]]></title>
     <link href="https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/"/>
-    <updated>2015-03-17T22:55:00+01:00</updated>
+    <updated>2015-03-17T22:55:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions</id>
     <content type="html"><![CDATA[<p>I found two vulnerabilities in the crypto currency <a href="https://ethereum.org">Ethereum</a>: <a href="https://github.com/jonasnick/eth-neg-value-tx">negative transactions</a> and <a href="https://github.com/jonasnick/ecdsaPredictableNonce/">predictable ECDSA nonce</a>.</p>
 

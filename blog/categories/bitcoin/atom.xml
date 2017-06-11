@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2016-12-18T22:35:33+01:00</updated>
+  <updated>2017-06-10T22:09:50+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[The 2016 Backdoored Cryptocurrency Contest Winner]]></title>
     <link href="https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/"/>
-    <updated>2016-08-31T22:43:00+02:00</updated>
+    <updated>2016-08-31T22:43:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner</id>
     <content type="html"><![CDATA[<p>Thanks to a quite a bit of luck I won this years version of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">the Underhanded Crypto Contest</a> focused on crypto currencies. The submission consists of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">a writeup</a> and &ndash; of course &ndash; <a href="https://github.com/jonasnick/2016_underhanded_crypto_contest/tree/master/submission">backdoored code</a>.</p>
 ]]></content>
@@ -25,7 +25,7 @@
   <entry>
     <title type="html"><![CDATA[Data-Driven De-Anonymization in Bitcoin]]></title>
     <link href="https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/"/>
-    <updated>2016-06-25T23:41:00+02:00</updated>
+    <updated>2016-06-25T23:41:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin</id>
     <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=HScK4pkDNds"><img src="https://jonasnick.github.io/images/zurich-youtube.png" width="560"></a></p>
 
@@ -57,7 +57,7 @@ sophisticated heuristics.</p>
   <entry>
     <title type="html"><![CDATA[A Validation-cost metric for Bitcoin]]></title>
     <link href="https://jonasnick.github.io/blog/2015/12/13/validation-cost-metric/"/>
-    <updated>2015-12-13T20:36:00+01:00</updated>
+    <updated>2015-12-13T20:36:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2015/12/13/validation-cost-metric</id>
     <content type="html"><![CDATA[<p>This is the transcript of a talk I gave at the
 <a href="https://scalingbitcoin.org/hongkong2015/">Scaling Bitcoin Conference</a> 2015 in Hong Kong.
@@ -222,7 +222,7 @@ But as we showed we can build on existing blocksize proposals to get some of the
   <entry>
     <title type="html"><![CDATA[Can miners exploit a block size increase?]]></title>
     <link href="https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/"/>
-    <updated>2015-06-23T10:49:00+02:00</updated>
+    <updated>2015-06-23T10:49:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase</id>
     <content type="html"><![CDATA[<p>We don&rsquo;t know yet. But modelling is in my opinion a useful tool to investigate potential effects.
 Therefore, I used Gavin Andresen&rsquo;s mining simulator to create some more or less plausible scenarios.
@@ -233,7 +233,7 @@ You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/ma
   <entry>
     <title type="html"><![CDATA[Fuzzing Bitcoin Consensus]]></title>
     <link href="https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/"/>
-    <updated>2015-05-09T23:39:00+02:00</updated>
+    <updated>2015-05-09T23:39:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus</id>
     <content type="html"><![CDATA[<p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
 See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a> for the discovered Bitcoin scripts.</p>

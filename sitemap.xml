@@ -2,116 +2,122 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/11/26/first-post/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/11/28/snake-in-racket/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/11/28/kinect-data-in-blender/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/11/28/labormensch-a-puzzle/</loc>
-        <lastmod>2016-12-18T16:40:56+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/</loc>
-        <lastmod>2016-07-23T18:10:29+02:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2013/02/14/visualizing-receptive-fields/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>
             https://jonasnick.github.io/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/
         </loc>
-        <lastmod>2016-07-23T18:10:13+02:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>
             https://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/
         </loc>
-        <lastmod>2016-07-23T18:10:41+02:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds/</loc>
-        <lastmod>2016-07-23T18:08:59+02:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2014/12/12/fcw-kernel/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/</loc>
-        <lastmod>2016-12-18T16:40:21+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/05/09/fuzzing-bitcoin-consensus/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>
             https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/
         </loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/07/08/exploiting-csgojackpots-weak-rng/</loc>
-        <lastmod>2016-01-17T02:44:08+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2015/12/13/validation-cost-metric/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>
             https://jonasnick.github.io/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/
         </loc>
-        <lastmod>2016-07-31T16:05:14+02:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>
             https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/
         </loc>
-        <lastmod>2016-08-31T22:53:53+02:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/2016/12/17/a-problem-with-ringct/</loc>
-        <lastmod>2016-12-18T22:34:28+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            https://jonasnick.github.io/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures/
+        </loc>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/archives/</loc>
-        <lastmod>2016-12-18T22:34:28+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/</loc>
-        <lastmod>2016-12-18T22:34:28+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/about/</loc>
-        <lastmod>2016-01-17T02:03:33+01:00</lastmod>
+        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
     </url>
 </urlset>
