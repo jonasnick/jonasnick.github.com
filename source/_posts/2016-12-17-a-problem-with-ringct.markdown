@@ -20,6 +20,8 @@ While writing the exploit code and preparing this blog post I learned that [an a
 As a result **the upcoming hard fork will not be vulnerable to this exploit**.
 Interestingly, the error in the security proof is exactly the flip-side of the vulnerability discussed in this post.
 
+**EDIT:** The Monero community reacted to this article ([see reddit](https://www.reddit.com/r/Monero/comments/5j4z1e/a_problem_with_ring_ct/)) but they didn't like its style. Also, they got the timeline of the discovery of the bug wrong.
+
 <!-- more -->
 
 I have the highest respect for RandomRun and parts of the Monero community.
