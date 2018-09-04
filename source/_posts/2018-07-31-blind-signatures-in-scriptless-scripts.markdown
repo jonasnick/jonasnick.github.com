@@ -3,7 +3,7 @@ layout: post
 title: "Blind Signatures in Scriptless Scripts"
 date: 2018-07-31 14:53
 comments: true
-categories: bitcoin
+categories: [bitcoin, lightning, crypto]
 ---
 
 <a href="https://youtu.be/XORDEX-RrAI?t=25484"><img src="/images/bob-youtube.png" width="560"></a>
