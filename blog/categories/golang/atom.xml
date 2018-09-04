@@ -4,7 +4,7 @@
   <title><![CDATA[Category: golang | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/golang/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2018-07-31T14:59:40+00:00</updated>
+  <updated>2018-09-04T13:24:12+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -218,7 +218,9 @@ We want the fp rate to be relatively small (say 0.05%) to reduce bandwidth usage
 <h2>Bloom Filters and Privacy</h2>
 
 <p>BIP 37 states:
-<blockquote><p>Privacy: Because Bloom filters are probabilistic, with the false positive rate chosen by the client, nodes can trade off precision vs bandwidth usage. A node with access to lots of bandwidth may choose to have a high fp rate, meaning the remote peer cannot accurately know which transactions belong to the client and which don&rsquo;t.</p></blockquote></p>
+{% blockquote %}
+Privacy: Because Bloom filters are probabilistic, with the false positive rate chosen by the client, nodes can trade off precision vs bandwidth usage. A node with access to lots of bandwidth may choose to have a high fp rate, meaning the remote peer cannot accurately know which transactions belong to the client and which don&rsquo;t.
+{% endblockquote %}</p>
 
 <p>This has created a misunderstanding between what is ideally possible with Bloom filters and how the reality looks like.
 I&rsquo;ll focus on BitcoinJ because it is the most widely used implementation of BIP 37, but similar vulnerabilities might exist in other implementations as well.

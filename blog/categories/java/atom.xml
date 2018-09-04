@@ -4,7 +4,7 @@
   <title><![CDATA[Category: java | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/java/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2018-07-31T14:59:40+00:00</updated>
+  <updated>2018-09-04T13:24:12+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -18,7 +18,7 @@
     <link href="https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai/"/>
     <updated>2012-12-20T13:43:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai</id>
-    <content type="html"><![CDATA[<p><img src="/images/MarioScreenshot.png"><br/>
+    <content type="html"><![CDATA[<p>{% img /images/MarioScreenshot.png %}<br/>
 Check out my <a href="https://github.com/jonasnick/A-star">A* Implementation</a>.
 Your nodes can be easily added by inheriting the ASearchNode class.
 The purpose of the A* is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Competion</a>.
@@ -36,7 +36,7 @@ Therefore the agent will wander around to collect knowledge about his environmen
     <link href="https://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot/"/>
     <updated>2012-11-28T21:02:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot</id>
-    <content type="html"><![CDATA[<p><img src="/images/bagalute/index.png">
+    <content type="html"><![CDATA[<p>{% img /images/bagalute/index.png %}
 <a href="https://github.com/jonasnick/bagalute">Bagalute</a> is a trade bot, designed for buying a currency (bitcoin) at the the right time. As a decision criterium it uses the relative strength index (RSI). The bot looks at the price development of the last twelve hours and runs an evolutionary algorithm to determine the optimal parameters for the RSI in that time frame. Then, it uses these parameters for the next time frame. Currently the bot uses for debugging purposes a dummy interface to trade. The actual success of the bot was sparsely tested but had negative results, maybe due to a general downtrend of prices.
 I wrote it during my 2nd semester break</p>
 ]]></content>
