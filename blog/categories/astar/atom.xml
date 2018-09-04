@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Astar | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/astar/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2018-09-04T13:24:12+00:00</updated>
+  <updated>2018-09-04T14:22:20+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -18,7 +18,7 @@
     <link href="https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai/"/>
     <updated>2012-12-20T13:43:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2012/12/20/a-star-for-marioai</id>
-    <content type="html"><![CDATA[<p>{% img /images/MarioScreenshot.png %}<br/>
+    <content type="html"><![CDATA[<p><img src="/images/MarioScreenshot.png"><br/>
 Check out my <a href="https://github.com/jonasnick/A-star">A* Implementation</a>.
 Your nodes can be easily added by inheriting the ASearchNode class.
 The purpose of the A* is to handle WorldNodes in the interface of the <a href="http://www.marioai.org">Mario AI Competion</a>.

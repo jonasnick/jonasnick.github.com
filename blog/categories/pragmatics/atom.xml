@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pragmatics | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/pragmatics/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2018-09-04T13:24:12+00:00</updated>
+  <updated>2018-09-04T14:22:20+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -133,7 +133,7 @@ This is by no means a bad thing, as long as we take this characteristic into acc
     <link href="https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
     <updated>2012-11-29T00:15:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
-    <content type="html"><![CDATA[<p>{% img /images/vowelspace.png %}<br/>
+    <content type="html"><![CDATA[<p><img src="/images/vowelspace.png"><br/>
 Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
 The important finding in the <a href="https://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
 The <a href="https://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>

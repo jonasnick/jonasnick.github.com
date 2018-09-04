@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2018-09-04T13:24:12+00:00</updated>
+  <updated>2018-09-04T14:22:20+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Schnorr and Taproot in Lightning]]></title>
+    <link href="https://jonasnick.github.io/blog/2018/09/04/schnorr-and-taproot-in-lightning/"/>
+    <updated>2018-09-04T13:24:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2018/09/04/schnorr-and-taproot-in-lightning</id>
+    <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=QrX1SpD6l9g&feature=youtu.be&t=7524"><img src="https://jonasnick.github.io/images/lightninghackday-youtube.png" width="560"></a></p>
+
+<p>Last weekend a bunch of hackers assembled for the 3rd Lightning Netword Hackday in Berlin.
+The event was packed with interesting sessions, neat hacks and exciting discussions which were concluded with the traditional dinner &amp; drinks at ROOM77.
+I gave a talk about &ldquo;Schnorr and Taproot in Lightning&rdquo; (<a href="/slides/2018-hackday.pdf">slides</a>, <a href="https://www.youtube.com/watch?v=QrX1SpD6l9g&amp;feature=youtu.be&amp;t=7524">video</a>) focusing on privacy and security implications.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Blind Signatures in Scriptless Scripts]]></title>
@@ -231,17 +244,6 @@ But as we showed we can build on existing blocksize proposals to get some of the
 * such as confining the worst-case while
 * allowing to trade-off various block aspects
 * and setting the right incentives.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Can miners exploit a block size increase?]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase/"/>
-    <updated>2015-06-23T10:49:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/06/23/can-miners-exploit-a-block-size-increase</id>
-    <content type="html"><![CDATA[<p>We don&rsquo;t know yet. But modelling is in my opinion a useful tool to investigate potential effects.
-Therefore, I used Gavin Andresen&rsquo;s mining simulator to create some more or less plausible scenarios.
-You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/master/analysis/README.md">resulting plots on github</a>.</p>
 ]]></content>
   </entry>
   

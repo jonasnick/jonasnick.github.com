@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="https://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2018-07-31T14:59:40+00:00</updated>
+  <updated>2018-09-04T14:22:20+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Schnorr and Taproot in Lightning]]></title>
+    <link href="https://jonasnick.github.io/blog/2018/09/04/schnorr-and-taproot-in-lightning/"/>
+    <updated>2018-09-04T13:24:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2018/09/04/schnorr-and-taproot-in-lightning</id>
+    <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=QrX1SpD6l9g&feature=youtu.be&t=7524"><img src="https://jonasnick.github.io/images/lightninghackday-youtube.png" width="560"></a></p>
+
+<p>Last weekend a bunch of hackers assembled for the 3rd Lightning Netword Hackday in Berlin.
+The event was packed with interesting sessions, neat hacks and exciting discussions which were concluded with the traditional dinner &amp; drinks at ROOM77.
+I gave a talk about &ldquo;Schnorr and Taproot in Lightning&rdquo; (<a href="https://jonasnick.github.io/slides/2018-hackday.pdf">slides</a>, <a href="https://www.youtube.com/watch?v=QrX1SpD6l9g&amp;feature=youtu.be&amp;t=7524">video</a>) focusing on privacy and security implications.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Blind Signatures in Scriptless Scripts]]></title>
@@ -8451,18 +8464,6 @@ Our current goal at the Chair of Cognitive Modeling Tübingen is to connect the 
 Therefore the agent will wander around to collect knowledge about his environment and then exploit it according to its motivation.</p>
 
 <p><strong>Update</strong> Some of my successors enhanced Mario&rsquo;s capabilities and submitted a <a href="https://www.youtube.com/watch?v=AplG6KnOr2Q">great video demonstration that went viral</a> to the AAAI Video Competition 2015.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Signaling games and Language]]></title>
-    <link href="https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language/"/>
-    <updated>2012-11-29T00:15:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2012/11/29/signaling-games-and-language</id>
-    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/vowelspace.png"><br/>
-Two papers I wrote with <a href="http://www.sfs.uni-tuebingen.de/~roland/index.html">Roland Mühlenbernd</a> last winter. We mainly explored what happens when the players are able to invent new messages in <a href="http://en.wikipedia.org/wiki/Signaling_game">signaling games</a>.
-The important finding in the <a href="https://jonasnick.github.io/papers/ForceOfInnovation.pdf">first paper</a> is that the players ability to make up new messages overcomes signaling bottlenecks and leads to successfull communication even if the number of strategies is high. When coupled with a reasonable mechanism for message extinction, the agents will play perfect strategies in the end.
-The <a href="https://jonasnick.github.io/papers/Innovation_Evolution.pdf">second paper</a> explores the evolution of the vowel space with this technique. The resulting partitions of the vowel space resemble these of actual languages.</p>
 ]]></content>
   </entry>
   
