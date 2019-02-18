@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="https://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2018-09-04T14:22:20+00:00</updated>
+  <updated>2019-02-18T17:36:50+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -38,6 +38,10 @@ The first part was mainly about <a href="https://github.com/apoelstra/scriptless
 The second part about how to exchange ecash tokens peer-to-peer using scriptless scripts and Brands credentials.
 You can find the talk <a href="https://youtu.be/XORDEX-RrAI?t=25484">on youtube</a> and the slides <a href="slides/2018-bob.pdf">here</a>.
 Thanks to <a href="https://twitter.com/kanzure">kanzure</a> there&rsquo;s also a <a href="https://diyhpl.us/wiki/transcripts/building-on-bitcoin/2018/blind-signatures-and-scriptless-scripts/">transcript</a> of the talk.</p>
+
+<p>EDIT: I&rsquo;ve added a note about the security of Blind Schnorr signatures against forgery to the <a href="slides/2018-bob.pdf">slides</a>.
+In short, a naive implementation of the scheme is vulnerable to <a href="http://www.enseignement.polytechnique.fr/informatique/profs/Francois.Morain/Master1/Crypto/projects/Wagner02.pdf">Wagner&rsquo;s attack</a>.
+An attacker can forge a signature using 65536 parallel signing sessions and <code>O(2^32)</code> work.</p>
 ]]></content>
   </entry>
   
