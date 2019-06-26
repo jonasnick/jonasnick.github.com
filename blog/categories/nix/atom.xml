@@ -4,7 +4,7 @@
   <title><![CDATA[Category: nix | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/nix/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2019-06-26T14:12:40+00:00</updated>
+  <updated>2019-06-26T14:22:33+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -20,7 +20,7 @@
     <id>https://jonasnick.github.io/blog/2019/06/25/nix-bitcoin</id>
     <content type="html"><![CDATA[<p><a href="https://youtu.be/BcjKejXlLbM?t=15873"><img src="https://jonasnick.github.io/images/lightninghackday-nix-bitcoin.png" width="560"></a></p>
 
-<p>nix-bitcoin is a project I contribute to in my spare time that provides nix packages and nixos modules for easily installing Bitcoin nodes and higher layer protocols.
+<p>nix-bitcoin (<a href="https://github.com/fort-nix/nix-bitcoin">github.com/fort-nix/nix-bitcoin</a>) is a project I contribute to in my spare time that provides nix packages and nixos modules for easily installing Bitcoin nodes and higher layer protocols.
 The initial idea was to build myself a lightning node in a reproducible way.
 I talked more about the motivation and how to use it at the <a href="https://lightninghackday.fulmo.org/">LightningHackdayMUC</a> (<a href="https://youtu.be/BcjKejXlLbM?t=15873">video</a>, <a href="/slides/2019-nix-bitcoin-2.pdf">slides</a>).</p>
 ]]></content>
