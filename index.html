@@ -9,8 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Last weekend a bunch of hackers assembled for the 3rd Lightning Netword Hackday in Berlin.
-The event was packed with interesting sessions, neat &hellip;">
+  <meta name="description" content="At Breaking Bitcoin 2019 in Amsterdam I gave a talk about how to build secure protocols on BIP-taproot or more specifically how to avoid the dangers &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -876,6 +875,88 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2019/06/25/secure-protocols-on-bip-taproot/">Secure Protocols on BIP-taproot</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2019-06-25T22:42:00+00:00" pubdate data-updated="true">Jun 25<span>th</span>, 2019</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://youtu.be/DKOG0BQMmmg?t=21866"><img src="/images/2019-breaking.png" width="560"></a></p>
+
+<p>At <a href="https://breaking-bitcoin.com/">Breaking Bitcoin</a> 2019 in Amsterdam I gave a talk about how to build secure protocols on BIP-taproot or more specifically how to avoid the dangers we learned about so far.
+There was not enough time to cover everything.
+The talk also gives an introduction to how to use our <a href="https://github.com/ElementsProject/secp256k1-zkp/blob/secp256k1-zkp/include/secp256k1_musig.h">MuSig implementation in libsecp256k1-zkp</a>.
+The video recording is on <a href="https://youtu.be/DKOG0BQMmmg?t=21866">youtube</a> (<a href="/slides/2019-breaking.pdf">slides</a>).
+Thanks to <a href="https://twitter.com/kanzure">kanzure</a> there&rsquo;s also a <a href="https://diyhpl.us/wiki/transcripts/breaking-bitcoin/2019/secure-protocols-bip-taproot/">transcript</a> of the talk.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2019/06/25/nix-bitcoin/">Nix-bitcoin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2019-06-25T22:39:00+00:00" pubdate data-updated="true">Jun 25<span>th</span>, 2019</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://youtu.be/BcjKejXlLbM?t=15873"><img src="/images/lightninghackday-nix-bitcoin.png" width="560"></a></p>
+
+<p>nix-bitcoin is a project I contribute to in my spare time that provides nix packages and nixos modules for easily installing Bitcoin nodes and higher layer protocols.
+The initial idea was to build myself a lightning node in a reproducible way.
+I talked more about the motivation and how to use it at the <a href="https://lightninghackday.fulmo.org/">LightningHackdayMUC</a> (<a href="https://youtu.be/BcjKejXlLbM?t=15873">video</a>, <a href="/slides/2019-nix-bitcoin-2.pdf">slides</a>).</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2018/09/04/schnorr-and-taproot-in-lightning/">Schnorr and Taproot in Lightning</a></h1>
     
     
@@ -944,10 +1025,10 @@ I gave a talk about &ldquo;Schnorr and Taproot in Lightning&rdquo; (<a href="/sl
 <p>At the recent Building on Bitcoin conference in Lisbon I gave a talk about a few new ideas in the scriptless scripts framework.
 The first part was mainly about <a href="https://github.com/apoelstra/scriptless-scripts/pull/1">blind coinswaps</a>, which is a way to swap bitcoins with a tumbler without revealing which coin are swapped.
 The second part about how to exchange ecash tokens peer-to-peer using scriptless scripts and Brands credentials.
-You can find the talk <a href="https://youtu.be/XORDEX-RrAI?t=25484">on youtube</a> and the slides <a href="slides/2018-bob.pdf">here</a>.
+You can find the talk <a href="https://youtu.be/XORDEX-RrAI?t=25484">on youtube</a> and the slides <a href="/slides/2018-bob.pdf">here</a>.
 Thanks to <a href="https://twitter.com/kanzure">kanzure</a> there&rsquo;s also a <a href="https://diyhpl.us/wiki/transcripts/building-on-bitcoin/2018/blind-signatures-and-scriptless-scripts/">transcript</a> of the talk.</p>
 
-<p>EDIT: I&rsquo;ve added a note about the security of Blind Schnorr signatures against forgery to the <a href="slides/2018-bob.pdf">slides</a>.
+<p>EDIT: I&rsquo;ve added a note about the security of Blind Schnorr signatures against forgery to the <a href="/slides/2018-bob.pdf">slides</a>.
 In short, a naive implementation of the scheme is vulnerable to <a href="http://www.enseignement.polytechnique.fr/informatique/profs/Francois.Morain/Master1/Crypto/projects/Wagner02.pdf">Wagner&rsquo;s attack</a>.
 An attacker can forge a signature using 65536 parallel signing sessions and <code>O(2^32)</code> work.</p>
 </div>
@@ -1258,86 +1339,6 @@ in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jo
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/06/23/can-miners-exploit-a-block-size-increase/">Can Miners Exploit a Block Size Increase?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-06-23T10:49:00+00:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>We don&rsquo;t know yet. But modelling is in my opinion a useful tool to investigate potential effects.
-Therefore, I used Gavin Andresen&rsquo;s mining simulator to create some more or less plausible scenarios.
-You can find the <a href="https://github.com/jonasnick/bitcoin_miningsim/blob/master/analysis/README.md">resulting plots on github</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/05/09/fuzzing-bitcoin-consensus/">Fuzzing Bitcoin Consensus</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-05-09T23:39:00+00:00" pubdate data-updated="true">May 9<span>th</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>TLDR</strong> I ran <a href="http://lcamtuf.coredump.cx/afl/">afl-fuzz</a> against <a href="https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library">libbitcoinconsensus</a> to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered <a href="https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f">two bugs</a> in <a href="https://github.com/btcsuite/btcd">btcd</a> by Conformal.
-See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoinconsensus_testcases repository</a> for the discovered Bitcoin scripts.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/05/09/fuzzing-bitcoin-consensus/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1353,6 +1354,14 @@ See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoi
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2019/06/25/secure-protocols-on-bip-taproot/">Secure protocols on BIP-taproot</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2019/06/25/nix-bitcoin/">nix-bitcoin</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/09/04/schnorr-and-taproot-in-lightning/">Schnorr and Taproot in Lightning</a>
       </li>
     
@@ -1364,19 +1373,11 @@ See the <a href="https://github.com/jonasnick/bitcoinconsensus_testcases">bitcoi
         <a href="/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures/">Exploiting Low Order Generators in One-Time Ring Signatures</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2016/12/17/a-problem-with-ringct/">A problem with Monero&#8217;s RingCT</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/">The 2016 Backdoored Cryptocurrency Contest Winner</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 105.45454545454545%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 105.45454545454545%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 105.45454545454545%'>blender</a> <a href='/blog/categories/c' style='font-size: 110.9090909090909%'>C</a> <a href='/blog/categories/consensus' style='font-size: 105.45454545454545%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 116.36363636363636%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 110.9090909090909%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 105.45454545454545%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 105.45454545454545%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 105.45454545454545%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 116.36363636363636%'>golang</a> <a href='/blog/categories/java' style='font-size: 110.9090909090909%'>java</a> <a href='/blog/categories/javascript' style='font-size: 105.45454545454545%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 105.45454545454545%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 105.45454545454545%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 110.9090909090909%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 110.9090909090909%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 105.45454545454545%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 110.9090909090909%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 105.45454545454545%'>neuro</a> <a href='/blog/categories/pragmatics' style='font-size: 110.9090909090909%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 110.9090909090909%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 105.45454545454545%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 132.72727272727272%'>python</a> <a href='/blog/categories/r' style='font-size: 116.36363636363636%'>R</a> <a href='/blog/categories/racket' style='font-size: 105.45454545454545%'>racket</a> <a href='/blog/categories/regression' style='font-size: 105.45454545454545%'>regression</a> <a href='/blog/categories/security' style='font-size: 105.45454545454545%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 105.45454545454545%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 105.45454545454545%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 105.45454545454545%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 105.45454545454545%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 104.61538461538461%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 104.61538461538461%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 104.61538461538461%'>blender</a> <a href='/blog/categories/c' style='font-size: 109.23076923076923%'>C</a> <a href='/blog/categories/consensus' style='font-size: 104.61538461538461%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 113.84615384615384%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 113.84615384615384%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 104.61538461538461%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 104.61538461538461%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 104.61538461538461%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 113.84615384615384%'>golang</a> <a href='/blog/categories/java' style='font-size: 109.23076923076923%'>java</a> <a href='/blog/categories/javascript' style='font-size: 104.61538461538461%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 104.61538461538461%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 104.61538461538461%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 113.84615384615384%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 109.23076923076923%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 104.61538461538461%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 109.23076923076923%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 104.61538461538461%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 104.61538461538461%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 109.23076923076923%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 109.23076923076923%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 104.61538461538461%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 127.6923076923077%'>python</a> <a href='/blog/categories/r' style='font-size: 113.84615384615384%'>R</a> <a href='/blog/categories/racket' style='font-size: 104.61538461538461%'>racket</a> <a href='/blog/categories/regression' style='font-size: 104.61538461538461%'>regression</a> <a href='/blog/categories/security' style='font-size: 104.61538461538461%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 104.61538461538461%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 104.61538461538461%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 104.61538461538461%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 104.61538461538461%'>Sweave</a> </span>
 </section>
 
 <section>
