@@ -13,3 +13,5 @@ There was not enough time to cover everything.
 The talk also gives an introduction to how to use our [MuSig implementation in libsecp256k1-zkp](https://github.com/ElementsProject/secp256k1-zkp/blob/secp256k1-zkp/include/secp256k1_musig.h).
 The video recording is on [youtube](https://youtu.be/DKOG0BQMmmg?t=21866) ([slides](/slides/2019-breaking.pdf)).
 Thanks to [kanzure](https://twitter.com/kanzure) there's also a [transcript](https://diyhpl.us/wiki/transcripts/breaking-bitcoin/2019/secure-protocols-bip-taproot/) of the talk.
+
+**Erratum**: MuSig nonces can not be pre-shared. Only nonce commitments. See [https://github.com/ElementsProject/secp256k1-zkp/pull/73](https://github.com/ElementsProject/secp256k1-zkp/pull/73) for details.
