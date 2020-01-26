@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2019-07-09T09:32:46+00:00</updated>
+  <updated>2020-01-26T14:44:54+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[X-only Pubkeys and Insecure MuSig Shortcuts]]></title>
+    <link href="https://jonasnick.github.io/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/"/>
+    <updated>2019-11-19T13:35:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts</id>
+    <content type="html"><![CDATA[<p>There are two posts I recently contributed to <a href="https://medium.com/blockstream">Blockstream&rsquo;s engineering blog</a> expanding on the talk I gave at <a href="https://www.thelightningconference.com/">The Lightning Conference 2019</a>. Cross-posting them here because they fit the theme of this blog:</p>
+
+<ul>
+<li><p><a href="https://medium.com/blockstream/reducing-bitcoin-transaction-sizes-with-x-only-pubkeys-f86476af05d7">Reducing Bitcoin Transaction Sizes with x-only Pubkeys</a></p>
+
+<blockquote><p>This article is about the recent introduction of so-called x-only pubkeys to the Bitcoin Improvement Proposal <a href="https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki">BIP-schnorr</a> [&hellip;] significantly reducing the weight of every transaction output without any loss in security. By removing the Y-coordinate byte from compressed public keys currently used in Bitcoin, public keys end up with a 32-byte representation. We are going to look at how it works, why that’s useful, and sketch a security proof.</p></blockquote></li>
+<li><p><a href="https://medium.com/blockstream/insecure-shortcuts-in-musig-2ad0d38a97da">Insecure Shortcuts in MuSig</a></p>
+
+<blockquote><p>Using BIP-Schnorr-based multisignatures, no matter how many signers are involved, the result is a single public key and a single signature indistinguishable from a regular, single-signer BIP-Schnorr signature. This article is about optimizing implementations of multisignature protocols and why seemingly harmless changes can totally break the security.</p></blockquote></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Secure protocols on BIP-taproot]]></title>
@@ -72,15 +91,6 @@ Thanks to <a href="https://twitter.com/kanzure">kanzure</a> there&rsquo;s also a
 <p>EDIT: I&rsquo;ve added a note about the security of Blind Schnorr signatures against forgery to the <a href="/slides/2018-bob.pdf">slides</a>.
 In short, a naive implementation of the scheme is vulnerable to <a href="http://www.enseignement.polytechnique.fr/informatique/profs/Francois.Morain/Master1/Crypto/projects/Wagner02.pdf">Wagner&rsquo;s attack</a>.
 An attacker can forge a signature using 65536 parallel signing sessions and <code>O(2^32)</code> work.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The 2016 Backdoored Cryptocurrency Contest Winner]]></title>
-    <link href="https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/"/>
-    <updated>2016-08-31T22:43:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner</id>
-    <content type="html"><![CDATA[<p>Thanks to a quite a bit of luck I won this years version of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">the Underhanded Crypto Contest</a> focused on crypto currencies. The submission consists of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">a writeup</a> and &ndash; of course &ndash; <a href="https://github.com/jonasnick/2016_underhanded_crypto_contest/tree/master/submission">backdoored code</a>.</p>
 ]]></content>
   </entry>
   

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Guessing bitcoin's P2P connections - nickler's</title>
+  <title>X-only Pubkeys and Insecure MuSig Shortcuts - nickler's</title>
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="The paper Deanonymisation of clients in Bitcoin P2P network (2014) by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin &hellip;">
+  <meta name="description" content="There are two posts I recently contributed to Blockstream&rsquo;s engineering blog expanding on the talk I gave at The Lightning Conference 2019. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://jonasnick.github.io/blog/2015/03/06/guessing-bitcoins-p2p-connections/">
+  <link rel="canonical" href="https://jonasnick.github.io/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
     <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -872,7 +872,7 @@ init_mathjax();
   
   <header>
     
-      <h1 class="entry-title">Guessing Bitcoin's P2P Connections</h1>
+      <h1 class="entry-title">X-only Pubkeys and Insecure MuSig Shortcuts</h1>
     
     
       <p class="meta">
@@ -888,152 +888,24 @@ init_mathjax();
   
 
 
-<time datetime="2015-03-06T14:22:00+00:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
+<time datetime="2019-11-19T13:35:00+00:00" pubdate data-updated="true">Nov 19<span>th</span>, 2019</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The paper <a href="http://arxiv.org/abs/1405.7418">Deanonymisation of clients in Bitcoin P2P network (2014)</a> by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
-The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to (&ldquo;entry nodes&rdquo;).
-Second, for each transaction $t$ record the $10$ nodes $P_t$ which first propagate $t$.
-The authors experimentally show that if $|E_v \cap P_t|$ is bigger than $3$ then there is a pretty high chance that $t$ actually originated from $v$.
-However, both attack stages basically require a Sybil attack &ndash; the attacker has to be connected to a lot of nodes a lot of times.
-&lsquo;A lot&rsquo; means that in their experiments they had 50 connection to each full node (~250) in the test network.
-As a result, such an attack seems to be powerful, but certainly won&rsquo;t be undetected.</p>
+<div class="entry-content"><p>There are two posts I recently contributed to <a href="https://medium.com/blockstream">Blockstream&rsquo;s engineering blog</a> expanding on the talk I gave at <a href="https://www.thelightningconference.com/">The Lightning Conference 2019</a>. Cross-posting them here because they fit the theme of this blog:</p>
 
-<p>In this post I show that the first stage of the attack, namely learning the nodes a victim is directly connected to can
-be done with a single connection to the victim.
-In addition to BKP&rsquo;s attack, knowing all outbound peers of a client could significantly increase the success probability of a double spend.
-Note that all experiments are based on Bitcoin Core 0.9.4, but 0.10.0 shows the same behavior.</p>
+<ul>
+<li><p><a href="https://medium.com/blockstream/reducing-bitcoin-transaction-sizes-with-x-only-pubkeys-f86476af05d7">Reducing Bitcoin Transaction Sizes with x-only Pubkeys</a></p>
 
-<p><strong>TLDR</strong> The attacker can reliably guess all of the outbound connections of a victim by making a selection from the known addresses of a victim based on the timestamp of the addresses.</p>
+<blockquote><p>This article is about the recent introduction of so-called x-only pubkeys to the Bitcoin Improvement Proposal <a href="https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki">BIP-schnorr</a> [&hellip;] significantly reducing the weight of every transaction output without any loss in security. By removing the Y-coordinate byte from compressed public keys currently used in Bitcoin, public keys end up with a 32-byte representation. We are going to look at how it works, why that’s useful, and sketch a security proof.</p></blockquote></li>
+<li><p><a href="https://medium.com/blockstream/insecure-shortcuts-in-musig-2ad0d38a97da">Insecure Shortcuts in MuSig</a></p>
 
-<p><strong>Update</strong> A <a href="https://github.com/bitcoin/bitcoin/pull/5860">fix has been merged</a> to bitcoind. The timestamp is not updated anymore when receiving a message from a connected peer. Instead, it is only updated when the peer disconnects. The fix is released in bitcoin core 0.10.1.</p>
+<blockquote><p>Using BIP-Schnorr-based multisignatures, no matter how many signers are involved, the result is a single public key and a single signature indistinguishable from a regular, single-signer BIP-Schnorr signature. This article is about optimizing implementations of multisignature protocols and why seemingly harmless changes can totally break the security.</p></blockquote></li>
+</ul>
 
-<!-- more -->
-
-
-<h2>Learning connections using addr propagation</h2>
-
-<p>When a node $n$ connects to another peer $p$ in the network it advertises its address using the &ldquo;addr&rdquo; message.
-The peer will select a number of its own peers at random which are &ldquo;responsible&rdquo; for $n$&rsquo;s address.
-Then the address is forwarded to responsible peers to spread the knowledge about $n$ in the network.
-The number of responsible peers is either $1$ or $2$ depending on whether the address is reachable by $p$.</p>
-
-<p>BKP&rsquo;s attack works by recording the set of peers that first propagated a victim&rsquo;s address.
-In order to have good chance to be in the set of responsible peers for the address, the attacker has to hold
-a significant number of connections to each full node in the network.
-Note that it is possible to have multiple connections from a single public address to a peer.</p>
-
-<h2>The getaddr message</h2>
-
-<p>It turns out that an attacker can simply infer the peers of a victim by sending getaddr messages to him.</p>
-
-<p>In bitcoin, the address structures that are send via the addr message do not only contain the IP adress and port
-but also a timestamp.
-The timestamp&rsquo;s role is ensuring that terminated nodes vanish from the networks knowledge and it is regular refreshed by
-the nodes which have an interaction (more about that later) with the peer at that address.
-Bitcoin nodes usually record the addresses they hear about and send them in a reply to a getaddr using the addr message.</p>
-
-<p>The following experiments show that an attacker can guess some or all of the direct peers of a victim
-by sorting the known addresses of the victim based on the timestamp.</p>
-
-<p>A minor obstacle is that a node replies to a single getaddr message only with maximal 2500 addrs selected uniformly at random.
-In order to get a certain percentage $\tau$ of the known addresses of a node the attacker has to send multiple
-getaddr messages and record the percentage that is new to her.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>S = {}
-</span><span class='line'>while(true):
-</span><span class='line'>    send_getaddr()
-</span><span class='line'>    T = response()
-</span><span class='line'>    tau' = 1 - ((|T - S|) / |T|) 
-</span><span class='line'>    S &lt;- S $\cup$ T
-</span><span class='line'>    if \tau' &gt; \tau
-</span><span class='line'>        break
-</span><span class='line'>return S</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Experiments show that if we wait 10 seconds after each getaddr request it takes around $3.5$ minutes to collect $\tau$ percent addresses ($13,500$ in this case).</p>
-
-<h2>Experimental results</h2>
-
-<p>I set up a victim node $v$, which is just a regular bitcoin node.
-The attacker $a$ is a node that connects to $v$ via the P2P network and queries the known nodes of $v$.
-Second, $a$ connects to $v$ via the RPC interface and gets the true peers.</p>
-
-<p>The attacker code (btcP2PStruct) is <a href="https://github.com/jonasnick/btcP2PStruct">available on github</a>.
-Thanks to the <a href="https://github.com/conformal/btcwire">btcwire</a> package it is very simple to write this kind of code.</p>
-
-<p>You can find all the data to produce the graphs in the <a href="https://github.com/jonasnick/btcP2PStruct/data">project repository</a>.</p>
-
-<p>First we consider the case where $v$ does not accept incoming connections (&ldquo;client&rdquo; in BKP&rsquo;s terms).
-$v$ was running for 2 days and I recorded data for every hour but I will only discuss the last measurement
-because the data is very similar.</p>
-
-<div class="text-image-big">
-<img src="/images/guessing_btc_peers/client-histogram.png">
-</div>
-
-
-<p>Note that $v$ returned $12,868$ known addresses.
-Also, a client usually has maximally 8 peers due to the default maximum number of outbound connections.
-This implies that an attacker can not start start this attack on a client that is not connected to her.
-Here we see that if the attacker obtains all peers of $v$ (without any false positives in this case).</p>
-
-<p>Next, the case for the full node, which I left running for 8 days.</p>
-
-<div class="text-image-big">
-<img src="/images/guessing_btc_peers/full_node-histogram.png">
-</div>
-
-
-<p>Again it is evident that an attacker can reliably determine all outbound connections of the victim using a threshold of 20 minutes.
-However, inbound peers can only be detected very poorly.</p>
-
-<p>The reason for finding all outbound peers is is <a href="https://github.com/bitcoin/bitcoin/blob/249bf0e0492758d71dc5d8fa77103b31b604979f/src/main.cpp#L4192">this logic in bitcoin-core</a> which refreshes the timestamp on every message of outbound nodes.</p>
-
-<h2>Reducing false positives</h2>
-
-<p>BKP mention a neat trick how to determine if two nodes $v_1$ and $v_2$ are connected.
-First, the attacker connect to $v_1$ and $v_2$ and send addr messages containing bogus addresses to $v_1$.
-Then, she counts the number of times one of these addresses is received from $v_2$.
-However, the authors leave open how many messages you need send to be certain about the hypothesis.</p>
-
-<p>As we already know, the address is forwarded only to two responsible nodes so we have to compute the
-probabilities of our node being responsible.
-Using the binomial distribution we can compute the likelihood of receiving a certain number of addresses back
-given that we sent a certain number of addresses.</p>
-
-<p>I&rsquo;ve done the math using <a href="https://github.com/jonasnick/btcP2PStruct/blob/master/prob/is_connected_prob.py">this code</a> and some assumptions regarding the structure (edges are uniformly iid).
-Also, the attacker has to know or approximate the number of peers of a node, which can be done
-with a similar method than the one described.
-Connect two times to the victim, send and note the ratio of returned addr messages.
-If you can not connect to the node, it will most likely have 8 peers.</p>
-
-<p>This <em>theoretical</em> model shows that that if $v_1$ is a full node and $v_2$ is a client then we need about 2000 messages to determine if they are connected with 95% probability.
-Similarly, if $v_1$ and $v_2$ are full nodes, the attacker needs to send 20000 messages.</p>
-
-<p>However, in order to remain polite in the network this attack needs start from a candidate set of nodes.
-Therefore, it could be a useful method to remove the false positives which were obtained with the &ldquo;getaddr&rdquo;-fingerprint.</p>
-
-<h2>Conclusion</h2>
-
-<p>It should be pointed out that even if you know a victim&rsquo;s entry nodes you can not simply connect to those few and listen for transactions.
-This is because <a href="https://en.bitcoin.it/wiki/Satoshi_Client_Transaction_Exchange">&ldquo;trickling&rdquo;</a> prevents estimating the origin of a transaction without further assumptions or doing BKP&rsquo;s Sybil attack.
-However, knowing all outbound peers of a client could significantly increase the success probability of a double spend.</p>
-
-<p><strong>Update</strong> The fix removes the update every 20 minutes and updates on disconnect</p>
 </div>
 
 
@@ -1056,12 +928,12 @@ However, knowing all outbound peers of a client could significantly increase the
   
 
 
-<time datetime="2015-03-06T14:22:00+00:00" pubdate data-updated="true">Mar 6<span>th</span>, 2015</time>
+<time datetime="2019-11-19T13:35:00+00:00" pubdate data-updated="true">Nov 19<span>th</span>, 2019</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/golang/'>golang</a>, <a class='category' href='/blog/categories/privacy/'>privacy</a>
+    <a class='category' href='/blog/categories/bitcoin/'>bitcoin</a>, <a class='category' href='/blog/categories/crypto/'>crypto</a>
   
 </span>
 
@@ -1079,10 +951,8 @@ However, knowing all outbound peers of a client could significantly increase the
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/02/12/privacy-in-bitcoinj/" title="Previous Post: Privacy in BitcoinJ">&laquo; Privacy in BitcoinJ</a>
+        <a class="basic-alignment left" href="/blog/2019/06/25/secure-protocols-on-bip-taproot/" title="Previous Post: Secure protocols on BIP-taproot">&laquo; Secure protocols on BIP-taproot</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/03/17/bitcoin-seeder-dos-vulnerability/" title="Next Post: Bitcoin Seeder DoS vulnerability">Bitcoin Seeder DoS vulnerability &raquo;</a>
       
     </p>
   </footer>

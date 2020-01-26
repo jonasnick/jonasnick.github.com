@@ -127,15 +127,21 @@
         <lastmod>2019-07-09T09:32:42+00:00</lastmod>
     </url>
     <url>
+        <loc>
+            https://jonasnick.github.io/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/
+        </loc>
+        <lastmod>2020-01-26T14:36:35+00:00</lastmod>
+    </url>
+    <url>
         <loc>https://jonasnick.github.io/</loc>
-        <lastmod>2019-07-09T09:32:42+00:00</lastmod>
+        <lastmod>2020-01-26T14:36:35+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/archives/</loc>
-        <lastmod>2019-07-09T09:32:42+00:00</lastmod>
+        <lastmod>2020-01-26T14:36:35+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/about/</loc>
-        <lastmod>2017-06-10T21:56:45+00:00</lastmod>
+        <lastmod>2020-01-26T14:41:37+00:00</lastmod>
     </url>
 </urlset>

@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="At Breaking Bitcoin 2019 in Amsterdam I gave a talk about how to build secure protocols on BIP-taproot or more specifically how to avoid the dangers &hellip;">
+  <meta name="description" content="There are two posts I recently contributed to Blockstream&rsquo;s engineering blog expanding on the talk I gave at The Lightning Conference 2019. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -875,6 +875,52 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/">X-only Pubkeys and Insecure MuSig Shortcuts</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2019-11-19T13:35:00+00:00" pubdate data-updated="true">Nov 19<span>th</span>, 2019</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There are two posts I recently contributed to <a href="https://medium.com/blockstream">Blockstream&rsquo;s engineering blog</a> expanding on the talk I gave at <a href="https://www.thelightningconference.com/">The Lightning Conference 2019</a>. Cross-posting them here because they fit the theme of this blog:</p>
+
+<ul>
+<li><p><a href="https://medium.com/blockstream/reducing-bitcoin-transaction-sizes-with-x-only-pubkeys-f86476af05d7">Reducing Bitcoin Transaction Sizes with x-only Pubkeys</a></p>
+
+<blockquote><p>This article is about the recent introduction of so-called x-only pubkeys to the Bitcoin Improvement Proposal <a href="https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki">BIP-schnorr</a> [&hellip;] significantly reducing the weight of every transaction output without any loss in security. By removing the Y-coordinate byte from compressed public keys currently used in Bitcoin, public keys end up with a 32-byte representation. We are going to look at how it works, why that’s useful, and sketch a security proof.</p></blockquote></li>
+<li><p><a href="https://medium.com/blockstream/insecure-shortcuts-in-musig-2ad0d38a97da">Insecure Shortcuts in MuSig</a></p>
+
+<blockquote><p>Using BIP-Schnorr-based multisignatures, no matter how many signers are involved, the result is a single public key and a single signature indistinguishable from a regular, single-signer BIP-Schnorr signature. This article is about optimizing implementations of multisignature protocols and why seemingly harmless changes can totally break the security.</p></blockquote></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2019/06/25/secure-protocols-on-bip-taproot/">Secure Protocols on BIP-taproot</a></h1>
     
     
@@ -1285,62 +1331,6 @@ The slides accompanying the transcript can be found <a href="https://github.com/
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/07/08/exploiting-csgojackpots-weak-rng/">Exploiting CSGOJackpot&#8217;s Weak RNG</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-07-08T00:42:00+00:00" pubdate data-updated="true">Jul 8<span>th</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/gaben/BwBArIM.png" width="500"></p>
-
-<p><a href="https://csgojackpot.com">CSGOJackpot</a> is a gambling website where players bet and win Counter Strike Go &lsquo;skins&rsquo; (weapon textures).
-Because these items can only be found by playing a lot of CSGo, they are quite rare and valuable,<br/>
-and can be exchanged for example in Steam&rsquo;s own Marketplace.
-What is fascinating about CSGOJackpot and initially captured my attention is the sheer amount
-of value that is gambled away. On average, more than <strong>20,000$</strong> are thrown into the pots per hour.</p>
-
-<p><strong>TL;DR</strong>: CSGOJackpot is a node.js app that uses <em>Math.random()</em> to determine the winning ticket. Of course, it&rsquo;s not cryptographically
-secure and trivial to predict the next number given two outputs of the random number generator.
-I did not try to profit from this vulnerability but for the lulz I set up a twitch stream and revealed the next winning percentage
-in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jonasnick/jonasnick.github.com/blob/source/source/images/gaben/README.md">submission gallery</a> and a <a href="https://www.youtube.com/watch?v=DZrDQKbQ7r0">recording of the stream</a>.</p>
-
-<p><strong>EDIT:</strong> There was quite some discussion about this issue on <a href="https://www.reddit.com/r/GlobalOffensive/comments/3cor52/weak_crypto_on_csgojackpot_xpost_from_rnetsec/">/r/GlobalOffensive</a>.</p>
-
-<p><strong>EDIT 2:</strong> This vulnerability does <strong>not exist anymore</strong> in CSGOJackpot and I don&rsquo;t know a similar site which is vulnerable.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/07/08/exploiting-csgojackpots-weak-rng/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1354,6 +1344,10 @@ in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jo
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/">X-only Pubkeys and Insecure MuSig Shortcuts</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2019/06/25/secure-protocols-on-bip-taproot/">Secure protocols on BIP-taproot</a>
@@ -1371,15 +1365,11 @@ in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jo
         <a href="/blog/2018/07/31/blind-signatures-in-scriptless-scripts/">Blind Signatures in Scriptless Scripts</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2017/05/23/exploiting-low-order-generators-in-one-time-ring-signatures/">Exploiting Low Order Generators in One-Time Ring Signatures</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 104.61538461538461%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 104.61538461538461%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 104.61538461538461%'>blender</a> <a href='/blog/categories/c' style='font-size: 109.23076923076923%'>C</a> <a href='/blog/categories/consensus' style='font-size: 104.61538461538461%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 113.84615384615384%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 113.84615384615384%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 104.61538461538461%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 104.61538461538461%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 104.61538461538461%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 113.84615384615384%'>golang</a> <a href='/blog/categories/java' style='font-size: 109.23076923076923%'>java</a> <a href='/blog/categories/javascript' style='font-size: 104.61538461538461%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 104.61538461538461%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 104.61538461538461%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 113.84615384615384%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 109.23076923076923%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 104.61538461538461%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 109.23076923076923%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 104.61538461538461%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 104.61538461538461%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 109.23076923076923%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 109.23076923076923%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 104.61538461538461%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 127.6923076923077%'>python</a> <a href='/blog/categories/r' style='font-size: 113.84615384615384%'>R</a> <a href='/blog/categories/racket' style='font-size: 104.61538461538461%'>racket</a> <a href='/blog/categories/regression' style='font-size: 104.61538461538461%'>regression</a> <a href='/blog/categories/security' style='font-size: 104.61538461538461%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 104.61538461538461%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 104.61538461538461%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 104.61538461538461%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 104.61538461538461%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 104.28571428571429%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 104.28571428571429%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 104.28571428571429%'>blender</a> <a href='/blog/categories/c' style='font-size: 108.57142857142857%'>C</a> <a href='/blog/categories/consensus' style='font-size: 104.28571428571429%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 112.85714285714286%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 117.14285714285714%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 104.28571428571429%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 104.28571428571429%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 104.28571428571429%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 112.85714285714286%'>golang</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java</a> <a href='/blog/categories/javascript' style='font-size: 104.28571428571429%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 104.28571428571429%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 104.28571428571429%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 112.85714285714286%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 108.57142857142857%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 104.28571428571429%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 108.57142857142857%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 104.28571428571429%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 104.28571428571429%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 108.57142857142857%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 108.57142857142857%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 104.28571428571429%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 125.71428571428572%'>python</a> <a href='/blog/categories/r' style='font-size: 112.85714285714286%'>R</a> <a href='/blog/categories/racket' style='font-size: 104.28571428571429%'>racket</a> <a href='/blog/categories/regression' style='font-size: 104.28571428571429%'>regression</a> <a href='/blog/categories/security' style='font-size: 104.28571428571429%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 104.28571428571429%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 104.28571428571429%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 104.28571428571429%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 104.28571428571429%'>Sweave</a> </span>
 </section>
 
 <section>
@@ -1395,7 +1385,7 @@ in exchange for a drawing of Gabe Newell. See the <a href="https://github.com/jo
     </div>
   </div>
   <footer role="contentinfo"><p>
-This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2019 - Jonas Nick -
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2020 - Jonas Nick -
   <span class="credit">Powered by <a href="https://octopress.org">Octopress</a></span>
 </p>
 

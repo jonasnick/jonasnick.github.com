@@ -4,7 +4,7 @@
   <title><![CDATA[Category: crypto | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/crypto/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2019-07-09T09:32:46+00:00</updated>
+  <updated>2020-01-26T14:44:54+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[X-only Pubkeys and Insecure MuSig Shortcuts]]></title>
+    <link href="https://jonasnick.github.io/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/"/>
+    <updated>2019-11-19T13:35:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts</id>
+    <content type="html"><![CDATA[<p>There are two posts I recently contributed to <a href="https://medium.com/blockstream">Blockstream&rsquo;s engineering blog</a> expanding on the talk I gave at <a href="https://www.thelightningconference.com/">The Lightning Conference 2019</a>. Cross-posting them here because they fit the theme of this blog:</p>
+
+<ul>
+<li><p><a href="https://medium.com/blockstream/reducing-bitcoin-transaction-sizes-with-x-only-pubkeys-f86476af05d7">Reducing Bitcoin Transaction Sizes with x-only Pubkeys</a></p>
+
+<blockquote><p>This article is about the recent introduction of so-called x-only pubkeys to the Bitcoin Improvement Proposal <a href="https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki">BIP-schnorr</a> [&hellip;] significantly reducing the weight of every transaction output without any loss in security. By removing the Y-coordinate byte from compressed public keys currently used in Bitcoin, public keys end up with a 32-byte representation. We are going to look at how it works, why that’s useful, and sketch a security proof.</p></blockquote></li>
+<li><p><a href="https://medium.com/blockstream/insecure-shortcuts-in-musig-2ad0d38a97da">Insecure Shortcuts in MuSig</a></p>
+
+<blockquote><p>Using BIP-Schnorr-based multisignatures, no matter how many signers are involved, the result is a single public key and a single signature indistinguishable from a regular, single-signer BIP-Schnorr signature. This article is about optimizing implementations of multisignature protocols and why seemingly harmless changes can totally break the security.</p></blockquote></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Secure protocols on BIP-taproot]]></title>
