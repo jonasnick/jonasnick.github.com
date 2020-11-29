@@ -133,12 +133,28 @@
         <lastmod>2020-01-26T14:36:35+00:00</lastmod>
     </url>
     <url>
+        <loc>
+            https://jonasnick.github.io/blog/2020/11/29/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces/
+        </loc>
+        <lastmod>2020-11-29T22:56:49+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://jonasnick.github.io/blog/2020/11/29/bip-%7Bschnorr/</loc>
+        <lastmod>2020-11-29T23:06:44+00:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            https://jonasnick.github.io/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/
+        </loc>
+        <lastmod>2020-11-29T23:26:28+00:00</lastmod>
+    </url>
+    <url>
         <loc>https://jonasnick.github.io/</loc>
-        <lastmod>2020-01-26T14:36:35+00:00</lastmod>
+        <lastmod>2020-11-29T23:26:28+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/blog/archives/</loc>
-        <lastmod>2020-01-26T14:36:35+00:00</lastmod>
+        <lastmod>2020-11-29T23:26:28+00:00</lastmod>
     </url>
     <url>
         <loc>https://jonasnick.github.io/about/</loc>

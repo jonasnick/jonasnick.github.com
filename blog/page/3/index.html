@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Eine Einführung, die als Ausarbeitung für das Seminar &ldquo;Maschinelles Lernen&rdquo; an der Universität Tübingen entstanden ist. Die Grundlagen &hellip;">
+  <meta name="description" content="A Feature Coinciding Walk Kernel classifies nodes in a graph. This project is a python port of Coinciding Walk Kernels (CWK) [1] and introduces an &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -875,6 +875,179 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/12/12/fcw-kernel/">FCW Kernel</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-12T01:50:00+00:00" pubdate data-updated="true">Dec 12<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A Feature Coinciding Walk Kernel classifies nodes in a graph.</p>
+
+<p>This project is a python port of <a href="https://github.com/rmgarnett/coinciding_walk_kernel">Coinciding Walk Kernels</a> (CWK) [1] and introduces an extension of the model called Feature-CWK (FCWK). If you want to jump right into some code see the <a href="https://nbviewer.ipython.org/github/jonasnick/FCW-Kernel/blob/master/benchmark.ipynb">benchmark</a>.</p>
+
+<p>CW-Kernels deal with the problem of node classification (aka link-based classification) in which a set of features and labels for items are given just as in regular classification. In addition, a node classification algorithm accepts a graph of of items and item-item links. It has been shown that the additional information that is inherent in the network structure improves performance for certain algorithms and datasets.</p>
+
+<p><a href="https://github.com/jonasnick/FCW-Kernel"><center><strong>Read More</strong></center></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/14/reading-noun-noun-compounds/">Reading Noun-Noun Compounds</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-14T23:35:00+00:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Early Influences of Compound Frequency and Semantic Transparency</h3>
+
+<p>My bachelor thesis in Cognitive Science.
+Unfortunately, I am currently not allowed to release the data nor the analysis scripts,
+because the dataset is still under active research.</p>
+
+<p><em>Abstract</em>:
+This thesis evaluates psycholinguistic theories about the cognitive processing of
+words. Consequently, the time-course of compound reading is analyzed using
+generalized additive models in a dataset of eye movements. The theories to be
+contrasted are sublexical (Taft and Forster, 1975), supralexical (Giraudo and
+Grainger, 2001) vs. dual route processing (Schreuder and Baayen, 1995) and
+form-then-meaning (e.g. Rastle and Davis, 2008) vs. form-and-meaning (e.g.
+Feldman et al., 2009) processing.</p>
+
+<p>As the goal is to find the best model given various predictors, some general
+mechanisms of eye movements will be demonstrated, e.g. the position
+in the line has substantial effects, single fixations last longer, are on shorter
+words, more in the center of the word and influenced differently by frequency
+measures.</p>
+
+<p>Inspired by Kuperman et al. (2009) it is shown that already the early eye
+fixations on words are guided by first constituent and compound frequency,
+providing evidence for parallel dual route models.</p>
+
+<p>Similar to Baayen et al. (2013), Latent Semantic Analysis (LSA) similarity
+scores (Landauer and Dumais, 1997) permit investigating the time point of
+semantic processing. The effect of LSA similarity not only shows up in the
+earliest word fixations, but the data reveals that semantics plays a role even
+before a word is fixated. In particular, the fixation position in the word is
+more to the right, when the semantic transparency, i.e. the similarity between
+compound and second constituent is high. This evidence of parafoveal semantic
+processing challenges opposing findings obtained with the eye-contingent
+boundary paradigm (Rayner et al., 1986). In the framework of naive
+discriminative learning (Baayen et al., 2011), the effect of transparency on fixation
+position reflects optimization of the landing position for accessing the orthographic
+information that is most discriminative for the compound.</p>
+
+<p><em>Keywords</em>:
+reading, eye-movements, compounds, semantic similarity, morphological
+processing, generalized additive model</p>
+
+<p><a href="/papers/readingCompounds.pdf"><center><strong>Read PDF</strong></center></a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">Influence of Reputation on Gricean Maxims</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-14T01:04:00+00:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by <a href="http://www.sfs.uni-tuebingen.de/~jquinley/">Jason Quinley</a> at the <a href="http://www.sfs.uni-tuebingen.de/en/chairs.html">Institute of Linguistics</a>, I wanted to explore the influence of reputation on obeying the Gricean Maxims using data from the Q&amp;A website Stackoverflow.</p>
+
+<p>Pragmatics is a subfield in linguistics, defined as &ldquo;dealing with the origins, uses, and effects of signs within the total behavior of the interpreters of signs&rdquo; (<a href="http://psycnet.apa.org/psycinfo/1946-02822-000">Morris, 1946</a>).
+Pragmatics tries to explain why a simple sentence like &ldquo;It&rsquo;s raining.&rdquo; has a lot of different interpretations, for example(<a href="http://staff.science.uva.nl/~mfranke/Papers/Franke_PhD_thesis.pdf">Franke, 2009</a>):</p>
+
+<ul>
+<li>The speaker advises we should take an umbrella.</li>
+<li>The speaker declares the picnic cancelled.</li>
+<li>The speaker is sick of living in amsterdam.</li>
+</ul>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/03/15/regressionsmodelle-und-parameterschatzverfahren/">Regressionsmodelle Und Parameterschätzverfahren</a></h1>
     
     
@@ -1183,83 +1356,9 @@ I wrote it during my 2nd semester break</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/28/snake-in-racket/">Snake in Racket</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-28T19:28:00+00:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://github.com/jonasnick/snake"><img src="/images/snake.png"></a><br/>
-Snake implementation
-<a href="https://github.com/jonasnick/snake">Snake</a>
- in the functional language Racket with GUI. Homework of the first semester of computer science.
-The music of the game is generated by the player&rsquo;s movements and his success.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/26/first-post/">First Post</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-26T20:47:00+00:00" pubdate data-updated="true">Nov 26<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -1274,6 +1373,18 @@ The music of the game is generated by the player&rsquo;s movements and his succe
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/">MuSig2: Simple Two-Round Schnorr Multisignatures</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2020/11/29/bip-%7Bschnorr/">BIP-{Schnorr,Taproot,Tapscript}</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2020/11/29/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces/">MuSig-DN: Schnorr Multisignatures with Verifiably Deterministic Nonces</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/">X-only Pubkeys and Insecure MuSig Shortcuts</a>
       </li>
     
@@ -1281,23 +1392,11 @@ The music of the game is generated by the player&rsquo;s movements and his succe
         <a href="/blog/2019/06/25/secure-protocols-on-bip-taproot/">Secure protocols on BIP-taproot</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2019/06/25/nix-bitcoin/">nix-bitcoin</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/09/04/schnorr-and-taproot-in-lightning/">Schnorr and Taproot in Lightning</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/07/31/blind-signatures-in-scriptless-scripts/">Blind Signatures in Scriptless Scripts</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 104.28571428571429%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 104.28571428571429%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 104.28571428571429%'>blender</a> <a href='/blog/categories/c' style='font-size: 108.57142857142857%'>C</a> <a href='/blog/categories/consensus' style='font-size: 104.28571428571429%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 112.85714285714286%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 117.14285714285714%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 104.28571428571429%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 104.28571428571429%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 104.28571428571429%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 112.85714285714286%'>golang</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java</a> <a href='/blog/categories/javascript' style='font-size: 104.28571428571429%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 104.28571428571429%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 104.28571428571429%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 112.85714285714286%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 108.57142857142857%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 104.28571428571429%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 108.57142857142857%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 104.28571428571429%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 104.28571428571429%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 108.57142857142857%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 108.57142857142857%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 104.28571428571429%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 125.71428571428572%'>python</a> <a href='/blog/categories/r' style='font-size: 112.85714285714286%'>R</a> <a href='/blog/categories/racket' style='font-size: 104.28571428571429%'>racket</a> <a href='/blog/categories/regression' style='font-size: 104.28571428571429%'>regression</a> <a href='/blog/categories/security' style='font-size: 104.28571428571429%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 104.28571428571429%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 104.28571428571429%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 104.28571428571429%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 104.28571428571429%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 103.52941176470588%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 103.52941176470588%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 103.52941176470588%'>blender</a> <a href='/blog/categories/c' style='font-size: 107.05882352941177%'>C</a> <a href='/blog/categories/consensus' style='font-size: 103.52941176470588%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 110.58823529411765%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 124.70588235294117%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 103.52941176470588%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 103.52941176470588%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 103.52941176470588%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 110.58823529411765%'>golang</a> <a href='/blog/categories/java' style='font-size: 107.05882352941177%'>java</a> <a href='/blog/categories/javascript' style='font-size: 103.52941176470588%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 103.52941176470588%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 103.52941176470588%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 110.58823529411765%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 107.05882352941177%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 103.52941176470588%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 107.05882352941177%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 103.52941176470588%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 103.52941176470588%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 107.05882352941177%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 107.05882352941177%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 103.52941176470588%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 121.17647058823529%'>python</a> <a href='/blog/categories/r' style='font-size: 110.58823529411765%'>R</a> <a href='/blog/categories/racket' style='font-size: 103.52941176470588%'>racket</a> <a href='/blog/categories/regression' style='font-size: 103.52941176470588%'>regression</a> <a href='/blog/categories/security' style='font-size: 103.52941176470588%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 103.52941176470588%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 103.52941176470588%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 103.52941176470588%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 103.52941176470588%'>Sweave</a> </span>
 </section>
 
 <section>

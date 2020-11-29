@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2020-01-26T14:48:20+00:00</updated>
+  <updated>2020-11-29T23:26:51+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[MuSig2: Simple Two-Round Schnorr Multisignatures]]></title>
+    <link href="https://jonasnick.github.io/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/"/>
+    <updated>2020-11-29T23:25:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/2020-musig2.png" width="560"></p>
+
+<p><strong>Abstract</strong>: Multi-signatures enable a group of signers to produce a single signature on a given message. Recently, Drijvers et al. (S&amp;P'19) showed that all thus far proposed two-round multi-signature schemes in the DL setting (without pairings) are insecure under concurrent sessions, i.e., if a single signer participates in multiple signing sessions concurrently. While Drijvers et al. improve the situation by constructing a secure two-round scheme, saving a round comes with the price of having less compact signatures. In particular, the signatures produced by their scheme are more than twice as large as Schnorr signatures, which arguably are the most natural and compact among all practical DL signatures and are therefore becoming popular in cryptographic applications (e.g., support for Schnorr signature verification has been proposed to be included in Bitcoin). If one needs a multi-signature scheme that can be used as a drop-in replacement for Schnorr signatures, then one is either forced to resort to a three-round scheme such as MuSig (Maxwell et al., DCC 2019) or MSDL-pop (Boneh, Drijvers, and Neven, ASIACRYPT 2018), or to accept that signing sessions are only secure when run sequentially, which may be hard to enforce in practice, e.g., when the same signing key is used by multiple devices.</p>
+
+<p>In this work, we propose MuSig2, a novel and simple two-round multi-signature scheme variant of the MuSig scheme. Our scheme is the first multi-signature scheme that simultaneously i) is secure under concurrent signing sessions, ii) supports key aggregation, iii) outputs ordinary Schnorr signatures, iv) needs only two communication rounds, and v) has similar signer complexity as regular Schnorr signatures. Furthermore, our scheme is the first multi-signature scheme in the DL setting that supports preprocessing of all but one rounds, effectively enabling a non-interactive signing process, without forgoing security under concurrent sessions. The combination of all these features makes MuSig2 highly practical. We prove the security of MuSig2 under the one-more discrete logarithm (OMDL) assumption in the random oracle model, and the security of a more efficient variant in the combination of the random oracle and algebraic group models.</p>
+
+<p>Read more on <a href="https://medium.com/blockstream/musig2-simple-two-round-schnorr-multisignatures-bf9582e99295">the Blockstream Blog</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BIP-{Schnorr,Taproot,Tapscript}]]></title>
+    <link href="https://jonasnick.github.io/blog/2020/11/29/bip-%7Bschnorr/"/>
+    <updated>2020-11-29T22:59:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2020/11/29/bip-{schnorr</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/2020-taproot.png" width="800"></p>
+
+<ol>
+<li><p><strong>BIP-Schnorr Abstract</strong>: This document proposes a standard for 64-byte Schnorr signatures over the elliptic curve secp256k1.</p></li>
+<li><p><strong>BIP-Taproot Abstract</strong>: This document proposes a new SegWit version 1 output type, with spending rules based on Taproot, Schnorr signatures, and Merkle branches.</p></li>
+<li><p><strong>BIP-Tapscript Abstract</strong>: This document specifies the semantics of the initial scripting system under BIP341 [BIP-Taproot].</p></li>
+</ol>
+
+
+<h2>Some highlights:</h2>
+
+<ul>
+<li><strong>2018-01-23</strong>: Taproot idea <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-January/015614.html">is proposed</a></li>
+<li><strong>2018-04-28</strong>: Work on BIP-Schnorr and what was known as &ldquo;BIP-metas&rdquo; (MErkle branches, TAproot, and Schnorr signatures) begins (<a href="https://github.com/sipa/bip-metas/commit/e444e8dd1a54ebf75a1a9d288746da5a4e986f6a">commit</a>)</li>
+<li><strong>2018-07-06</strong>: BIP-Schnorr draft <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-July/016203.html">is published</a></li>
+<li><strong>2018-09-25</strong>: libsecp256k1 <a href="https://github.com/bitcoin-core/secp256k1/pull/558">schnorrsig PR opened</a></li>
+<li><strong>2019-05-06</strong>: BIP-Taproot and BIP-Tapscript proposals <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2019-May/016914.html">are published</a></li>
+<li><strong>2020-01-21</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/17977">taproot PR opened</a></li>
+<li><strong>2020-09-11</strong>: libsecp256k1 schnorrsig PR merged</li>
+<li><strong>2020-10-15</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/19953">taproot PR merged</a></li>
+<li><strong>?</strong>: Bitcoin Core release with activation parameters</li>
+<li><strong>?</strong>: Taproot activation</li>
+</ul>
+
+
+<p>Protip: If you have troubles memorizing BIP numbers (like me), achow101 observed that BIP-Taproot&rsquo;s number, 341, are the reversed digits of BIP-143. Segwit program version 0 is defined in BIP-143 and version 1 is defined in BIP-341.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MuSig-DN: Schnorr Multisignatures with Verifiably Deterministic Nonces]]></title>
+    <link href="https://jonasnick.github.io/blog/2020/11/29/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces/"/>
+    <updated>2020-11-29T22:53:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2020/11/29/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces</id>
+    <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=n19vDaVrwY4"><img src="https://jonasnick.github.io/images/2020-musig-dn.png" width="560"></a></p>
+
+<p><strong>Abstract</strong>: MuSig is a multi-signature scheme for Schnorr signatures, which supports key aggregation and is secure in the plain public key model. Standard derandomization techniques for discrete logarithm-based signatures such as RFC 6979, which make the signing procedure immune to catastrophic failures in the randomness generation, are not applicable to multi-signatures as an attacker could trick an honest user into producing two different partial signatures with the same randomness, which would reveal the user&rsquo;s secret key.</p>
+
+<p>In this paper, we propose a variant of MuSig in which signers generate their nonce deterministically as a pseudorandom function of the message and all signers' public keys and prove that they did so by providing a non-interactive zero-knowledge proof to their cosigners. The resulting scheme, which we call MuSig-DN, is the first Schnorr multi-signature scheme with deterministic signing. Therefore its signing protocol is robust against failures in the randomness generation as well as attacks trying to exploit the statefulness of the signing procedure, e.g., virtual machine rewinding attacks. As an additional benefit, a signing session in MuSig-DN requires only two rounds instead of three as required by all previous Schnorr multi-signatures including MuSig. To instantiate our construction, we identify a suitable algebraic pseudorandom function and provide an efficient implementation of this function as an arithmetic circuit. This makes it possible to realize MuSig-DN efficiently using zero-knowledge proof frameworks for arithmetic circuits which support inputs given in Pedersen commitments, e.g., Bulletproofs. We demonstrate the practicality of our technique by implementing it for the secp256k1 elliptic curve used in Bitcoin.</p>
+
+<p>Read more on <a href="https://medium.com/blockstream/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces-27424b5df9d6">the Blockstream Blog</a> or watch the <a href="https://www.youtube.com/watch?v=n19vDaVrwY4">pre-recorded talk</a> we presented at the CCS 2020 conference.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[X-only Pubkeys and Insecure MuSig Shortcuts]]></title>
@@ -46,51 +110,6 @@ The video recording is on <a href="https://youtu.be/DKOG0BQMmmg?t=21866">youtube
 Thanks to <a href="https://twitter.com/kanzure">kanzure</a> there&rsquo;s also a <a href="https://diyhpl.us/wiki/transcripts/breaking-bitcoin/2019/secure-protocols-bip-taproot/">transcript</a> of the talk.</p>
 
 <p><strong>Erratum</strong>: MuSig nonces can not be pre-shared. Only nonce commitments. See <a href="https://github.com/ElementsProject/secp256k1-zkp/pull/73">https://github.com/ElementsProject/secp256k1-zkp/pull/73</a> for details.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[nix-bitcoin]]></title>
-    <link href="https://jonasnick.github.io/blog/2019/06/25/nix-bitcoin/"/>
-    <updated>2019-06-25T22:39:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2019/06/25/nix-bitcoin</id>
-    <content type="html"><![CDATA[<p><a href="https://youtu.be/BcjKejXlLbM?t=15873"><img src="https://jonasnick.github.io/images/lightninghackday-nix-bitcoin.png" width="560"></a></p>
-
-<p>nix-bitcoin (<a href="https://github.com/fort-nix/nix-bitcoin">github.com/fort-nix/nix-bitcoin</a>) is a project I contribute to in my spare time that provides nix packages and nixos modules for easily installing Bitcoin nodes and higher layer protocols.
-The initial idea was to build myself a lightning node in a reproducible way.
-I talked more about the motivation and how to use it at the <a href="https://lightninghackday.fulmo.org/">LightningHackdayMUC</a> (<a href="https://youtu.be/BcjKejXlLbM?t=15873">video</a>, <a href="/slides/2019-nix-bitcoin-2.pdf">slides</a>).</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Schnorr and Taproot in Lightning]]></title>
-    <link href="https://jonasnick.github.io/blog/2018/09/04/schnorr-and-taproot-in-lightning/"/>
-    <updated>2018-09-04T13:24:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2018/09/04/schnorr-and-taproot-in-lightning</id>
-    <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=QrX1SpD6l9g&feature=youtu.be&t=7524"><img src="https://jonasnick.github.io/images/lightninghackday-youtube.png" width="560"></a></p>
-
-<p>Last weekend a bunch of hackers assembled for the 3rd Lightning Netword Hackday in Berlin.
-The event was packed with interesting sessions, neat hacks and exciting discussions which were concluded with the traditional dinner &amp; drinks at ROOM77.
-I gave a talk about &ldquo;Schnorr and Taproot in Lightning&rdquo; (<a href="/slides/2018-hackday.pdf">slides</a>, <a href="https://www.youtube.com/watch?v=QrX1SpD6l9g&amp;feature=youtu.be&amp;t=7524">video</a>) focusing on privacy and security implications.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Blind Signatures in Scriptless Scripts]]></title>
-    <link href="https://jonasnick.github.io/blog/2018/07/31/blind-signatures-in-scriptless-scripts/"/>
-    <updated>2018-07-31T14:53:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2018/07/31/blind-signatures-in-scriptless-scripts</id>
-    <content type="html"><![CDATA[<p><a href="https://youtu.be/XORDEX-RrAI?t=25484"><img src="https://jonasnick.github.io/images/bob-youtube.png" width="560"></a></p>
-
-<p>At the recent Building on Bitcoin conference in Lisbon I gave a talk about a few new ideas in the scriptless scripts framework.
-The first part was mainly about <a href="https://github.com/apoelstra/scriptless-scripts/pull/1">blind coinswaps</a>, which is a way to swap bitcoins with a tumbler without revealing which coin are swapped.
-The second part about how to exchange ecash tokens peer-to-peer using scriptless scripts and Brands credentials.
-You can find the talk <a href="https://youtu.be/XORDEX-RrAI?t=25484">on youtube</a> and the slides <a href="/slides/2018-bob.pdf">here</a>.
-Thanks to <a href="https://twitter.com/kanzure">kanzure</a> there&rsquo;s also a <a href="https://diyhpl.us/wiki/transcripts/building-on-bitcoin/2018/blind-signatures-and-scriptless-scripts/">transcript</a> of the talk.</p>
-
-<p>EDIT: I&rsquo;ve added a note about the security of Blind Schnorr signatures against forgery to the <a href="/slides/2018-bob.pdf">slides</a>.
-In short, a naive implementation of the scheme is vulnerable to <a href="http://www.enseignement.polytechnique.fr/informatique/profs/Francois.Morain/Master1/Crypto/projects/Wagner02.pdf">Wagner&rsquo;s attack</a>.
-An attacker can forge a signature using 65536 parallel signing sessions and <code>O(2^32)</code> work.</p>
 ]]></content>
   </entry>
   

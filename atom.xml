@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="https://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2020-01-26T14:48:20+00:00</updated>
+  <updated>2020-11-29T23:26:51+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[MuSig2: Simple Two-Round Schnorr Multisignatures]]></title>
+    <link href="https://jonasnick.github.io/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/"/>
+    <updated>2020-11-29T23:25:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/2020-musig2.png" width="560"></p>
+
+<p><strong>Abstract</strong>: Multi-signatures enable a group of signers to produce a single signature on a given message. Recently, Drijvers et al. (S&amp;P&#8217;19) showed that all thus far proposed two-round multi-signature schemes in the DL setting (without pairings) are insecure under concurrent sessions, i.e., if a single signer participates in multiple signing sessions concurrently. While Drijvers et al. improve the situation by constructing a secure two-round scheme, saving a round comes with the price of having less compact signatures. In particular, the signatures produced by their scheme are more than twice as large as Schnorr signatures, which arguably are the most natural and compact among all practical DL signatures and are therefore becoming popular in cryptographic applications (e.g., support for Schnorr signature verification has been proposed to be included in Bitcoin). If one needs a multi-signature scheme that can be used as a drop-in replacement for Schnorr signatures, then one is either forced to resort to a three-round scheme such as MuSig (Maxwell et al., DCC 2019) or MSDL-pop (Boneh, Drijvers, and Neven, ASIACRYPT 2018), or to accept that signing sessions are only secure when run sequentially, which may be hard to enforce in practice, e.g., when the same signing key is used by multiple devices.</p>
+
+<p>In this work, we propose MuSig2, a novel and simple two-round multi-signature scheme variant of the MuSig scheme. Our scheme is the first multi-signature scheme that simultaneously i) is secure under concurrent signing sessions, ii) supports key aggregation, iii) outputs ordinary Schnorr signatures, iv) needs only two communication rounds, and v) has similar signer complexity as regular Schnorr signatures. Furthermore, our scheme is the first multi-signature scheme in the DL setting that supports preprocessing of all but one rounds, effectively enabling a non-interactive signing process, without forgoing security under concurrent sessions. The combination of all these features makes MuSig2 highly practical. We prove the security of MuSig2 under the one-more discrete logarithm (OMDL) assumption in the random oracle model, and the security of a more efficient variant in the combination of the random oracle and algebraic group models.</p>
+
+<p>Read more on <a href="https://medium.com/blockstream/musig2-simple-two-round-schnorr-multisignatures-bf9582e99295">the Blockstream Blog</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BIP-{Schnorr,Taproot,Tapscript}]]></title>
+    <link href="https://jonasnick.github.io/blog/2020/11/29/bip-%7Bschnorr/"/>
+    <updated>2020-11-29T22:59:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2020/11/29/bip-{schnorr</id>
+    <content type="html"><![CDATA[<p><img src="https://jonasnick.github.io/images/2020-taproot.png" width="800"></p>
+
+<ol>
+<li><p><strong>BIP-Schnorr Abstract</strong>: This document proposes a standard for 64-byte Schnorr signatures over the elliptic curve secp256k1.</p></li>
+<li><p><strong>BIP-Taproot Abstract</strong>: This document proposes a new SegWit version 1 output type, with spending rules based on Taproot, Schnorr signatures, and Merkle branches.</p></li>
+<li><p><strong>BIP-Tapscript Abstract</strong>: This document specifies the semantics of the initial scripting system under BIP341 [BIP-Taproot].</p></li>
+</ol>
+
+
+<h2>Some highlights:</h2>
+
+<ul>
+<li><strong>2018-01-23</strong>: Taproot idea <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-January/015614.html">is proposed</a></li>
+<li><strong>2018-04-28</strong>: Work on BIP-Schnorr and what was known as &ldquo;BIP-metas&rdquo; (MErkle branches, TAproot, and Schnorr signatures) begins (<a href="https://github.com/sipa/bip-metas/commit/e444e8dd1a54ebf75a1a9d288746da5a4e986f6a">commit</a>)</li>
+<li><strong>2018-07-06</strong>: BIP-Schnorr draft <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-July/016203.html">is published</a></li>
+<li><strong>2018-09-25</strong>: libsecp256k1 <a href="https://github.com/bitcoin-core/secp256k1/pull/558">schnorrsig PR opened</a></li>
+<li><strong>2019-05-06</strong>: BIP-Taproot and BIP-Tapscript proposals <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2019-May/016914.html">are published</a></li>
+<li><strong>2020-01-21</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/17977">taproot PR opened</a></li>
+<li><strong>2020-09-11</strong>: libsecp256k1 schnorrsig PR merged</li>
+<li><strong>2020-10-15</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/19953">taproot PR merged</a></li>
+<li><strong>?</strong>: Bitcoin Core release with activation parameters</li>
+<li><strong>?</strong>: Taproot activation</li>
+</ul>
+
+
+<p>Protip: If you have troubles memorizing BIP numbers (like me), achow101 observed that BIP-Taproot&rsquo;s number, 341, are the reversed digits of BIP-143. Segwit program version 0 is defined in BIP-143 and version 1 is defined in BIP-341.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MuSig-DN: Schnorr Multisignatures with Verifiably Deterministic Nonces]]></title>
+    <link href="https://jonasnick.github.io/blog/2020/11/29/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces/"/>
+    <updated>2020-11-29T22:53:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2020/11/29/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces</id>
+    <content type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=n19vDaVrwY4"><img src="https://jonasnick.github.io/images/2020-musig-dn.png" width="560"></a></p>
+
+<p><strong>Abstract</strong>: MuSig is a multi-signature scheme for Schnorr signatures, which supports key aggregation and is secure in the plain public key model. Standard derandomization techniques for discrete logarithm-based signatures such as RFC 6979, which make the signing procedure immune to catastrophic failures in the randomness generation, are not applicable to multi-signatures as an attacker could trick an honest user into producing two different partial signatures with the same randomness, which would reveal the user&rsquo;s secret key.</p>
+
+<p>In this paper, we propose a variant of MuSig in which signers generate their nonce deterministically as a pseudorandom function of the message and all signers&#8217; public keys and prove that they did so by providing a non-interactive zero-knowledge proof to their cosigners. The resulting scheme, which we call MuSig-DN, is the first Schnorr multi-signature scheme with deterministic signing. Therefore its signing protocol is robust against failures in the randomness generation as well as attacks trying to exploit the statefulness of the signing procedure, e.g., virtual machine rewinding attacks. As an additional benefit, a signing session in MuSig-DN requires only two rounds instead of three as required by all previous Schnorr multi-signatures including MuSig. To instantiate our construction, we identify a suitable algebraic pseudorandom function and provide an efficient implementation of this function as an arithmetic circuit. This makes it possible to realize MuSig-DN efficiently using zero-knowledge proof frameworks for arithmetic circuits which support inputs given in Pedersen commitments, e.g., Bulletproofs. We demonstrate the practicality of our technique by implementing it for the secp256k1 elliptic curve used in Bitcoin.</p>
+
+<p>Read more on <a href="https://medium.com/blockstream/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces-27424b5df9d6">the Blockstream Blog</a> or watch the <a href="https://www.youtube.com/watch?v=n19vDaVrwY4">pre-recorded talk</a> we presented at the CCS 2020 conference.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[X-only Pubkeys and Insecure MuSig Shortcuts]]></title>
@@ -1101,187 +1165,6 @@ Another issue with Bloom filters is that an attacker could safely assume that th
 
 <p>I feel sorry for the people whose privacy has been potentially compromised unknowingly by malicious parties and we certainly won&rsquo;t give away the data set but nonetheless it is really exciting what can be found in the data.
 If you have suggestions what to look out for and what would be interesting (not necessarily concerning machine learning) feel free to contact me.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[FCW Kernel]]></title>
-    <link href="https://jonasnick.github.io/blog/2014/12/12/fcw-kernel/"/>
-    <updated>2014-12-12T01:50:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2014/12/12/fcw-kernel</id>
-    <content type="html"><![CDATA[<p>A Feature Coinciding Walk Kernel classifies nodes in a graph.</p>
-
-<p>This project is a python port of <a href="https://github.com/rmgarnett/coinciding_walk_kernel">Coinciding Walk Kernels</a> (CWK) [1] and introduces an extension of the model called Feature-CWK (FCWK). If you want to jump right into some code see the <a href="https://nbviewer.ipython.org/github/jonasnick/FCW-Kernel/blob/master/benchmark.ipynb">benchmark</a>.</p>
-
-<p>CW-Kernels deal with the problem of node classification (aka link-based classification) in which a set of features and labels for items are given just as in regular classification. In addition, a node classification algorithm accepts a graph of of items and item-item links. It has been shown that the additional information that is inherent in the network structure improves performance for certain algorithms and datasets.</p>
-
-<p><a href="https://github.com/jonasnick/FCW-Kernel"><center><strong>Read More</strong></center></a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading Noun-Noun Compounds]]></title>
-    <link href="https://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds/"/>
-    <updated>2013-10-14T23:35:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2013/10/14/reading-noun-noun-compounds</id>
-    <content type="html"><![CDATA[<h3>Early Influences of Compound Frequency and Semantic Transparency</h3>
-
-<p>My bachelor thesis in Cognitive Science.
-Unfortunately, I am currently not allowed to release the data nor the analysis scripts,
-because the dataset is still under active research.</p>
-
-<p><em>Abstract</em>:
-This thesis evaluates psycholinguistic theories about the cognitive processing of
-words. Consequently, the time-course of compound reading is analyzed using
-generalized additive models in a dataset of eye movements. The theories to be
-contrasted are sublexical (Taft and Forster, 1975), supralexical (Giraudo and
-Grainger, 2001) vs. dual route processing (Schreuder and Baayen, 1995) and
-form-then-meaning (e.g. Rastle and Davis, 2008) vs. form-and-meaning (e.g.
-Feldman et al., 2009) processing.</p>
-
-<p>As the goal is to find the best model given various predictors, some general
-mechanisms of eye movements will be demonstrated, e.g. the position
-in the line has substantial effects, single fixations last longer, are on shorter
-words, more in the center of the word and influenced differently by frequency
-measures.</p>
-
-<p>Inspired by Kuperman et al. (2009) it is shown that already the early eye
-fixations on words are guided by first constituent and compound frequency,
-providing evidence for parallel dual route models.</p>
-
-<p>Similar to Baayen et al. (2013), Latent Semantic Analysis (LSA) similarity
-scores (Landauer and Dumais, 1997) permit investigating the time point of
-semantic processing. The effect of LSA similarity not only shows up in the
-earliest word fixations, but the data reveals that semantics plays a role even
-before a word is fixated. In particular, the fixation position in the word is
-more to the right, when the semantic transparency, i.e. the similarity between
-compound and second constituent is high. This evidence of parafoveal semantic
-processing challenges opposing findings obtained with the eye-contingent
-boundary paradigm (Rayner et al., 1986). In the framework of naive
-discriminative learning (Baayen et al., 2011), the effect of transparency on fixation
-position reflects optimization of the landing position for accessing the orthographic
-information that is most discriminative for the compound.</p>
-
-<p><em>Keywords</em>:
-reading, eye-movements, compounds, semantic similarity, morphological
-processing, generalized additive model</p>
-
-<p><a href="https://jonasnick.github.io/papers/readingCompounds.pdf"><center><strong>Read PDF</strong></center></a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Influence of Reputation on Gricean Maxims]]></title>
-    <link href="https://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims/"/>
-    <updated>2013-10-14T01:04:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2013/10/14/influence-of-reputation-on-gricean-maxims</id>
-    <content type="html"><![CDATA[<p>As part of the course &ldquo;Game Theory and Pragmatics&rdquo; by <a href="http://www.sfs.uni-tuebingen.de/~jquinley/">Jason Quinley</a> at the <a href="http://www.sfs.uni-tuebingen.de/en/chairs.html">Institute of Linguistics</a>, I wanted to explore the influence of reputation on obeying the Gricean Maxims using data from the Q&amp;A website Stackoverflow.</p>
-
-<p>Pragmatics is a subfield in linguistics, defined as &ldquo;dealing with the origins, uses, and effects of signs within the total behavior of the interpreters of signs&rdquo; (<a href="http://psycnet.apa.org/psycinfo/1946-02822-000">Morris, 1946</a>).
-Pragmatics tries to explain why a simple sentence like &ldquo;It&rsquo;s raining.&rdquo; has a lot of different interpretations, for example(<a href="http://staff.science.uva.nl/~mfranke/Papers/Franke_PhD_thesis.pdf">Franke, 2009</a>):</p>
-
-<ul>
-<li>The speaker advises we should take an umbrella.</li>
-<li>The speaker declares the picnic cancelled.</li>
-<li>The speaker is sick of living in amsterdam.</li>
-</ul>
-
-
-
-
-<!-- more -->
-
-
-<p>Herbert Grice introduced certain assumptions (<a href="http://books.google.ch/books?id=73zw8IG7mtcC&amp;lpg=PA270&amp;ots=b59dMg5U5W&amp;dq=grice%20logic%20and%20conversation&amp;lr&amp;pg=PA270#v=onepage&amp;q=grice%20logic%20and%20conversation&amp;f=false">Grice, 1975</a>) that people rely on when making pragmatic inferences in normal circumstances. He formulated the <em>Cooperative Principle</em>: &ldquo;Make your contribution such as its required, at the stage at which it occurs, by the accepted purpose or direction of the talk exchange in which your engaged.&rdquo;. Using this principle, he derived four <em>Maxims of Conversation</em>, presented as guidelines:</p>
-
-<ul>
-<li>Maxim of Quality: Do not say what you believe to be false. Do not say that for which you lack evidance.</li>
-<li>Maxim of Quantity: Make your contribution as informative as is required for the current purpose of the exchange.</li>
-<li>Maxim of Relation: Be relevant.</li>
-<li>Maxim of Manner: Avoid ambiguity. Be brief and orderly.</li>
-</ul>
-
-
-<p>Grice showed that hearers can systematically interpret utterances and infer additional information that goes beyond the semantic meaning of the uttered sentence, based on the assumption that the speaker obeys the Maxims.</p>
-
-<p>The data for studying the influence of reputation on the maxims stems from the question and answer website <a href="https://stackoverflow.com">Stackoverflow</a> (SO).
-Users of the site pose programming related ques tions which others try to answer. They are encouraged to vote on the usefulness
-of a question or an answer, thereby directly affecting others reputation score.
-Because SO is collaboratively edited website, reputation directly determines the
-privileges of a user, ranging from voting down and editing to voting on closing
-or deleting questions and answers. Thus, reputation on SO is among other thing
-a measure of how much the community trusts a user.
-Stackoverflow provides <a href="http://blog.stackoverflow.com/2009/06/stack-overflow-creative-commons-data-dump/">monthly data dumps</a>.</p>
-
-<div class="text-image">
-<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityPlain.png">
-<div>Figure 1</div>
-</div>
-
-
-<p>In Figure 1 we see that there are a lot of users with low reputation, higher reputation
-is getting more and more uncommon. The dashed line represents the mean.
-This can be explained in part by the fact that users start out with a reputation score of one.
-It looks like the distribution is following a power law, which is strengthened by Figure 2 showing that the distribution is
-approximately log-normal, when users with reputation scores equal to one are excluded.</p>
-
-<div class="text-image">
-<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationDensityLog.png">
-<div>Figure 2</div>
-</div>
-
-
-<p>In the following we will measure the effect of reputation by focussing on whether a question was closed or left open.
-This classification task was posted on <a href="http://www.kaggle.com/c/predict-closed-questions-on-stack-overflow">kaggle</a>.</p>
-
-<div class="text-image">
-<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationBoxplot.png">
-<div>Figure 3</div>
-</div>
-
-
-<p>When investigating the density of reputations given the question was closed or left open
-we can see that closed questions are posed mainly by users with low reputation
-(Figure 3). One interpretation is that a user with low reputation belongs
-to one of two different user categories, whose members have an incentive to
-choosing low effort. Those are users who have low reputation because they are
-not trustful and new users who discount the future immensely because they have
-a single specific question.
-The inverse argument, that questions posed by users with higher reputation
-have a lower probability of ending up closed is strengthened
-using a logistic regression model with reputation being the only predicting variable.
-This model was estimated using a dataset of 50% closed questions, whereas normally about 6% of questions end up closed.
-The decision boundary is where the model estimates a 50%
-probability of a closed question &ndash; it lies at a reputation of 491.
-The result is that reputation is a significant influence and this model alone has an accuracy of 59.44% on test data.</p>
-
-<p>When closing a question a moderator specifies a <a href="http://stackoverflow.com/faq#close">reason</a> for doing so, namely off topic, not constructive, not a real question, or too localized.
-<strong>Interestingly, there seems to be a relation between the Gricean Maxims and the reasons for closing a question.</strong>
-Questions labeled <em>off topic</em> (not related to programming) and <em>too localized</em>
-(unlikely to help future visitors) clearly violate the maxim of relevance. <em>Not a
-real question</em> are those that are ambiguous, vague, incomplete, overly broad, or
-rhetorical, hence the maxims of manner and quantity are both violated.
-The maxim of quality is violated by questions labeled <em>not constructive</em> because they are not supported by facts.
-Rather, it would solicit debate, since there is no true answer.</p>
-
-<div class="text-image">
-<img src="https://jonasnick.github.io/InfluenceRepGrice/analyseDataset-reputationMaximsDensity.png">
-<div>Figure 4</div>
-</div>
-
-
-<p>Figure 4 reveals that reputation influences which maxims are violated.
-Most questions that are incomplete are posed by low reputation users, while
-controversial questions are posed by high reputation users.
-In other words, violations of the maxim of quality are more likely from users with high reputation,
-whereas the opposite is true for the maxim of quantity and manner.
-Not shown is that questions that are labeled <em>too localized</em> are in a similar reputation range like <em>not a real question</em>,
-and <em>off topic</em> questions do not differ much from open questions.</p>
-
-<p>In conclusion, even though we trust high reputation people, they are not precise about truth.
-This is by no means a bad thing, as long as we take this characteristic into account when interpreting their intent.</p>
-
-<p><strong><a href="https://github.com/jonasnick/Gricean-Classifier">Code of the analysis</a></strong></p>
 ]]></content>
   </entry>
   

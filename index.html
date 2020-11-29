@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="There are two posts I recently contributed to Blockstream&rsquo;s engineering blog expanding on the talk I gave at The Lightning Conference 2019. &hellip;">
+  <meta name="description" content="Abstract: Multi-signatures enable a group of signers to produce a single signature on a given message. Recently, Drijvers et al. (S&amp;P&#8217;19) &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -875,6 +875,151 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/">MuSig2: Simple Two-Round Schnorr Multisignatures</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2020-11-29T23:25:00+00:00" pubdate data-updated="true">Nov 29<span>th</span>, 2020</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/2020-musig2.png" width="560"></p>
+
+<p><strong>Abstract</strong>: Multi-signatures enable a group of signers to produce a single signature on a given message. Recently, Drijvers et al. (S&amp;P&#8217;19) showed that all thus far proposed two-round multi-signature schemes in the DL setting (without pairings) are insecure under concurrent sessions, i.e., if a single signer participates in multiple signing sessions concurrently. While Drijvers et al. improve the situation by constructing a secure two-round scheme, saving a round comes with the price of having less compact signatures. In particular, the signatures produced by their scheme are more than twice as large as Schnorr signatures, which arguably are the most natural and compact among all practical DL signatures and are therefore becoming popular in cryptographic applications (e.g., support for Schnorr signature verification has been proposed to be included in Bitcoin). If one needs a multi-signature scheme that can be used as a drop-in replacement for Schnorr signatures, then one is either forced to resort to a three-round scheme such as MuSig (Maxwell et al., DCC 2019) or MSDL-pop (Boneh, Drijvers, and Neven, ASIACRYPT 2018), or to accept that signing sessions are only secure when run sequentially, which may be hard to enforce in practice, e.g., when the same signing key is used by multiple devices.</p>
+
+<p>In this work, we propose MuSig2, a novel and simple two-round multi-signature scheme variant of the MuSig scheme. Our scheme is the first multi-signature scheme that simultaneously i) is secure under concurrent signing sessions, ii) supports key aggregation, iii) outputs ordinary Schnorr signatures, iv) needs only two communication rounds, and v) has similar signer complexity as regular Schnorr signatures. Furthermore, our scheme is the first multi-signature scheme in the DL setting that supports preprocessing of all but one rounds, effectively enabling a non-interactive signing process, without forgoing security under concurrent sessions. The combination of all these features makes MuSig2 highly practical. We prove the security of MuSig2 under the one-more discrete logarithm (OMDL) assumption in the random oracle model, and the security of a more efficient variant in the combination of the random oracle and algebraic group models.</p>
+
+<p>Read more on <a href="https://medium.com/blockstream/musig2-simple-two-round-schnorr-multisignatures-bf9582e99295">the Blockstream Blog</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2020/11/29/bip-%7Bschnorr/">BIP-{Schnorr,Taproot,Tapscript}</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2020-11-29T22:59:00+00:00" pubdate data-updated="true">Nov 29<span>th</span>, 2020</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/2020-taproot.png" width="800"></p>
+
+<ol>
+<li><p><strong>BIP-Schnorr Abstract</strong>: This document proposes a standard for 64-byte Schnorr signatures over the elliptic curve secp256k1.</p></li>
+<li><p><strong>BIP-Taproot Abstract</strong>: This document proposes a new SegWit version 1 output type, with spending rules based on Taproot, Schnorr signatures, and Merkle branches.</p></li>
+<li><p><strong>BIP-Tapscript Abstract</strong>: This document specifies the semantics of the initial scripting system under BIP341 [BIP-Taproot].</p></li>
+</ol>
+
+
+<h2>Some highlights:</h2>
+
+<ul>
+<li><strong>2018-01-23</strong>: Taproot idea <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-January/015614.html">is proposed</a></li>
+<li><strong>2018-04-28</strong>: Work on BIP-Schnorr and what was known as &ldquo;BIP-metas&rdquo; (MErkle branches, TAproot, and Schnorr signatures) begins (<a href="https://github.com/sipa/bip-metas/commit/e444e8dd1a54ebf75a1a9d288746da5a4e986f6a">commit</a>)</li>
+<li><strong>2018-07-06</strong>: BIP-Schnorr draft <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-July/016203.html">is published</a></li>
+<li><strong>2018-09-25</strong>: libsecp256k1 <a href="https://github.com/bitcoin-core/secp256k1/pull/558">schnorrsig PR opened</a></li>
+<li><strong>2019-05-06</strong>: BIP-Taproot and BIP-Tapscript proposals <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2019-May/016914.html">are published</a></li>
+<li><strong>2020-01-21</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/17977">taproot PR opened</a></li>
+<li><strong>2020-09-11</strong>: libsecp256k1 schnorrsig PR merged</li>
+<li><strong>2020-10-15</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/19953">taproot PR merged</a></li>
+<li><strong>?</strong>: Bitcoin Core release with activation parameters</li>
+<li><strong>?</strong>: Taproot activation</li>
+</ul>
+
+
+<p>Protip: If you have troubles memorizing BIP numbers (like me), achow101 observed that BIP-Taproot&rsquo;s number, 341, are the reversed digits of BIP-143. Segwit program version 0 is defined in BIP-143 and version 1 is defined in BIP-341.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2020/11/29/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces/">MuSig-DN: Schnorr Multisignatures With Verifiably Deterministic Nonces</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2020-11-29T22:53:00+00:00" pubdate data-updated="true">Nov 29<span>th</span>, 2020</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://www.youtube.com/watch?v=n19vDaVrwY4"><img src="/images/2020-musig-dn.png" width="560"></a></p>
+
+<p><strong>Abstract</strong>: MuSig is a multi-signature scheme for Schnorr signatures, which supports key aggregation and is secure in the plain public key model. Standard derandomization techniques for discrete logarithm-based signatures such as RFC 6979, which make the signing procedure immune to catastrophic failures in the randomness generation, are not applicable to multi-signatures as an attacker could trick an honest user into producing two different partial signatures with the same randomness, which would reveal the user&rsquo;s secret key.</p>
+
+<p>In this paper, we propose a variant of MuSig in which signers generate their nonce deterministically as a pseudorandom function of the message and all signers&#8217; public keys and prove that they did so by providing a non-interactive zero-knowledge proof to their cosigners. The resulting scheme, which we call MuSig-DN, is the first Schnorr multi-signature scheme with deterministic signing. Therefore its signing protocol is robust against failures in the randomness generation as well as attacks trying to exploit the statefulness of the signing procedure, e.g., virtual machine rewinding attacks. As an additional benefit, a signing session in MuSig-DN requires only two rounds instead of three as required by all previous Schnorr multi-signatures including MuSig. To instantiate our construction, we identify a suitable algebraic pseudorandom function and provide an efficient implementation of this function as an arithmetic circuit. This makes it possible to realize MuSig-DN efficiently using zero-knowledge proof frameworks for arithmetic circuits which support inputs given in Pedersen commitments, e.g., Bulletproofs. We demonstrate the practicality of our technique by implementing it for the secp256k1 elliptic curve used in Bitcoin.</p>
+
+<p>Read more on <a href="https://medium.com/blockstream/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces-27424b5df9d6">the Blockstream Blog</a> or watch the <a href="https://www.youtube.com/watch?v=n19vDaVrwY4">pre-recorded talk</a> we presented at the CCS 2020 conference.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/">X-only Pubkeys and Insecure MuSig Shortcuts</a></h1>
     
     
@@ -1192,145 +1337,6 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/08/31/the-2016-backdoored-cryptocurrency-contest-winner/">The 2016 Backdoored Cryptocurrency Contest Winner</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-08-31T22:43:00+00:00" pubdate data-updated="true">Aug 31<span>st</span>, 2016</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Thanks to a quite a bit of luck I won this years version of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">the Underhanded Crypto Contest</a> focused on crypto currencies. The submission consists of <a href="https://underhandedcrypto.com/2016/08/17/the-2016-backdoored-cryptocurrency-contest-winner/">a writeup</a> and &ndash; of course &ndash; <a href="https://github.com/jonasnick/2016_underhanded_crypto_contest/tree/master/submission">backdoored code</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/06/25/data-driven-de-anonymization-in-bitcoin/">Data-Driven De-Anonymization in Bitcoin</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-06-25T23:41:00+00:00" pubdate data-updated="true">Jun 25<span>th</span>, 2016</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://www.youtube.com/watch?v=HScK4pkDNds"><img src="/images/zurich-youtube.png" width="560"></a></p>
-
-<p><a href="/slides/2016-zurich-meetup.pdf"><strong>Slides</strong></a></p>
-
-<p><strong>Abstract</strong></p>
-
-<p>We analyse the performance of several clustering algorithms in the digital peer-
-to-peer currency Bitcoin. Clustering in Bitcoin refers to the task of finding
-addresses that belongs to the same wallet as a given address.
-In order to assess the effectiveness of clustering strategies we exploit a vulner-
-ability in the implementation of Connection Bloom Filtering to capture ground
-truth data about 37,585 Bitcoin wallets and the addresses they own. In addition
-to well-known clustering techniques, we introduce two new strategies, apply them
-on addresses of the collected wallets and evaluate precision and recall using the
-ground truth. Due to the nature of the Connection Bloom Filtering vulnerability
-the data we collect is not without errors. We present a method to correct the
-performance metrics in the presence of such inaccuracies.
-Our results demonstrate that even modern wallet software can not protect its
-users properly. Even with the most basic clustering technique known as multi-
-input heuristic, an adversary can guess on average 68.59% addresses of a victim.
-We show that this metric can be further improved by combining several more
-sophisticated heuristics.</p>
-
-<p><a href="/papers/thesis.pdf"><center><strong>Read full thesis</strong></center></a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/12/13/validation-cost-metric/">A Validation-cost Metric for Bitcoin</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-12-13T20:36:00+00:00" pubdate data-updated="true">Dec 13<span>th</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This is the transcript of a talk I gave at the
-<a href="https://scalingbitcoin.org/hongkong2015/">Scaling Bitcoin Conference</a> 2015 in Hong Kong.
-See <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-December/011865.html">this mailing list post</a> by Greg Maxwell for a general summary of the scaling measures that Bitcoin Core developers are adopting.
-The slides accompanying the transcript can be found <a href="https://github.com/jonasnick/jonasnick.github.com/raw/master/files/Validation-cost%20Metric.pdf">here</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/12/13/validation-cost-metric/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1346,6 +1352,18 @@ The slides accompanying the transcript can be found <a href="https://github.com/
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/">MuSig2: Simple Two-Round Schnorr Multisignatures</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2020/11/29/bip-%7Bschnorr/">BIP-{Schnorr,Taproot,Tapscript}</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2020/11/29/musig-dn-schnorr-multisignatures-with-verifiably-deterministic-nonces/">MuSig-DN: Schnorr Multisignatures with Verifiably Deterministic Nonces</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/">X-only Pubkeys and Insecure MuSig Shortcuts</a>
       </li>
     
@@ -1353,23 +1371,11 @@ The slides accompanying the transcript can be found <a href="https://github.com/
         <a href="/blog/2019/06/25/secure-protocols-on-bip-taproot/">Secure protocols on BIP-taproot</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2019/06/25/nix-bitcoin/">nix-bitcoin</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/09/04/schnorr-and-taproot-in-lightning/">Schnorr and Taproot in Lightning</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/07/31/blind-signatures-in-scriptless-scripts/">Blind Signatures in Scriptless Scripts</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 104.28571428571429%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 104.28571428571429%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 104.28571428571429%'>blender</a> <a href='/blog/categories/c' style='font-size: 108.57142857142857%'>C</a> <a href='/blog/categories/consensus' style='font-size: 104.28571428571429%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 112.85714285714286%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 117.14285714285714%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 104.28571428571429%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 104.28571428571429%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 104.28571428571429%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 112.85714285714286%'>golang</a> <a href='/blog/categories/java' style='font-size: 108.57142857142857%'>java</a> <a href='/blog/categories/javascript' style='font-size: 104.28571428571429%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 104.28571428571429%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 104.28571428571429%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 112.85714285714286%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 108.57142857142857%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 104.28571428571429%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 108.57142857142857%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 104.28571428571429%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 104.28571428571429%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 108.57142857142857%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 108.57142857142857%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 104.28571428571429%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 125.71428571428572%'>python</a> <a href='/blog/categories/r' style='font-size: 112.85714285714286%'>R</a> <a href='/blog/categories/racket' style='font-size: 104.28571428571429%'>racket</a> <a href='/blog/categories/regression' style='font-size: 104.28571428571429%'>regression</a> <a href='/blog/categories/security' style='font-size: 104.28571428571429%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 104.28571428571429%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 104.28571428571429%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 104.28571428571429%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 104.28571428571429%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 103.52941176470588%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 103.52941176470588%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 103.52941176470588%'>blender</a> <a href='/blog/categories/c' style='font-size: 107.05882352941177%'>C</a> <a href='/blog/categories/consensus' style='font-size: 103.52941176470588%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 110.58823529411765%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 124.70588235294117%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 103.52941176470588%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 103.52941176470588%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 103.52941176470588%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 110.58823529411765%'>golang</a> <a href='/blog/categories/java' style='font-size: 107.05882352941177%'>java</a> <a href='/blog/categories/javascript' style='font-size: 103.52941176470588%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 103.52941176470588%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 103.52941176470588%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 110.58823529411765%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 107.05882352941177%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 103.52941176470588%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 107.05882352941177%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 103.52941176470588%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 103.52941176470588%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 107.05882352941177%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 107.05882352941177%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 103.52941176470588%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 121.17647058823529%'>python</a> <a href='/blog/categories/r' style='font-size: 110.58823529411765%'>R</a> <a href='/blog/categories/racket' style='font-size: 103.52941176470588%'>racket</a> <a href='/blog/categories/regression' style='font-size: 103.52941176470588%'>regression</a> <a href='/blog/categories/security' style='font-size: 103.52941176470588%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 103.52941176470588%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 103.52941176470588%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 103.52941176470588%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 103.52941176470588%'>Sweave</a> </span>
 </section>
 
 <section>
