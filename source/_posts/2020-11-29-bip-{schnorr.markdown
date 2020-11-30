@@ -17,7 +17,7 @@ categories: [bitcoin, crypto]
 ## Some highlights:
 
 - **2018-01-23**: Taproot idea [is proposed](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-January/015614.html)
-- **2018-04-28**: Work on BIP-Schnorr and what was known as "BIP-metas" (MErkle branches, TAproot, and Schnorr signatures) begins ([commit](https://github.com/sipa/bip-metas/commit/e444e8dd1a54ebf75a1a9d288746da5a4e986f6a))
+- **2018-04-28**: Work on BIP-Schnorr and what was known as "BIP-metas" (MErkle branches, TAproot, and Schnorr signatures) begins
 - **2018-07-06**: BIP-Schnorr draft [is published](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-July/016203.html)
 - **2018-09-25**: libsecp256k1 [schnorrsig PR opened](https://github.com/bitcoin-core/secp256k1/pull/558)
 - **2019-05-06**: BIP-Taproot and BIP-Tapscript proposals [are published](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2019-May/016914.html)
