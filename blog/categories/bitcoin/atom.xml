@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2020-11-30T22:22:03+00:00</updated>
+  <updated>2020-11-30T22:40:57+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -58,7 +58,7 @@
 </ul>
 
 
-<p>Protip: If you have troubles memorizing BIP numbers (like me), achow101 observed that BIP-Taproot&rsquo;s number, 341, are the reversed digits of BIP-143. Segwit program version 0 is defined in BIP-143 and version 1 is defined in BIP-341.</p>
+<p>Protip: If you have troubles memorizing BIP numbers (like me), achow101 observed that BIP-Taproot&rsquo;s number, 341, are the reversed digits of BIP-143. The segwit version 0 transaction digest is defined in BIP-143 and version 1 digest is defined in BIP-341.</p>
 ]]></content>
   </entry>
   
