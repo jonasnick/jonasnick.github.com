@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2020-11-29T23:26:51+00:00</updated>
+  <updated>2020-11-30T22:22:03+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -46,7 +46,7 @@
 
 <ul>
 <li><strong>2018-01-23</strong>: Taproot idea <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-January/015614.html">is proposed</a></li>
-<li><strong>2018-04-28</strong>: Work on BIP-Schnorr and what was known as &ldquo;BIP-metas&rdquo; (MErkle branches, TAproot, and Schnorr signatures) begins (<a href="https://github.com/sipa/bip-metas/commit/e444e8dd1a54ebf75a1a9d288746da5a4e986f6a">commit</a>)</li>
+<li><strong>2018-04-28</strong>: Work on BIP-Schnorr and what was known as &ldquo;BIP-metas&rdquo; (MErkle branches, TAproot, and Schnorr signatures) begins</li>
 <li><strong>2018-07-06</strong>: BIP-Schnorr draft <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2018-July/016203.html">is published</a></li>
 <li><strong>2018-09-25</strong>: libsecp256k1 <a href="https://github.com/bitcoin-core/secp256k1/pull/558">schnorrsig PR opened</a></li>
 <li><strong>2019-05-06</strong>: BIP-Taproot and BIP-Tapscript proposals <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2019-May/016914.html">are published</a></li>
