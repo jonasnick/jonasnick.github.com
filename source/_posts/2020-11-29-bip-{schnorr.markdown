@@ -27,4 +27,4 @@ categories: [bitcoin, crypto]
 - **?**: Bitcoin Core release with activation parameters
 - **?**: Taproot activation
 
-Protip: If you have troubles memorizing BIP numbers (like me), achow101 observed that BIP-Taproot's number, 341, are the reversed digits of BIP-143. Segwit program version 0 is defined in BIP-143 and version 1 is defined in BIP-341.
+Protip: If you have troubles memorizing BIP numbers (like me), achow101 observed that BIP-Taproot's number, 341, are the reversed digits of BIP-143. The segwit version 0 transaction digest is defined in BIP-143 and version 1 digest is defined in BIP-341.
