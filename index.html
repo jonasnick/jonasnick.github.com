@@ -9,7 +9,8 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Abstract: Multi-signatures enable a group of signers to produce a single signature on a given message. Recently, Drijvers et al. (S&amp;P&#8217;19) &hellip;">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -875,6 +876,42 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2021/06/14/test/">Test</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2021-06-14T11:01:00+00:00" pubdate data-updated="true">Jun 14<span>th</span>, 2021</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/">MuSig2: Simple Two-Round Schnorr Multisignatures</a></h1>
     
     
@@ -960,8 +997,9 @@ init_mathjax();
 <li><strong>2020-01-21</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/17977">taproot PR opened</a></li>
 <li><strong>2020-09-11</strong>: libsecp256k1 schnorrsig PR merged</li>
 <li><strong>2020-10-15</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/19953">taproot PR merged</a></li>
-<li><strong>?</strong>: Bitcoin Core release with activation parameters</li>
-<li><strong>?</strong>: Taproot activation</li>
+<li><strong>2021-05-01</strong>: <a href="https://bitcoincore.org/en/2021/05/01/release-0.21.1/">Bitcoin Core release</a> with <a href="https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki#deployment">&ldquo;Speedy Trial&rdquo;</a> activation parameters</li>
+<li><strong>2021-06-13 (block 687456)</strong>: Taproot LOCKED-IN</li>
+<li><strong>Block 709632</strong>: Taproot activation</li>
 </ul>
 
 
@@ -1282,61 +1320,6 @@ Ensuring this is necessary when <a href="https://cr.yp.to/ecdh.html#validate">us
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/12/17/a-problem-with-ringct/">A Problem With Monero&#8217;s RingCT</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-12-17T17:33:00+00:00" pubdate data-updated="true">Dec 17<span>th</span>, 2016</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The crypto-currency <a href="https://getmonero.org/home">Monero</a> is about to introduce a new milestone in Blockchain technology: <a href="https://eprint.iacr.org/2015/1098">RingCT</a>.
-This is a scheme that allows using <a href="https://people.xiph.org/~greg/confidential_values.txt">Confidential Transactions (CT)</a> while keeping the non-interactive coin mixing typical for Monero.
-CT enables hiding the transaction amounts from anyone but sender and receiver while full nodes are still able to verify that input amounts are equal to output amounts.
-RingCT is currently not active in Monero; it is designed to be introduced as a hard fork early January.</p>
-
-<p>I am a complete outsider to Monero and especially the Monero development community, but having reviewed the CT design and implementation (<a href="https://github.com/ElementsProject/secp256k1-zkp">in libsecp256k1</a>) extensively during my day job, I was very interested in the design decisions underlying RingCT.
-Very quickly I found a <a href="https://twitter.com/n1ckler/status/801485209220718592">red flag</a> in the ring signature scheme called ASNL used in the range proofs.
-This scheme is a new contribution by the paper and indeed turned out to be exploitable such that an <strong>attacker would be able to create coins from nothing</strong>.
-You can find the exploit code on <a href="https://github.com/jonasnick/monero/commit/ad405e514c7c82bb81d7d49282fa11729420ea85">GitHub</a> and a detailed explanation in this post.</p>
-
-<p>While writing the exploit code and preparing this blog post I learned that <a href="https://github.com/monero-project/research-lab/issues/4">an anonymous person called RandomRun reported</a> a flaw in the security proof of ASNL, which convinced the Monero devs to publish a <a href="https://github.com/monero-project/monero/releases/tag/v0.10.1">bugfix release</a> that switches to <a href="https://github.com/ElementsProject/borromean-signatures-writeup">Borromean signatures</a> (good call!).
-As a result <strong>the upcoming hard fork will not be vulnerable to this exploit</strong>.
-Interestingly, the error in the security proof is exactly the flip-side of the vulnerability discussed in this post.</p>
-
-<p><strong>EDIT:</strong> The Monero community reacted to this article (<a href="https://www.reddit.com/r/Monero/comments/5j4z1e/a_problem_with_ring_ct/">see reddit</a>) but they didn&rsquo;t like its style. Also, they got the timeline of the discovery of the bug wrong.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/12/17/a-problem-with-ringct/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1352,6 +1335,10 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2021/06/14/test/">test</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/">MuSig2: Simple Two-Round Schnorr Multisignatures</a>
       </li>
     
@@ -1365,10 +1352,6 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
     
       <li class="post">
         <a href="/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/">X-only Pubkeys and Insecure MuSig Shortcuts</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2019/06/25/secure-protocols-on-bip-taproot/">Secure protocols on BIP-taproot</a>
       </li>
     
   </ul>
@@ -1391,7 +1374,7 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
     </div>
   </div>
   <footer role="contentinfo"><p>
-This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2020 - Jonas Nick -
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2021 - Jonas Nick -
   <span class="credit">Powered by <a href="https://octopress.org">Octopress</a></span>
 </p>
 

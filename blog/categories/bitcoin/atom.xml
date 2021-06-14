@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bitcoin | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/bitcoin/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2020-11-30T22:40:57+00:00</updated>
+  <updated>2021-06-14T11:07:34+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -53,8 +53,9 @@
 <li><strong>2020-01-21</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/17977">taproot PR opened</a></li>
 <li><strong>2020-09-11</strong>: libsecp256k1 schnorrsig PR merged</li>
 <li><strong>2020-10-15</strong>: Bitcoin Core <a href="https://github.com/bitcoin/bitcoin/pull/19953">taproot PR merged</a></li>
-<li><strong>?</strong>: Bitcoin Core release with activation parameters</li>
-<li><strong>?</strong>: Taproot activation</li>
+<li><strong>2021-05-01</strong>: <a href="https://bitcoincore.org/en/2021/05/01/release-0.21.1/">Bitcoin Core release</a> with <a href="https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki#deployment">&ldquo;Speedy Trial&rdquo;</a> activation parameters</li>
+<li><strong>2021-06-13 (block 687456)</strong>: Taproot LOCKED-IN</li>
+<li><strong>Block 709632</strong>: Taproot activation</li>
 </ul>
 
 
