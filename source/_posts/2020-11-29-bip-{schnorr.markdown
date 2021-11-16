@@ -24,7 +24,8 @@ categories: [bitcoin, crypto]
 - **2020-01-21**: Bitcoin Core [taproot PR opened](https://github.com/bitcoin/bitcoin/pull/17977)
 - **2020-09-11**: libsecp256k1 schnorrsig PR merged
 - **2020-10-15**: Bitcoin Core [taproot PR merged](https://github.com/bitcoin/bitcoin/pull/19953)
-- **?**: Bitcoin Core release with activation parameters
-- **?**: Taproot activation
+- **2021-05-01**: [Bitcoin Core release](https://bitcoincore.org/en/2021/05/01/release-0.21.1/) with ["Speedy Trial"](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki#deployment) activation parameters
+- **2021-06-13 (block 687456)**: Taproot LOCKED-IN
+- **Block 709632**: Taproot activation
 
 Protip: If you have troubles memorizing BIP numbers (like me), achow101 observed that BIP-Taproot's number, 341, are the reversed digits of BIP-143. The segwit version 0 transaction digest is defined in BIP-143 and version 1 digest is defined in BIP-341.
