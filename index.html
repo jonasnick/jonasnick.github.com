@@ -9,7 +9,8 @@
   <meta name="author" content="Jonas Nick">
 
   
-  <meta name="description" content="Abstract: Multi-signatures enable a group of signers to produce a single signature on a given message. Recently, Drijvers et al. (S&amp;P&#8217;19) &hellip;">
+  <meta name="description" content="While working on Bulletproofs++ I realized there were gaps in my understanding of zero-knowledge proofs.
+I did a quick search through the literature &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -875,6 +876,58 @@ init_mathjax();
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2023/07/31/intuition-for-zero-knowledge-proofs/">Intuition for Zero-Knowledge Proofs</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2023-07-31T15:17:00+00:00" pubdate data-updated="true">Jul 31<span>st</span>, 2023</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While working on <a href="https://eprint.iacr.org/2022/510.pdf">Bulletproofs++</a> I realized there were gaps in my understanding of zero-knowledge proofs.
+I did a quick search through the literature to find proofs for zero-knowledge that can help my understanding.
+I found that either the protocols were too different to Bulletproofs(++) or the proofs seemed incomplete.</p>
+
+<p>For example, in Bulletproofs, removing blinding values from the protocol does not affect the proof.
+This would make it seem like the changed protocol is ZK, but upon closer inspection, it isn&rsquo;t.</p>
+
+<p>To help developing an intuition for ZK, I created a little demo proof for a toy ZK protocol.
+You can find at at</p>
+
+<p><a href="https://github.com/jonasnick/little-crypto-notebook">https://github.com/jonasnick/little-crypto-notebook</a></p>
+
+<p>The toy protocol is a heavily simplified variant of Bulletproofs range proofs.
+In short, it proves that a committed value is the product of two other committed values.</p>
+
+<p>I hope you find the demo useful too.
+My goal is to continue expanding the little crypto notebook if time permits.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/">MuSig2: Simple Two-Round Schnorr Multisignatures</a></h1>
     
     
@@ -1283,61 +1336,6 @@ Ensuring this is necessary when <a href="https://cr.yp.to/ecdh.html#validate">us
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/12/17/a-problem-with-ringct/">A Problem With Monero&#8217;s RingCT</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-12-17T17:33:00+00:00" pubdate data-updated="true">Dec 17<span>th</span>, 2016</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The crypto-currency <a href="https://getmonero.org/home">Monero</a> is about to introduce a new milestone in Blockchain technology: <a href="https://eprint.iacr.org/2015/1098">RingCT</a>.
-This is a scheme that allows using <a href="https://people.xiph.org/~greg/confidential_values.txt">Confidential Transactions (CT)</a> while keeping the non-interactive coin mixing typical for Monero.
-CT enables hiding the transaction amounts from anyone but sender and receiver while full nodes are still able to verify that input amounts are equal to output amounts.
-RingCT is currently not active in Monero; it is designed to be introduced as a hard fork early January.</p>
-
-<p>I am a complete outsider to Monero and especially the Monero development community, but having reviewed the CT design and implementation (<a href="https://github.com/ElementsProject/secp256k1-zkp">in libsecp256k1</a>) extensively during my day job, I was very interested in the design decisions underlying RingCT.
-Very quickly I found a <a href="https://twitter.com/n1ckler/status/801485209220718592">red flag</a> in the ring signature scheme called ASNL used in the range proofs.
-This scheme is a new contribution by the paper and indeed turned out to be exploitable such that an <strong>attacker would be able to create coins from nothing</strong>.
-You can find the exploit code on <a href="https://github.com/jonasnick/monero/commit/ad405e514c7c82bb81d7d49282fa11729420ea85">GitHub</a> and a detailed explanation in this post.</p>
-
-<p>While writing the exploit code and preparing this blog post I learned that <a href="https://github.com/monero-project/research-lab/issues/4">an anonymous person called RandomRun reported</a> a flaw in the security proof of ASNL, which convinced the Monero devs to publish a <a href="https://github.com/monero-project/monero/releases/tag/v0.10.1">bugfix release</a> that switches to <a href="https://github.com/ElementsProject/borromean-signatures-writeup">Borromean signatures</a> (good call!).
-As a result <strong>the upcoming hard fork will not be vulnerable to this exploit</strong>.
-Interestingly, the error in the security proof is exactly the flip-side of the vulnerability discussed in this post.</p>
-
-<p><strong>EDIT:</strong> The Monero community reacted to this article (<a href="https://www.reddit.com/r/Monero/comments/5j4z1e/a_problem_with_ring_ct/">see reddit</a>) but they didn&rsquo;t like its style. Also, they got the timeline of the discovery of the bug wrong.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/12/17/a-problem-with-ringct/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1351,6 +1349,10 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2023/07/31/intuition-for-zero-knowledge-proofs/">Intuition for Zero-Knowledge Proofs</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2020/11/29/musig2-simple-two-round-schnorr-multisignatures/">MuSig2: Simple Two-Round Schnorr Multisignatures</a>
@@ -1368,15 +1370,11 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
         <a href="/blog/2019/11/19/x-only-pubkeys-and-insecure-musig-shortcuts/">X-only Pubkeys and Insecure MuSig Shortcuts</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2019/06/25/secure-protocols-on-bip-taproot/">Secure protocols on BIP-taproot</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 103.52941176470588%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 103.52941176470588%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 103.52941176470588%'>blender</a> <a href='/blog/categories/c' style='font-size: 107.05882352941177%'>C</a> <a href='/blog/categories/consensus' style='font-size: 103.52941176470588%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 110.58823529411765%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 124.70588235294117%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 103.52941176470588%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 103.52941176470588%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 103.52941176470588%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 110.58823529411765%'>golang</a> <a href='/blog/categories/java' style='font-size: 107.05882352941177%'>java</a> <a href='/blog/categories/javascript' style='font-size: 103.52941176470588%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 103.52941176470588%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 103.52941176470588%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 110.58823529411765%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 107.05882352941177%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 103.52941176470588%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 107.05882352941177%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 103.52941176470588%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 103.52941176470588%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 107.05882352941177%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 107.05882352941177%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 103.52941176470588%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 121.17647058823529%'>python</a> <a href='/blog/categories/r' style='font-size: 110.58823529411765%'>R</a> <a href='/blog/categories/racket' style='font-size: 103.52941176470588%'>racket</a> <a href='/blog/categories/regression' style='font-size: 103.52941176470588%'>regression</a> <a href='/blog/categories/security' style='font-size: 103.52941176470588%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 103.52941176470588%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 103.52941176470588%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 103.52941176470588%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 103.52941176470588%'>Sweave</a> </span>
+    <span style="font-size : 11px" id="tag-cloud"><a href='/blog/categories/algo-trading' style='font-size: 103.52941176470588%'>algo trading</a> <a href='/blog/categories/astar' style='font-size: 103.52941176470588%'>Astar</a> <a href='/blog/categories/bitcoin' style='font-size: 160.0%'>bitcoin</a> <a href='/blog/categories/blender' style='font-size: 103.52941176470588%'>blender</a> <a href='/blog/categories/c' style='font-size: 107.05882352941177%'>C</a> <a href='/blog/categories/consensus' style='font-size: 103.52941176470588%'>consensus</a> <a href='/blog/categories/cpp' style='font-size: 110.58823529411765%'>Cpp</a> <a href='/blog/categories/crypto' style='font-size: 128.23529411764707%'>crypto</a> <a href='/blog/categories/cryptocurrencies' style='font-size: 103.52941176470588%'>cryptocurrencies</a> <a href='/blog/categories/evolution' style='font-size: 103.52941176470588%'>evolution</a> <a href='/blog/categories/genetic-algorithms' style='font-size: 103.52941176470588%'>genetic algorithms</a> <a href='/blog/categories/golang' style='font-size: 110.58823529411765%'>golang</a> <a href='/blog/categories/java' style='font-size: 107.05882352941177%'>java</a> <a href='/blog/categories/javascript' style='font-size: 103.52941176470588%'>javascript</a> <a href='/blog/categories/kinect' style='font-size: 103.52941176470588%'>kinect</a> <a href='/blog/categories/latex' style='font-size: 103.52941176470588%'>LaTeX</a> <a href='/blog/categories/lightning' style='font-size: 110.58823529411765%'>lightning</a> <a href='/blog/categories/machine-learning' style='font-size: 107.05882352941177%'>machine learning</a> <a href='/blog/categories/marioai' style='font-size: 103.52941176470588%'>MarioAI</a> <a href='/blog/categories/monero' style='font-size: 107.05882352941177%'>monero</a> <a href='/blog/categories/neuro' style='font-size: 103.52941176470588%'>neuro</a> <a href='/blog/categories/nix' style='font-size: 103.52941176470588%'>nix</a> <a href='/blog/categories/pragmatics' style='font-size: 107.05882352941177%'>pragmatics</a> <a href='/blog/categories/privacy' style='font-size: 107.05882352941177%'>privacy</a> <a href='/blog/categories/psycholinguistics' style='font-size: 103.52941176470588%'>Psycholinguistics</a> <a href='/blog/categories/python' style='font-size: 121.17647058823529%'>python</a> <a href='/blog/categories/r' style='font-size: 110.58823529411765%'>R</a> <a href='/blog/categories/racket' style='font-size: 103.52941176470588%'>racket</a> <a href='/blog/categories/regression' style='font-size: 103.52941176470588%'>regression</a> <a href='/blog/categories/security' style='font-size: 103.52941176470588%'>security</a> <a href='/blog/categories/signaling-games' style='font-size: 103.52941176470588%'>signaling games</a> <a href='/blog/categories/snake' style='font-size: 103.52941176470588%'>snake</a> <a href='/blog/categories/source-engine' style='font-size: 103.52941176470588%'>source engine</a> <a href='/blog/categories/sweave' style='font-size: 103.52941176470588%'>Sweave</a> <a href='/blog/categories/zero-knowledge' style='font-size: 103.52941176470588%'>zero-knowledge</a> </span>
 </section>
 
 <section>
@@ -1392,7 +1390,7 @@ Interestingly, the error in the security proof is exactly the flip-side of the v
     </div>
   </div>
   <footer role="contentinfo"><p>
-This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2022 - Jonas Nick -
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>. 2023 - Jonas Nick -
   <span class="credit">Powered by <a href="https://octopress.org">Octopress</a></span>
 </p>
 

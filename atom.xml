@@ -4,7 +4,7 @@
   <title><![CDATA[nickler's]]></title>
   <link href="https://jonasnick.github.io/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2022-02-16T19:18:57+00:00</updated>
+  <updated>2023-07-31T15:18:21+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Intuition for Zero-Knowledge Proofs]]></title>
+    <link href="https://jonasnick.github.io/blog/2023/07/31/intuition-for-zero-knowledge-proofs/"/>
+    <updated>2023-07-31T15:17:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2023/07/31/intuition-for-zero-knowledge-proofs</id>
+    <content type="html"><![CDATA[<p>While working on <a href="https://eprint.iacr.org/2022/510.pdf">Bulletproofs++</a> I realized there were gaps in my understanding of zero-knowledge proofs.
+I did a quick search through the literature to find proofs for zero-knowledge that can help my understanding.
+I found that either the protocols were too different to Bulletproofs(++) or the proofs seemed incomplete.</p>
+
+<p>For example, in Bulletproofs, removing blinding values from the protocol does not affect the proof.
+This would make it seem like the changed protocol is ZK, but upon closer inspection, it isn&rsquo;t.</p>
+
+<p>To help developing an intuition for ZK, I created a little demo proof for a toy ZK protocol.
+You can find at at</p>
+
+<p><a href="https://github.com/jonasnick/little-crypto-notebook">https://github.com/jonasnick/little-crypto-notebook</a></p>
+
+<p>The toy protocol is a heavily simplified variant of Bulletproofs range proofs.
+In short, it proves that a committed value is the product of two other committed values.</p>
+
+<p>I hope you find the demo useful too.
+My goal is to continue expanding the little crypto notebook if time permits.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MuSig2: Simple Two-Round Schnorr Multisignatures]]></title>
@@ -1062,110 +1087,6 @@ This is because <a href="https://en.bitcoin.it/wiki/Satoshi_Client_Transaction_E
 However, knowing all outbound peers of a client could significantly increase the success probability of a double spend.</p>
 
 <p><strong>Update</strong> The fix removes the update every 20 minutes and updates on disconnect</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Privacy in BitcoinJ]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj/"/>
-    <updated>2015-02-12T15:53:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/02/12/privacy-in-bitcoinj</id>
-    <content type="html"><![CDATA[<p>As part of my <a href="https://github.com/jonasnick/FCW-Kernel">epic quest</a> to apply supervised machine learning to the blockchain in order to discover transaction patterns, I reviewed various wallet implementations in the hope of finding privacy leaks.</p>
-
-<p><strong>tl;dr</strong> If you are using a wallet that is built upon BitcoinJ, such as Android Wallet, Multibit and Hive Wallet, you have almost zero <em>wire privacy</em>.
-An attacker who manages to connect to your wallet is easily able to figure out all addresses you control.
-This is not very likely to get fixed in the near future.</p>
-
-<p><strong>Update:</strong> <a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">Mike Hearn&rsquo;s reply</a> addresses additional problems and improvements. There was also accompanying discussion on <a href="https://www.reddit.com/r/Bitcoin/comments/2vrx6n/privacy_in_bitcoinj_android_wallet_multibit_hive/">reddit</a>.</p>
-
-<!-- more -->
-
-
-<h2>Bloom Filters for SPV Nodes</h2>
-
-<p>A <a href="https://en.wikipedia.org/wiki/Bloom_filter">Bloom filter</a> is a probabilistic data structure that is used to test whether an element is a member of a set.
-Bitcoin SPV nodes that use <a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki">BIP 37</a> (we call them <em>thin clients</em> from now on) <code>put</code> all public keys they are interested in into the Bloom filter and send the filter to their peers. Upon receiving a new transaction, peers <code>query</code> the Bloom filter and only relay the transaction to the BIP 37 node if the query returned true.
-Thus, thin clients normally only receive the transactions they are really interested in, i.e. mostly transactions that include one of the wallet&rsquo;s keys.</p>
-
-<p>The advantage of using a Bloom filter instead of just broadcasting all your pubkeys is that a Bloom filter is faster and more space-efficient
-at the cost of some <em>false positives</em>.
-That means the thin client will receive transactions that include pubkeys which were not put into the filter.
-Usually, the parameters of a Bloom filter are computed such that a certain target false positive rate (<code>fp</code>) is achieved.
-We want the fp rate to be relatively small (say 0.05%) to reduce bandwidth usage.</p>
-
-<h2>Bloom Filters and Privacy</h2>
-
-<p>BIP 37 states:</p>
-
-<blockquote><p>Privacy: Because Bloom filters are probabilistic, with the false positive rate chosen by the client, nodes can trade off precision vs bandwidth usage. A node with access to lots of bandwidth may choose to have a high fp rate, meaning the remote peer cannot accurately know which transactions belong to the client and which don&#8217;t.</p></blockquote>
-
-
-<p>This has created a misunderstanding between what is ideally possible with Bloom filters and how the reality looks like.
-I&rsquo;ll focus on BitcoinJ because it is the most widely used implementation of BIP 37, but similar vulnerabilities might exist in other implementations as well.
-Unfortunately, in the current BitcoinJ implementation Bloom filters are just as bad for your privacy as broadcasting your pubkeys directly to your peers.</p>
-
-<h2>A Simple Attack</h2>
-
-<p>The main idea behind this vulnerability is that BitcoinJ puts both pubkey and pubkeyhash into the Bloom filter which substantially reduces the false positive rate.</p>
-
-<p>If you create a completely fresh wallet, BitcoinJ holds 271 pubkeys and computes the parameters
-of the Bloom filter such that the fp rate for (271*2)+100 elements is equal to 0.05%.
-Because bitcoinj initially puts only 271*2 elements into the filter (pubkey and corresponding pubkeyhash) the effective false positive rate is <code>fp=0.000146</code>.</p>
-
-<p>The vulnerability is that if a pubkey is truly in the filter then querying both pubkey and pubkeyhash must return true.
-Because the pubkeyhash is just another almost uniformly random string, the probability of a false positive for the attacker is <code>fp' = fp^2 = 0.0000000213</code>.
-I obtained around 56 million pubkeys from the blockchain (mid-January), which theoretically results in <code>56 million * fp' = 1.19</code> expected false positives when scanning the blockchain.</p>
-
-<h2>Experimental results</h2>
-
-<p>I ran 20 crawlers since the beginning of December and collected 70,000 distinct filters until now.
-These crawlers just listen for a filterload message and try to be really polite by disconnecting after 2 minutes and not sending anything.
-The probability that a randomly selected DNS seed returns at least one of the crawlers is 4.3%.</p>
-
-<p>In fact, most of the Bloom filters from recent BitcoinJ versions show a experimental false positive rate around 0.000146.
-The experimental fp rate is computed by querying the filter with millions of elements which are certainly not pubkeys.
-Android Wallet 4.16, 4.17, 4.18 for example use the most recent BitcoinJ version (12.2) and make up 52% of the data.
-However, there is also MultiBit 0.5.18 whose effective fp rate is smaller than 0.00000001.</p>
-
-<p>We are currently starting to analyze all filters using the described &ldquo;attack&rdquo; and we expect that this will take several weeks.
-What we&rsquo;ve already seen is that the theoretical <code>fp'</code> really holds, i.e. if you create a fresh wallet and scan the whole blockchain you most likely get one false positive pubkey.</p>
-
-<h2>(Slightly) More Difficult Attacks</h2>
-
-<p>You might think that the problem is easily fixed by trading off bandwidth for more privacy and increase the fp rate to <code>fp = sqrt(0.0005) = 0.0224</code>.
-On the one hand this might seriously impact the bandwidth of mobile clients, and on the other, there is another another general class of vulnerabilities concerning Bloom filters:
-If an attacker manages to obtain multiple, different filters from the same Wallet,
-he can compute the intersection of pubkeys that match the filters and therefore removes the false positive noise similar to the &ldquo;simple attack&rdquo;.
-Different filters mean that they have different total size of a different Nonce.
-Sending different filters can happen in BitcoinJ due to multiple reasons, for example</p>
-
-<ul>
-<li><em>Restart</em>. BitcoinJ stores the filter&rsquo;s nonce in volatile memory.</li>
-<li><em>Creation of new keys</em>. When the wallet creates many new keys the filter gets &lsquo;full&rsquo; and thus has to be recomputed.</li>
-<li><em>Measured false positive rate is too high</em>. BitcoinJ measures the false positive rate of transactions it receives. When it becomes too high the filter is recomputed.</li>
-</ul>
-
-
-<h2>Conclusion</h2>
-
-<p>I do think this is a critical privacy leak as it doesn&rsquo;t require a sophisticated attack and wallets have practically been broadcasting all their pubkeys for years.
-Not only the addresses you see in your wallet, but also a lot of your future addresses have been exposed.
-From now on you should assume that the kind of bulk data collection I did is happening.
-It is difficult to say how accurate and stealthy targeted attacks would be.</p>
-
-<p>According to Mike Hearn, the creator of BitcoinJ, the problems have been known from the start but fixing these issues is far from trivial because &ldquo;lying consistently is hard&rdquo;.
-I fully agree with this.
-<strong>Someone needs to make it their project for a few months</strong>.</p>
-
-<p>There are some simple ideas to slightly improve the current status such as <a href="https://twitter.com/petertoddbtc/status/559921997027610624">deploying nodes that broadcast fake bloom filters</a>.
-<a href="http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/research/publications/pub2014/acsac_gervais.pdf">Arthur Gervais et al., 2014</a> were the first to publish an academic paper on the topic and propose some more or less vague suggestions.
-One idea I find interesting is that thin clients should be able to install multiple filters at their peers such that no pubkey is shared between the filters.
-Thus, instead of recomputing the filter when the wallet creates new addresses, it would create an entirely fresh filter for the next keys.
-One disadvantage is that at the moment multiple filters per peer is not supported by the bitcoin wire protocol.
-Another issue with Bloom filters is that an attacker could safely assume that the probability is higher for two pubkeys to belong to the same person if they are closer in the transaction graph. As a countermeasure the wallet could deliberately put existing foreign pubkeys that are close into the filter.</p>
-
-<p>I feel sorry for the people whose privacy has been potentially compromised unknowingly by malicious parties and we certainly won&rsquo;t give away the data set but nonetheless it is really exciting what can be found in the data.
-If you have suggestions what to look out for and what would be interesting (not necessarily concerning machine learning) feel free to contact me.</p>
 ]]></content>
   </entry>
   

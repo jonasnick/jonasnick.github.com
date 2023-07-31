@@ -4,7 +4,7 @@
   <title><![CDATA[Category: crypto | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/crypto/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2022-02-16T19:18:57+00:00</updated>
+  <updated>2023-07-31T15:18:21+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Intuition for Zero-Knowledge Proofs]]></title>
+    <link href="https://jonasnick.github.io/blog/2023/07/31/intuition-for-zero-knowledge-proofs/"/>
+    <updated>2023-07-31T15:17:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2023/07/31/intuition-for-zero-knowledge-proofs</id>
+    <content type="html"><![CDATA[<p>While working on <a href="https://eprint.iacr.org/2022/510.pdf">Bulletproofs++</a> I realized there were gaps in my understanding of zero-knowledge proofs.
+I did a quick search through the literature to find proofs for zero-knowledge that can help my understanding.
+I found that either the protocols were too different to Bulletproofs(++) or the proofs seemed incomplete.</p>
+
+<p>For example, in Bulletproofs, removing blinding values from the protocol does not affect the proof.
+This would make it seem like the changed protocol is ZK, but upon closer inspection, it isn&rsquo;t.</p>
+
+<p>To help developing an intuition for ZK, I created a little demo proof for a toy ZK protocol.
+You can find at at</p>
+
+<p><a href="https://github.com/jonasnick/little-crypto-notebook">https://github.com/jonasnick/little-crypto-notebook</a></p>
+
+<p>The toy protocol is a heavily simplified variant of Bulletproofs range proofs.
+In short, it proves that a committed value is the product of two other committed values.</p>
+
+<p>I hope you find the demo useful too.
+My goal is to continue expanding the little crypto notebook if time permits.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MuSig2: Simple Two-Round Schnorr Multisignatures]]></title>
@@ -94,23 +119,6 @@
 <blockquote><p>Using BIP-Schnorr-based multisignatures, no matter how many signers are involved, the result is a single public key and a single signature indistinguishable from a regular, single-signer BIP-Schnorr signature. This article is about optimizing implementations of multisignature protocols and why seemingly harmless changes can totally break the security.</p></blockquote></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Secure protocols on BIP-taproot]]></title>
-    <link href="https://jonasnick.github.io/blog/2019/06/25/secure-protocols-on-bip-taproot/"/>
-    <updated>2019-06-25T22:42:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2019/06/25/secure-protocols-on-bip-taproot</id>
-    <content type="html"><![CDATA[<p><a href="https://youtu.be/DKOG0BQMmmg?t=21866"><img src="https://jonasnick.github.io/images/2019-breaking.png" width="560"></a></p>
-
-<p>At <a href="https://breaking-bitcoin.com/">Breaking Bitcoin</a> 2019 in Amsterdam I gave a talk about how to build secure protocols on BIP-taproot or more specifically how to avoid the dangers we learned about so far.
-There was not enough time to cover everything.
-The talk also gives an introduction to how to use our <a href="https://github.com/ElementsProject/secp256k1-zkp/blob/secp256k1-zkp/include/secp256k1_musig.h">MuSig implementation in libsecp256k1-zkp</a>.
-The video recording is on <a href="https://youtu.be/DKOG0BQMmmg?t=21866">youtube</a> (<a href="/slides/2019-breaking.pdf">slides</a>).
-Thanks to <a href="https://twitter.com/kanzure">kanzure</a> there&rsquo;s also a <a href="https://diyhpl.us/wiki/transcripts/breaking-bitcoin/2019/secure-protocols-bip-taproot/">transcript</a> of the talk.</p>
-
-<p><strong>Erratum</strong>: MuSig nonces can not be pre-shared. Only nonce commitments. See <a href="https://github.com/ElementsProject/secp256k1-zkp/pull/73">https://github.com/ElementsProject/secp256k1-zkp/pull/73</a> for details.</p>
 ]]></content>
   </entry>
   

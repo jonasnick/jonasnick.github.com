@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: zero-knowledge | nickler's]]></title>
+  <link href="https://jonasnick.github.io/blog/categories/zero-knowledge/atom.xml" rel="self"/>
+  <link href="https://jonasnick.github.io/"/>
+  <updated>2023-07-31T15:18:21+00:00</updated>
+  <id>https://jonasnick.github.io/</id>
+  <author>
+    <name><![CDATA[Jonas Nick]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Intuition for Zero-Knowledge Proofs]]></title>
+    <link href="https://jonasnick.github.io/blog/2023/07/31/intuition-for-zero-knowledge-proofs/"/>
+    <updated>2023-07-31T15:17:00+00:00</updated>
+    <id>https://jonasnick.github.io/blog/2023/07/31/intuition-for-zero-knowledge-proofs</id>
+    <content type="html"><![CDATA[<p>While working on <a href="https://eprint.iacr.org/2022/510.pdf">Bulletproofs++</a> I realized there were gaps in my understanding of zero-knowledge proofs.
+I did a quick search through the literature to find proofs for zero-knowledge that can help my understanding.
+I found that either the protocols were too different to Bulletproofs(++) or the proofs seemed incomplete.</p>
+
+<p>For example, in Bulletproofs, removing blinding values from the protocol does not affect the proof.
+This would make it seem like the changed protocol is ZK, but upon closer inspection, it isn&rsquo;t.</p>
+
+<p>To help developing an intuition for ZK, I created a little demo proof for a toy ZK protocol.
+You can find at at</p>
+
+<p><a href="https://github.com/jonasnick/little-crypto-notebook">https://github.com/jonasnick/little-crypto-notebook</a></p>
+
+<p>The toy protocol is a heavily simplified variant of Bulletproofs range proofs.
+In short, it proves that a committed value is the product of two other committed values.</p>
+
+<p>I hope you find the demo useful too.
+My goal is to continue expanding the little crypto notebook if time permits.</p>
+]]></content>
+  </entry>
+  
+</feed>
