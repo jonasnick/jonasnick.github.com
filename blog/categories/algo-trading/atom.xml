@@ -4,7 +4,7 @@
   <title><![CDATA[Category: algo trading | nickler's]]></title>
   <link href="https://jonasnick.github.io/blog/categories/algo-trading/atom.xml" rel="self"/>
   <link href="https://jonasnick.github.io/"/>
-  <updated>2023-07-31T15:19:51+00:00</updated>
+  <updated>2023-07-31T15:27:13+00:00</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
     <name><![CDATA[Jonas Nick]]></name>
@@ -18,7 +18,7 @@
     <link href="https://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot/"/>
     <updated>2012-11-28T21:02:00+00:00</updated>
     <id>https://jonasnick.github.io/blog/2012/11/28/evolving-bitcoin-trade-bot</id>
-    <content type="html"><![CDATA[<p>{% img /images/bagalute/index.png %}
+    <content type="html"><![CDATA[<p><img src="/images/bagalute/index.png">
 <a href="https://github.com/jonasnick/bagalute">Bagalute</a> is a trade bot, designed for buying a currency (bitcoin) at the the right time. As a decision criterium it uses the relative strength index (RSI). The bot looks at the price development of the last twelve hours and runs an evolutionary algorithm to determine the optimal parameters for the RSI in that time frame. Then, it uses these parameters for the next time frame. Currently the bot uses for debugging purposes a dummy interface to trade. The actual success of the bot was sparsely tested but had negative results, maybe due to a general downtrend of prices.
 I wrote it during my 2nd semester break</p>
 ]]></content>
