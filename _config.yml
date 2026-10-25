@@ -3,6 +3,8 @@
 # ----------------------- #
 
 url: https://jonasnick.github.io
+# Base of all Atom IDs. Keep it fixed when url changes: IDs must never change (RFC 4287).
+atom_id_base: https://jonasnick.github.io
 title: nickler's
 subtitle: 
 author: Jonas Nick 
