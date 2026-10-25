@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
-  <title><![CDATA[Category: cryptocurrencies | nickler's]]></title>
-  <link href="https://jonasnick.github.io/blog/categories/cryptocurrencies/atom.xml" rel="self"/>
-  <link href="https://jonasnick.github.io/"/>
-  <updated>2023-07-31T15:31:21+00:00</updated>
+  <title>nickler's</title>
+  <link href="https://nickler.ninja/"/>
+  <updated>2026-10-25T16:10:40Z</updated>
   <id>https://jonasnick.github.io/</id>
   <author>
-    <name><![CDATA[Jonas Nick]]></name>
-    
+    <name>Jonas Nick</name>
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
-
-  
   <entry>
-    <title type="html"><![CDATA[Ethereum Bug Bounty Submissions]]></title>
-    <link href="https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions/"/>
-    <updated>2015-03-17T22:55:00+00:00</updated>
-    <id>https://jonasnick.github.io/blog/2015/03/17/ethereum-bug-bounty-submissions</id>
-    <content type="html"><![CDATA[<p>I found two vulnerabilities in the crypto currency <a href="https://ethereum.org">Ethereum</a>: <a href="https://github.com/jonasnick/eth-neg-value-tx">negative transactions</a> and <a href="https://github.com/jonasnick/ecdsaPredictableNonce/">predictable ECDSA nonce</a>.</p>
-
-<p>As part of the <a href="https://bounty.ethdev.com/">bug bounty program</a> I was awarded with 20 Bitcoin.</p>
-]]></content>
+    <title>This blog has moved to nickler.ninja</title>
+    <link href="https://nickler.ninja/"/>
+    <updated>2026-10-25T16:10:40Z</updated>
+    <id>https://jonasnick.github.io/moved-to-nickler.ninja</id>
+    <content type="html">New posts appear at &lt;a href="https://nickler.ninja/atom.xml"&gt;https://nickler.ninja/atom.xml&lt;/a&gt;.</content>
   </entry>
-  
 </feed>
