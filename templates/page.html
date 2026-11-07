@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}
+{% block description %}{{ page.content | striptags | truncate(length=150) }}{% endblock description %}
+
+{% block head %}
+  {%- if page.extra.notebook %}
+  <link href="/stylesheets/notebook.css" rel="stylesheet" type="text/css">
+  {%- endif %}
+  {%- if page.extra.mathjax %}
+  {% include "mathjax.html" %}
+  {%- endif %}
+{%- endblock head %}
+
+{% block content %}
+<div>
+<article class="hentry" role="article">
+  <header>
+    <h1 class="entry-title">{{ page.title }}</h1>
+    {%- if page.date %}
+    <p class="meta">{{ <post_time date={page.date} /> }}</p>
+    {%- endif %}
+  </header>
+  <div class="entry-content">{{ page.content | safe }}</div>
+  {%- if page.date %}
+  <footer>
+    <p class="meta">
+      <span class="byline author vcard">Posted by <span class="fn">{{ config.extra.author }}</span></span>
+      {{ <post_time date={page.date} /> }}
+      {%- if page.taxonomies.categories %}
+      <span class="categories">{{ <category_links categories={page.taxonomies.categories} /> }}</span>
+      {%- endif %}
+    </p>
+    {#- Empty, but the theme draws the separator line on it. #}
+    <div class="sharing"></div>
+    <p class="meta">
+      {#- With date sorting, `higher` is the older post and `lower` the newer one. #}
+      {%- if page.higher %}
+      <a class="basic-alignment left" href="{{ page.higher.path }}" title="Previous Post: {{ page.higher.title }}">&laquo; {{ page.higher.title }}</a>
+      {%- endif %}
+      {%- if page.lower %}
+      <a class="basic-alignment right" href="{{ page.lower.path }}" title="Next Post: {{ page.lower.title }}">{{ page.lower.title }} &raquo;</a>
+      {%- endif %}
+    </p>
+  </footer>
+  {%- endif %}
+</article>
+</div>
+{% include "sidebar.html" %}
+{%- endblock content %}

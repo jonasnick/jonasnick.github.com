@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ config.base_url | safe }}/">
+  <title>{% if term %}Category: {{ term.name }} | {% endif %}{{ config.title }}</title>
+  <link href="{{ feed_url | safe }}" rel="self"/>
+  <link href="{{ config.base_url | safe }}/"/>
+  <updated>{{ last_updated | date(format="%Y-%m-%dT%H:%M:%S%:z") }}</updated>
+  <id>{{ config.extra.atom_id_base | safe }}/</id>
+  <author>
+    <name>{{ config.extra.author }}</name>
+  </author>
+  <generator uri="https://www.getzola.org/">Zola</generator>
+  {%- for page in pages %}
+  <entry>
+    <title type="html">{{ page.title }}</title>
+    <link href="{{ page.permalink | safe }}"/>
+    <updated>{{ page.date | date(format="%Y-%m-%dT%H:%M:%S%:z") }}</updated>
+    {#- IDs omit the trailing slash, as Octopress did. #}
+    <id>{{ config.extra.atom_id_base | safe }}{{ page.path | trim_end(pat="/") | safe }}</id>
+    <content type="html">{{ page.content }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

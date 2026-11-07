@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Categories - {{ config.title }}{% endblock title %}
+
+{% block content %}
+<div>
+<article role="article">
+  <header>
+    <h1 class="entry-title">Categories</h1>
+  </header>
+  <ul>
+    {%- for term in terms %}
+    <li><a href="{{ term.path }}">{{ term.name }}</a> ({{ term.pages | length }})</li>
+    {%- endfor %}
+  </ul>
+</article>
+</div>
+{% include "sidebar.html" %}
+{%- endblock content %}

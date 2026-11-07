@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Category: {{ term.name }} - {{ config.title }}{% endblock title %}
+
+{% block head %}
+  <link href="{{ term.permalink | safe }}atom.xml" rel="alternate" title="Category: {{ term.name }} - {{ config.title }}" type="application/atom+xml">
+{%- endblock head %}
+
+{% block content %}
+<div>
+<article role="article">
+  <header>
+    <h1 class="entry-title">Category: {{ term.name }}</h1>
+  </header>
+  {{ <archive pages={term.pages} /> }}
+</article>
+</div>
+{% include "sidebar.html" %}
+{%- endblock content %}

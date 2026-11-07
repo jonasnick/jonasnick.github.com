@@ -1,0 +1,59 @@
+{% component post_time(date: string) %}
+{%- set day = date | date(format="%-d") | int %}
+{%- set suffix = "th" if day >= 11 and day <= 13 else ("st" if day % 10 == 1 else ("nd" if day % 10 == 2 else ("rd" if day % 10 == 3 else "th"))) -%}
+<time datetime="{{ date | date(format="%Y-%m-%dT%H:%M:%S%:z") }}">{{ date | date(format="%b") }} {{ day }}<span>{{ suffix }}</span>, {{ date | date(format="%Y") }}</time>
+{%- endcomponent post_time %}
+
+{% component category_links(categories: array) %}
+{%- for c in categories | sort -%}
+<a class="category" href="{{ get_taxonomy_url(kind="categories", term=c) }}">{{ c }}</a>{% if not loop.last %}, {% endif %}
+{%- endfor -%}
+{% endcomponent category_links %}
+
+{% component post_summary(page: map) %}
+<article>
+  <header>
+    <h1 class="entry-title"><a href="{{ page.path }}">{{ page.title }}</a></h1>
+    <p class="meta">{{ <post_time date={page.date} /> }}</p>
+  </header>
+  {%- if page.summary %}
+  <div class="entry-content">{{ page.summary | safe }}</div>
+  <footer>
+    <a rel="full-article" href="{{ page.path }}">Read on &rarr;</a>
+  </footer>
+  {%- else %}
+  <div class="entry-content">{{ page.content | safe }}</div>
+  {%- endif %}
+</article>
+{%- endcomponent post_summary %}
+
+{% component archive(pages: array) %}
+<div id="blog-archives">
+{%- for page in pages %}
+  {%- if loop.first or page.year != pages[loop.index0 - 1].year %}
+  <h2>{{ page.year }}</h2>
+  {%- endif %}
+  <article>
+    <h1><a href="{{ page.path }}">{{ page.title }}</a></h1>
+    <time datetime="{{ page.date | date(format="%Y-%m-%dT%H:%M:%S%:z") }}"><span class="month">{{ page.date | date(format="%b") }}</span> <span class="day">{{ page.date | date(format="%d") }}</span> <span class="year">{{ page.year }}</span></time>
+    {%- if page.taxonomies.categories %}
+    <footer>
+      <span class="categories">posted in {{ <category_links categories={page.taxonomies.categories} /> }}</span>
+    </footer>
+    {%- endif %}
+  </article>
+{%- endfor %}
+</div>
+{%- endcomponent archive %}
+
+{% component pagination(older: string = "", newer: string = "") %}
+<div class="pagination">
+  {%- if older %}
+  <a class="prev" href="{{ older }}">&larr; Older</a>
+  {%- endif %}
+  <a href="/blog/archives/">Blog Archives</a>
+  {%- if newer %}
+  <a class="next" href="{{ newer }}">Newer &rarr;</a>
+  {%- endif %}
+</div>
+{%- endcomponent pagination %}

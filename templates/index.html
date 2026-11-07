@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{#- Shows the first page of the blog. -#}
+{% block content %}
+{%- set blog = get_section(path="blog/_index.md") %}
+<div class="blog-index">
+  {%- for page in blog.pages[:blog.paginate_by] %}
+  {{ <post_summary page={page} /> }}
+  {%- endfor %}
+  {%- if blog.pages | length > blog.paginate_by %}
+  {{ <pagination older="/blog/page/2/" /> }}
+  {%- else %}
+  {{ <pagination /> }}
+  {%- endif %}
+</div>
+{% include "sidebar.html" %}
+{%- endblock content %}

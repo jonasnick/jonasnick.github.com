@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <meta name="author" content="{{ config.extra.author }}">
+  <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="{{ current_url | safe }}">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="{{ config.title }}" type="application/atom+xml">
+  <meta property="og:image" content="{{ get_url(path="images/ogimage.png") }}">
+  {%- block head %}{% endblock head %}
+</head>
+
+<body>
+  <nav role="navigation">
+    <ul class="subscription" data-subscription="rss">
+      <li><a href="https://twitter.com/n1ckler" title="follow on twitter"><img src="/images/bird.png" height="32"></a></li>
+      <li><a href="https://github.com/jonasnick" title="github repo"><img src="/images/GitHub-Mark-64px.png" height="32"></a></li>
+      <li><a href="/atom.xml" title="subscribe via RSS"><img src="/images/rss.png" height="32"></a></li>
+    </ul>
+    <form action="https://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:nickler.ninja">
+        <input class="search" type="text" name="q" placeholder="Search">
+      </fieldset>
+    </form>
+    <ul class="main-navigation">
+      <li><a href="/">Blog</a></li>
+      <li><a href="https://github.com/jonasnick">Code</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/blog/archives/">Archives</a></li>
+    </ul>
+  </nav>
+  <div id="main">
+    <div id="content">
+      {%- block content %}{% endblock content %}
+    </div>
+  </div>
+  <footer role="contentinfo">
+    <p>
+      This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.
+      {{ now() | date(format="%Y") }} - {{ config.extra.author }} -
+      <span class="credit">Powered by <a href="https://www.getzola.org">Zola</a></span>
+    </p>
+  </footer>
+</body>
+</html>

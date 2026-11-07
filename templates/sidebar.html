@@ -1,0 +1,21 @@
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      {%- set blog = get_section(path="blog/_index.md") %}
+      {%- for post in blog.pages[:config.extra.recent_posts] %}
+      <li class="post"><a href="{{ post.path }}">{{ post.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  <section>
+    <h1>Categories</h1>
+    {%- set categories = get_taxonomy(kind="categories") %}
+    {%- set max = [term.pages | length for term in categories.items] | sort | last %}
+    <span style="font-size: 11px" id="tag-cloud">
+      {%- for term in categories.items %}
+      <a href="{{ term.path }}" style="font-size: {{ 100 + 60 * term.pages | length / max }}%">{{ term.name }}</a>
+      {%- endfor %}
+    </span>
+  </section>
+</aside>

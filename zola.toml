@@ -1,0 +1,26 @@
+base_url = "https://nickler.ninja"
+title = "nickler's"
+description = "Projects, tools and research."
+
+compile_sass = false
+build_search_index = false
+
+# Posts are plain Markdown; never run them through Tera.
+skip_content_templating = ["**/*.md"]
+
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+feed_limit = 20
+
+taxonomies = [
+    { name = "categories", feed = true },
+]
+
+[markdown]
+smart_punctuation = true
+
+[extra]
+author = "Jonas Nick"
+# Base of all Atom IDs. Keep it fixed when base_url changes: IDs must never change (RFC 4287).
+atom_id_base = "https://jonasnick.github.io"
+recent_posts = 5
