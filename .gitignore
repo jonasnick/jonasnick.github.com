@@ -1,19 +1,4 @@
 *~
-.bundle
-.DS_Store
-.sass-cache
-.gist-cache
-.pygments-cache
-_deploy
 public
-sass.old
-source.old
-source/_stash
-source/stylesheets/screen.css
-vendor
-node_modules
-*.orig
-*.swm
-source/noteBookConvert/ReceptiveFields/
-source/noteBookConvert/nbconvert/
-
+# Old GitHub Pages checkout; github.io now only redirects.
+_deploy
