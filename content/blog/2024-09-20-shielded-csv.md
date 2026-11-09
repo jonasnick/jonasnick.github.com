@@ -19,5 +19,5 @@ The protocol specification is written in [Rust](https://github.com/ShieldedCSV/S
 
 It took me a very long time to realize the potential of client-side validation, but I think this may be just the beginning.
 
-Update: In July 2025, I gave a [talk about Shielded CSV](https://www.youtube.com/watch?v=aZa2zXp1Q2A) at the Bitcoin Conference.
+Update: I gave a [talk about Shielded CSV](https://www.youtube.com/watch?v=aZa2zXp1Q2A) at the Bitcoin Conference 2025 ([slides](/slides/2025-bitcoin2025.pdf)).
 This [write-up](https://insider.btcpp.dev/p/some-of-us-still-want-private-bitcoin) on the btc++ insider is a good introduction as well.
