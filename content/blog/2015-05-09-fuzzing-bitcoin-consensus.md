@@ -5,6 +5,9 @@ path = "blog/2015/05/09/fuzzing-bitcoin-consensus"
 
 [taxonomies]
 categories = ["bitcoin", "consensus"]
+
+[extra]
+mathjax = true
 +++
 
 **TLDR** I ran [afl-fuzz](http://lcamtuf.coredump.cx/afl/) against [libbitcoinconsensus](https://github.com/bitcoin/bitcoin/blob/15facb4aca75122b6ae0dcc6f6e112127e6a0e59/doc/release-notes/release-notes-0.10.0.md#consensus-library) to discover interesting Bitcoin scripts and used them to search for Bitcoin reimplementations vulnerable to forking. This discovered [two bugs](https://github.com/btcsuite/btcd/commit/f284b9b3947eb33b91e31deec74936855feed61f) in [btcd](https://github.com/btcsuite/btcd) by Conformal.

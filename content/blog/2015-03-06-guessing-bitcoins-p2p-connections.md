@@ -5,6 +5,9 @@ path = "blog/2015/03/06/guessing-bitcoins-p2p-connections"
 
 [taxonomies]
 categories = ["bitcoin", "privacy", "golang"]
+
+[extra]
+mathjax = true
 +++
 The paper [Deanonymisation of clients in Bitcoin P2P network (2014)](http://arxiv.org/abs/1405.7418) by Biryukov, Khovratovich and Pustogarov (BKP), who describe an attack on Bitcoin Core clients, has started some discussion lately.
 The main idea of the paper is to first get a set of nodes $E_v$ to which your victim $v$ is directly connected to ("entry nodes").
